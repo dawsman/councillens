@@ -3,47 +3,58 @@
 # First council: Norwich City Council
 # First topic:   Licensing policy (alcohol, entertainment and late-night venues)
 #
-# Every source below is a PUBLIC document or page. The ingest script
-# (src/ingest/fetch.py) downloads each source where enabled is true and
-# skips any placeholder URL.
+# Adding a council = adding a config block like this one. The pipeline does not
+# change. 'platform' selects the adapter; council-specific mapping (which body,
+# which stage) lives here in config, never in pipeline code.
 #
-# Remit note: Norwich City Council is a district/city council. Highways
-# (e.g. potholes) belong to Norfolk County Council, so topics here focus on
-# city-council services such as licensing, housing, waste, planning and parks.
+# Remit note: Norwich City Council is a district/city council. Highways (e.g.
+# potholes) belong to Norfolk County Council, so topics here focus on city-council
+# services such as licensing, housing, waste, planning and parks.
 
 council: "Norwich City Council"
 topic: "Licensing policy (alcohol, entertainment and late-night venues)"
 
 sources:
-  # --- Feedback: what residents and businesses are saying ---
+  # --- Feedback ---
   - id: consultation-licensing-policy
     title: "Licensing Policy consultation (Get Talking Norwich)"
     type: consultation
+    stage: feedback
+    platform: engagement        # engagement platform (vendor to confirm)
     url: "https://gettalking.norwich.gov.uk/licensing"
     enabled: true
 
   - id: consultations-hub
     title: "Consultations and engagement — current consultations"
     type: consultation
+    stage: feedback
+    platform: localgov_drupal
     url: "https://www.norwich.gov.uk/your-council-explained/consultations-and-engagement"
     enabled: true
 
   - id: epetitions
     title: "Norwich ePetitions"
     type: feedback
+    stage: feedback
+    platform: localgov_drupal
     url: "https://www.norwich.gov.uk/info/20011/about_your_council/1347/petitions/5"
     enabled: true
 
-  # --- Decision: where the council decides ---
+  # --- Decision ---
   - id: licensing-committee
     title: "Licensing committee — agendas, minutes and decisions"
     type: minutes
+    stage: decision
+    body: "Licensing committee"
+    platform: cmis
     url: "https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/6/Default.aspx"
     enabled: true
 
-  # --- Outcome: the adopted policy / strategy ---
+  # --- Outcome ---
   - id: policies-plans-strategies
     title: "Policies, plans and strategies (adopted licensing policy)"
-    type: performance
+    type: policy
+    stage: outcome
+    platform: localgov_drupal
     url: "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies"
     enabled: true
