@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="CouncilLens — see how your council listens">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E3A46"/>
+      <stop offset="55%" stop-color="#0F5C6B"/>
+      <stop offset="100%" stop-color="#127D86"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFD166"/>
+      <stop offset="100%" stop-color="#FFB703"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" rx="22" fill="url(#bg)"/>
+  <text x="82" y="138" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="76" font-weight="700" fill="#FFFFFF">CouncilLens</text>
+  <rect x="86" y="160" width="132" height="6" rx="3" fill="url(#accent)"/>
+  <text x="86" y="206" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" fill="#D4ECF0">See how your council listens.</text>
+  <text x="86" y="244" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#9FCAD2">Public feedback &#183; Council decisions &#183; Real outcomes</text>
+  <g stroke-linecap="round">
+    <line x1="1018" y1="198" x2="1082" y2="262" stroke="#0B2D37" stroke-width="22"/>
+    <line x1="1018" y1="198" x2="1082" y2="262" stroke="url(#accent)" stroke-width="14"/>
+    <circle cx="958" cy="140" r="86" fill="#0B2D37" fill-opacity="0.55" stroke="url(#accent)" stroke-width="8"/>
+    <line x1="918" y1="140" x2="998" y2="140" stroke="#7FB7BF" stroke-width="4" stroke-dasharray="5 7"/>
+    <circle cx="918" cy="140" r="11" fill="#FFB703"/>
+    <circle cx="958" cy="140" r="11" fill="#FFFFFF"/>
+    <circle cx="998" cy="140" r="11" fill="#06D6A0"/>
+  </g>
+</svg>
