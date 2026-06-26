@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CouncilLens analysis artifact",
+  "description": "The output of the analyse stage for one council + topic: a plain-English summary of every document (with AI provenance) and the feedback -> decision -> outcome linkages, each labelled with a linkage tier. Strict: unknown fields are rejected so the analyse output stays as disciplined as the canonical record it is built from.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["council", "topic", "pipeline_version", "prompt_version", "coverage", "documents", "linkages"],
+  "properties": {
+    "council": {
+      "type": "string",
+      "description": "Council name, carried through from the processed manifest."
+    },
+    "topic": {
+      "type": "string",
+      "description": "The single topic this analysis covers."
+    },
+    "pipeline_version": {
+      "type": "string",
+      "description": "Version of the analyse logic that produced this artifact. Lets cached outputs be invalidated when the logic changes."
+    },
+    "prompt_version": {
+      "type": "string",
+      "description": "Version of the summarisation spec used. Part of every AI output's provenance (see methodology)."
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["feedback", "decision", "outcome", "unstaged"],
+      "description": "How many documents sit at each stage. A zero in feedback/decision/outcome is the 'still waiting' signal residents need.",
+      "properties": {
+        "feedback": { "type": "integer", "minimum": 0 },
+        "decision": { "type": "integer", "minimum": 0 },
+        "outcome": { "type": "integer", "minimum": 0 },
+        "unstaged": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "documents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/analysed_document" }
+    },
+    "linkages": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/linkage" }
+    }
+  },
+  "$defs": {
+    "analysed_document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "stage", "type", "source_url", "sha256", "summary"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "stage": {
+          "type": ["string", "null"],
+          "enum": ["feedback", "decision", "outcome", null]
+        },
+        "type": { "type": "string" },
+        "source_url": { "type": "string", "format": "uri" },
+        "sha256": {
+          "type": "string",
+          "description": "Content hash of the source document this summary was built from. Ties the summary to an exact input."
+        },
+        "summary": { "$ref": "#/$defs/summary" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "A plain-English summary plus the provenance every AI output must carry (methodology: source IDs, prompt version, model, review flag, timestamp).",
+      "required": ["text", "method", "source_document_ids", "prompt_version", "model", "review", "generated_at"],
+      "properties": {
+        "text": { "type": "string" },
+        "method": {
+          "type": "string",
+          "enum": ["ai", "extractive"],
+          "description": "'ai' = drawn from the versioned, human-reviewed cache. 'extractive' = deterministic fallback (lead sentences), not yet AI-summarised or reviewed."
+        },
+        "source_document_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "prompt_version": { "type": "string" },
+        "model": {
+          "type": "string",
+          "description": "Model name/version that produced an 'ai' summary, or the deterministic method id for an 'extractive' one. Recorded as provenance only — the build never calls a model live."
+        },
+        "review": {
+          "type": "string",
+          "enum": ["approved", "pending", "auto-extractive", "no_text"],
+          "description": "approved = a person checked it (required before publishing). pending = AI output awaiting review. auto-extractive = deterministic draft needing an AI + human pass. no_text = nothing to summarise yet."
+        },
+        "confidence": {
+          "type": ["string", "null"],
+          "enum": ["low", "medium", "high", null]
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the summary was produced. For extractive drafts this is the source document's fetch time, keeping the build a pure function of its inputs."
+        }
+      }
+    },
+    "linkage": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "One feedback->decision or decision->outcome relationship, labelled with a tier. We never assert causation beyond what the records show.",
+      "required": ["from_stage", "to_stage", "from_id", "to_id", "tier", "symbol", "reason", "evidence", "review"],
+      "properties": {
+        "from_stage": { "type": "string", "enum": ["feedback", "decision", "outcome"] },
+        "to_stage": { "type": "string", "enum": ["feedback", "decision", "outcome"] },
+        "from_id": { "type": ["string", "null"] },
+        "to_id": { "type": ["string", "null"] },
+        "tier": {
+          "type": "string",
+          "enum": ["confirmed", "possible", "none"],
+          "description": "confirmed = the later record cites the earlier source. possible = same topic, configured stage roles, but no citation found. none = nothing to link to."
+        },
+        "symbol": {
+          "type": "string",
+          "enum": ["🟢", "🟡", "⚪"],
+          "description": "Resident-facing label for the tier: confirmed/possible/none."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Plain-English explanation of why this tier was assigned."
+        },
+        "evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "What the tier is based on, so a reviewer can check it.",
+          "properties": {
+            "citation": { "type": "string" },
+            "matched_on": { "type": "string", "enum": ["source_url", "title", "id"] },
+            "basis": { "type": "string" },
+            "from_fetched_at": { "type": ["string", "null"] },
+            "to_fetched_at": { "type": ["string", "null"] }
+          }
+        },
+        "review": {
+          "type": "string",
+          "enum": ["pending", "approved"],
+          "description": "Linkage assertions are human-reviewed before publishing (methodology). Defaults to pending."
+        }
+      }
+    }
+  }
+}

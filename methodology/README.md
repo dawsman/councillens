@@ -14,8 +14,12 @@ The hardest question in accountability is whether feedback actually changed a de
 
 Default to 🟡 or ⚪ unless the records establish 🟢.
 
+**How the tier is decided.** Tiers are assigned by a deterministic, auditable rule, not by AI (see [`docs/analyse.md`](../docs/analyse.md)). A pair is 🟢 **only** when the later record cites the earlier source — its URL or full title appears in the text; a single shared keyword is never enough. A same-topic pair with no citation stays 🟡. ⚪ is used when there is nothing to link to yet (e.g. no decision on the record — "still waiting"). The canonical record currently carries a *fetch* time, not the document's publication date, so we do not use it to prove precedence — which is why an uncited pair stays 🟡 rather than being upgraded.
+
 ## Summarising documents
-AI assists with bounded tasks only: summarising minutes, tagging topics, comparing feedback / decisions / outcomes, and flagging missing or conflicting evidence. _Tagging and summary rules: TBD._
+AI assists with bounded tasks only: summarising minutes, tagging topics, comparing feedback / decisions / outcomes, and flagging missing or conflicting evidence.
+
+**Summary rules.** Summaries are drawn from a versioned, human-reviewed cache (`data/ai-cache/`); the build itself never calls a model live, so it is deterministic and reproducible. When no cached summary exists, the analyse stage produces a deterministic *extractive draft* (the document's lead sentences) clearly flagged `auto-extractive` — a placeholder awaiting an AI + human pass, never presented as finished prose.
 
 ### Every AI output stores
 - Source document IDs

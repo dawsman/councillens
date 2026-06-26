@@ -85,7 +85,7 @@ This is an early build. First milestone: **one council, one topic, done really w
 - [x] Set up the project
 - [ ] Add the first council
 - [ ] Add the first topic
-- [ ] Build the summary pipeline
+- [x] Build the summary pipeline
 - [ ] Publish the first pages
 - [ ] Add the feedback → decision → outcome view
 - [ ] Add an easy corrections process

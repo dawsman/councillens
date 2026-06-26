@@ -114,5 +114,12 @@ yet binding on merge.
 - Ingest-time validation: in place (`fetch.py`).
 - Adapter model: in place (`src/ingest/adapters.py`) with generic + CMIS; more
   platforms to follow.
-- CI gate script: in place (`scripts/validate.py`).
+- Transform stage (text extraction): in place (`src/transform/extract.py`).
+- Analyse stage (summarise + feedback→decision→outcome linkage tiers): in place
+  (`src/analyse/`), council-agnostic and deterministic. Summaries come from a
+  versioned AI cache with an extractive fallback; linkage tiers are assigned by a
+  conservative, auditable rule (see `docs/analyse.md`). Its output has its own
+  strict contract (`data/schemas/analysis.schema.json`).
+- CI gate script: in place (`scripts/validate.py`) — checks ingest, transform, and
+  analyse output against their schemas.
 - CI workflow + branch protection: pending the two one-time switches above.
