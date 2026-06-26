@@ -1,4 +1,6 @@
-# Python dependencies for the ingest and validation stages.
+# Python dependencies for the ingest, transform, and validation stages.
 requests>=2.31
 PyYAML>=6.0
 jsonschema>=4.0
+beautifulsoup4>=4.12
+pypdf>=4.0
