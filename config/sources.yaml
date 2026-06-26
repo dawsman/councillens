@@ -1,0 +1,39 @@
+# CouncilLens — source list for the MVP.
+#
+# Start with ONE council and ONE topic. Every source must be a PUBLIC
+# document or page (agenda, minutes, consultation, petition, spending, etc.).
+#
+# To activate a source:
+#   1. set  enabled: true
+#   2. replace the placeholder URL with the real public link
+#
+# The ingest script (src/ingest/fetch.py) only downloads sources where
+# enabled is true, and skips any URL that is still a placeholder.
+
+council: "REPLACE_ME — e.g. Example Borough Council"
+topic: "REPLACE_ME — e.g. Pothole repairs"
+
+sources:
+  - id: agenda-2025-01
+    title: "Committee agenda"
+    type: agenda            # agenda | minutes | consultation | feedback | spending | performance
+    url: "https://example.com/REPLACE_ME"
+    enabled: false
+
+  - id: minutes-2025-01
+    title: "Committee minutes"
+    type: minutes
+    url: "https://example.com/REPLACE_ME"
+    enabled: false
+
+  - id: consultation-2025
+    title: "Public consultation"
+    type: consultation
+    url: "https://example.com/REPLACE_ME"
+    enabled: false
+
+  - id: feedback-petition
+    title: "Resident petition or public comments"
+    type: feedback
+    url: "https://example.com/REPLACE_ME"
+    enabled: false
