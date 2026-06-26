@@ -1,22 +1,48 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "CouncilLens document record",
-  "description": "One ingested public document, as written to data/raw/manifest.json.",
+  "title": "CouncilLens canonical record",
+  "description": "The contract every document must match, from any council via any adapter. Strict: unknown fields are rejected so council-specific drift cannot leak downstream.",
   "type": "object",
-  "required": ["id", "type", "url", "sha256", "fetched_at"],
+  "additionalProperties": false,
+  "required": ["id", "council", "topic", "type", "platform", "source_url", "sha256", "fetched_at"],
   "properties": {
     "id": {
       "type": "string",
       "description": "Stable identifier for the source."
     },
-    "title": {
-      "type": "string"
+    "council": {
+      "type": "string",
+      "description": "Council name, e.g. 'Norwich City Council'."
+    },
+    "topic": {
+      "type": "string",
+      "description": "The single topic this record belongs to."
+    },
+    "body": {
+      "type": ["string", "null"],
+      "description": "Council body or committee, e.g. 'Licensing committee'."
+    },
+    "stage": {
+      "type": ["string", "null"],
+      "enum": ["feedback", "decision", "outcome", null],
+      "description": "Where this sits in feedback -> decision -> outcome."
     },
     "type": {
       "type": "string",
-      "enum": ["agenda", "minutes", "consultation", "feedback", "spending", "performance", "unknown"]
+      "enum": ["agenda", "minutes", "consultation", "feedback", "spending", "performance", "policy", "unknown"]
     },
-    "url": {
+    "platform": {
+      "type": "string",
+      "enum": ["cmis", "modern_gov", "localgov_drupal", "citizen_space", "commonplace", "engagement_hq", "engagement", "generic"]
+    },
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string",
+      "description": "Extracted plain text; may be empty until the transform stage runs."
+    },
+    "source_url": {
       "type": "string",
       "format": "uri",
       "description": "The public source URL."
