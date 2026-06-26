@@ -1,39 +1,49 @@
 # CouncilLens — source list for the MVP.
 #
-# Start with ONE council and ONE topic. Every source must be a PUBLIC
-# document or page (agenda, minutes, consultation, petition, spending, etc.).
+# First council: Norwich City Council
+# First topic:   Licensing policy (alcohol, entertainment and late-night venues)
 #
-# To activate a source:
-#   1. set  enabled: true
-#   2. replace the placeholder URL with the real public link
+# Every source below is a PUBLIC document or page. The ingest script
+# (src/ingest/fetch.py) downloads each source where enabled is true and
+# skips any placeholder URL.
 #
-# The ingest script (src/ingest/fetch.py) only downloads sources where
-# enabled is true, and skips any URL that is still a placeholder.
+# Remit note: Norwich City Council is a district/city council. Highways
+# (e.g. potholes) belong to Norfolk County Council, so topics here focus on
+# city-council services such as licensing, housing, waste, planning and parks.
 
-council: "REPLACE_ME — e.g. Example Borough Council"
-topic: "REPLACE_ME — e.g. Pothole repairs"
+council: "Norwich City Council"
+topic: "Licensing policy (alcohol, entertainment and late-night venues)"
 
 sources:
-  - id: agenda-2025-01
-    title: "Committee agenda"
-    type: agenda            # agenda | minutes | consultation | feedback | spending | performance
-    url: "https://example.com/REPLACE_ME"
-    enabled: false
-
-  - id: minutes-2025-01
-    title: "Committee minutes"
-    type: minutes
-    url: "https://example.com/REPLACE_ME"
-    enabled: false
-
-  - id: consultation-2025
-    title: "Public consultation"
+  # --- Feedback: what residents and businesses are saying ---
+  - id: consultation-licensing-policy
+    title: "Licensing Policy consultation (Get Talking Norwich)"
     type: consultation
-    url: "https://example.com/REPLACE_ME"
-    enabled: false
+    url: "https://gettalking.norwich.gov.uk/licensing"
+    enabled: true
 
-  - id: feedback-petition
-    title: "Resident petition or public comments"
+  - id: consultations-hub
+    title: "Consultations and engagement — current consultations"
+    type: consultation
+    url: "https://www.norwich.gov.uk/your-council-explained/consultations-and-engagement"
+    enabled: true
+
+  - id: epetitions
+    title: "Norwich ePetitions"
     type: feedback
-    url: "https://example.com/REPLACE_ME"
-    enabled: false
+    url: "https://www.norwich.gov.uk/info/20011/about_your_council/1347/petitions/5"
+    enabled: true
+
+  # --- Decision: where the council decides ---
+  - id: licensing-committee
+    title: "Licensing committee — agendas, minutes and decisions"
+    type: minutes
+    url: "https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/6/Default.aspx"
+    enabled: true
+
+  # --- Outcome: the adopted policy / strategy ---
+  - id: policies-plans-strategies
+    title: "Policies, plans and strategies (adopted licensing policy)"
+    type: performance
+    url: "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies"
+    enabled: true
