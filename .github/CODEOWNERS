@@ -1,0 +1,9 @@
+# These paths are the contract and the shared pipeline. Changes here require
+# maintainer review and cannot be merged without it (once code-owner review is
+# required in branch protection). This is how the contract stays non-negotiable.
+
+/data/schemas/            @dawsman
+/src/ingest/canonical.py  @dawsman
+/src/analyse/             @dawsman
+/scripts/validate.py      @dawsman
+/docs/architecture.md     @dawsman
