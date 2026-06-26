@@ -1,3 +1,4 @@
-# Python dependencies for the ingest stage.
+# Python dependencies for the ingest and validation stages.
 requests>=2.31
 PyYAML>=6.0
+jsonschema>=4.0
