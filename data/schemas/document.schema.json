@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CouncilLens document record",
+  "description": "One ingested public document, as written to data/raw/manifest.json.",
+  "type": "object",
+  "required": ["id", "type", "url", "sha256", "fetched_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable identifier for the source."
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["agenda", "minutes", "consultation", "feedback", "spending", "performance", "unknown"]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The public source URL."
+    },
+    "saved_to": {
+      "type": "string",
+      "description": "Repo-relative path to the saved raw file."
+    },
+    "bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sha256": {
+      "type": "string",
+      "description": "Content hash, for provenance and change detection."
+    },
+    "fetched_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
