@@ -5,5 +5,6 @@
 /data/schemas/            @dawsman
 /src/ingest/canonical.py  @dawsman
 /src/analyse/             @dawsman
+/src/publish/             @dawsman
 /scripts/validate.py      @dawsman
 /docs/architecture.md     @dawsman

@@ -122,4 +122,11 @@ yet binding on merge.
   strict contract (`data/schemas/analysis.schema.json`).
 - CI gate script: in place (`scripts/validate.py`) — checks ingest, transform, and
   analyse output against their schemas.
+- Publish stage (resident-facing static site): in place (`src/publish/`),
+  council-agnostic and deterministic. Renders the analyse artifacts into `_site/`
+  (one page per topic + an index), with a link for every claim and the linkage
+  tiers shown honestly (see `docs/publish.md`).
 - CI workflow + branch protection: pending the two one-time switches above.
+- Live ingest run: pending an environment whose network policy permits council
+  domains — the sandbox this was built in denies them, so the pipeline has been
+  verified end to end on fixtures, not yet on live Norwich data.
