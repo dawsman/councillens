@@ -1,0 +1,32 @@
+{
+  "kind": "figure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "id": "fig-current-policy-adopted",
+    "label": "Current policy adopted",
+    "kind": "date",
+    "value": "2021-12",
+    "unit": null,
+    "display": "December 2021",
+    "as_of": "2021-12",
+    "period": null,
+    "source_ids": [
+      "adopted-licensing-policy-2021"
+    ],
+    "source_url": "https://www.norwich.gov.uk/downloads/file/2258/licensing_policy",
+    "note": "This is still the policy in force. Full council approved it and nothing has replaced it yet."
+  },
+  "ai": {
+    "source_ids": [
+      "adopted-licensing-policy-2021"
+    ],
+    "prompt_version": "figure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T00:00:00+00:00",
+    "cache_key": "458a6f538224d4c51bf8fbfc316e215e4137999d9f5555c872ca389f66b511c1"
+  }
+}

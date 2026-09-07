@@ -174,3 +174,69 @@ sources:
     platform: localgov_drupal
     url: "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies"
     enabled: false
+
+  # ------------------------------------------------------------------
+  # MONEY — what the service costs, what it charges, what it spends
+  #
+  # Verified 2026-09-07. None of these documents is about licensing alone;
+  # Norwich, like most district councils, publishes money at service-group
+  # level. They are banked because they are the only public documents that
+  # put a figure on this service at all, and because saying "the council
+  # does not break licensing out separately" is only honest if you can show
+  # where you looked. Stage is null: money is context for the whole topic,
+  # not a step in the feedback -> decision -> outcome chain.
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-07. Cabinet, 11 February 2026 — the 2026-2027 budget and
+  # medium-term financial strategy. Section 2 is the General Fund book, and its
+  # "General Fund budget by service" table is the only published figure that
+  # covers the licensing team: it sits inside Planning & Regulatory Services.
+  # Only that one section is fetched; the other seven sections and the combined
+  # pack are about housing, treasury and capital, and would bloat the repo.
+  - id: budget-2026-27
+    title: "General Fund budget and medium-term financial strategy 2026-2027"
+    type: spending
+    stage: null
+    body: "Cabinet"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1518/Committee/1/Default.aspx"
+    include_page: false
+    match:
+      - "section 2 general fund"
+    exclude:
+      - document pack
+    max_bytes: 5000000
+    enabled: true
+
+  # Verified 2026-09-07. The council's own fees and charges book for 2026-27.
+  # Its "Alcohol / Entertainment / Late night refreshment" table lists every
+  # Licensing Act 2003 fee the council collects. Those amounts are set by
+  # national regulations, not by Norwich — the council publishes them, it does
+  # not choose them. Published as a bare PDF with no landing page of its own.
+  - id: fees-and-charges-2026-27
+    title: "Council fees and charges 2026-27"
+    type: spending
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/sites/default/files/2026-06/Norwich-City-Council-Fees-and-Charges-2026-2027.pdf"
+    enabled: true
+
+  # Verified 2026-09-07. Norwich's Local Government Transparency Code return:
+  # every supplier payment over £500, month by month, back to 2021. The page
+  # lists well over a hundred files, so link-following is off and one recent
+  # month is fetched explicitly as a worked example. Checked for licensing
+  # spend and found none identifiable: the January 2026 file has 85 distinct
+  # cost centres and not one of them names licensing. That absence is recorded
+  # as a gap rather than papered over.
+  - id: open-data-payments-over-500
+    title: "Payments to suppliers over £500"
+    type: spending
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/find-open-data/payments-over-500"
+    follow_links: false
+    documents:
+      - title: "Payments to suppliers over £500 — January 2026"
+        url: "https://www.norwich.gov.uk/sites/default/files/2026-02/Payments%20to%20suppliers%20over%20%C2%A3500%20January%202026.csv"
+    max_bytes: 5000000
+    enabled: true

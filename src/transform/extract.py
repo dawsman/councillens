@@ -88,6 +88,25 @@ def extract_docx(path):
     return " ".join(" ".join(parts).split())
 
 
+def extract_csv(path):
+    """Spending and performance data arrives as CSV more often than anything
+    else, and a comma-separated line reads as gibberish once whitespace is
+    collapsed. Rendering each row as 'cell | cell | cell' keeps the columns
+    legible to a reader and to anything that greps the text later. Stdlib only,
+    and nothing here knows which council the file came from."""
+    import csv as _csv
+
+    rows = []
+    with path.open("r", encoding="utf-8-sig", errors="replace", newline="") as handle:
+        for row in _csv.reader(handle):
+            cells = [" ".join(str(cell).split()) for cell in row]
+            while cells and not cells[-1]:
+                cells.pop()
+            if any(cells):
+                rows.append(" | ".join(cells))
+    return "\n".join(rows)
+
+
 def extract_pdf(path):
     try:
         from pypdf import PdfReader
@@ -104,6 +123,8 @@ def extract_text(path):
         return extract_pdf(path)
     if suffix == ".docx":
         return extract_docx(path)
+    if suffix == ".csv":
+        return extract_csv(path)
     data = path.read_bytes()
     if suffix in {".html", ".htm", ".aspx", ""}:
         return extract_html(data)
