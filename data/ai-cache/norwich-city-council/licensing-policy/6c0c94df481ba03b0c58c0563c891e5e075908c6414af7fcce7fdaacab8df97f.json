@@ -4,7 +4,7 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "source_id": "fees-and-charges-2026-27",
-    "summary": "Every charge Norwich City Council makes in 2026-27, from garden waste collections to burials, in one long PDF. The table headed “Alcohol / Entertainment / Late night refreshment” is the one that matters here: it gives the fee for each type of licence application and the annual charge for each rateable-value band, from £70 up to £1,050. Those amounts come from national regulations, so the council is publishing them rather than choosing them."
+    "summary": "Every charge Norwich City Council makes in 2026-27, from garden waste collections to burials, in one long PDF. The table headed “Alcohol / Entertainment / Late night refreshment” is the one that matters here: application fees run from £100 for the smallest rateable-value band up to £1,905 for the largest venue selling drink, and annual charges from £70 to £1,050. The document lists the amounts without saying who sets them; for alcohol licensing they come from national regulations rather than from the council."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T21:30:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "6c0c94df481ba03b0c58c0563c891e5e075908c6414af7fcce7fdaacab8df97f"
   }
 }

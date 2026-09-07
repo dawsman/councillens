@@ -16,7 +16,8 @@
       "consultation-licensing-policy"
     ],
     "source_url": "https://gettalking.norwich.gov.uk/licensing",
-    "note": "The March 2026 report asked for a 12-week consultation starting 11 May; it actually opened a week later, on 18 May, and closed on 9 August."
+    "note": "18 May to 9 August 2026 is exactly 12 weeks. Officers had asked the committee in March for 12 weeks from 11 May, so the consultation opened a week later than planned and then ran its full length.",
+    "order": 2
   },
   "ai": {
     "source_ids": [
@@ -26,9 +27,9 @@
     "prompt_version": "figure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T00:00:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "98d18e2418877bf3c17343452edc46c9f1193c507c752adc2db3061fe5b7e982"
   }
 }
