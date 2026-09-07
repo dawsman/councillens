@@ -1,0 +1,38 @@
+{
+  "kind": "event",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "id": "evt-outcome-policy-in-force",
+    "stage": "outcome",
+    "date": "2021-12",
+    "date_precision": "month",
+    "title": "The policy in force today is still the one approved in December 2021",
+    "summary": "Norwich's current Statement of Licensing Policy was approved by full council in December 2021, and it is what the council applies to licence applications right now. It is the document linked from the council's own premises licence page. It stays in force until a revised policy is adopted.",
+    "detail": [
+      "The officer's report to committee says a replacement has to be adopted by December 2026, when the current policy reaches the end of its five-year term.",
+      "The council gives no exact day in December 2021, so neither do we."
+    ],
+    "source_ids": [
+      "adopted-licensing-policy-2021",
+      "premises-licence-guidance",
+      "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+    ],
+    "source_url": "https://www.norwich.gov.uk/downloads/file/2258/licensing_policy",
+    "status": "done"
+  },
+  "ai": {
+    "source_ids": [
+      "adopted-licensing-policy-2021",
+      "premises-licence-guidance",
+      "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+    ],
+    "prompt_version": "event-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T20:15:00+00:00",
+    "cache_key": "155b433f9e774f12a5084e0a89f021fadfc14a0ead3f91947dedea249a4f5456"
+  }
+}

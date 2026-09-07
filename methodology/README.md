@@ -1,9 +1,32 @@
 # Methodology
 
-How CouncilLens works, in the open. This is a living document — sections marked _TBD_ will be completed as the first council and topic are added.
+How CouncilLens works, in the open. This is a living document: it grows as councils and topics are added, and the rules below are the ones the first council was actually built under.
 
 ## Sources
-We use public information only: council agendas and minutes, consultation pages, open data / transparency pages, and published performance or spending data. Every published claim links to its source. _Source list for the first council: TBD._
+We use public information only: council agendas and minutes, consultation pages, open data / transparency pages, and published performance or spending data. Every published claim links to its source.
+
+### First council: Norwich City Council, licensing policy
+
+Fourteen documents, every one fetched and read on 7 September 2026. The council's committee system is CMIS, its website runs on LocalGov Drupal, and its consultations run on EngagementHQ, branded Get Talking Norwich.
+
+**What people were asked**
+
+- [The consultation itself](https://gettalking.norwich.gov.uk/licensing) — open 18 May to 9 August 2026
+- [Summary of changes to the licensing policy](https://gettalking.norwich.gov.uk/49713/widgets/150659/documents/105900/download) — the plain-English version residents were pointed at
+- [The full draft policy](https://gettalking.norwich.gov.uk/49713/widgets/150659/documents/105901/download)
+
+**What the council decided**
+
+- [Licensing committee, 5 March 2026](https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1534/Committee/6/Default.aspx) — the agenda, plus the officer's report, three appendices (the draft policy, a table of changes, the equality impact assessment) and the minutes of both that meeting and the previous one
+- [Licensing committee, 17 September 2026](https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1727/Committee/6/Default.aspx) — scheduled, no papers published yet
+- [The committee's index of meetings](https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/6/Default.aspx)
+
+**What is actually in force**
+
+- [The licensing policy approved in December 2021](https://www.norwich.gov.uk/downloads/file/2258/licensing_policy)
+- [The premises licence page](https://www.norwich.gov.uk/licensing/premises-and-alcohol/premises-licence), the only place on the council's site that links it
+
+Three pages were checked and deliberately left out, each with the reason recorded in `config/sources.yaml`: the consultations hub, which had dropped the closed licensing consultation by September; the e-petitions page, which carries no licensing petition; and the policies and strategies list, whose entry labelled "Licensing Policy" actually links a different policy about houses in multiple occupation. Banking that one would have caused exactly the confusion this project exists to prevent.
 
 ## Linkage tiers
 The hardest question in accountability is whether feedback actually changed a decision. We never imply a connection we cannot evidence. Every feedback ↔ decision comparison is labelled:
@@ -15,7 +38,35 @@ The hardest question in accountability is whether feedback actually changed a de
 Default to 🟡 or ⚪ unless the records establish 🟢.
 
 ## Summarising documents
-AI assists with bounded tasks only: summarising minutes, tagging topics, comparing feedback / decisions / outcomes, and flagging missing or conflicting evidence. _Tagging and summary rules: TBD._
+AI assists with bounded tasks only: summarising minutes, tagging topics, comparing feedback / decisions / outcomes, and flagging missing or conflicting evidence. It never decides what a council should have done, and it is never asked an open question about a council.
+
+These are the rules the summaries follow.
+
+**One document at a time.** A summary describes the document it is written from and nothing else. It says what the document is, then what it says. Two to four sentences.
+
+**Plain English.** Write for a resident, not a committee clerk. "Hot food sold after 11pm", not "late night refreshment". Where a council's own term has to appear — a statutory phrase, a committee name — it is explained the first time.
+
+**No adjectives about performance.** We do not call a council slow, thorough, transparent or evasive. Dates and documents carry the story. Nothing on the site scores or attacks a politician, and nothing takes a side on whether a policy is a good idea.
+
+**Stages, not tags.** Every document is filed at one of three stages (feedback, decision, outcome), and that comes from the source config, where a human set it, not from the model's reading. An entry on the timeline gets the stage of the thing that happened.
+
+**Causation is never inferred.** A summary may say a committee resolved something, because the minutes say so. It may not say a consultation caused a change. That judgement only ever appears as a linkage tier, with the evidence quoted.
+
+**Dates are as precise as the record, and no more.** A minuted meeting gets a day. A policy whose front page says "December 2021" gets a month, and the timeline says so. Something with no date gets none. Where a council's own documents disagree, we use what happened and note the difference rather than quietly picking one. Norwich's officer report proposed consulting from 11 May to 7 August 2026; the consultation actually ran 18 May to 9 August.
+
+**Numbers come from the document.** 67 responses, 677 premises licences, 79 pages. If a figure is not in a source, it is not on the site.
+
+**What we could not find is published too.** Every gap says what was looked for, where, and what was there instead. An empty meeting page is evidence, and we link it.
+
+### Confidence
+
+Each AI output carries `high`, `medium` or `low`. It describes how well the cited sources support the reading, nothing else:
+
+- **high** — the document states it outright.
+- **medium** — assembled from several places, or read in part because the document runs to 140,000 characters.
+- **low** — the sources are thin, or the output has been flagged because a document it was written from has changed since.
+
+Confidence is not a prediction. A note that a council intends to do something in November can be `high`, because the intention is documented, while the thing itself stays in the "still waiting" column.
 
 ### Every AI output stores
 - Source document IDs
@@ -34,4 +85,12 @@ AI outputs are cached and versioned. The published site can be regenerated byte-
 Anyone can request a correction or removal by opening an issue or contacting the maintainers. Response-time target: we aim to acknowledge within 2 working days and resolve or explain within 10 working days.
 
 ## Data protection
-Some public documents contain personal data. We process only what is necessary, redact where appropriate, and provide a removal route. _Full policy: TBD._
+Some public documents contain personal data. We process only what is necessary, redact where appropriate, and provide a removal route.
+
+Everything CouncilLens holds was already published by the council on a public web page. We do not scrape anything behind a login, we do not buy data, and we do not combine council records with anything else to build a picture of a person.
+
+Officers and councillors are named where the council names them, in the role they hold. The minutes of a public meeting record who presented a report and what the committee resolved, and that is the accountability record. We keep those names as published. We do not comment on individuals, and we do not collect anything about their private lives.
+
+Residents are treated differently. Consultation responses are the clearest case: we will say how many people replied and what the council was asking, but we do not reproduce individual responses, names, addresses, email addresses or anything else that could identify someone who took part. Where a council publishes a response in full, we link to the council's page rather than copying it here. The same goes for anyone named in a licensing objection or a complaint. If a document we have saved turns out to contain personal data the council did not intend to publish, we remove it from the archive and tell the council.
+
+Removal works the same way as a correction. Open an issue on the repository, or contact the maintainers, saying which page or document is involved and what the problem is. The response times below apply. If the material is on the council's own site as well, we will say so. Taking it off CouncilLens does not take it off the council's website; that request has to go to the council, and we will point you to the right place.

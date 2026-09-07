@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "source_id": "licensing-committee-2026-03-05--minutes-of-the-licensing-committee-meeting-held-on-4-december-2025",
+    "summary": "The minutes of the previous Licensing committee, held on 4 December 2025 and confirmed as a correct record at the March meeting. Its business was the council's gambling statement of principles, not the licensing policy, so it says nothing directly about this topic. It is here because it was published with the March agenda."
+  },
+  "ai": {
+    "source_ids": [
+      "licensing-committee-2026-03-05--minutes-of-the-licensing-committee-meeting-held-on-4-december-2025"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T20:15:00+00:00",
+    "cache_key": "72084a02ab3679ddc9c7eea1979af1dd9d097b32900159ce320a6e1576cde885"
+  }
+}

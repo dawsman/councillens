@@ -1,0 +1,23 @@
+{
+  "kind": "gap",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "id": "g-cabinet-decision",
+    "stage": "decision",
+    "description": "The Cabinet decision approving the consultation. The March committee recommended the draft to Cabinet, so a Cabinet decision should exist. Every Cabinet meeting from 11 March 2026 onwards and both full Council meetings in the window were checked and none carries a licensing policy item. It may have been taken as a delegated officer decision, or simply not published."
+  },
+  "ai": {
+    "source_ids": [
+      "licensing-committee-2026-03-05--minutes-of-the-licensing-committee-meeting-held-on-5-march-2026",
+      "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+    ],
+    "prompt_version": "gap-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T20:15:00+00:00",
+    "cache_key": "72500567be09d2beb29f3765cf25655b3f9ac30620bcc225dbd8caf4209d1710"
+  }
+}

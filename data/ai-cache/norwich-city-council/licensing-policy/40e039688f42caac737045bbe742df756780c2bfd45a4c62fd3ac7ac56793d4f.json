@@ -1,0 +1,22 @@
+{
+  "kind": "gap",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "id": "g-subcommittee-hearings",
+    "stage": "outcome",
+    "description": "Any record of the policy being used in an individual licensing decision. Norwich's Licensing sub-committee, which hears applications, publishes meeting dates but no agendas, reports or decision notices — the hearings on 23 July and 17 August 2026 both list no documents. So there is no public trail of the policy being applied case by case."
+  },
+  "ai": {
+    "source_ids": [
+      "premises-licence-guidance"
+    ],
+    "prompt_version": "gap-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T20:15:00+00:00",
+    "cache_key": "40e039688f42caac737045bbe742df756780c2bfd45a4c62fd3ac7ac56793d4f"
+  }
+}
