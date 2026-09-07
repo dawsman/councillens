@@ -15,7 +15,8 @@
       "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
     ],
     "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=2BBexLq99%2fgGFNxuHxr3%2bFAOgELy7WmhifjzFETSP9ptRaiAlSz8Lw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-    "note": "One-off events, a beer tent at a summer fete for instance, run on a temporary event notice instead of a full licence. This is how many the council took in across the whole of 2025."
+    "note": "A one-off event, say a beer tent at a summer fete, runs on a temporary event notice rather than a full licence. The council received 225 of them across 2025, according to the officer's report of 5 March 2026.",
+    "order": 5
   },
   "ai": {
     "source_ids": [
@@ -24,9 +25,9 @@
     "prompt_version": "figure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T00:00:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "82c53329b1cae8113a674b9970b3153e11bfab04740e6008fefd13ffd8f42449"
   }
 }

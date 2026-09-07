@@ -4,7 +4,7 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "id": "fig-consultation-responses",
-    "label": "Responses to the consultation",
+    "label": "Responses to the consultation survey",
     "kind": "count",
     "value": 67,
     "unit": "responses",
@@ -15,7 +15,8 @@
       "consultation-licensing-policy"
     ],
     "source_url": "https://gettalking.norwich.gov.uk/licensing",
-    "note": "Sixty-seven people or organisations answered the survey before it closed on 9 August 2026. What they actually said has not been published."
+    "note": "The council's survey recorded 67 responses by the time it closed on 9 August 2026. That is the online survey alone; people could also write to the licensing team, and those messages are not in this count. What anyone actually said has not been published.",
+    "order": 1
   },
   "ai": {
     "source_ids": [
@@ -24,9 +25,9 @@
     "prompt_version": "figure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T00:00:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "9c3bbefe6644ce2049d060a5930bf7da35d4f94e91bdccda8ed7b06ebb0a439e"
   }
 }

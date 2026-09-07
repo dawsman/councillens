@@ -4,7 +4,7 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "source_id": "open-data-payments-over-500--payments-to-suppliers-over-500-january-2026",
-    "summary": "One month of supplier payments over £500, January 2026, exactly as published: cost centre, expenditure category, amount and supplier for each line. We banked it as a worked example and read it looking for licensing. None of the 85 cost centres in the file names licensing, so this route does not answer what the service spends."
+    "summary": "One month of supplier payments over £500, January 2026, exactly as published: 634 lines, each giving the service label, cost centre, expenditure category, account, date, amount and supplier. We banked it as a worked example and read it looking for licensing. None of the 84 cost centres in the file names licensing, so this route does not answer what the service spends."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T21:30:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "2bf608b646adb1beab9f0857d09d4cf3c6fb0404e58698af5a431492b3fc8c14"
   }
 }

@@ -4,18 +4,19 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "id": "fig-current-policy-adopted",
-    "label": "Current policy adopted",
+    "label": "Current policy took effect",
     "kind": "date",
-    "value": "2021-12",
+    "value": "2021-12-17",
     "unit": null,
-    "display": "December 2021",
-    "as_of": "2021-12",
+    "display": "17 December 2021",
+    "as_of": "2021-12-17",
     "period": null,
     "source_ids": [
       "adopted-licensing-policy-2021"
     ],
     "source_url": "https://www.norwich.gov.uk/downloads/file/2258/licensing_policy",
-    "note": "This is still the policy in force. Full council approved it and nothing has replaced it yet."
+    "note": "The council approved the policy in December 2021, and the document itself says it takes effect on 17 December that year. It runs for no more than five years, and nothing has replaced it yet.",
+    "order": 11
   },
   "ai": {
     "source_ids": [
@@ -24,9 +25,9 @@
     "prompt_version": "figure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T00:00:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "458a6f538224d4c51bf8fbfc316e215e4137999d9f5555c872ca389f66b511c1"
   }
 }

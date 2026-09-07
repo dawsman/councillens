@@ -15,7 +15,8 @@
       "fees-and-charges-2026-27"
     ],
     "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Norwich-City-Council-Fees-and-Charges-2026-2027.pdf",
-    "note": "What a band A premises pays to apply, meaning somewhere with a rateable value up to £4,300. Parliament sets these amounts under the Licensing Act 2003; Norwich publishes them and collects them but cannot change them."
+    "note": "Band A covers premises with a rateable value up to £4,300. At the other end, a large venue used mainly for drinking on the premises pays £1,905. Norwich publishes and collects these amounts but does not set them: the levels come from national regulations made under the Licensing Act 2003, which the fees book itself does not spell out.",
+    "order": 8
   },
   "ai": {
     "source_ids": [
@@ -24,9 +25,9 @@
     "prompt_version": "figure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T00:00:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "3b6a1e1424fb56fb49b19b86be3adc15ee7628a0661c801700f369511543a379"
   }
 }

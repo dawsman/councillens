@@ -4,7 +4,7 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "id": "fig-new-policy-target-start",
-    "label": "Date the new policy is meant to start",
+    "label": "Date the new policy is meant to be in place",
     "kind": "date",
     "value": "2026-12-01",
     "unit": null,
@@ -15,7 +15,8 @@
       "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
     ],
     "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=2BBexLq99%2fgGFNxuHxr3%2bFAOgELy7WmhifjzFETSP9ptRaiAlSz8Lw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-    "note": "Proposed, not decided. Officers planned a full council vote in November 2026 so the replacement can take effect the day the 2021 policy runs out."
+    "note": "Proposed, not decided. The March 2026 report set out a plan to take the revised policy to full council in November 2026 so it is adopted by 1 December, before the current one expires.",
+    "order": 12
   },
   "ai": {
     "source_ids": [
@@ -24,9 +25,9 @@
     "prompt_version": "figure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "medium",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T00:00:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "0b088487379a145862fc48d2a6ca679cd792dc04d5537715c6ff0defeeb92830"
   }
 }

@@ -222,10 +222,10 @@ sources:
     enabled: true
 
   # Verified 2026-09-07. Norwich's Local Government Transparency Code return:
-  # every supplier payment over £500, month by month, back to 2021. The page
+  # every supplier payment over £500, month by month, back to 2020. The page
   # lists well over a hundred files, so link-following is off and one recent
   # month is fetched explicitly as a worked example. Checked for licensing
-  # spend and found none identifiable: the January 2026 file has 85 distinct
+  # spend and found none identifiable: the January 2026 file has 84 distinct
   # cost centres and not one of them names licensing. That absence is recorded
   # as a gap rather than papered over.
   - id: open-data-payments-over-500

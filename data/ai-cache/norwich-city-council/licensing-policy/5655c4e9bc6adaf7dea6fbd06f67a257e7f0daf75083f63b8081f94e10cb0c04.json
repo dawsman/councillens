@@ -4,7 +4,7 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "source_id": "open-data-payments-over-500",
-    "summary": "The council's transparency page listing every payment it made to a supplier over £500, month by month, back to 2021, as both CSV and PDF. It is the most granular spending data Norwich publishes. Nothing on it is grouped in a way that separates licensing from the rest of the council's work."
+    "summary": "The council's transparency page, listing every payment it made to a supplier over £500. Monthly files in CSV and PDF go back to 2020, and 2013 to 2018 can be had by email on request. It is the most detailed spending data Norwich puts out, though the one month we read, January 2026, has no cost centre that names licensing."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T21:30:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "5655c4e9bc6adaf7dea6fbd06f67a257e7f0daf75083f63b8081f94e10cb0c04"
   }
 }

@@ -5,7 +5,7 @@
   "payload": {
     "id": "g-licensing-spend-in-payments",
     "stage": null,
-    "description": "Licensing spending in the council's payments-over-£500 data. We read the January 2026 file line by line. Not one of its 85 cost centres names licensing, and the closest match is a capital budget covering planning and regulatory services as a whole. The dataset is published and complete; it simply is not cut in a way that shows what licensing buys."
+    "description": "Licensing spending in the council's payments-over-£500 data. We read the January 2026 file line by line: 634 payments across 84 cost centres, and not one of them names licensing. The nearest thing is an expenditure category called “Planning & Regulatory Services GF Capital”, which covers the whole group. The dataset is published and complete; it simply is not cut in a way that shows what licensing buys."
   },
   "ai": {
     "source_ids": [
@@ -14,9 +14,9 @@
     "prompt_version": "gap-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T21:30:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "2d63b1fe87c45952dfb100fdf041ec125750fe562db1447b447413afa882bc48"
   }
 }

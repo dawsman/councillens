@@ -5,7 +5,7 @@
   "payload": {
     "id": "g-cost-of-licensing-team",
     "stage": null,
-    "description": "What the licensing team itself costs to run, and whether the fees it collects cover that cost. Fee levels are fixed by national regulations, so a council that spends more than it collects cannot simply charge more. Norwich publishes neither side of that sum for licensing on its own, and we found nothing in the budget, the statement of accounts or the fees book that would let anyone work it out."
+    "description": "Whether the fees licensing collects cover what the service costs to run. Fee levels for alcohol licensing are fixed in national regulations, so a council spending more than it takes in cannot simply charge more. Norwich publishes neither side of that sum for licensing on its own: not in the 2026-2027 budget, not in the fees book, and not in the payments-over-£500 data."
   },
   "ai": {
     "source_ids": [
@@ -14,9 +14,9 @@
     "prompt_version": "gap-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T21:45:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "3bf9e164008432ed0a38b7c229422b3279a80c8b856713b130567686a7b3eb17"
   }
 }

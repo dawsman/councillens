@@ -4,18 +4,19 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "id": "fig-regulatory-services-fee-income",
-    "label": "Fees and charges those services bring in",
+    "label": "Budgeted income for planning and regulatory services",
     "kind": "money",
     "value": 2447000,
     "unit": "GBP",
-    "display": "£2.4m",
+    "display": "£2.45m",
     "as_of": null,
     "period": "2026/27",
     "source_ids": [
       "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
     ],
     "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-    "note": "Budgeted income for the whole planning and regulatory group in 2026/27, licence fees among it. The council does not publish how much of this comes from alcohol and entertainment licensing."
+    "note": "The budget shows this as gross income for the whole planning and regulatory group in 2026-2027, and licence fees are part of it. The table does not say how much of the total is fees rather than grant or recharges, and nothing published breaks out what alcohol and entertainment licensing brings in.",
+    "order": 7
   },
   "ai": {
     "source_ids": [
@@ -24,9 +25,9 @@
     "prompt_version": "figure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T00:00:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "c279c2261be430ed92b1306a13d07559abba3c26de3af4fbaa3d69bb9ce0cfba"
   }
 }

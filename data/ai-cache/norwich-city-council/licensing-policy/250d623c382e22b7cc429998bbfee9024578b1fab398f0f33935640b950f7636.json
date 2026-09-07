@@ -15,7 +15,8 @@
       "fees-and-charges-2026-27"
     ],
     "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Norwich-City-Council-Fees-and-Charges-2026-2027.pdf",
-    "note": "A range, not one number: the smallest band A premises pays £70 a year and the largest band E venue that mainly sells drink pays £1,050. The bands follow rateable value and are fixed nationally."
+    "note": "A range rather than one number. Band A pays £70 a year and a band E venue used mainly for drinking on the premises pays £1,050, with the bands following rateable value. As with application fees, the amounts are fixed in national regulations rather than chosen by the council.",
+    "order": 9
   },
   "ai": {
     "source_ids": [
@@ -24,9 +25,9 @@
     "prompt_version": "figure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T00:00:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "250d623c382e22b7cc429998bbfee9024578b1fab398f0f33935640b950f7636"
   }
 }
