@@ -1,15 +1,12 @@
-# CouncilLens — source list for the MVP.
+# CouncilLens — Norwich City Council, licensing policy.
 #
-# First council: Norwich City Council
-# First topic:   Licensing policy (alcohol, entertainment and late-night venues)
+# One file per council + topic, at config/sources/<council-slug>/<topic-slug>.yaml.
+# Who the council is — website, tier, remit note, platforms — lives once in
+# config/councils/norwich-city-council.yaml, not here.
 #
-# Adding a council = adding a config block like this one. The pipeline does not
-# change. 'platform' selects the adapter; council-specific mapping (which body,
-# which stage, which documents matter) lives here in config, never in pipeline code.
-#
-# Remit note: Norwich City Council is a district/city council. Highways (e.g.
-# potholes) belong to Norfolk County Council, so topics here focus on city-council
-# services such as licensing, housing, waste, planning and parks.
+# Adding a topic, or a council, is adding a file like this one. The pipeline does
+# not change. 'platform' selects the adapter; the mapping from a topic to the
+# documents that evidence it lives here in config, never in pipeline code.
 #
 # Every URL below was fetched and read on 2026-09-07 before being written down.
 # Sources that could not be verified are disabled, with a note saying what was

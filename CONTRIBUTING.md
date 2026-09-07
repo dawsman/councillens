@@ -20,8 +20,8 @@ CouncilLens is ONE pipeline per topic, reused across every council (see
 `docs/architecture.md`). To keep outputs comparable, council-specific work has a
 fixed, narrow surface:
 
-- **You may add:** a config entry for a council (`config/sources.yaml`), or a
-  platform adapter (`src/ingest/adapters.py`) when a council uses a platform no
+- **You may add:** a config file for a council or topic (`config/councils/` and
+  `config/sources/`), or a platform adapter (`src/ingest/adapters.py`) when a council uses a platform no
   adapter supports yet.
 - **You may not add:** bespoke, per-council summarising, tagging, or comparison
   logic. That logic is written once and runs everywhere.

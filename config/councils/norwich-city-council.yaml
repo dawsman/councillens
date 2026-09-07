@@ -1,0 +1,24 @@
+# Norwich City Council — who this council is.
+#
+# One file per council, read by the analyse stage and shared by every topic, so
+# two topics can never disagree about what the council does or which platforms it
+# publishes on. Topic-specific detail belongs in
+# config/sources/norwich-city-council/<topic-slug>.yaml instead.
+#
+# `slug` must match this file's name and the directory under config/sources/.
+# `remit_note` is written for residents: what this council controls, and what
+# belongs to Norfolk County Council instead. Norwich is a stock-holding council,
+# so it owns and manages its own council housing.
+
+name: Norwich City Council
+slug: norwich-city-council
+website: https://www.norwich.gov.uk
+tier: district
+remit_note: 'Norwich City Council is a district council with city status. Licensing under the Licensing
+  Act 2003 is its job: who may sell alcohol, put on regulated entertainment, or serve hot food and drink
+  late at night. So are bin collections, council housing, parks and planning. Roads and potholes, schools,
+  libraries and social care belong to Norfolk County Council instead, so you will not find those here.'
+platforms:
+  committees: cmis
+  website: localgov_drupal
+  consultations: engagement

@@ -50,10 +50,12 @@ everything first. The schema is the load-bearing wall.
 
 Into config and adapters — never into pipeline code.
 
-`config/sources.yaml` is the per-council map: for Norwich, the licensing topic =
-this consultation (feedback) + this committee (decision) + this policy page
-(outcome), each tagged with the platform that serves it. Onboarding a new council
-is writing one reviewed config block. You only write code when a council uses a
+`config/sources/<council-slug>/<topic-slug>.yaml` is the per-topic map: for
+Norwich, the licensing topic = this consultation (feedback) + this committee
+(decision) + this policy page (outcome), each tagged with the platform that serves
+it. Who the council is — website, tier, remit note, platforms — sits once in
+`config/councils/<council-slug>.yaml`, shared by all of its topics. Onboarding a
+new council or topic is writing one reviewed config file. You only write code when a council uses a
 platform no adapter supports yet — and even then it is one adapter shared by every
 council on that platform.
 

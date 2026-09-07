@@ -93,7 +93,8 @@ fact about what the council has published, not a build failure.
 - An event or linkage citing a document that is not in the archive, or one that
   has changed: kept, flagged `needs_review`, gap recorded.
 - No `topic` entry: placeholder remit note and answers, plus a gap.
-- A source enabled in `config/sources.yaml` that produced no record: a gap.
+- A source enabled in the topic's config file that produced no record: a gap.
+- No `config/councils/<council-slug>.yaml`: placeholder remit note, plus a gap.
 - A feedback and a decision entry that nobody has compared: a gap. Every
   feedback-to-decision pair has to be judged, including the ones judged ⚪.
 

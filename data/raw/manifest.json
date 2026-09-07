@@ -1,7 +1,13 @@
 {
-  "council": "Norwich City Council",
-  "topic": "Licensing policy (alcohol, entertainment and late-night venues)",
   "generated_at": "2026-09-07T19:00:20+00:00",
+  "topics": [
+    {
+      "council": "Norwich City Council",
+      "topic": "Licensing policy (alcohol, entertainment and late-night venues)",
+      "council_slug": "norwich-city-council",
+      "topic_slug": "licensing-policy"
+    }
+  ],
   "documents": [
     {
       "id": "consultation-licensing-policy",

@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
 """CouncilLens — analyse stage.
 
-Assembles one topic model per council + topic from two inputs that are both in
+Assembles one topic model per council + topic from three inputs that are all in
 the repo already:
 
     data/processed/manifest.json     the canonical records (what the council published)
     data/ai-cache/<council>/<topic>/ the cached AI outputs (summaries, events, linkages)
+    config/councils/<council>.yaml   who the council is (website, tier, remit note)
 
-and writes data/analysed/<council-slug>/<topic-slug>.json, which must match
-data/schemas/topic.schema.json.
+and writes one data/analysed/<council-slug>/<topic-slug>.json per council + topic,
+each of which must match data/schemas/topic.schema.json.
+
+Records are grouped by the council and topic they already carry, so one run emits
+every topic in the manifest. The council block comes from the council config, not
+from a topic's cache, so two topics for the same council can never disagree about
+what that council does.
 
 Three rules this stage never breaks:
 
@@ -18,24 +24,25 @@ Three rules this stage never breaks:
    recorded saying exactly what is missing, and the build still exits 0. A hole
    in the evidence is a fact about the council's publishing, not a build failure.
 3. Council-agnostic. There is no council name, committee name or URL in this
-   file. Council-specific detail lives in config/sources.yaml and in the cache.
+   file. Council-specific detail lives under config/ and in the cache.
 
 Run locally:
     python src/analyse/build_topic.py
+    python src/analyse/build_topic.py --only norwich-city-council/housing-allocations
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
-import re
 import sys
 from pathlib import Path
 
-import yaml
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import config as cfg  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 PROCESSED_MANIFEST = ROOT / "data" / "processed" / "manifest.json"
-SOURCES_CONFIG = ROOT / "config" / "sources.yaml"
 CACHE_ROOT = ROOT / "data" / "ai-cache"
 ANALYSED_ROOT = ROOT / "data" / "analysed"
 
@@ -60,18 +67,8 @@ PLACEHOLDER_ANSWER = "We do not have a reviewed answer to this question yet."
 # Helpers
 # --------------------------------------------------------------------------
 
-def slugify(value):
-    """Lowercase hyphen slug. Anything in brackets is dropped first, so
-    'Licensing policy (alcohol, entertainment and late-night venues)' becomes
-    'licensing-policy' — the short name a URL wants."""
-    value = re.sub(r"\(.*?\)", " ", value or "")
-    value = re.sub(r"[^a-z0-9]+", "-", value.lower())
-    return value.strip("-")
-
-
-def short_name(value):
-    """The part of a configured name before any bracketed qualifier."""
-    return re.sub(r"\(.*?\)", " ", value or "").strip(" -,")
+slugify = cfg.slugify
+short_name = cfg.short_name
 
 
 def cache_key(item_key, sha256s, prompt_version):
@@ -166,14 +163,11 @@ def newest(timestamps):
 # Build
 # --------------------------------------------------------------------------
 
-def build(manifest, config):
-    council_name = manifest.get("council") or config.get("council") or "Unknown council"
-    topic_config_name = manifest.get("topic") or config.get("topic") or "Unknown topic"
-
+def build(council_name, topic_config_name, documents, topic_config):
+    """One council + one topic: the records that belong to it, plus its config."""
     council_slug = slugify(council_name)
     topic_slug = slugify(topic_config_name)
 
-    documents = manifest.get("documents", [])
     hashes_by_id = {d["id"]: d.get("sha256", "") for d in documents if d.get("id")}
 
     cache_dir = CACHE_ROOT / council_slug / topic_slug
@@ -185,7 +179,7 @@ def build(manifest, config):
 
     # --- an enabled source that never produced a record is itself a gap -----
     manifest_ids = set(hashes_by_id)
-    for entry in config.get("sources", []) or []:
+    for entry in (topic_config.sources if topic_config else []):
         if not entry.get("enabled", True):
             continue
         sid = entry.get("id")
@@ -208,6 +202,22 @@ def build(manifest, config):
         "remit_note": PLACEHOLDER_REMIT,
         "platforms": {},
     }
+    # Who the council is comes from config/councils/<slug>.yaml — a fact about the
+    # council, shared by every one of its topics, so two topics cannot disagree.
+    council_config = cfg.load_council(council_slug)
+    if council_config is None:
+        gaps.append({
+            "stage": None,
+            "description": (
+                "No council record has been written for this council, so its remit "
+                "note — what it does and does not control — is missing."
+            ),
+        })
+    else:
+        for key in ("website", "tier", "remit_note", "platforms"):
+            value = council_config.get(key)
+            if value is not None:
+                council_block[key] = value
     topic_block = {
         "name": short_name(topic_config_name),
         "slug": topic_slug,
@@ -235,9 +245,6 @@ def build(manifest, config):
         ok, note = check_key(entry, f"topic:{council_slug}/{topic_slug}", entry.get("ai", {}).get("prompt_version", ""), hashes_by_id)
         if not ok:
             flag_stale(entry, note, gaps, None, "The council and topic overview")
-        council_block.update({k: v for k, v in payload.get("council", {}).items() if v is not None})
-        council_block["name"] = council_name
-        council_block["slug"] = council_slug
         topic_block.update({k: v for k, v in payload.get("topic", {}).items() if v is not None})
         topic_block["slug"] = topic_slug
         ai_stamps.append(entry.get("ai", {}).get("generated_at"))
@@ -452,21 +459,7 @@ def build(manifest, config):
     return council_slug, topic_slug, model
 
 
-def main():
-    if not PROCESSED_MANIFEST.exists():
-        print(f"No processed manifest at {PROCESSED_MANIFEST.relative_to(ROOT)} — run the transform stage first.")
-        return 0
-
-    manifest = json.loads(PROCESSED_MANIFEST.read_text(encoding="utf-8"))
-    config = yaml.safe_load(SOURCES_CONFIG.read_text(encoding="utf-8")) if SOURCES_CONFIG.exists() else {}
-
-    council_slug, topic_slug, model = build(manifest, config or {})
-
-    out_dir = ANALYSED_ROOT / council_slug
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"{topic_slug}.json"
-    out_path.write_text(json.dumps(model, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
+def report(model, out_path):
     tiers = {}
     for link in model["linkages"]:
         tiers[link["tier"]] = tiers.get(link["tier"], 0) + 1
@@ -488,6 +481,62 @@ def main():
           f"{counts['reviewed']} checked by a person")
     for gap in model["gaps"]:
         print(f"  gap  [{gap['stage'] or '-'}] {gap['description']}")
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="Assemble one topic model per council + topic.")
+    parser.add_argument(
+        "--only", metavar="COUNCIL/TOPIC",
+        help="Build one topic only, e.g. norwich-city-council/licensing-policy.",
+    )
+    args = parser.parse_args(argv)
+
+    try:
+        wanted = cfg.parse_only(args.only)
+        configs = {t.key: t for t in cfg.load_topics()}
+    except ValueError as exc:
+        print(exc)
+        return 1
+
+    if not PROCESSED_MANIFEST.exists():
+        print(f"No processed manifest at {PROCESSED_MANIFEST.relative_to(ROOT)} — run the transform stage first.")
+        return 0
+
+    manifest = json.loads(PROCESSED_MANIFEST.read_text(encoding="utf-8"))
+
+    # Group the records by the council and topic they already carry. Nothing here
+    # assumes how many councils or topics the manifest holds.
+    groups = {}
+    for record in manifest.get("documents", []):
+        council_name = record.get("council") or "Unknown council"
+        topic_name = record.get("topic") or "Unknown topic"
+        key = (slugify(council_name), slugify(topic_name))
+        if key not in groups:
+            groups[key] = (council_name, topic_name, [])
+        groups[key][2].append(record)
+
+    if not groups:
+        print("Processed manifest has no documents — nothing to assemble.")
+        return 0
+
+    built = 0
+    for key in sorted(groups):
+        if wanted and key != wanted:
+            continue
+        council_name, topic_name, documents = groups[key]
+        council_slug, topic_slug, model = build(
+            council_name, topic_name, documents, configs.get(f"{key[0]}/{key[1]}")
+        )
+        out_dir = ANALYSED_ROOT / council_slug
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / f"{topic_slug}.json"
+        out_path.write_text(json.dumps(model, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        report(model, out_path)
+        built += 1
+
+    if not built:
+        print(f"No records for {args.only} in the processed manifest.")
+        return 1
     return 0
 
 

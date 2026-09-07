@@ -5,10 +5,10 @@ A single CMIS adapter serves every council on CMIS; a single LocalGov Drupal
 adapter serves every council on that platform. All platform-specific quirks are
 absorbed here, so everything downstream sees only canonical records.
 
-Adding a council is a config change (config/sources.yaml). You only add code here
-when a council uses a PLATFORM no adapter supports yet.
+Adding a council or a topic is a config change (config/sources/). You only add
+code here when a council uses a PLATFORM no adapter supports yet.
 
-Config keys every adapter understands (all optional, all in config/sources.yaml —
+Config keys every adapter understands (all optional, all in the topic config file —
 never hard-coded here, because WHICH documents matter is a topic question, not a
 platform question):
 

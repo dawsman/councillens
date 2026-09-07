@@ -11,9 +11,14 @@ every stage.
 Run locally:
     pip install -r requirements.txt
     python src/transform/extract.py
+    python src/transform/extract.py --only norwich-city-council/housing-allocations
+
+`--only` re-extracts one topic and replaces just that topic's records in the
+processed manifest, leaving every other topic's extracted text untouched.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import sys
@@ -24,8 +29,10 @@ RAW_MANIFEST = ROOT / "data" / "raw" / "manifest.json"
 PROCESSED_DIR = ROOT / "data" / "processed"
 PROCESSED_MANIFEST = PROCESSED_DIR / "manifest.json"
 
+sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "src" / "ingest"))
 import canonical  # noqa: E402
+import config as cfg  # noqa: E402
 
 MAX_TEXT_CHARS = 200_000
 
@@ -132,7 +139,27 @@ def extract_text(path):
     return text or data.decode("utf-8", errors="replace")
 
 
-def main():
+def load_existing():
+    if not PROCESSED_MANIFEST.exists():
+        return []
+    manifest = json.loads(PROCESSED_MANIFEST.read_text(encoding="utf-8"))
+    return manifest.get("documents", []) or []
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="Extract plain text from the fetched raw files.")
+    parser.add_argument(
+        "--only", metavar="COUNCIL/TOPIC",
+        help="Re-extract one topic only, e.g. norwich-city-council/licensing-policy.",
+    )
+    args = parser.parse_args(argv)
+
+    try:
+        wanted = cfg.parse_only(args.only)
+    except ValueError as exc:
+        print(exc)
+        return 1
+
     if not RAW_MANIFEST.exists():
         print("No raw manifest. Run the ingest stage first.")
         return 0
@@ -142,9 +169,20 @@ def main():
         print("Raw manifest has no documents.")
         return 0
 
+    if wanted:
+        selected = [
+            d for d in documents
+            if (cfg.slugify(d.get("council")), cfg.slugify(d.get("topic"))) == wanted
+        ]
+        if not selected:
+            print(f"No records for {wanted[0]}/{wanted[1]} in the raw manifest.")
+            return 1
+    else:
+        selected = documents
+
     processed = []
     failures = 0
-    for record in documents:
+    for record in selected:
         out = dict(record)
         saved = record.get("saved_to")
         path = ROOT / saved if saved else None
@@ -166,19 +204,28 @@ def main():
         processed.append(out)
         print(f"  ok    {out['id']}: {len(out['text'])} chars")
 
+    if wanted:
+        kept = [
+            r for r in load_existing()
+            if (cfg.slugify(r.get("council")), cfg.slugify(r.get("topic"))) != wanted
+        ]
+        documents_out = kept + processed
+    else:
+        documents_out = processed
+
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     PROCESSED_MANIFEST.write_text(
         json.dumps(
             {
-                "council": manifest.get("council"),
-                "topic": manifest.get("topic"),
-                "documents": processed,
+                "topics": manifest.get("topics", []),
+                "documents": documents_out,
             },
             indent=2,
         ),
         encoding="utf-8",
     )
-    print(f"Wrote {len(processed)} record(s); {failures} rejected.")
+    print(f"Wrote {len(processed)} record(s) this run; "
+          f"manifest holds {len(documents_out)}; {failures} rejected.")
     return 1 if failures else 0
 
 
