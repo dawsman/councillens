@@ -1,0 +1,69 @@
+{# ---------------------------------------------------------------- #}
+{# Reusable pieces: provenance line, event card, linkage bridge.     #}
+{# ---------------------------------------------------------------- #}
+
+{% macro provenance(ai) %}
+{% if ai %}
+<p class="prov{% if not ai.reviewed %} prov-unreviewed{% endif %}">
+  <span class="prov-icon" aria-hidden="true">{% if ai.reviewed %}✓{% else %}!{% endif %}</span>
+  Written by {{ ai.model }}{% if ai.generated_at %} on {{ ai.generated_at }}{% endif %},
+  {% if ai.confidence %}confidence {{ ai.confidence }}, {% endif %}<strong>{{ ai.review_text }}</strong>.
+</p>
+{% endif %}
+{% endmacro %}
+
+
+{% macro event_card(e, heading_level='h3') %}
+<article class="event event-{{ e.stage }}{% if e._waiting %} event-waiting{% endif %}" id="{{ e.id }}">
+  <div class="event-head">
+    <span class="chip chip-{{ e.stage }}">{{ STAGE_CHIP.get(e.stage, e.stage or "Record") }}</span>
+    <time class="event-date"{% if e.date_precision == 'day' and e.date %} datetime="{{ e.date }}"{% endif %}>{{ e._date_human }}</time>
+    {% if e._status and e._waiting %}
+    <span class="chip chip-waiting">Still waiting</span>
+    {% elif e._status and e.status == 'done' %}
+    <span class="chip chip-done">Done</span>
+    {% elif e._status and e.status == 'in_progress' %}
+    <span class="chip chip-progress">Under way</span>
+    {% endif %}
+  </div>
+  <{{ heading_level }} class="event-title">{{ e.title }}</{{ heading_level }}>
+  <p class="event-summary">{{ e.summary }}</p>
+  {% if e._status and e._status.note %}
+  <p class="event-statusnote">{{ e._status.note }}</p>
+  {% endif %}
+  {% if e.detail %}
+  <ul class="event-detail">
+    {% for d in e.detail %}<li>{{ d }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+  {% if e.source_url %}
+  <p class="event-source"><a class="source-link" href="{{ e.source_url }}">Read the source document</a></p>
+  {% endif %}
+  {{ provenance(e._ai) }}
+</article>
+{% endmacro %}
+
+
+{% macro linkage(link) %}
+<aside class="bridge bridge-{{ link._tier_key }}" aria-label="Link between feedback and this decision">
+  <p class="bridge-tier">
+    <span class="bridge-emoji" aria-hidden="true">{{ link._tier.emoji }}</span>
+    <span class="bridge-label">{{ link._tier.label }}</span>
+  </p>
+  {% if link._from %}
+  <p class="bridge-from">Feedback: <a href="#{{ link._from.id }}">{{ link._from.title }}</a></p>
+  {% endif %}
+  {% if link.evidence %}
+  <blockquote class="bridge-quote">
+    <p>{{ link.evidence }}</p>
+    {% if link.evidence_url %}
+    <footer><a class="source-link" href="{{ link.evidence_url }}">Read this in the council's record</a></footer>
+    {% endif %}
+  </blockquote>
+  {% endif %}
+  {% if link.explanation %}
+  <p class="bridge-why">{{ link.explanation }}</p>
+  {% endif %}
+  {{ provenance(link._ai) }}
+</aside>
+{% endmacro %}

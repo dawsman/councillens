@@ -19,6 +19,7 @@ Thumbs.db
 # Generated site output (the published site is built, not hand-edited)
 _site/
 public/build/
+pages/
 
 # Note: data/ is versioned on purpose — do not ignore it.
 

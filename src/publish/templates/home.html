@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}CouncilLens — see how your council listens{% endblock %}
+
+{% block main %}
+<header class="home-head">
+  <h1>See how your council listens</h1>
+  <p class="lede">Your council publishes a lot: meeting notes, consultations, reports. It is all
+    public, and almost none of it is written for you. CouncilLens gathers it, puts it in plain
+    English, and lines it up so you can see one thing clearly — what people asked for, what the
+    council decided, and what actually happened.</p>
+</header>
+
+<section class="answers home-questions" aria-labelledby="the-questions">
+  <h2 id="the-questions" class="visually-hidden">The three questions we answer</h2>
+  <div class="answer answer-feedback">
+    <p class="answer-marker"><span class="answer-dot" aria-hidden="true"></span>Asked</p>
+    <div class="answer-body"><h3 class="answer-q">What did people ask for?</h3>
+      <p class="answer-a">Consultation responses, petitions, questions at meetings.</p></div>
+  </div>
+  <div class="answer answer-decision">
+    <p class="answer-marker"><span class="answer-dot" aria-hidden="true"></span>Decided</p>
+    <div class="answer-body"><h3 class="answer-q">What did the council decide?</h3>
+      <p class="answer-a">The minute, the vote, the policy that came out of it.</p></div>
+  </div>
+  <div class="answer answer-outcome">
+    <p class="answer-marker"><span class="answer-dot" aria-hidden="true"></span>Done</p>
+    <div class="answer-body"><h3 class="answer-q">What actually got done?</h3>
+      <p class="answer-a">And where nothing has happened yet, we say so.</p></div>
+  </div>
+</section>
+
+<section class="councils-list" aria-labelledby="councils-head">
+  <h2 class="section-head" id="councils-head">Councils we cover</h2>
+  {% if councils %}
+  <ul class="council-cards">
+    {% for c in councils %}
+    <li class="council-card">
+      <h3><a href="councils/{{ c.slug }}/index.html">{{ c.council.name }}</a></h3>
+      <p class="council-topics">
+        {% for t in c.topics %}{{ t.topic.name }}{% if not loop.last %}, {% endif %}{% endfor %}
+      </p>
+      <p class="council-count">{{ c.topics | length }} topic{{ '' if c.topics|length == 1 else 's' }} covered so far.</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty">No councils are published yet. This is an early build — the first council and
+    topic are on the way. You can follow progress on
+    <a href="{{ REPO_URL }}">GitHub</a> in the meantime.</p>
+  {% endif %}
+</section>
+
+<section class="honesty" aria-labelledby="honesty-head">
+  <h2 class="section-head" id="honesty-head">What we will and won't claim</h2>
+  <p class="section-intro">The hard part of accountability is knowing whether feedback actually
+    changed a decision. Usually nobody writes that down. Rather than guess, we label every
+    connection, and you can see the evidence behind the label.</p>
+  <dl class="tiers">
+    <div class="tier tier-confirmed">
+      <dt><span class="bridge-emoji" aria-hidden="true">🟢</span> Confirmed</dt>
+      <dd>The council's own record says this feedback shaped the decision. We show you the sentence.</dd>
+    </div>
+    <div class="tier tier-possible">
+      <dt><span class="bridge-emoji" aria-hidden="true">🟡</span> Possible</dt>
+      <dd>The feedback came first, but nothing on record proves it caused the decision. So we don't claim it did.</dd>
+    </div>
+    <div class="tier tier-none">
+      <dt><span class="bridge-emoji" aria-hidden="true">⚪</span> No link found</dt>
+      <dd>We found no connection, and we say so plainly rather than leaving a gap you might fill in yourself.</dd>
+    </div>
+  </dl>
+  <p>We would rather tell you we don't know than mislead you. Everything on this site links to the
+    original public document, so you never have to take our word for anything.</p>
+  <p class="home-links">
+    <a class="button" href="methodology/index.html">Read how we work</a>
+    <a class="button button-quiet" href="corrections/index.html">Ask for a correction</a>
+  </p>
+</section>
+{% endblock %}

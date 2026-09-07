@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}How we work — CouncilLens{% endblock %}
+{% block description %}Where our summaries come from, what the link labels mean, and how we handle uncertainty.{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li aria-current="page">How we work</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="page-head">
+  <h1>How we work</h1>
+  <p class="lede">This page is generated straight from the methodology document in our code
+    repository, so what you read here and what the project actually follows can't drift apart.</p>
+  <p class="page-head-note"><a href="{{ REPO_URL }}/blob/main/methodology/README.md">See this
+    document in the repository</a>, including every change ever made to it.</p>
+</header>
+
+<section class="prose md" aria-label="Methodology">
+  {{ body | safe }}
+</section>
+
+<section class="correct-cta" aria-labelledby="correct-head">
+  <h2 id="correct-head">Think we've got this wrong?</h2>
+  <p>Our method is open to argument as much as our facts are.</p>
+  <p><a class="button" href="{{ root }}corrections/index.html">Ask for a correction</a></p>
+</section>
+{% endblock %}

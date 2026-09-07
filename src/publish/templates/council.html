@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ council.council.name }} — CouncilLens{% endblock %}
+{% block description %}What {{ council.council.name }} was asked, what it decided, and what happened next.{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li aria-current="page">{{ council.council.name }}</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="council-head">
+  <h1>{{ council.council.name }}</h1>
+  <p class="lede">What this council was asked for, what it decided, and what happened afterwards —
+    put together from its own published documents.</p>
+  {% if council.council.website %}
+  <p class="council-site"><a href="{{ council.council.website }}">{{ council.council.name }}'s own website</a></p>
+  {% endif %}
+</header>
+
+{% if council.council.remit_note %}
+<section class="remit" aria-labelledby="remit-head">
+  <h2 id="remit-head">What this council is actually in charge of</h2>
+  <p>{{ council.council.remit_note }}</p>
+  <p class="remit-why">This matters: if a problem sits with a different authority, this council
+    cannot fix it however many people ask.</p>
+</section>
+{% endif %}
+
+<section class="topics" aria-labelledby="topics-head">
+  <h2 class="section-head" id="topics-head">Topics we have looked at</h2>
+  {% if council.topics %}
+  <ul class="topic-list">
+    {% for m in council.topics %}
+    <li class="topic-item">
+      <h3><a href="{{ m._topic_slug }}/index.html">{{ m.topic.name }}</a></h3>
+      <p class="topic-plain">{{ m.topic.plain_english }}</p>
+      <p class="topic-status"><span class="status-dot" aria-hidden="true"></span>{{ m._status_line }}</p>
+      <p class="topic-counts">{{ m._counts.feedback }} piece{{ '' if m._counts.feedback == 1 else 's' }} of
+        feedback, {{ m._counts.decision }} decision{{ '' if m._counts.decision == 1 else 's' }},
+        {{ m._counts.outcome }} outcome{{ '' if m._counts.outcome == 1 else 's' }} on record.</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty">We have not published any topics for this council yet.</p>
+  {% endif %}
+</section>
+
+<section class="correct-cta" aria-labelledby="correct-head">
+  <h2 id="correct-head">Spotted a mistake?</h2>
+  <p>We would rather be corrected than be wrong in public.</p>
+  <p><a class="button" href="{{ root }}corrections/index.html">Ask for a correction</a></p>
+</section>
+{% endblock %}

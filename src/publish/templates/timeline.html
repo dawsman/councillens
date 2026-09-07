@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% import "_parts.html" as parts with context %}
+
+{% block title %}Timeline — {{ m.topic.name }} — {{ m.council.name }} — CouncilLens{% endblock %}
+{% block description %}Everything we found on {{ m.topic.name }} at {{ m.council.name }}, in date order.{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li><a href="{{ root }}councils/{{ m._council_slug }}/index.html">{{ m.council.name }}</a></li>
+    <li><a href="{{ root }}councils/{{ m._council_slug }}/{{ m._topic_slug }}/index.html">{{ m.topic.name }}</a></li>
+    <li aria-current="page">Timeline</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="topic-head">
+  <p class="topic-council">{{ m.council.name }} — {{ m.topic.name }}</p>
+  <h1>Everything, in date order</h1>
+  <p class="lede">The same record as the main page, laid out by date rather than by stage. The
+    colour down the left tells you which of the three questions each item belongs to.</p>
+</header>
+
+<p class="legend" role="note">
+  <span class="legend-item legend-feedback">Asked</span>
+  <span class="legend-item legend-decision">Decided</span>
+  <span class="legend-item legend-outcome">Outcome</span>
+</p>
+
+<section class="timeline" aria-labelledby="tl-head">
+  <h2 class="section-head" id="tl-head">What happened, and when</h2>
+  {% if m._timeline %}
+  <ol class="tl-list">
+    {% for e in m._timeline %}
+    <li class="tl-item">{{ parts.event_card(e, 'h3') }}</li>
+    {% endfor %}
+  </ol>
+  {% else %}
+  <p class="empty">Nothing with a settled date yet.</p>
+  {% endif %}
+</section>
+
+{% if m._waiting %}
+<section class="timeline waiting-section" aria-labelledby="waiting-head">
+  <h2 class="section-head" id="waiting-head">Still waiting</h2>
+  <p class="section-intro">These were promised, expected, or asked for, and we have not found any
+    public record that they have happened. They sit at the end because they have no finish date.</p>
+  <ol class="tl-list">
+    {% for e in m._waiting %}
+    <li class="tl-item">{{ parts.event_card(e, 'h3') }}</li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+<p class="jump"><a href="../index.html">Back to {{ m.topic.name }}</a></p>
+{% endblock %}
