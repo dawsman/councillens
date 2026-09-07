@@ -41,6 +41,19 @@
   --focus: #1B6B7A;
   --hatch: rgba(14, 37, 43, 0.07);
 
+  /* Two sets of stage colours, because a fill and a word need different
+     things. --mark-* are for shapes: validated for colour-blind separation
+     and for 3:1 against the surface behind them. --text-* are the same three
+     stages darkened until small text passes AA. Never swap them over. */
+  --mark-asked: #0F5C6B;
+  --mark-decided: #C08A00;
+  --mark-done: #046C52;
+  --mark-none: #6B8085;
+  --text-asked: #0F5C6B;
+  --text-decided: #7A5300;
+  --text-done: #046C52;
+  --text-none: #4A5F64;
+
   --font-display: "Zilla Slab", Rockwell, "Roboto Slab", Georgia, serif;
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif;
@@ -79,6 +92,15 @@
     --link: #7ED4E4;
     --focus: #9FE3F0;
     --hatch: rgba(231, 239, 239, 0.08);
+
+    --mark-asked: #5EC6D8;
+    --mark-decided: #FFC63D;
+    --mark-done: #4FE0B6;
+    --mark-none: #93A9AD;
+    --text-asked: #7ED4E4;
+    --text-decided: #FFC63D;
+    --text-done: #4FE0B6;
+    --text-none: #A2B8BC;
   }
 }
 
@@ -298,9 +320,14 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
    headline of the page. */
 @media (min-width: 62rem) {
   main.wrap > * { max-width: 42rem; }
-  main.wrap > .answers { max-width: none; }
+  main.wrap > .answers,
+  main.wrap > .tracker,
+  main.wrap > .figures,
+  main.wrap > .ribbon-wrap,
+  main.wrap > .changes { max-width: none; }
 }
-.event p, .bridge p, .gap p, .source p, .remit p, .topic-item p, .council-card p {
+.event p, .bridge p, .gap p, .source p, .remit p, .topic-item p, .council-card p,
+.step p, .figure p, .change p, .linkviz p, .docstrip p, .rib-key p {
   max-width: none;
 }
 .event-detail, .bridge-quote, .bridge-why, .prov { max-width: none; }
@@ -333,9 +360,9 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   padding: 0 0 1.4rem 1.15rem;
 }
 .answer:last-child { padding-bottom: 0.2rem; }
-.answer-feedback { --stage: var(--teal); }
-.answer-decision { --stage: var(--amber); }
-.answer-outcome  { --stage: var(--green); }
+.answer-feedback { --stage: var(--mark-asked); }
+.answer-decision { --stage: var(--mark-decided); }
+.answer-outcome  { --stage: var(--mark-done); }
 
 .answer-marker {
   display: flex;
@@ -484,7 +511,7 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
 .status-dot {
   width: 0.65rem; height: 0.65rem;
   border-radius: 50%;
-  background: var(--amber);
+  background: var(--mark-decided);
   flex: none;
   transform: translateY(-0.05rem);
 }
@@ -506,9 +533,9 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   background: var(--line-strong);
   flex: none;
 }
-.stage-feedback .stage-rule { background: var(--teal); }
-.stage-decision .stage-rule { background: var(--amber); }
-.stage-outcome  .stage-rule { background: var(--green); }
+.stage-feedback .stage-rule { background: var(--mark-asked); }
+.stage-decision .stage-rule { background: var(--mark-decided); }
+.stage-outcome  .stage-rule { background: var(--mark-done); }
 
 /* ----------------------------------------------------------- event cards -- */
 
@@ -521,9 +548,9 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   padding: 1rem 1.2rem 1.05rem;
   margin: 0 0 1rem;
 }
-.event-feedback { --stage: var(--teal); }
-.event-decision { --stage: var(--amber); }
-.event-outcome  { --stage: var(--green); }
+.event-feedback { --stage: var(--mark-asked); }
+.event-decision { --stage: var(--mark-decided); }
+.event-outcome  { --stage: var(--mark-done); }
 
 /* Unfinished business gets a texture, not just a word. The hatch means one
    thing on this site and this is the only place it is used. */
@@ -757,9 +784,9 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   border-radius: 1px;
   background: var(--line-strong);
 }
-.legend-feedback::before { background: var(--teal); }
-.legend-decision::before { background: var(--amber); }
-.legend-outcome::before { background: var(--green); }
+.legend-feedback::before { background: var(--mark-asked); }
+.legend-decision::before { background: var(--mark-decided); }
+.legend-outcome::before { background: var(--mark-done); }
 
 .tl-list { display: grid; gap: 0; margin-top: 1.1rem; }
 .tl-item { margin: 0; }
@@ -830,3 +857,655 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   .event, .bridge, .source { break-inside: avoid; }
   a::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
 }
+
+/* ==========================================================================
+   The at-a-glance layer
+   Six small pictures that summarise what the cards below already say.
+
+   Rules that hold across all of them:
+   - Stage colour is never the only signal. Every marker sits beside a word,
+     and every unfinished thing is dashed or hatched as well as labelled.
+   - --mark-* colours fill shapes; --text-* colours set type. They are not
+     interchangeable: the amber that reads well as a 16px block fails as
+     13px text, which is why there are two of each.
+   - Nothing here animates, and nothing here needs JavaScript.
+   ========================================================================== */
+
+/* ------------------------------------------------- asked / decided / done -- */
+
+.tracker {
+  margin: 0 0 2.25rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding-block: 1.3rem 1.15rem;
+}
+.tracker-head {
+  font-size: var(--step-2);
+  margin: 0 0 1.1rem;
+}
+
+.steps { list-style: none; margin: 0; padding: 0; }
+
+.step {
+  --stage: var(--line-strong);
+  --stage-text: var(--ink-soft);
+  position: relative;
+  padding: 0 0 1.35rem 2rem;
+}
+.step:last-child { padding-bottom: 0; }
+
+.step-feedback { --stage: var(--mark-asked); --stage-text: var(--text-asked); }
+.step-decision { --stage: var(--mark-decided); --stage-text: var(--text-decided); }
+.step-outcome  { --stage: var(--mark-done); --stage-text: var(--text-done); }
+
+.step-rail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1.15rem;
+  margin: 0;
+}
+.step-node {
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background: var(--stage);
+  border: 2px solid var(--surface);
+  box-sizing: border-box;
+}
+/* A step with unfinished business is a ring, not a disc: it is started, not
+   closed. A step with nothing on record is a dashed outline. */
+.step.is-active .step-node,
+.step.is-partly .step-node,
+.step.is-waiting .step-node {
+  background: var(--paper);
+  border: 0.34rem solid var(--stage);
+}
+.step.is-upcoming .step-node,
+.step.is-none .step-node,
+.step.is-undated .step-node {
+  background: transparent;
+  border: 2px dashed var(--line-strong);
+}
+.step-rail::before {
+  content: "";
+  position: absolute;
+  left: calc(0.575rem - 1.5px);
+  top: 1.55rem;
+  bottom: -0.15rem;
+  width: 3px;
+  background: var(--stage);
+}
+.step.rail-pending .step-rail::before {
+  background: repeating-linear-gradient(
+    to bottom, var(--line-strong) 0 5px, transparent 5px 10px);
+}
+.step:last-child .step-rail::before { display: none; }
+
+.step-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.6rem;
+  margin: 0 0 0.15rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-2);
+  line-height: 1.2;
+}
+.step-state {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--stage);
+  color: var(--stage-text);
+  white-space: nowrap;
+}
+.step.is-waiting .step-state,
+.step.is-none .step-state,
+.step.is-undated .step-state,
+.step.is-upcoming .step-state {
+  border-style: dashed;
+  border-color: var(--line-strong);
+  color: var(--ink-soft);
+}
+.step-when {
+  margin: 0 0 0.2rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.step-headline { margin: 0 0 0.35rem; }
+.step-headline a { text-decoration-thickness: 1px; }
+.step-empty { color: var(--ink-soft); }
+.step-extra {
+  margin: 0 0 0.35rem;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+.step-next {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  margin: 0.45rem 0 0;
+  font-size: var(--step--1);
+}
+.step-next-label { font-weight: 700; color: var(--ink-soft); }
+.step-next-when { font-weight: 600; font-variant-numeric: tabular-nums; }
+.step-next-in {
+  background: var(--amber-wash);
+  border: 1px solid var(--amber-edge);
+  border-radius: 999px;
+  padding: 0.05rem 0.5rem;
+  font-weight: 700;
+  color: var(--amber-ink);
+}
+
+.tracker-next {
+  margin: 1.1rem 0 0.3rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--amber-wash);
+  border-left: 4px solid var(--amber-edge);
+  border-radius: 2px;
+  max-width: none;
+}
+.tracker-next-none {
+  background: var(--surface-sunk);
+  border-left-color: var(--line-strong);
+  border-left-style: dashed;
+  color: var(--ink-soft);
+}
+.tracker-asof {
+  margin: 0.6rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
+@media (min-width: 52rem) {
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 1.6rem;
+    align-items: start;
+  }
+  .step { padding: 0; }
+  .step-rail { position: relative; width: auto; height: 1.15rem; margin-bottom: 0.7rem; }
+  .step-node { top: 0; }
+  .step-rail::before {
+    left: 1.45rem;
+    right: -1.6rem;
+    top: calc(0.575rem - 1.5px);
+    bottom: auto;
+    width: auto;
+    height: 3px;
+  }
+  .step.rail-pending .step-rail::before {
+    background: repeating-linear-gradient(
+      to right, var(--line-strong) 0 5px, transparent 5px 10px);
+  }
+  .step-label { font-size: var(--step-1); }
+}
+
+/* ---------------------------------------------- the same three, shrunk down */
+
+.mini {
+  list-style: none;
+  margin: 0.7rem 0 0.55rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+.mini-step {
+  --stage: var(--line-strong);
+  display: grid;
+  gap: 0.1rem;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+}
+.mini-feedback { --stage: var(--mark-asked); }
+.mini-decision { --stage: var(--mark-decided); }
+.mini-outcome  { --stage: var(--mark-done); }
+.mini-bar {
+  height: 0.4rem;
+  border-radius: 1px;
+  background: var(--stage);
+  margin-bottom: 0.15rem;
+}
+.mini-step:not(.is-reached) .mini-bar {
+  background: repeating-linear-gradient(
+    to right, var(--line-strong) 0 4px, transparent 4px 8px);
+}
+.mini-label { font-weight: 700; }
+.mini-state { color: var(--ink-soft); }
+.mini-next {
+  margin: 0 0 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.council-topiclist { list-style: none; margin: 0 0 0.7rem; padding: 0; display: grid; gap: 0.9rem; }
+.council-topic-name { margin: 0 0 0.1rem; font-weight: 600; }
+
+/* -------------------------------------------------------- the key numbers -- */
+
+.figures { margin: 0 0 2.25rem; }
+.figures-head { font-size: var(--step-2); margin: 0 0 0.2rem; }
+
+.figure-grid {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 44rem) {
+  .figure-grid { grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+}
+.figure {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--mark-asked);
+  border-radius: var(--radius);
+  padding: 0.8rem 0.9rem 0.95rem;
+}
+/* One accent for every tile. Colouring a tile by the kind of number it holds
+   would be a code with nothing to decode it against. */
+.figure-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-5);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  margin: 0 0 0.2rem;
+  overflow-wrap: anywhere;
+}
+.figure-unit {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--ink-soft);
+}
+.figure-label { font-weight: 600; margin: 0 0 0.25rem; }
+.figure-when {
+  margin: 0 0 0.35rem;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.figure-note {
+  margin: 0 0 0.45rem;
+  font-size: var(--step--1);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.figure-src { margin: 0; font-size: var(--step--1); }
+/* A date spelled out is words, not a numeral, and does not want numeral size. */
+.figure-date .figure-value { font-size: var(--step-3); line-height: 1.15; }
+
+/* ----------------------------------------------------------- the ribbon --- */
+
+.ribbon-wrap { margin: 0 0 2.25rem; }
+
+/* Drawn only where it has room to be read. Below that the key list underneath
+   is the timeline, which is why the list is never hidden. */
+.ribbon { display: none; }
+@media (min-width: 62rem) {
+  .ribbon {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 1.2rem 0 0.4rem;
+  }
+}
+.rib-rail {
+  stroke: var(--line-strong);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.rib-rail-future { stroke-dasharray: 7 7; }
+.rib-node { stroke: var(--surface); stroke-width: 2; }
+.rib-node.rib-feedback { fill: var(--mark-asked); }
+.rib-node.rib-decision { fill: var(--mark-decided); }
+.rib-node.rib-outcome  { fill: var(--mark-done); }
+.rib-node-future {
+  fill: var(--paper);
+  stroke-width: 3.5;
+}
+.rib-node-future.rib-feedback { stroke: var(--mark-asked); }
+.rib-node-future.rib-decision { stroke: var(--mark-decided); }
+.rib-node-future.rib-outcome  { stroke: var(--mark-done); }
+.rib-title {
+  fill: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+}
+.rib-date {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 700;
+  fill: var(--ink-soft);
+}
+.rib-date.rib-feedback { fill: var(--text-asked); }
+.rib-date.rib-decision { fill: var(--text-decided); }
+.rib-date.rib-outcome  { fill: var(--text-done); }
+.rib-gap {
+  fill: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-style: italic;
+}
+.rib-today { stroke: var(--ink); stroke-width: 2; stroke-dasharray: 3 4; }
+.rib-today-label {
+  fill: var(--ink);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.rib-key { list-style: none; margin: 1rem 0 0; padding: 0; }
+.rib-key-item {
+  --stage: var(--line-strong);
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.1rem 0.75rem;
+  padding: 0.5rem 0 0.55rem 1.75rem;
+}
+.rib-key-feedback { --stage: var(--mark-asked); }
+.rib-key-decision { --stage: var(--mark-decided); }
+.rib-key-outcome  { --stage: var(--mark-done); }
+.rib-key-item::before {
+  content: "";
+  position: absolute;
+  left: calc(0.4rem - 1px);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--line);
+}
+.rib-key-item:first-child::before { top: 0.85rem; }
+.rib-key-item:last-child::before { bottom: auto; height: 0.85rem; }
+.rib-key-item.is-future::before {
+  background: repeating-linear-gradient(
+    to bottom, var(--line-strong) 0 4px, transparent 4px 8px);
+}
+.rib-key-dot {
+  position: absolute;
+  left: 0;
+  top: 0.62rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--stage);
+  box-sizing: border-box;
+}
+.is-future .rib-key-dot {
+  background: var(--paper);
+  border: 3px solid var(--stage);
+}
+.rib-key-date {
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.rib-key-title { grid-column: 1 / -1; font-weight: 600; }
+.rib-key-flag {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 0.15rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--surface-sunk);
+  border: 1px dashed var(--ink-soft);
+  border-radius: 999px;
+  padding: 0.05rem 0.55rem;
+}
+@media (min-width: 40rem) {
+  .rib-key-item { grid-template-columns: 8.5rem auto 1fr; }
+  .rib-key-date { grid-column: 1; }
+  .rib-key-title { grid-column: 2; }
+  .rib-key-flag { grid-column: 3; margin-top: 0; align-self: center; }
+}
+
+/* -------------------------------------------------- now beside proposed --- */
+
+.changes { margin: 0 0 1rem; }
+.changes-inforce {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.6rem;
+  margin: 1rem 0 0;
+  padding: 0.65rem 0.9rem;
+  background: var(--surface-sunk);
+  border-left: 4px solid var(--line-strong);
+  border-radius: 2px;
+  max-width: none;
+}
+.changes-inforce-label { font-weight: 700; font-size: var(--step--1); color: var(--ink-soft); }
+.changes-inforce-date { font-size: var(--step--1); color: var(--ink-soft); }
+
+.change-rows { list-style: none; margin: 0.85rem 0 0; padding: 0; display: grid; gap: 0.8rem; }
+.change {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem 1rem;
+  display: grid;
+  gap: 0.55rem;
+  align-items: center;
+}
+.change-side { border-radius: 2px; padding: 0.6rem 0.8rem; }
+.change-now {
+  background: var(--surface-sunk);
+  border-left: 4px solid var(--line-strong);
+}
+.change-proposed {
+  background: var(--amber-wash);
+  border-left: 4px solid var(--amber-edge);
+}
+.change-cap {
+  margin: 0 0 0.2rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.change-text {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: 1.35;
+}
+/* Drawn, not typed: a glyph arrow would need rotating on a phone and would be
+   read out by a screen reader. */
+.change-arrow {
+  justify-self: center;
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 0.6rem solid var(--line-strong);
+}
+.change-context {
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+@media (min-width: 44rem) {
+  .change { grid-template-columns: 1fr 2.4rem 1fr; column-gap: 0; }
+  .change-context { grid-column: 1 / -1; margin-top: 0.15rem; }
+  .change-arrow {
+    align-self: center;
+    border-left: 0.6rem solid var(--line-strong);
+    border-right: 0;
+    border-top: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid transparent;
+  }
+}
+
+.change-also { margin-top: 1.1rem; }
+.change-also-head { font-size: var(--step-1); margin-bottom: 0.4rem; }
+.change-also-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--ink-soft);
+  max-width: var(--measure);
+}
+.change-also-list li { margin-bottom: 0.3rem; }
+
+/* ------------------------------------------------- how strong the links are */
+
+.linkviz {
+  margin: 1.2rem 0 1.75rem;
+  padding: 1rem 1.15rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.linkviz-head { font-size: var(--step-2); margin-bottom: 0.35rem; }
+.linkviz-intro { color: var(--ink-soft); margin-bottom: 0.2rem; }
+
+.linkbar {
+  display: flex;
+  gap: 2px;
+  height: 0.85rem;
+  margin: 0.95rem 0 1rem;
+  max-width: none;
+}
+.linkbar-seg { display: block; border-radius: 2px; min-width: 0.5rem; }
+.linkbar-confirmed { background: var(--mark-done); }
+/* Tier is carried by texture as well as hue: solid, hatched, dotted — the same
+   three treatments the linkage cards further down the page use. */
+/* Solid, hatched, dotted — the same three treatments the linkage cards use
+   for their borders, so the strip and the cards read as one system. */
+.linkbar-possible {
+  background: var(--mark-decided);
+  background-image: repeating-linear-gradient(
+    45deg, rgba(255, 255, 255, 0.34) 0 1.5px, transparent 1.5px 7px);
+}
+.linkbar-none {
+  background: var(--mark-none);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1.2px);
+  background-size: 6px 6px;
+}
+
+.linktally { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.65rem; }
+.linktally-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.1rem 0.65rem;
+  align-items: baseline;
+}
+.linktally-count {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-2);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.linktally-label { font-weight: 600; }
+.linktally-blurb {
+  grid-column: 1 / -1;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.linktally-item.is-zero .linktally-count,
+.linktally-item.is-zero .linktally-label { color: var(--ink-soft); }
+.linkviz-more { margin: 1rem 0 0; font-weight: 600; }
+
+/* ------------------------------------------------ every document, counted -- */
+
+.docstrip { margin: 1.1rem 0 1.6rem; }
+.docstrip-head { font-size: var(--step-2); margin-bottom: 0.3rem; }
+.docstrip-intro { color: var(--ink-soft); font-size: var(--step--1); }
+
+.docgroups {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+@media (min-width: 40rem) {
+  .docgroups { grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); }
+}
+.docgroup {
+  --stage: var(--line-strong);
+  --stage-text: var(--ink-soft);
+  border-top: 4px solid var(--stage);
+  padding-top: 0.6rem;
+}
+.docgroup-feedback { --stage: var(--mark-asked); --stage-text: var(--text-asked); }
+.docgroup-decision { --stage: var(--mark-decided); --stage-text: var(--text-decided); }
+.docgroup-outcome  { --stage: var(--mark-done); --stage-text: var(--text-done); }
+.docgroup-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0 0 0.55rem;
+}
+.docgroup-count {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-3);
+  line-height: 1;
+  color: var(--stage-text);
+  font-variant-numeric: tabular-nums;
+}
+.docgroup-label { font-weight: 700; }
+.doctiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.doctile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-top: 3px solid var(--stage);
+  border-radius: 2px;
+  font-size: var(--step--1);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  text-decoration: none;
+}
+.doctile:hover { background: var(--teal-wash); border-color: var(--teal); }
+
+/* ------------------------------------------------------ printing the viz --- */
+
+@media print {
+  .ribbon { display: block; }
+  .tracker, .figure, .change, .linkviz, .docgroup { break-inside: avoid; }
+}
+
+.linktally-emoji { margin-right: 0.4rem; font-size: 0.72em; }

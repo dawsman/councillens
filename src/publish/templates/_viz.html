@@ -1,0 +1,257 @@
+{# ------------------------------------------------------------------ #}
+{# The at-a-glance layer: pictures of what the cards below say.        #}
+{#                                                                    #}
+{# Every macro here is fed by build.py and degrades to nothing when    #}
+{# the data is missing. None of them assert anything the record does   #}
+{# not: unfinished business is dashed, hatched and labelled, and       #}
+{# "today" is the build date, never the reader's clock.                #}
+{# ------------------------------------------------------------------ #}
+
+
+{# -- asked -> decided -> done, with the real state of each ---------- #}
+{% macro tracker(p) %}
+<section class="tracker" aria-labelledby="tracker-head">
+  <h2 class="tracker-head" id="tracker-head">Where this stands</h2>
+  <ol class="steps">
+    {% for step in p.steps %}
+    <li class="step step-{{ step.stage }} is-{{ step.state }}{% if step.highlight %} is-next{% endif %}{% if step.reached %} is-reached{% endif %} rail-{{ step.connector }}">
+      <p class="step-rail" aria-hidden="true"><span class="step-node"></span></p>
+      <p class="step-label">
+        {{ step.label }}
+        <span class="step-state">{{ step.state_word }}</span>
+      </p>
+      {% if step.when %}<p class="step-when">{{ step.when }}</p>{% endif %}
+      {% if step.headline %}
+      <p class="step-headline">
+        {% if step.anchor %}<a href="#{{ step.anchor }}">{{ step.headline }}</a>{% else %}{{ step.headline }}{% endif %}
+      </p>
+      {% else %}
+      <p class="step-headline step-empty">Nothing in the public record yet.</p>
+      {% endif %}
+      {% if step.extra %}<p class="step-extra">{{ step.extra }}</p>{% endif %}
+      {% if step.next %}
+      <p class="step-next">
+        <span class="step-next-label">Next</span>
+        <span class="step-next-when">{{ step.next.when }}</span>
+        {% if step.next.countdown %}<span class="step-next-in">{{ step.next.countdown }}</span>{% endif %}
+      </p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+  {% if p.next %}
+  <p class="tracker-next">
+    <strong>Next date in the diary: {{ p.next.when }}{% if p.next.countdown %}, {{ p.next.countdown }}{% endif %}.</strong>
+    {% if p.next.anchor %}<a href="#{{ p.next.anchor }}">{{ p.next.title }}</a>{% else %}{{ p.next.title }}{% endif %}
+  </p>
+  {% else %}
+  <p class="tracker-next tracker-next-none">Nothing further is in the diary that we can find.</p>
+  {% endif %}
+  <p class="tracker-asof">Drawn as at {{ p.today_human }}, the day this page was last built.</p>
+</section>
+{% endmacro %}
+
+
+{# -- the same three steps, shrunk to fit inside a card -------------- #}
+{% macro mini_tracker(p, label) %}
+<ul class="mini" aria-label="{{ label }}">
+  {% for step in p.steps %}
+  <li class="mini-step mini-{{ step.stage }} is-{{ step.state }}{% if step.reached %} is-reached{% endif %}">
+    <span class="mini-bar" aria-hidden="true"></span>
+    <span class="mini-label">{{ step.label }}</span>
+    <span class="mini-state">{{ step.state_word }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% if p.next %}
+<p class="mini-next">Next: {{ p.next.when }}{% if p.next.countdown %} — {{ p.next.countdown }}{% endif %}</p>
+{% endif %}
+{% endmacro %}
+
+
+{# -- key numbers, each traceable to a document ---------------------- #}
+{% macro figures(figs) %}
+{% if figs %}
+<section class="figures" aria-labelledby="figures-head">
+  <h2 class="figures-head" id="figures-head">The numbers so far</h2>
+  <ul class="figure-grid">
+    {% for f in figs %}
+    <li class="figure figure-{{ f._kind }}">
+      <p class="figure-value">{{ f._display }}{% if f._unit %}<span class="figure-unit">{{ f._unit }}</span>{% endif %}</p>
+      <p class="figure-label">{{ f.label }}</p>
+      {% if f._when %}<p class="figure-when">{{ f._when }}</p>{% endif %}
+      {% if f.note %}<p class="figure-note">{{ f.note }}</p>{% endif %}
+      {% if f.source_url %}
+      <p class="figure-src"><a href="{{ f.source_url }}">Where this comes from</a></p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endmacro %}
+
+
+{# -- the time ribbon: the shape of the record, then the same in words #}
+{% macro ribbon(r) %}
+{% if r %}
+<section class="ribbon-wrap" aria-labelledby="ribbon-head">
+  <h2 class="section-head" id="ribbon-head">How it has unfolded</h2>
+  <p class="section-intro">Each marker is a document we found, in the order things happened. The
+    time between them is written underneath. Anything to the right of today has not happened yet.</p>
+  <svg class="ribbon" viewBox="0 0 {{ r.width }} {{ r.height }}" role="presentation" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+    <line class="rib-rail" x1="{{ r.start_x }}" y1="{{ r.rail_y }}" x2="{{ r.today_x or r.end_x }}" y2="{{ r.rail_y }}"/>
+    {% if r.today_x %}
+    <line class="rib-rail rib-rail-future" x1="{{ r.today_x }}" y1="{{ r.rail_y }}" x2="{{ r.end_x }}" y2="{{ r.rail_y }}"/>
+    {% endif %}
+    {% for g in r.gaps %}
+    <text class="rib-gap{% if g.future %} rib-future{% endif %}" x="{{ g.x }}" y="{{ r.rail_y + 26 }}" text-anchor="middle">{{ g.text }}</text>
+    {% endfor %}
+    {% for n in r.nodes %}
+    {% for line in n.lines %}
+    <text class="rib-title" x="{{ n.x }}" y="{{ 34 + loop.index0 * 19 }}" text-anchor="middle">{{ line }}</text>
+    {% endfor %}
+    <text class="rib-date rib-{{ n.stage }}" x="{{ n.x }}" y="{{ r.rail_y - 22 }}" text-anchor="middle">{{ n.short }}</text>
+    <circle class="rib-node rib-{{ n.stage }}{% if n.future %} rib-node-future{% endif %}" cx="{{ n.x }}" cy="{{ n.y }}" r="9"/>
+    {% endfor %}
+    {% if r.today_x %}
+    <line class="rib-today" x1="{{ r.today_x }}" y1="{{ r.rail_y - 34 }}" x2="{{ r.today_x }}" y2="{{ r.rail_y + 38 }}"/>
+    <text class="rib-today-label" x="{{ r.today_x }}" y="{{ r.rail_y + 56 }}" text-anchor="middle">Today, {{ r.today_short }}</text>
+    {% endif %}
+  </svg>
+  <ol class="rib-key">
+    {% for n in r.nodes %}
+    <li class="rib-key-item rib-key-{{ n.stage }}{% if n.future %} is-future{% endif %}">
+      <span class="rib-key-dot" aria-hidden="true"></span>
+      <span class="rib-key-date">{{ n.when }}</span>
+      <a class="rib-key-title" href="#{{ n.anchor }}">{{ n.title }}</a>
+      {% if n.future %}<span class="rib-key-flag">not yet happened</span>{% endif %}
+    </li>
+    {% endfor %}
+    {% for e in r.undated %}
+    <li class="rib-key-item rib-key-{{ e.stage }} is-future is-undated">
+      <span class="rib-key-dot" aria-hidden="true"></span>
+      <span class="rib-key-date">No date</span>
+      <a class="rib-key-title" href="#{{ e.id }}">{{ e.title }}</a>
+      <span class="rib-key-flag">still waiting</span>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+{% endmacro %}
+
+
+{# -- current policy set beside what is proposed --------------------- #}
+{% macro changes(c) %}
+{% if c %}
+<section class="changes" aria-labelledby="changes-head">
+  <h2 class="section-head" id="changes-head">
+    {% if c.adopted %}What changed{% else %}What would change{% endif %}
+  </h2>
+  <p class="section-intro">
+    {% if c.adopted %}
+    Taken word for word from the council's own committee papers. These are the changes that made it
+    into the policy now in force.
+    {% elif c.in_force %}
+    Taken word for word from the council's own committee papers. None of it is settled: the draft has
+    not been adopted, so the older policy below is still the one that counts.
+    {% else %}
+    Taken word for word from the council's own committee papers. None of it is settled, and we have
+    found nothing on record saying any of it has been adopted.
+    {% endif %}
+  </p>
+  {% if c.in_force %}
+  <p class="changes-inforce">
+    <span class="changes-inforce-label">In force right now</span>
+    <a href="#{{ c.in_force.id }}">{{ c.in_force.title }}</a>
+    <span class="changes-inforce-date">{{ c.in_force._date_human }}</span>
+  </p>
+  {% endif %}
+  {% if c.paired %}
+  <ul class="change-rows">
+    {% for item in c.paired %}
+    <li class="change change-{{ item.kind }}">
+      <div class="change-side change-now">
+        <p class="change-cap">{% if item.kind == 'pair' %}Wording now{% else %}Item{% endif %}</p>
+        <p class="change-text">{{ item.now }}</p>
+      </div>
+      <span class="change-arrow" aria-hidden="true"></span>
+      <div class="change-side change-proposed">
+        <p class="change-cap">{% if item.kind == 'pair' %}Proposed wording{% else %}Agreed at committee{% endif %}</p>
+        <p class="change-text">{{ item.proposed }}</p>
+      </div>
+      {% if item.context %}<p class="change-context">{{ item.context }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% if c.plain %}
+  <div class="change-also">
+    <h3 class="change-also-head">Also raised, with nothing settled yet</h3>
+    <ul class="change-also-list">
+      {% for item in c.plain %}
+      <li>{{ item.proposed }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</section>
+{% endif %}
+{% endmacro %}
+
+
+{# -- how many links we could stand behind --------------------------- #}
+{% macro linkage_summary(ls) %}
+{% if ls %}
+<aside class="linkviz" aria-labelledby="linkviz-head">
+  <h3 class="linkviz-head" id="linkviz-head">Did what people said change anything?</h3>
+  <p class="linkviz-intro">We checked {{ ls.total }} possible connection{{ '' if ls.total == 1 else 's' }} between
+    feedback and a decision. Here is how far the council's own record backs each one up.</p>
+  <p class="linkbar" aria-hidden="true">
+    {% for row in ls.rows %}
+    {% if row.count %}
+    <span class="linkbar-seg linkbar-{{ row.tier }}" style="flex-grow: {{ row.count }}"></span>
+    {% endif %}
+    {% endfor %}
+  </p>
+  <ul class="linktally">
+    {% for row in ls.rows %}
+    <li class="linktally-item linktally-{{ row.tier }}{% if not row.count %} is-zero{% endif %}">
+      <span class="linktally-count"><span class="linktally-emoji" aria-hidden="true">{{ row.emoji }}</span>{{ row.count }}</span>
+      <span class="linktally-label">{{ row.label }}{{ '' if row.count == 1 else 's' }}</span>
+      <span class="linktally-blurb">{{ row.blurb }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="linkviz-more"><a href="#the-record">See the evidence behind each one</a></p>
+</aside>
+{% endif %}
+{% endmacro %}
+
+
+{# -- every document, as a strip you can count ----------------------- #}
+{% macro documents(d) %}
+{% if d %}
+<section class="docstrip" aria-labelledby="docstrip-head">
+  <h3 class="docstrip-head" id="docstrip-head">{{ d.total }} document{{ '' if d.total == 1 else 's' }}, grouped by what they tell us</h3>
+  <p class="docstrip-intro">Each square is one public document, numbered to match the list below. Follow a
+    square to what we made of it, or the list below to the document itself.</p>
+  <ul class="docgroups">
+    {% for g in d.groups %}
+    <li class="docgroup docgroup-{{ g.stage }}">
+      <p class="docgroup-head">
+        <span class="docgroup-count">{{ g.count }}</span>
+        <span class="docgroup-label">{{ g.label }}</span>
+      </p>
+      <ul class="doctiles">
+        {% for s in g.docs %}
+        <li><a class="doctile" href="#{{ s.id }}" title="{{ s.title }}"><span class="visually-hidden">Document {{ s._n }}: </span>{{ s._n }}<span class="visually-hidden"> — {{ s.title }}</span></a></li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endmacro %}

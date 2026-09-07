@@ -24,9 +24,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -292,6 +293,10 @@ def prepare(model: dict) -> dict:
     for i, s in enumerate(sources):
         if not s.get("id"):
             s["id"] = f"source-{i + 1}"
+        # The number the document carries in the numbered list further down the
+        # page. The documents strip reuses it, so a tile and a list entry are
+        # visibly the same document.
+        s["_n"] = i + 1
         s["_ai"] = provenance(s["ai"])
     model["sources"] = sources
 
@@ -329,7 +334,519 @@ def prepare(model: dict) -> dict:
         status_line = "We are still gathering the record for this topic."
     model["_status_line"] = status_line
     model["_counts"] = {s: len(stages[s]) for s in STAGES}
+
+    # The at-a-glance layer, all derived from what is already above.
+    today = build_date(model)
+    model["_today"] = today
+    model["_figures"] = prepare_figures(model)
+    model["_progress"] = prepare_progress(model, today)
+    model["_ribbon"] = prepare_ribbon(model, today)
+    model["_changes"] = prepare_changes(model, today)
+    model["_linkage_summary"] = prepare_linkage_summary(model)
+    model["_documents"] = prepare_document_strip(model)
     return model
+
+
+
+# ==========================================================================
+# The at-a-glance layer
+#
+# Everything below turns the topic model into small, honest pictures: a
+# progress tracker, a strip of key numbers, a time ribbon, a "what would
+# change" comparison, a linkage tally and a documents strip.
+#
+# Three rules hold throughout:
+#   1. Nothing is invented. Every number, date and phrase is read out of the
+#      model; if the model does not have it, the visual says so or disappears.
+#   2. Nothing is drawn as finished that is not finished. Anything dated after
+#      the build date, or flagged still_waiting, is dashed and hatched.
+#   3. "Today" is the model's generated_at date, never the clock, so two
+#      builds of the same data produce byte-identical pages.
+# ==========================================================================
+
+FIGURE_OPTIONAL = {
+    "label": "Unlabelled figure", "kind": "count", "value": None, "unit": None,
+    "display": None, "as_of": None, "period": None, "source_ids": [],
+    "source_url": None, "note": None, "ai": None,
+}
+
+# Wording for each step of the tracker. The key is (stage, state).
+STEP_STATE = {
+    "done": "On record",
+    "active": "Under way",
+    "upcoming": "Coming up",
+    "undated": "Date not known",
+    "none": "Nothing found yet",
+    "finished": "Done",
+    "partly": "Partly done",
+    "waiting": "Still waiting",
+}
+
+
+def as_date(value: Any) -> date | None:
+    """Turn a full or partial date string into a real date for comparisons.
+
+    A month-only date counts from the first of that month, a year-only date
+    from 1 January. That is only ever used for ordering and for working out
+    what is past or future; the text on the page still says "December 2021".
+    """
+    if not value:
+        return None
+    bits = str(value).strip().split("-")
+    try:
+        year = int(bits[0])
+        month = int(bits[1]) if len(bits) > 1 else 1
+        day = int(bits[2]) if len(bits) > 2 else 1
+        return date(year, month, day)
+    except (ValueError, IndexError):
+        return None
+
+
+def build_date(model: dict) -> date:
+    """The "today" the page is drawn against: the model's own generated_at."""
+    stamp = str(model.get("generated_at") or "")[:10]
+    return as_date(stamp) or date.today()
+
+
+def in_days(today: date, when: date | None) -> int | None:
+    if not when:
+        return None
+    return (when - today).days
+
+
+def countdown(days: int | None) -> str | None:
+    """Plain English for a number of days away. Residents, not developers."""
+    if days is None:
+        return None
+    if days == 0:
+        return "today"
+    if days == 1:
+        return "tomorrow"
+    if days == -1:
+        return "yesterday"
+    if days < 0:
+        return f"{abs(days)} days ago"
+    if days < 21:
+        return f"in {days} days"
+    weeks = round(days / 7)
+    if days < 60:
+        return f"in about {weeks} weeks"
+    months = round(days / 30.4)
+    if days < 350:
+        return f"in about {months} months"
+    years = days / 365.25
+    return f"in about {years:.0f} years" if years >= 1.5 else "in about a year"
+
+
+def gap_words(a: date, b: date) -> str | None:
+    """How long between two dates, said the way a person would say it."""
+    days = (b - a).days
+    if days < 25:
+        return None if days < 8 else f"{days} days later"
+    months = round(days / 30.4)
+    if months < 12:
+        return f"{months} month{'s' if months != 1 else ''} later"
+    years, rem = divmod(months, 12)
+    if rem == 0:
+        return f"{years} year{'s' if years != 1 else ''} later"
+    return f"{years} year{'s' if years != 1 else ''}, {rem} month{'s' if rem != 1 else ''} later"
+
+
+def money(value: Any, display: str | None) -> str | None:
+    """Format a money figure as a person reads it. display wins if given."""
+    if display:
+        return display
+    try:
+        n = float(value)
+    except (TypeError, ValueError):
+        return None
+    if abs(n) >= 1_000_000:
+        return f"\u00a3{n / 1_000_000:.1f}m".replace(".0m", "m")
+    if abs(n) >= 1_000:
+        return f"\u00a3{n / 1_000:,.0f}k"
+    return f"\u00a3{n:,.0f}"
+
+
+def prepare_figures(model: dict) -> list[dict]:
+    """Key numbers, ready to render. Absent or malformed figures cost nothing."""
+    out = []
+    for i, raw in enumerate(model.get("figures") or []):
+        if not isinstance(raw, dict):
+            continue
+        f = fill(dict(raw), FIGURE_OPTIONAL)
+        f.setdefault("id", f"fig-{i + 1}")
+        if not f.get("id"):
+            f["id"] = f"fig-{i + 1}"
+        kind = f.get("kind") or "count"
+        value = f.get("value")
+        if kind == "money":
+            shown = money(value, f.get("display"))
+        elif f.get("display"):
+            shown = str(f["display"])
+        elif isinstance(value, (int, float)):
+            shown = f"{value:,g}" + ("%" if kind == "share" else "")
+        elif value is not None:
+            shown = str(value)
+        else:
+            shown = None
+        if shown is None:
+            # A figure with no readable value is not a figure. Drop it rather
+            # than print an empty tile.
+            continue
+        f["_display"] = shown
+        f["_kind"] = kind if kind in ("count", "money", "duration", "share", "date") else "count"
+        # Only a money or count figure carries a unit worth repeating; a share
+        # already has its % in the number.
+        f["_unit"] = f.get("unit") if kind in ("count", "duration") else None
+        if f["_unit"] and str(f["_unit"]).upper() == "GBP":
+            f["_unit"] = None
+        when = f.get("period") or f.get("as_of")
+        f["_when"] = (
+            f"{f['period']}" if f.get("period")
+            else (f"as at {human_date(f['as_of'])}" if f.get("as_of") else None)
+        )
+        f["_ai"] = provenance(f.get("ai"))
+        out.append(f)
+    return out
+
+
+def step_for(stage: str, events: list[dict], today: date) -> dict:
+    """One step of the asked -> decided -> done tracker, read from the events."""
+    dated = [(as_date(e.get("date")), e) for e in events if as_date(e.get("date"))]
+    dated.sort(key=lambda pair: pair[0])
+    past = [pair for pair in dated if pair[0] <= today]
+    future = [pair for pair in dated if pair[0] > today]
+    waiting = [e for e in events if is_waiting(e)]
+    finished = [e for e in events if e.get("status") == "done"]
+
+    step: dict[str, Any] = {
+        "stage": stage,
+        "label": STAGE_LABEL[stage],
+        "question": STAGE_QUESTION[stage],
+        "count": len(events),
+        "headline": None,
+        "when": None,
+        "anchor": None,
+        "extra": None,
+        "next": None,
+    }
+
+    if stage == "outcome":
+        if finished and waiting:
+            state = "partly"
+        elif finished:
+            state = "finished"
+        elif waiting:
+            state = "waiting"
+        elif past:
+            state = "done"
+        elif events:
+            state = "undated"
+        else:
+            state = "none"
+        anchor_event = (finished or [e for _, e in reversed(past)] or events or [None])[0]
+        if finished and waiting:
+            step["extra"] = (
+                f"{len(finished)} done \u00b7 {len(waiting)} still waiting"
+            )
+        elif waiting and not finished:
+            step["extra"] = (
+                f"{len(waiting)} thing{'s' if len(waiting) != 1 else ''} we are still waiting on"
+            )
+    else:
+        if past and future:
+            state = "active"
+        elif past:
+            state = "done"
+        elif future:
+            state = "upcoming"
+        elif events:
+            state = "undated"
+        else:
+            state = "none"
+        anchor_event = past[-1][1] if past else (future[0][1] if future else (events[0] if events else None))
+
+    if anchor_event:
+        step["headline"] = anchor_event.get("title")
+        step["when"] = anchor_event.get("_date_human")
+        step["anchor"] = anchor_event.get("id")
+
+    if future:
+        when, event = future[0]
+        step["next"] = {
+            "title": event.get("title"),
+            "when": event.get("_date_human"),
+            "anchor": event.get("id"),
+            "countdown": countdown(in_days(today, when)),
+            "date": when,
+        }
+
+    step["state"] = state
+    step["state_word"] = STEP_STATE[state]
+    # Reached means: there is something real on the record at this stage.
+    step["reached"] = state in ("done", "active", "finished", "partly", "undated")
+    step["open"] = state in ("active", "waiting", "partly", "upcoming")
+    return step
+
+
+def prepare_progress(model: dict, today: date) -> dict:
+    steps = [step_for(s, model["_stages"][s], today) for s in STAGES]
+    upcoming = [s["next"] for s in steps if s["next"]]
+    upcoming.sort(key=lambda n: n["date"])
+    nxt = upcoming[0] if upcoming else None
+    for i, step in enumerate(steps):
+        step["highlight"] = bool(nxt and step["next"] and step["next"]["date"] == nxt["date"])
+        # The connector to the step on its right is only drawn solid when there
+        # is something real at that next step. A dashed rail says "we have not
+        # got there yet" without any wording having to.
+        step["connector"] = (
+            "solid" if i + 1 < len(steps) and steps[i + 1]["reached"] else "pending"
+        )
+    return {"steps": steps, "next": nxt, "today_human": human_date(today.isoformat(), "day")}
+
+
+def prepare_ribbon(model: dict, today: date) -> dict | None:
+    """Geometry for the horizontal time ribbon drawn at desktop widths.
+
+    Milestones sit at even spacing, not on a proportional axis: with a gap of
+    years between two events and three more a fortnight apart, a true axis
+    puts four labels on top of each other and tells the reader nothing. The
+    real elapsed time is written out between the nodes instead, which is both
+    legible and impossible to misread.
+    """
+    dated = [(as_date(e.get("date")), e) for e in model["_events"] if as_date(e.get("date"))]
+    dated.sort(key=lambda pair: pair[0])
+    if len(dated) < 2:
+        return None
+
+    width, pad = 1000.0, 92.0
+    rail_y = 96.0
+    span = width - pad * 2
+    n = len(dated)
+    nodes = []
+    for i, (when, event) in enumerate(dated):
+        x = pad + (span * i / (n - 1))
+        future = when > today
+        nodes.append({
+            "x": round(x, 1),
+            "y": rail_y,
+            "stage": event.get("stage") or "other",
+            "future": future,
+            "title": event.get("title") or "",
+            "when": event.get("_date_human"),
+            "short": short_date(event.get("date"), event.get("date_precision")),
+            "anchor": event.get("id"),
+            "lines": wrap_label(event.get("title") or "", 24, 2),
+            "up": i % 2 == 0,
+        })
+
+    gaps = []
+    for i in range(n - 1):
+        words = gap_words(dated[i][0], dated[i + 1][0])
+        if words:
+            gaps.append({
+                "x": round((nodes[i]["x"] + nodes[i + 1]["x"]) / 2, 1),
+                "text": words,
+                "future": dated[i + 1][0] > today,
+            })
+
+    # Where does "today" fall along the rail? Interpolate inside the segment
+    # it lands in, so the marker sits honestly between the right two nodes.
+    today_x = None
+    if dated[0][0] <= today <= dated[-1][0]:
+        for i in range(n - 1):
+            a, b = dated[i][0], dated[i + 1][0]
+            if a <= today <= b:
+                frac = 0 if b == a else (today - a).days / (b - a).days
+                today_x = round(nodes[i]["x"] + frac * (nodes[i + 1]["x"] - nodes[i]["x"]), 1)
+                break
+    elif today > dated[-1][0]:
+        today_x = round(nodes[-1]["x"], 1)
+
+    # Keep the "Today" flag from sitting on top of a node label.
+    for node in nodes:
+        if today_x is not None and abs(node["x"] - today_x) < 34:
+            today_x = round(node["x"] + (38 if node["x"] < width / 2 else -38), 1)
+            break
+
+    undated = [e for e in model["_events"] if not as_date(e.get("date")) and e["_waiting"]]
+    return {
+        "width": width,
+        "height": 176,
+        "rail_y": rail_y,
+        "start_x": pad - 44,
+        "end_x": width - pad + 44,
+        "nodes": nodes,
+        "gaps": gaps,
+        "today_x": today_x,
+        "today_human": human_date(today.isoformat(), "day"),
+        "today_short": short_date(today.isoformat(), "day"),
+        "open_x": round(nodes[-1]["x"], 1),
+        "undated": undated,
+    }
+
+
+def short_date(value: Any, precision: str | None = None) -> str:
+    """A date short enough to sit under a marker: '5 Mar 26', 'Dec 21'."""
+    if not value:
+        return "no date"
+    bits = str(value).split("-")
+    try:
+        year = bits[0][2:]
+        if len(bits) >= 3 and precision != "month" and precision != "year":
+            return f"{int(bits[2])} {MONTHS[int(bits[1]) - 1][:3]} {year}"
+        if len(bits) >= 2:
+            return f"{MONTHS[int(bits[1]) - 1][:3]} {year}"
+        return bits[0]
+    except (ValueError, IndexError):
+        return str(value)
+
+
+def wrap_label(text: str, width: int, max_lines: int) -> list[str]:
+    """Greedy wrap for SVG text, which will not wrap itself."""
+    words, lines, line = text.split(), [], ""
+    for word in words:
+        candidate = f"{line} {word}".strip()
+        if len(candidate) <= width or not line:
+            line = candidate
+        else:
+            lines.append(line)
+            line = word
+            if len(lines) == max_lines:
+                break
+    if line and len(lines) < max_lines:
+        lines.append(line)
+    if len(lines) == max_lines and len(" ".join(lines)) < len(text.strip()):
+        lines[-1] = lines[-1].rstrip(" ,;:.") + "\u2026"
+    return lines
+
+
+CHANGE_QUOTED = re.compile(
+    r"from\s+[\u2018\u201c'\"](?P<now>[^\u2019\u201d'\"]{2,90})[\u2019\u201d'\"]"
+    r"\s+to\s+[\u2018\u201c'\"](?P<proposed>[^\u2019\u201d'\"]{2,90})[\u2019\u201d'\"]",
+    re.I,
+)
+CHANGE_LABELLED = re.compile(r"^(?P<label>[^:]{3,58}):\s+(?P<value>.{2,})$")
+
+
+def parse_change(bullet: str) -> dict:
+    """Read a committee-paper bullet as a before/after pair where it is one.
+
+    Council papers write changes two ways: "from 'x' to 'y'", and
+    "Thing: what happened to it". Both become two columns. Anything else stays
+    a single plain sentence rather than being forced into a shape it is not.
+    """
+    text = (bullet or "").strip()
+    quoted = CHANGE_QUOTED.search(text)
+    if quoted:
+        return {
+            "kind": "pair",
+            "now": quoted.group("now").strip(),
+            "proposed": quoted.group("proposed").strip(),
+            "context": text,
+        }
+    labelled = CHANGE_LABELLED.match(text)
+    if labelled and "http" not in text:
+        return {
+            "kind": "labelled",
+            "now": labelled.group("label").strip(),
+            "proposed": labelled.group("value").strip(),
+            "context": None,
+        }
+    return {"kind": "plain", "now": None, "proposed": text, "context": None}
+
+
+def prepare_changes(model: dict, today: date) -> dict | None:
+    """The "what would change" comparison, built entirely from event detail."""
+    proposals = []
+    for event in model["_stages"]["decision"]:
+        when = as_date(event.get("date"))
+        # Only meetings that have actually happened can have changed anything.
+        # A meeting still to come contributes nothing to this comparison.
+        if when and when > today:
+            continue
+        for bullet in (event.get("detail") or []):
+            item = parse_change(bullet)
+            item["anchor"] = event.get("id")
+            item["title"] = event.get("title")
+            item["when"] = event.get("_date_human")
+            item["source_url"] = event.get("source_url")
+            proposals.append(item)
+    if not proposals:
+        return None
+
+    in_force = None
+    for event in model["_stages"]["outcome"]:
+        if event.get("status") == "done":
+            in_force = event
+            break
+
+    # "Adopted" means the decisions have actually landed in something in force:
+    # every decision meeting has happened, and the policy in force is dated at
+    # or after the last of them. An outstanding review elsewhere does not make
+    # an adopted policy un-adopted, and a policy that predates the decisions is
+    # not the thing those decisions produced.
+    decision_dates = [d for d in (as_date(e.get("date")) for e in model["_stages"]["decision"]) if d]
+    in_force_date = as_date(in_force.get("date")) if in_force else None
+    adopted = bool(
+        in_force_date
+        and decision_dates
+        and max(decision_dates) <= today
+        and in_force_date >= max(decision_dates)
+    )
+    return {
+        "items": proposals,
+        "paired": [p for p in proposals if p["kind"] != "plain"],
+        "plain": [p for p in proposals if p["kind"] == "plain"],
+        "in_force": in_force,
+        "adopted": adopted,
+    }
+
+
+def prepare_linkage_summary(model: dict) -> dict | None:
+    order = ("confirmed", "possible", "none")
+    counts = {tier: 0 for tier in order}
+    for link in model["_linkages"]:
+        counts[link["_tier_key"]] = counts.get(link["_tier_key"], 0) + 1
+    total = sum(counts.values())
+    if not total:
+        return None
+    rows = []
+    for tier in order:
+        count = counts[tier]
+        rows.append({
+            "tier": tier,
+            "count": count,
+            "share": round(100 * count / total, 1),
+            "emoji": TIER[tier]["emoji"],
+            "label": TIER[tier]["label"],
+            "blurb": TIER[tier]["blurb"],
+        })
+    strongest = "confirmed" if counts["confirmed"] else ("possible" if counts["possible"] else "none")
+    return {"rows": rows, "total": total, "counts": counts, "strongest": strongest}
+
+
+def prepare_document_strip(model: dict) -> dict | None:
+    """Every document we used, grouped by the stage it speaks to."""
+    if not model["_sources"]:
+        return None
+    groups = []
+    for stage in STAGES:
+        docs = [s for s in model["_sources"] if s.get("stage") == stage]
+        groups.append({
+            "stage": stage,
+            "label": STAGE_LABEL[stage],
+            "heading": STAGE_HEADING[stage],
+            "docs": docs,
+            "count": len(docs),
+        })
+    loose = [s for s in model["_sources"] if s.get("stage") not in STAGES]
+    if loose:
+        groups.append({
+            "stage": "other", "label": "Background", "heading": "Background documents",
+            "docs": loose, "count": len(loose),
+        })
+    return {"groups": [g for g in groups if g["count"]], "total": len(model["_sources"])}
 
 
 def group_councils(models: Iterable[dict]) -> list[dict]:

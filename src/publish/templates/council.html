@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "_viz.html" as viz with context %}
 
 {% block title %}{{ council.council.name }} — CouncilLens{% endblock %}
 {% block description %}What {{ council.council.name }} was asked, what it decided, and what happened next.{% endblock %}
@@ -39,6 +40,7 @@
     <li class="topic-item">
       <h3><a href="{{ m._topic_slug }}/index.html">{{ m.topic.name }}</a></h3>
       <p class="topic-plain">{{ m.topic.plain_english }}</p>
+      {{ viz.mini_tracker(m._progress, "Progress on " ~ m.topic.name) }}
       <p class="topic-status"><span class="status-dot" aria-hidden="true"></span>{{ m._status_line }}</p>
       <p class="topic-counts">{{ m._counts.feedback }} piece{{ '' if m._counts.feedback == 1 else 's' }} of
         feedback, {{ m._counts.decision }} decision{{ '' if m._counts.decision == 1 else 's' }},
