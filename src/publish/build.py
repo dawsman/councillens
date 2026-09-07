@@ -340,6 +340,17 @@ def prepare(model: dict) -> dict:
     model["_today"] = today
     model["_figures"] = prepare_figures(model)
     model["_progress"] = prepare_progress(model, today)
+
+    # The one-line status is written above from raw counts, which cannot tell a
+    # result of this process from the state it started in. Now that the tracker
+    # has worked that out, the sentence has to agree with it.
+    outcome_step = model["_progress"]["steps"][2]
+    if outcome_step["state"] == "superseded":
+        still = len([e for e in stages["outcome"] if is_waiting(e)])
+        model["_status_line"] = (
+            f"Nothing new yet — what was already in place stays in force, "
+            f"with {still} thing{'s' if still != 1 else ''} still waiting."
+        )
     model["_ribbon"] = prepare_ribbon(model, today)
     model["_changes"] = prepare_changes(model, today)
     model["_linkage_summary"] = prepare_linkage_summary(model)
@@ -380,6 +391,7 @@ STEP_STATE = {
     "finished": "Done",
     "partly": "Partly done",
     "waiting": "Still waiting",
+    "superseded": "Nothing new yet",
 }
 
 
@@ -510,7 +522,8 @@ def prepare_figures(model: dict) -> list[dict]:
     return out
 
 
-def step_for(stage: str, events: list[dict], today: date) -> dict:
+def step_for(stage: str, events: list[dict], today: date,
+             first_decision: date | None = None) -> dict:
     """One step of the asked -> decided -> done tracker, read from the events."""
     dated = [(as_date(e.get("date")), e) for e in events if as_date(e.get("date"))]
     dated.sort(key=lambda pair: pair[0])
@@ -532,7 +545,21 @@ def step_for(stage: str, events: list[dict], today: date) -> dict:
     }
 
     if stage == "outcome":
-        if finished and waiting:
+        # A "done" outcome that predates every decision on the record is not a
+        # result of this process at all: it is the state of play the process is
+        # trying to change. Calling that "partly done" beside a decision still
+        # waiting to be made would tell the reader something happened when
+        # nothing has. So it gets its own state, and says what still applies.
+        finished_dates = [as_date(e.get("date")) for e in finished]
+        superseding = bool(
+            finished
+            and waiting
+            and first_decision
+            and all(d and d < first_decision for d in finished_dates)
+        )
+        if superseding:
+            state = "superseded"
+        elif finished and waiting:
             state = "partly"
         elif finished:
             state = "finished"
@@ -545,10 +572,14 @@ def step_for(stage: str, events: list[dict], today: date) -> dict:
         else:
             state = "none"
         anchor_event = (finished or [e for _, e in reversed(past)] or events or [None])[0]
-        if finished and waiting:
+        waiting_words = f"{len(waiting)} still waiting"
+        if superseding:
             step["extra"] = (
-                f"{len(finished)} done \u00b7 {len(waiting)} still waiting"
+                f"Current policy from {anchor_event['_date_human']} still applies"
+                f" \u00b7 {waiting_words}"
             )
+        elif finished and waiting:
+            step["extra"] = f"{len(finished)} done \u00b7 {waiting_words}"
         elif waiting and not finished:
             step["extra"] = (
                 f"{len(waiting)} thing{'s' if len(waiting) != 1 else ''} we are still waiting on"
@@ -585,12 +616,14 @@ def step_for(stage: str, events: list[dict], today: date) -> dict:
     step["state_word"] = STEP_STATE[state]
     # Reached means: there is something real on the record at this stage.
     step["reached"] = state in ("done", "active", "finished", "partly", "undated")
-    step["open"] = state in ("active", "waiting", "partly", "upcoming")
+    step["open"] = state in ("active", "waiting", "partly", "upcoming", "superseded")
     return step
 
 
 def prepare_progress(model: dict, today: date) -> dict:
-    steps = [step_for(s, model["_stages"][s], today) for s in STAGES]
+    decision_dates = [d for d in (as_date(e.get("date")) for e in model["_stages"]["decision"]) if d]
+    first_decision = min(decision_dates) if decision_dates else None
+    steps = [step_for(s, model["_stages"][s], today, first_decision) for s in STAGES]
     upcoming = [s["next"] for s in steps if s["next"]]
     upcoming.sort(key=lambda n: n["date"])
     nxt = upcoming[0] if upcoming else None

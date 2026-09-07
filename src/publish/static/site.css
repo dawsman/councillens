@@ -921,6 +921,7 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
    closed. A step with nothing on record is a dashed outline. */
 .step.is-active .step-node,
 .step.is-partly .step-node,
+.step.is-superseded .step-node,
 .step.is-waiting .step-node {
   background: var(--paper);
   border: 0.34rem solid var(--stage);
@@ -969,6 +970,7 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   white-space: nowrap;
 }
 .step.is-waiting .step-state,
+.step.is-superseded .step-state,
 .step.is-none .step-state,
 .step.is-undated .step-state,
 .step.is-upcoming .step-state {
