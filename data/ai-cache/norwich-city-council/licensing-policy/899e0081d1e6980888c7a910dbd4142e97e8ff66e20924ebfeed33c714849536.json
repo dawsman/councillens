@@ -1,0 +1,39 @@
+{
+  "kind": "event",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "id": "evt-decision-2026-03-11",
+    "stage": "decision",
+    "date": "2026-03-11",
+    "date_precision": "day",
+    "title": "Cabinet approved the consultation, and took up the committee's request on women's safety",
+    "summary": "Cabinet met on 11 March 2026 and dealt with licensing as item 9. It resolved to “Authorise the revised draft Statement of Licensing Policy to commences public consultation” and, as a second limb, to “Consider exploring additional steps to address the safety of women and girls through the consultation process” — the recommendation the Licensing committee had asked it to take six days earlier, which reached the meeting as a tabled paper.",
+    "detail": [
+      "The report Cabinet approved proposed consulting “for 12 weeks from 11 May 2026 to 7 August 2026”. The consultation actually opened a week later, on 18 May, and closed on 9 August.",
+      "Asked how the draft policy makes venues rather than the police responsible for customer safety, the Leader answered that it “has been deliberately strengthened to require active safeguarding measures”, and named schemes including Ask for Angela and WAVE training.",
+      "This was permission to ask the public, not a decision on the policy. The report says that after the consultation the policy “is required to be approved by Full Council”."
+    ],
+    "source_ids": [
+      "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026",
+      "cabinet-2026-03-11--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
+      "cabinet-2026-03-11"
+    ],
+    "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1530/Committee/1/Default.aspx",
+    "status": null
+  },
+  "ai": {
+    "source_ids": [
+      "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026",
+      "cabinet-2026-03-11--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
+      "cabinet-2026-03-11"
+    ],
+    "prompt_version": "event-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T00:20:00+00:00",
+    "cache_key": "899e0081d1e6980888c7a910dbd4142e97e8ff66e20924ebfeed33c714849536"
+  }
+}

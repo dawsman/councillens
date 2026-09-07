@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "source_id": "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+    "summary": "The General Fund half of Norwich's 2026-2027 budget, as taken to Cabinet. It sets out what the council plans to spend and raise across every service, and an appendix at the back splits the provisional budget service by service. Licensing gets no line of its own: it is folded into planning and regulatory services, budgeted at £5.44m of spending against £2.45m of gross income, leaving £2.99m net to be met from the council's general funding."
+  },
+  "ai": {
+    "source_ids": [
+      "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "independent AI review against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
+    "cache_key": "dabcf709c5b3279d02e9c618cd34e52293f4eb1d73b3d3412b3bf727509df025"
+  }
+}

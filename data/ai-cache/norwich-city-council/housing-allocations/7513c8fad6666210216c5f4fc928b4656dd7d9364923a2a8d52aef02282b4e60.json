@@ -1,0 +1,26 @@
+{
+  "kind": "linkage",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "from_event": "evt-feedback-2025-11-10",
+    "to_event": "evt-decision-2026-01-15",
+    "tier": "possible",
+    "evidence": "The Housing Options Manager explained that the proposed changes had been subject to consultation. 72 responses had been received and were detailed in the report.",
+    "evidence_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=9PnEnmlpuBjqnOT%2fQvCklRKeb1R2mh1NkxSKD45uGSd9D5%2fYnFfVxA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+    "explanation": "The minutes show the consultation was in front of the committee, which is why this is not a blank. But nothing in them says the committee changed anything because of what people said: it suggested no changes to the proposals, and the one recommendation it did make, on the no-garden rule, is not attributed to the consultation anywhere in the record."
+  },
+  "ai": {
+    "source_ids": [
+      "housing-scrutiny-2026-01-15--scrutiny-minutes-15-january-2026",
+      "housing-consultation-home-options"
+    ],
+    "prompt_version": "linkage-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T23:40:00+00:00",
+    "cache_key": "7513c8fad6666210216c5f4fc928b4656dd7d9364923a2a8d52aef02282b4e60"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "kind": "gap",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "id": "g-2021-adoption-record",
+    "stage": "outcome",
+    "description": "The full Council meeting in December 2021 that adopted the current policy. The policy itself says it took effect on 17 December 2021, and the officer's report confirms Council adopted it that month, so the fact is well evidenced. We could not find the meeting record itself to link to."
+  },
+  "ai": {
+    "source_ids": [
+      "adopted-licensing-policy-2021",
+      "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+    ],
+    "prompt_version": "gap-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
+    "cache_key": "0eaaf1b21eb5e2aa62a067f076e296ef66f048afde4b719837fe3b15cdd662cf"
+  }
+}

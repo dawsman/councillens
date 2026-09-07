@@ -1,0 +1,23 @@
+{
+  "kind": "gap",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "id": "g-amendment-not-in-draft",
+    "stage": "decision",
+    "description": "An explanation of one loose end. Councillors agreed on 5 March that paragraphs 7.1 and 7.4 should read 'appropriate and proportionate'. In the draft published for consultation on 18 May, both paragraphs still read 'necessary and proportionate'. We found no record saying whether the change was made later, dropped, or simply missed, so this needs checking with the council."
+  },
+  "ai": {
+    "source_ids": [
+      "licensing-committee-2026-03-05--minutes-of-the-licensing-committee-meeting-held-on-5-march-2026",
+      "consultation-licensing-policy--draft-licensing-policy-for-consultation-full-version"
+    ],
+    "prompt_version": "gap-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T20:15:00+00:00",
+    "cache_key": "b56934fd1faefcdcfa6e27d822a558f404e5ba7c9b02641bde37e481d475a366"
+  }
+}

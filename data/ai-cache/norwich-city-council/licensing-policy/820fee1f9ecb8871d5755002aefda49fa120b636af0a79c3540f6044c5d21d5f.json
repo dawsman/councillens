@@ -1,0 +1,37 @@
+{
+  "kind": "event",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "id": "evt-decision-2026-09-17",
+    "stage": "decision",
+    "date": "2026-09-17",
+    "date_precision": "day",
+    "title": "Still to come: the meeting where the consultation results are due",
+    "summary": "The Licensing committee is due to meet on 17 September 2026, and the council has said the responses will come back to it in a report. On 7 September 2026 the meeting page showed no documents at all. Until the papers appear, nobody outside the council knows what the responses said or what officers will recommend.",
+    "detail": [
+      "Officers told the March committee that agreement would be sought at this meeting to recommend the policy to full council."
+    ],
+    "source_ids": [
+      "licensing-committee-2026-09-17",
+      "consultation-licensing-policy",
+      "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+    ],
+    "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1727/Committee/6/Default.aspx",
+    "status": null
+  },
+  "ai": {
+    "source_ids": [
+      "licensing-committee-2026-09-17",
+      "consultation-licensing-policy",
+      "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+    ],
+    "prompt_version": "event-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
+    "cache_key": "820fee1f9ecb8871d5755002aefda49fa120b636af0a79c3540f6044c5d21d5f"
+  }
+}

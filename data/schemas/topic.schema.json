@@ -28,7 +28,7 @@
         "cache_key": {
           "type": "string",
           "pattern": "^[0-9a-f]{64}$",
-          "description": "sha256 over the item key, the source sha256s and the prompt version. See src/analyse/README.md."
+          "description": "sha256 over the item key, the sha256 of each source document's extracted text, and the prompt version. See src/analyse/README.md."
         }
       }
     },

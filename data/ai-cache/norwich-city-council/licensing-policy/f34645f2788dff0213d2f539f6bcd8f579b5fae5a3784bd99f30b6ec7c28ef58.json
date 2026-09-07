@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "licensing-policy",
+  "payload": {
+    "source_id": "adopted-licensing-policy-2021",
+    "summary": "The licensing policy that is actually in force in Norwich today, approved by full council in December 2021 and running to 79 pages. It sets out how the council decides applications to sell alcohol, put on regulated entertainment or serve hot food between 11pm and 5am, what conditions may be attached to a licence, and how licences are reviewed and enforced, with pools of model conditions for each of the four licensing objectives. It took effect on 17 December 2021 and, on its own terms, runs for no more than five years — which is why a replacement has to be in place by December 2026. The council publishes it as a PDF download."
+  },
+  "ai": {
+    "source_ids": [
+      "adopted-licensing-policy-2021"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "medium",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
+    "cache_key": "f34645f2788dff0213d2f539f6bcd8f579b5fae5a3784bd99f30b6ec7c28ef58"
+  }
+}

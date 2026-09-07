@@ -71,16 +71,40 @@ slugify = cfg.slugify
 short_name = cfg.short_name
 
 
-def cache_key(item_key, sha256s, prompt_version):
-    """sha256 over the item's identity, the sha256 of every source it was written
-    from, and the prompt version.
+def text_fingerprint(record):
+    """The sha256 of a document's extracted text — what a cache key is built on.
 
-    Including the source hashes is what makes the cache self-invalidating: edit a
-    council document and re-fetch it, and the key no longer matches, so the stale
-    summary is flagged instead of being quietly reused. Including the item key
-    keeps two outputs written from the same documents (two events off one set of
-    minutes, say) in separate files."""
-    joined = "|".join([item_key] + sorted(sha256s) + [prompt_version])
+    Not the sha256 of the file as downloaded. Committee and consultation
+    platforms stamp their pages with session tokens, view-state blobs and
+    timestamps that change on every request, so two fetches of an unchanged
+    agenda have two different raw hashes while the words a reader sees are
+    byte-identical. Keying the cache on raw bytes therefore marked reviewed work
+    stale for no reason at all. The extracted text is what an AI output was
+    actually written from, so it is what the key should track: the text moves,
+    the key moves; the page's plumbing moves, the key holds.
+
+    The raw sha256 stays in the canonical record, where it belongs — it is the
+    provenance of the download, the proof of what arrived.
+
+    A record with no extracted text (nothing we could read out of the file) falls
+    back to its raw hash, so an unreadable document still invalidates when it
+    changes."""
+    text = record.get("text")
+    if text:
+        return hashlib.sha256(text.encode("utf-8")).hexdigest()
+    return record.get("sha256", "")
+
+
+def cache_key(item_key, text_hashes, prompt_version):
+    """sha256 over the item's identity, the text fingerprint of every source it
+    was written from, and the prompt version.
+
+    Including the source fingerprints is what makes the cache self-invalidating:
+    change what a council document says, re-fetch it, and the key no longer
+    matches, so the stale summary is flagged instead of being quietly reused.
+    Including the item key keeps two outputs written from the same documents (two
+    events off one set of minutes, say) in separate files."""
+    joined = "|".join([item_key] + sorted(text_hashes) + [prompt_version])
     return hashlib.sha256(joined.encode("utf-8")).hexdigest()
 
 
@@ -168,7 +192,8 @@ def build(council_name, topic_config_name, documents, topic_config):
     council_slug = slugify(council_name)
     topic_slug = slugify(topic_config_name)
 
-    hashes_by_id = {d["id"]: d.get("sha256", "") for d in documents if d.get("id")}
+    # Keyed on the extracted text, not the downloaded bytes — see text_fingerprint.
+    hashes_by_id = {d["id"]: text_fingerprint(d) for d in documents if d.get("id")}
 
     cache_dir = CACHE_ROOT / council_slug / topic_slug
     cache, cache_problems = load_cache(cache_dir)

@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "source_id": "housing-consultation-home-options",
+    "summary": "The council's consultation page on Get Talking Norwich, covering two policies at once: a new homelessness strategy and the Home Options rules for allocating council homes. It says the consultation was open “from Monday 10 November 2025 to Sunday 7 December 2025”, and offers a draft policy, a briefing note and an equality impact assessment to read before answering the survey. Since it closed the council has added a “you said, we did” update naming what it changed in the allocations proposal because of what people said. The page also gives two round numbers for housing pressure in Norwich — around 4,000 people waiting for social housing and over 1,200 enquiries a month — without saying when either was counted."
+  },
+  "ai": {
+    "source_ids": [
+      "housing-consultation-home-options"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T23:40:00+00:00",
+    "cache_key": "9f2e224b59c3d19bad1d5ee35326c62aea3abf92ebed110fb19624c1d5618966"
+  }
+}

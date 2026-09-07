@@ -57,30 +57,58 @@ Five kinds, and what each `payload` carries:
 ## How `cache_key` is worked out
 
 ```
-cache_key = sha256( item_key | sorted(source sha256s) | prompt_version )
+cache_key = sha256( item_key | sorted(source text fingerprints) | prompt_version )
 ```
 joined with `|`, hex digest, lowercase.
 
-- `item_key` is the source id for a summary, the event id for an event,
-  `<from_event>><to_event>` for a linkage, `gap:<gap id>` for a gap, and
-  `topic:<council-slug>/<topic-slug>` for the overview.
-- the source sha256s are taken from the manifest, for exactly the documents
-  listed in `ai.source_ids`, sorted so the order they were listed in cannot
-  change the key.
+- `item_key` is the source id for a summary, the event id for an event, the
+  figure id for a figure, `<from_event>><to_event>` for a linkage, `gap:<gap id>`
+  for a gap, and `topic:<council-slug>/<topic-slug>` for the overview.
+- a **text fingerprint** is `sha256` of the `text` field in
+  `data/processed/manifest.json` — the words the transform stage read out of the
+  document. Fingerprints are taken for exactly the documents listed in
+  `ai.source_ids`, sorted, so the order they were listed in cannot change the key.
+  A document with no extracted text falls back to its raw `sha256`.
 
-Two properties fall out of this, and both matter more than the key itself:
+### Why the extracted text and not the file
 
-**The cache invalidates itself.** Change a council document, re-fetch it, and its
-sha256 changes, so the key no longer matches. `build_topic.py` recomputes every
-key on every run. A mismatch means the output was written about a version of the
-document that no longer exists, so the item is marked `needs_review`, its
-confidence is dropped to `low`, and a gap is recorded saying it needs
-re-checking. The item is kept and flagged, never silently reused and never
-silently dropped.
+The obvious thing to hash is the document as it came down the wire, and that is
+what this used to do. It does not survive contact with council software. CMIS
+committee pages and EngagementHQ consultation pages stamp every response with
+session tokens, view-state blobs and a timestamp, so fetching the same unchanged
+agenda twice gives two different raw hashes. Under the old rule, one routine
+re-fetch would have marked every reviewed summary, event, comparison and figure
+on the site stale — dozens of items sent back for re-checking because a hidden
+form field moved.
+
+The extracted text is what the AI output was actually written from, so it is what
+the key should follow. The council changes its words, the fingerprint changes and
+the item is flagged. The platform reshuffles its plumbing and nothing happens,
+which is the correct amount of happening.
+
+The raw `sha256` has not gone anywhere: it stays in every canonical record, in
+the manifests and on the site, as the provenance of the download — proof of the
+exact bytes that arrived and when. It is a different job from cache invalidation,
+and conflating the two was the bug.
+
+Two properties fall out of the rule, and both matter more than the key itself:
+
+**The cache invalidates itself.** Change what a council document says, re-fetch
+it, and its fingerprint changes, so the key no longer matches. `build_topic.py`
+recomputes every key on every run. A mismatch means the output was written about
+a version of the document that no longer exists, so the item is marked
+`needs_review`, its confidence is dropped to `low`, and a gap is recorded saying
+it needs re-checking. The item is kept and flagged, never silently reused and
+never silently dropped.
 
 **Two outputs from the same documents stay separate.** Five events written off
 one set of minutes get five different keys, because the item key is part of the
 hash.
+
+The cache was re-keyed onto this rule in one pass by
+`scripts/migrate_cache_keys.py`, which rewrote `ai.cache_key` and the filename
+that mirrors it and left every payload alone. It has done its job and is kept for
+the record; there is no reason to run it again.
 
 ## What happens when something is missing
 
