@@ -349,8 +349,8 @@
       "summary": "The Scrutiny committee took the proposals on 15 January 2026. Officers told members the changes had been consulted on and that 72 responses had been received. The committee suggested no changes to the five proposals. It then went beyond what the report asked and, by a majority vote, resolved to “ask Cabinet to consider removing paragraph 3.8.7.3 from the proposed policy” — a rule already in the scheme, and not one of the changes officers had put forward.",
       "detail": [
         "Paragraph 3.8.7 gives silver band to a household with a child aged ten or under living in a flat or maisonette with no garden or private outdoor space. Paragraph 3.8.7.3 withholds it where the children were born after the family accepted the property.",
-        "The minutes give the committee's reason: “Several Members stated that the line in the policy was poorly worded”. Earlier in the discussion a member was “concerned housing arrangements did not facilitate shared custody of children and that children would be penalised for their parents' decision making”.",
-        "The committee also noted two actions: that more about the council's assessment panel — “the make up of the panel, its governance and decision-making processes” — be included in the policy, and that officers look for research on the effect of co-parenting in council-owned properties and report back at a later meeting.",
+        "The minutes record that “Several Members stated that the line in the policy was poorly worded”, and that earlier in the discussion a member was “concerned housing arrangements did not facilitate shared custody of children and that children would be penalised for their parents' decision making”.",
+        "The committee noted two further actions. It asked for more about the council's assessment panel — “the make up of the panel, its governance and decision-making processes” — to be written into the policy, and for officers to look for research on the effect of co-parenting in council-owned properties and report back at a later meeting.",
         "Officers were asked which changes the law required. The minutes record that “the addition of the realistic conversation and the reduction in number of refusals were Council additions, and the remaining changes were due to guidance and legislation”."
       ],
       "source_ids": [
@@ -381,12 +381,12 @@
       "date": "2026-02-11",
       "date_precision": "day",
       "title": "Cabinet adopted the updated scheme, and turned down Scrutiny's request",
-      "summary": "Cabinet met on 11 February 2026 and, as item 12, “RESOLVED to agree the adoption of the updated Home Options policy.” All five proposed changes went through. The one thing Scrutiny had asked for did not: the report records that the recommendation to remove section 3.8.7.3 “has been considered by the Portfolio Holder but is not accepted”.",
+      "summary": "Cabinet met on 11 February 2026 and, as item 12, “RESOLVED to agree the adoption of the updated Home Options policy.” All five proposed changes went through. The one thing Scrutiny had asked for did not. The report records that the recommendation to remove section 3.8.7.3 “has been considered by the Portfolio Holder but is not accepted”, and the Cabinet member for housing told the meeting that these are households who “made an active choice to move to a property without a garden”.",
       "detail": [
-        "What the consultation changed, in the council's own words: “In response to this concern and to mitigate such a risk, and in accordance with the National Plan to End Homelessness, we have amended the policy proposal to include a needs-led assessment and the use of professional judgement prior to the award of priority banding.”",
-        "Why the no-garden rule stayed: the Cabinet member for housing answered a councillor's question by saying “we are referring to households who made an active choice to move to a property without a garden”, and pointed families towards swapping homes with another tenant instead — “in 2025 alone, 160 council tenant households were able to move through this process”.",
-        "Two other consultation concerns were answered rather than acted on: that people without a local connection would be stuck longer in hostels, which the report says is covered by the council's hostel move-on agreement; and that veterans might be prioritised over disabled people, domestic abuse survivors or people in unsafe housing, which the report answers by citing the Armed Forces Covenant.",
-        "The report says the responses themselves “will be published, along with council comments, in an online report”."
+        "An applicant now has to have lived in Norwich for two years to join the register, rather than six months, with the exceptions set out in law still applying.",
+        "An applicant may now turn down three offers rather than five before the application is reviewed and may be cancelled for a year. People the council owes a homelessness duty still get a single offer, as the law requires.",
+        "Two other concerns raised in the consultation were answered rather than acted on. The report says that people without a local connection staying longer in hostels is covered by the council's hostel move-on agreement, and that prioritising veterans follows the Armed Forces Covenant, which the council has signed.",
+        "Cabinet pointed families in a flat with no garden towards swapping homes with another tenant instead, and gave a figure for how often that works — “in 2025 alone, 160 council tenant households were able to move through this process”."
       ],
       "source_ids": [
         "housing-cabinet-minutes-2026-02-11--minutes-of-the-cabinet-meeting-held-on-11-february-2026",
@@ -783,7 +783,7 @@
       "value": 14211,
       "unit": "homes",
       "display": "14,211",
-      "as_of": "2025-10-31",
+      "as_of": "2025-10",
       "period": null,
       "source_ids": [
         "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment"
