@@ -46,14 +46,14 @@ Eleven documents, every one fetched and read on 7 September 2026. Norwich owns a
 
 **What the council decided**
 
-- [Scrutiny committee, 15 January 2026](https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1561/Committee/4/Default.aspx) — the agenda and the minutes, which record the one thing anybody argued about
+- [Scrutiny committee, 15 January 2026](https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1561/Committee/4/Default.aspx) — the agenda and the minutes, which record the questions members put and the only change they pressed for
 - [Cabinet, 11 February 2026](https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1518/Committee/1/Default.aspx) — the agenda and the officer's report, whose appendices carry the proposed scheme, the equality impact assessment and the consultation figures
-- The minutes of that Cabinet meeting, which CMIS attaches to [the next meeting, on 11 March 2026](https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1530/Committee/1/Default.aspx), where they were confirmed
+- The minutes of that Cabinet meeting, which the 11 February page carries and which CMIS also lists under [the next meeting, on 11 March 2026](https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1530/Committee/1/Default.aspx), where they were confirmed. We fetched them from the March page
 
 **What is actually in force**
 
 - [The Home Options Allocation Scheme 2026](https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026), published the day after Cabinet agreed it
-- [The page you apply through](https://www.norwich.gov.uk/housing-and-community-safety/housing-advice-and-homelessness/applying-housing-norwich), which states the new two-year residence rule — the evidence that the scheme reached the counter and not just the website
+- [The page you apply through](https://www.norwich.gov.uk/housing-and-community-safety/housing-advice-and-homelessness/applying-housing-norwich), which states the new two-year residence rule, so the new rules are the ones an applicant meets today — though the page carries no date, so we cannot say when it changed
 
 Two pages were checked and left out, with the reason recorded in `config/sources/norwich-city-council/housing-allocations.yaml`: the index of adopted policies, which is a signpost rather than evidence about allocations, and the older allocation-scheme address the Cabinet report itself links to, which returns "Access denied" to the public. The second is left in the config rather than deleted, because a council report pointing residents at a page they cannot open is worth recording.
 

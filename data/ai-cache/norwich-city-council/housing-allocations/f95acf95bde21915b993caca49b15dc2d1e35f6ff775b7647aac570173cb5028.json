@@ -10,13 +10,14 @@
     "title": "What the changes have done has not been published",
     "summary": "The scheme has been in force since February 2026 and nothing the council has published says what it has changed: not how many applicants the two-year residence rule has kept off the register, and not how many people sleeping rough have been given silver band under the new needs-led assessment. The scheme says it “will be monitored directly by the Housing Options manager”, weighing application and bidding data and feedback from applicants, but it does not promise to publish any of it.",
     "detail": [
-      "The council also told Cabinet that the consultation responses “will be published, along with council comments, in an online report”. We could not find that report on the consultation page or among the committee papers in this archive.",
-      "Adopting a policy is a thing a council can finish. Knowing whether it worked is not, until somebody counts."
+      "The council also told Cabinet that the consultation responses “will be published, along with council comments, in an online report”. A public consultation report was published for the homelessness strategy the survey covered at the same time — it is on the consultation page and in the Cabinet papers — but no equivalent report for the allocations proposals has appeared.",
+      "The equality assessment sets a date. It says the impact of the policy will be reviewed a year after it started, in February 2027. Nothing from that review has been published, and it is the first thing worth looking for."
     ],
     "source_ids": [
       "housing-adopted-home-options-2026",
       "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
-      "housing-consultation-home-options"
+      "housing-consultation-home-options",
+      "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment"
     ],
     "source_url": "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026",
     "status": "still_waiting"
@@ -25,14 +26,15 @@
     "source_ids": [
       "housing-adopted-home-options-2026",
       "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
-      "housing-consultation-home-options"
+      "housing-consultation-home-options",
+      "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment"
     ],
     "prompt_version": "event-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
-    "cache_key": "2ac926c9dcfec454f3647234bdcbddbdf14295be536aac6d73076e1a04da2d8b"
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
+    "cache_key": "f95acf95bde21915b993caca49b15dc2d1e35f6ff775b7647aac570173cb5028"
   }
 }

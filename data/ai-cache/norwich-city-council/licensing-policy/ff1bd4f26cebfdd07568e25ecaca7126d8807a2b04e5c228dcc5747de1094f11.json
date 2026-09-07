@@ -4,7 +4,7 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "source_id": "cabinet-2026-03-11",
-    "summary": "The Cabinet meeting page for 11 March 2026. Licensing is item 9, “Draft Statement of Licensing Policy under the Licensing Act 2003 — to approve a public consultation”, sitting among twenty other items about local plans, contracts and debt write-offs. The page carries the officer's report, the four appendices, the tabled papers and, unusually for this committee system, the minutes of the meeting itself."
+    "summary": "The Cabinet meeting page for 11 March 2026. Licensing is item 9, “Draft Statement of Licensing Policy under the Licensing Act 2003”, and the purpose line says what it is for: “To approve a public consultation on the draft Statement of Licensing Policy”. It sits among twenty other items about local plans, contracts and debt write-offs. The page carries the officer's report, its three appendices, the tabled papers and the minutes of the meeting itself."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-08T00:20:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "ff1bd4f26cebfdd07568e25ecaca7126d8807a2b04e5c228dcc5747de1094f11"
   }
 }

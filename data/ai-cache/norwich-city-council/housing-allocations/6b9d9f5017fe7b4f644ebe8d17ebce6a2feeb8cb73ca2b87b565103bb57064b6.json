@@ -28,8 +28,8 @@
     "prompt_version": "event-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
     "generated_at": "2026-09-07T23:40:00+00:00",
     "cache_key": "6b9d9f5017fe7b4f644ebe8d17ebce6a2feeb8cb73ca2b87b565103bb57064b6"
   }

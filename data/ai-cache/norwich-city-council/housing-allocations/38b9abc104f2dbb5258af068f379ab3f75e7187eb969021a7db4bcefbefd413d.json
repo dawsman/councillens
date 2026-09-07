@@ -7,12 +7,13 @@
     "stage": "decision",
     "date": "2026-01-15",
     "date_precision": "day",
-    "title": "Scrutiny committee asked Cabinet to drop the no-garden rule",
-    "summary": "The Scrutiny committee took the proposals on 15 January 2026. Officers told members the changes had been consulted on and that 72 responses had been received. The committee suggested no changes to the five proposals. It then went beyond what the report asked and, by a majority vote, resolved to “ask Cabinet to consider removing paragraph 3.8.7.3 from the proposed policy” — a rule already in the scheme, and not one of the changes officers had put forward.",
+    "title": "Scrutiny committee asked Cabinet to delete the exception to the no-garden rule",
+    "summary": "The Scrutiny committee took the proposals on 15 January 2026. Officers told members the changes had been consulted on and that 72 responses had been received. The committee suggested no changes to the five proposals. It then went beyond what the report asked and, by a majority vote, resolved to “ask Cabinet to consider removing paragraph 3.8.7.3 from the proposed policy” — a rule already in the scheme, and not one of the changes officers had put forward. Deleting it would have widened who gets the extra priority, not narrowed it.",
     "detail": [
-      "Paragraph 3.8.7 gives silver band to a household with a child aged ten or under living in a flat or maisonette with no garden or private outdoor space. Paragraph 3.8.7.3 withholds it where the children were born after the family accepted the property.",
+      "Paragraph 3.8.7 gives silver band to a household with a child aged ten or under living in a flat or maisonette with no garden or private outdoor space. Paragraph 3.8.7.3 takes it back where the children were already born at the point the family accepted that property.",
       "The minutes record that “Several Members stated that the line in the policy was poorly worded”, and that earlier in the discussion a member was “concerned housing arrangements did not facilitate shared custody of children and that children would be penalised for their parents' decision making”.",
       "The committee noted two further actions. It asked for more about the council's assessment panel — “the make up of the panel, its governance and decision-making processes” — to be written into the policy, and for officers to look for research on the effect of co-parenting in council-owned properties and report back at a later meeting.",
+      "A member also asked whether the “honest and realistic conversations” the housing team has with applicants are guided by trauma-informed care practices. Officers said the council was part of a trauma-informed practice working group and took a person-centred approach.",
       "Officers were asked which changes the law required. The minutes record that “the addition of the realistic conversation and the reduction in number of refusals were Council additions, and the remaining changes were due to guidance and legislation”."
     ],
     "source_ids": [
@@ -32,9 +33,9 @@
     "prompt_version": "event-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "38b9abc104f2dbb5258af068f379ab3f75e7187eb969021a7db4bcefbefd413d"
   }
 }

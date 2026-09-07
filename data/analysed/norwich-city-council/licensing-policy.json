@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "generated_at": "2026-09-08T00:20:00+00:00",
+  "generated_at": "2026-09-08T01:30:00+00:00",
   "council": {
     "name": "Norwich City Council",
     "slug": "norwich-city-council",
@@ -18,7 +18,7 @@
     "slug": "licensing-policy",
     "plain_english": "The rules Norwich City Council follows when it decides who can sell alcohol, put on live music, films or other entertainment, and serve hot food after 11pm. The policy does not decide individual applications, but it sets out what the council will take into account when it does.",
     "questions": {
-      "asked": "People were asked for their views on a redrafted policy covering alcohol, entertainment and late-night food. The draft adds the 'agent of change' principle, so that developers building next to an existing pub or music venue deal with the noise rather than the venue; it adds commitments on the safety of women and girls and on staff getting home after late shifts; and where there is evidence of street drinking, the council and the police could ask off-licences to accept a condition limiting the sale of very strong alcohol. Sixty-seven responses to the survey came in before the consultation closed on 9 August 2026. What people actually said has not been published.",
+      "asked": "People were asked for their views on a redrafted policy covering alcohol, entertainment and late-night food. The draft adds the 'agent of change' principle, so that developers building next to an existing pub or music venue deal with the noise rather than the venue; it adds commitments on the safety of women and girls and on staff getting home after late shifts; and, because of rising street drinking, the police and the council could ask shops applying to sell alcohol for drinking elsewhere to accept a condition on how strong the drink they sell can be. Sixty-seven responses to the survey came in before the consultation closed on 9 August 2026. What people actually said has not been published.",
       "decided": "Two decisions so far. On 5 March 2026 the Licensing committee went through the draft, agreed a change to the wording on licence conditions, asked officers to look again at three further points — signage, logbook inspections and the paragraph numbering in one section — and recommended that Cabinet put the draft out to public consultation. It also asked Cabinet to consider further steps on the safety of women and girls during that consultation. Cabinet did both on 11 March 2026: it authorised the consultation and agreed to consider those further steps. Neither meeting decided the policy itself — after the consultation that goes to full council. The meeting where the responses are due, on 17 September 2026, had no papers published as of 7 September.",
       "done": "Nothing yet. The policy Norwich applies today is still the one full council approved in December 2021: it took effect on 17 December 2021 and, in its own words, runs for no more than five years. Officers proposed taking a final version to full council in November 2026 so a new policy could start on 1 December 2026, before the current one expires. Until that happens, we are still waiting."
     }
@@ -285,7 +285,7 @@
       "fetched_at": "2026-09-07T20:08:09+00:00",
       "sha256": "3b09c673c6a5a57f2c33f8791e4ba5d75e5c83406cd6eefd525889e7338e2cc9",
       "saved_to": "data/raw/cabinet-2026-03-11/page.html",
-      "summary": "The Cabinet meeting page for 11 March 2026. Licensing is item 9, “Draft Statement of Licensing Policy under the Licensing Act 2003 — to approve a public consultation”, sitting among twenty other items about local plans, contracts and debt write-offs. The page carries the officer's report, the four appendices, the tabled papers and, unusually for this committee system, the minutes of the meeting itself.",
+      "summary": "The Cabinet meeting page for 11 March 2026. Licensing is item 9, “Draft Statement of Licensing Policy under the Licensing Act 2003”, and the purpose line says what it is for: “To approve a public consultation on the draft Statement of Licensing Policy”. It sits among twenty other items about local plans, contracts and debt write-offs. The page carries the officer's report, its three appendices, the tabled papers and the minutes of the meeting itself.",
       "ai": {
         "source_ids": [
           "cabinet-2026-03-11"
@@ -293,9 +293,9 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-08T00:20:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "ff1bd4f26cebfdd07568e25ecaca7126d8807a2b04e5c228dcc5747de1094f11"
       }
     },
@@ -318,8 +318,8 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-08T00:20:00+00:00",
         "cache_key": "8f761c06f2dd4e42b6a94fd83ac1a2afb412b80ee1bfcc14871b7623777e308e"
       }
@@ -335,7 +335,7 @@
       "fetched_at": "2026-09-07T20:08:10+00:00",
       "sha256": "5720b6083deea5e7c770f90fa9a3011e83d54a29f96bc17698f2b8e22b146164",
       "saved_to": "data/raw/cabinet-2026-03-11/minutes-of-the-cabinet-meeting-held-on-11-march-2026.pdf",
-      "summary": "The minutes of Cabinet on 11 March 2026. Minute 123 is the licensing item, and it records two things: Cabinet authorised the consultation, and it accepted the extra recommendation the Licensing committee had made about the safety of women and girls, which reached the meeting as a tabled paper. A councillor asked how the draft policy makes venues rather than the police responsible for customer safety, and the Leader's written answer is minuted in full.",
+      "summary": "The minutes of Cabinet on 11 March 2026. Minute 123 is the licensing item, and it records two things: Cabinet authorised the consultation, and it accepted the extra recommendation the Licensing committee had made about the safety of women and girls, which reached the meeting as a tabled paper. A councillor asked how the draft policy makes venues rather than the police responsible for customer safety, and the Leader's answer is minuted in full. A second councillor put a formal question to the Leader at the same meeting, on what the draft policy does about sexual harassment and spiking; that question and its answer are in an appendix to the minutes, which we have not gathered.",
       "ai": {
         "source_ids": [
           "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026"
@@ -343,9 +343,9 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-08T00:20:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "759f7773796bebf03d8e0e5aa16c11253e1e7167872cd587812104844347d3f1"
       }
     },
@@ -648,8 +648,8 @@
         "prompt_version": "event-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-08T00:20:00+00:00",
         "cache_key": "899e0081d1e6980888c7a910dbd4142e97e8ff66e20924ebfeed33c714849536"
       }
@@ -730,7 +730,7 @@
       "detail": [
         "Officers proposed taking the revised policy to full council in November 2026 for adoption by 1 December 2026.",
         "Cabinet authorised the consultation on 11 March 2026. The policy itself has not been to full council, which is the meeting that adopts it.",
-        "A cumulative impact assessment, which the March meeting was told would be done separately, has not been published either."
+        "A cumulative impact assessment was to run alongside the consultation. Nothing in the documents we hold shows that one has been published, and it is not on the consultation page."
       ],
       "source_ids": [
         "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
@@ -750,9 +750,9 @@
         "prompt_version": "event-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-08T00:20:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "e55163b5f9a85fd4a87f1bc0a9fb9db5e960955079e269a1356a5aee456dbfda"
       }
     }
@@ -794,8 +794,8 @@
         "prompt_version": "linkage-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-08T00:20:00+00:00",
         "cache_key": "15fd93254447d3b8e4e8f22bd6ab45bc4826a2bef5cd9e83a0c3a79847b3f439"
       }

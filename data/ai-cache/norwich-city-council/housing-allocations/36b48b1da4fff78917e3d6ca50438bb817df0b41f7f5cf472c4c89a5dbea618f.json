@@ -4,7 +4,7 @@
   "topic_slug": "housing-allocations",
   "payload": {
     "id": "fig-permitted-refusals",
-    "label": "Offers you may turn down before your application is reviewed",
+    "label": "Refusals before your application is reviewed",
     "kind": "count",
     "value": 3,
     "unit": "refusals",
@@ -17,7 +17,7 @@
       "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
     ],
     "source_url": "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026",
-    "note": "Cut from five to three “to reflect extremely high demand for social housing”. It does not apply to people the council owes a homelessness duty, who by law get one offer."
+    "note": "Cut from five to three “to reflect extremely high demand for social housing”. A viewing missed without good cause counts the same as a refusal. The review can end in the application being cancelled for at least twelve months, but only if the council decides the refusals were unreasonable or without grounds. None of it applies to people the council owes a homelessness duty, who by law get one offer."
   },
   "ai": {
     "source_ids": [
@@ -27,9 +27,9 @@
     "prompt_version": "figure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "36b48b1da4fff78917e3d6ca50438bb817df0b41f7f5cf472c4c89a5dbea618f"
   }
 }

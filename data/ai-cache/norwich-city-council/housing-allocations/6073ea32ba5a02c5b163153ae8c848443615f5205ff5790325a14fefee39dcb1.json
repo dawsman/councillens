@@ -4,7 +4,7 @@
   "topic_slug": "housing-allocations",
   "payload": {
     "source_id": "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment",
-    "summary": "The council's own assessment of who the changes would affect, completed on 4 November 2025 — before the consultation opened. It singles out three changes for assessment: the local connection requirement, the cut in permitted refusals, and veterans' priority. It records that the council owned 14,211 properties in October 2025, and it identifies an adverse impact on refugees leaving asylum accommodation, whose application process it says “typically lasts significantly less than the two years required to qualify for the housing register”. It assesses the proposed policy, not the version Cabinet went on to amend."
+    "summary": "The council's own assessment of who the changes would affect, completed on 4 November 2025 — before the consultation opened. It says it covers the whole policy while highlighting three changes: the local connection requirement, the cut in permitted refusals, and veterans' priority. It records that the council owned 14,211 properties in October 2025, and it marks an adverse impact on three groups: people leaving asylum accommodation, whose application process it says “typically lasts significantly less than the two years required to qualify for the housing register”; people leaving prison, who do not gain a local connection by being held in Norwich; and disabled applicants, who it says may face barriers in navigating the process. It assesses the proposed policy, not the version officers went on to change."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "6073ea32ba5a02c5b163153ae8c848443615f5205ff5790325a14fefee39dcb1"
   }
 }

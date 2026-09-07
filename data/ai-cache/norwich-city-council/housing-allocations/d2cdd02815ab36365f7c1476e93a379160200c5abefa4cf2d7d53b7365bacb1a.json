@@ -4,7 +4,7 @@
   "topic_slug": "housing-allocations",
   "payload": {
     "source_id": "housing-consultation-home-options--allocations-policy-2025-consultation-draft",
-    "summary": "The full draft allocations scheme as residents saw it during the consultation, about 84,000 characters of it. Its value is as a before-and-after: read against the scheme the council adopted three months later, it shows which wording the consultation actually moved. The phrases “needs-led” and “professional judgement” appear nowhere in this draft and twice in the adopted scheme, and this draft gives extra preference to “a person fleeing violence” with rent arrears where the adopted scheme says “fleeing violence or domestic abuse”."
+    "summary": "The full draft allocations scheme as residents saw it during the consultation, and the longest document in this archive. It sets out who could join the register, the five priority bands, how homes are advertised and bid for, and how to challenge a decision, including the exception that lets someone keep priority despite rent arrears “where a person is fleeing violence and has rent arrears”. Because the council later published the adopted version in the same form, this draft is what makes it possible to see which wording moved and which did not."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "medium",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "d2cdd02815ab36365f7c1476e93a379160200c5abefa4cf2d7d53b7365bacb1a"
   }
 }

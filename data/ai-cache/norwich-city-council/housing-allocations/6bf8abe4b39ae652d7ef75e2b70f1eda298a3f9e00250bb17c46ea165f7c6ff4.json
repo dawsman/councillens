@@ -4,7 +4,7 @@
   "topic_slug": "housing-allocations",
   "payload": {
     "source_id": "housing-applying-for-housing",
-    "summary": "The page a Norwich resident actually lands on when they want a council home, and the evidence that the new scheme reached the counter rather than just the website. It tells applicants they qualify if they are 18 or older and “you've lived in Norwich for at least 2 years” — the rule the 2026 scheme brought in, replacing six months — lists the five bands, explains bidding, and links the adopted scheme. The page carries no date."
+    "summary": "The page a Norwich resident actually lands on when they want a council home. It tells applicants they qualify if they are 18 or older and “you've lived in Norwich for at least 2 years” — the rule the 2026 scheme brought in, replacing six months — lists the five bands, explains bidding, and links the adopted scheme. So the new rules are the ones an applicant meets today, though the page carries no date, so we cannot say when it was changed."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "6bf8abe4b39ae652d7ef75e2b70f1eda298a3f9e00250bb17c46ea165f7c6ff4"
   }
 }

@@ -4,7 +4,7 @@
   "topic_slug": "housing-allocations",
   "payload": {
     "source_id": "housing-consultation-home-options--allocations-policy-2025-briefing-note",
-    "summary": "The council's plain-English summary of what it was proposing, and the shortest answer to “what were people actually asked?” It sets out the legal background — Part VI of the Housing Act requires every council to publish a scheme setting out who qualifies for social housing and in what order — says the current scheme dates from October 2021, then lists three key changes (two years' residence in Norwich instead of six months, three permitted refusals instead of five, and armed forces veterans offered a home first within their band) and eight smaller clarifications, including the one on rough sleeping."
+    "summary": "The council's plain-English summary of what it was proposing, and the shortest answer to “what were people actually asked?” It sets out the legal background — Part VI of the Housing Act requires every council to publish a scheme setting out who qualifies for social housing and in what order — says the current scheme dates from October 2021, then lists three key changes (two years' residence in Norwich instead of six months, three permitted refusals instead of five, and armed forces veterans offered a home first within their band) and seven smaller clarifications, including the one on rough sleeping."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "f0889a2859972959b2a4620dea37843fdb988a03c4fe55b0d9591e5b517b7f9c"
   }
 }

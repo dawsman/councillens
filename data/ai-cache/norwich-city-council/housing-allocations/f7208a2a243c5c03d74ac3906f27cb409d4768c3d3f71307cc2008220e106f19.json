@@ -1,0 +1,24 @@
+{
+  "kind": "gap",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "id": "g-effect-of-the-changes",
+    "stage": "outcome",
+    "description": "Numbers showing what the new rules have done. Nothing published says how many applicants the two-year residence rule has kept off the register, how many applications have been cancelled after three refusals, or how many people sleeping rough have been placed in silver band under the needs-led assessment. The scheme puts monitoring in the hands of the Housing Options manager without promising to publish what it finds. The equality assessment goes further and commits the council to reviewing the policy's impact a year after it started, in February 2027. Nothing from that review has appeared yet."
+  },
+  "ai": {
+    "source_ids": [
+      "housing-adopted-home-options-2026",
+      "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
+      "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment"
+    ],
+    "prompt_version": "gap-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
+    "cache_key": "f7208a2a243c5c03d74ac3906f27cb409d4768c3d3f71307cc2008220e106f19"
+  }
+}

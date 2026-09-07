@@ -115,7 +115,7 @@ sources:
   # its own business is a different set of items.
   #
   # Minute 123.5 is the decision record in the council's own words: "RESOLVED to
-  # agree the adoption of the updated Home Options policy." Minutes 123.1 to 123.4
+  # agree the adoption of the updated Home Options policy." Minutes 123.2 and 123.3
   # carry the exchange about the garden rule, including the Cabinet member's reply
   # and the figure of 160 households who moved by mutual exchange in 2025.
   - id: housing-cabinet-minutes-2026-02-11

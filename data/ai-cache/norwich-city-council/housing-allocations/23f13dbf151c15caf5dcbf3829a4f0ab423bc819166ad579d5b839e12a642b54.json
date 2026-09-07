@@ -5,7 +5,7 @@
   "payload": {
     "id": "g-final-equality-assessment",
     "stage": "decision",
-    "description": "An equality assessment of the policy Cabinet actually adopted. The assessment in the papers was completed on 4 November 2025 and covers the proposed policy. Cabinet then amended the rough sleeping proposal in response to the consultation, and no revised assessment of the amended version has been published."
+    "description": "An equality assessment of the policy that was actually adopted. The one in the papers was completed on 4 November 2025, before the consultation opened, and it assesses the version that went out to consultation. Officers then changed the rough sleeping proposal in response to what people said, and no revised assessment of the changed version has been published. The assessment does commit the council to reviewing the policy's impact a year after it started, in February 2027."
   },
   "ai": {
     "source_ids": [
@@ -15,9 +15,9 @@
     "prompt_version": "gap-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "23f13dbf151c15caf5dcbf3829a4f0ab423bc819166ad579d5b839e12a642b54"
   }
 }

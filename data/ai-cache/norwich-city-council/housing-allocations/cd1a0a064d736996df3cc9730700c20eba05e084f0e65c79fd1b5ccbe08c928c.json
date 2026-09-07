@@ -5,7 +5,7 @@
   "payload": {
     "id": "g-broken-scheme-link",
     "stage": "outcome",
-    "description": "The allocation scheme at the address the council's own report links to. Paragraph 2 of the report to Cabinet names the current scheme as a hyperlink; that link goes to a page which, when we followed it on 7 September 2026, refused us with “Access denied”. The scheme is readable at the address used throughout this page, so nothing is lost — but a council report pointing residents at a page they cannot open is worth recording."
+    "description": "The allocation scheme at the address the council's own report links to. Paragraph 2 of the report to Cabinet names the current scheme as a hyperlink to www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/norwich-home-options-allocation-scheme. Followed on 7 September 2026, that address refused us with “Access denied”. The scheme is readable at the address used throughout this page, so nothing is lost — but a council report pointing residents at a page they cannot open is worth recording, and the address is given here so anyone can check it."
   },
   "ai": {
     "source_ids": [
@@ -15,9 +15,9 @@
     "prompt_version": "gap-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "cd1a0a064d736996df3cc9730700c20eba05e084f0e65c79fd1b5ccbe08c928c"
   }
 }

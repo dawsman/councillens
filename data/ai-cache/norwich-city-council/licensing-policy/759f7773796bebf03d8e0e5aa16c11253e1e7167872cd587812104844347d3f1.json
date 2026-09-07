@@ -4,7 +4,7 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "source_id": "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026",
-    "summary": "The minutes of Cabinet on 11 March 2026. Minute 123 is the licensing item, and it records two things: Cabinet authorised the consultation, and it accepted the extra recommendation the Licensing committee had made about the safety of women and girls, which reached the meeting as a tabled paper. A councillor asked how the draft policy makes venues rather than the police responsible for customer safety, and the Leader's written answer is minuted in full."
+    "summary": "The minutes of Cabinet on 11 March 2026. Minute 123 is the licensing item, and it records two things: Cabinet authorised the consultation, and it accepted the extra recommendation the Licensing committee had made about the safety of women and girls, which reached the meeting as a tabled paper. A councillor asked how the draft policy makes venues rather than the police responsible for customer safety, and the Leader's answer is minuted in full. A second councillor put a formal question to the Leader at the same meeting, on what the draft policy does about sexual harassment and spiking; that question and its answer are in an appendix to the minutes, which we have not gathered."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-08T00:20:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "759f7773796bebf03d8e0e5aa16c11253e1e7167872cd587812104844347d3f1"
   }
 }

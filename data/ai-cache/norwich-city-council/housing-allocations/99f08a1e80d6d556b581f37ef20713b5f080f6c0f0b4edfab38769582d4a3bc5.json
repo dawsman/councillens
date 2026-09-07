@@ -8,8 +8,8 @@
       "plain_english": "The rules Norwich City Council follows when it decides who can join the waiting list for a council or housing association home in the city, and who gets offered one first. The scheme is called Home Options. It does not produce any more homes — in the council's words, it is “a fairer, more efficient and transparent way of allocating the social housing available”.",
       "questions": {
         "asked": "People were asked what they thought of five changes to who can join Norwich's housing register and who is offered a home first: telling applicants with no priority band that they are unlikely to be rehoused and pointing them elsewhere; raising the local connection rule from six months' residence in Norwich to two years; cutting the number of offers you may refuse from five to three; setting out when someone sleeping rough is given silver band; and offering a home to a UK armed forces veteran ahead of others in the same band. Seventy-two responses came in. Agreement ran from 71 per cent on the first change down to 37 per cent on veterans' priority, which 43 per cent were neutral about; the local connection change was the one most people objected to, at 26 per cent against.",
-        "decided": "Two meetings. On 15 January 2026 the Scrutiny committee suggested no changes to the five proposals, then by a majority vote asked Cabinet to consider deleting a sixth thing nobody had proposed changing: paragraph 3.8.7.3, which withholds extra priority from families in a flat with no garden where the children were born after the family moved in. On 11 February 2026 Cabinet adopted the updated policy with all five changes, and refused the Scrutiny request — the report says it “has been considered by the Portfolio Holder but is not accepted”. Cabinet did record one change made because of the consultation: a needs-led assessment before someone sleeping rough is given silver band.",
-        "done": "This one is finished. The Home Options Allocation Scheme 2026 was published on 12 February 2026, the day after Cabinet agreed it, and it is the scheme the council applies now — its own page for applicants states the two-year residence rule the new scheme introduced. What we cannot tell you is what it has changed in practice. The council said the consultation responses “will be published, along with council comments, in an online report” and we could not find that report, and nothing published says how many applicants the two-year rule has kept off the register. On effect, we are still waiting."
+        "decided": "Two meetings. On 15 January 2026 the Scrutiny committee suggested no changes to the five proposals, then by a majority vote asked Cabinet to consider deleting a sixth thing nobody had proposed changing: paragraph 3.8.7.3, which withholds that extra priority where the children were already born when the family accepted the property. On 11 February 2026 Cabinet adopted the updated policy with all five changes, and refused the Scrutiny request — the report says it “has been considered by the Portfolio Holder but is not accepted”. The council says the consultation changed three things in its proposal: how it assesses the needs of someone sleeping rough, the wording on decisions being based on evidence rather than opinion, and how it treats rent arrears caused by financial abuse. All three can be seen in the adopted scheme.",
+        "done": "The rules themselves are finished. The Home Options Allocation Scheme 2026 was published on 12 February 2026, the day after Cabinet agreed it, and it is the scheme the council applies now — its own page for applicants states the two-year residence rule the new scheme introduced. What we cannot tell you is what it has changed in practice. The council said the consultation responses “will be published, along with council comments, in an online report”; a consultation report was published for the homelessness strategy the same survey covered, but not for the allocations half, so what people wrote about these five changes is still unpublished. Nothing published says how many applicants the two-year rule has kept off the register. On effect, we are still waiting."
       }
     }
   },
@@ -27,9 +27,9 @@
     "prompt_version": "topic-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "99f08a1e80d6d556b581f37ef20713b5f080f6c0f0b4edfab38769582d4a3bc5"
   }
 }

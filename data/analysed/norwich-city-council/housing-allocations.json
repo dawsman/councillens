@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "generated_at": "2026-09-07T23:40:00+00:00",
+  "generated_at": "2026-09-08T01:30:00+00:00",
   "council": {
     "name": "Norwich City Council",
     "slug": "norwich-city-council",
@@ -19,8 +19,8 @@
     "plain_english": "The rules Norwich City Council follows when it decides who can join the waiting list for a council or housing association home in the city, and who gets offered one first. The scheme is called Home Options. It does not produce any more homes — in the council's words, it is “a fairer, more efficient and transparent way of allocating the social housing available”.",
     "questions": {
       "asked": "People were asked what they thought of five changes to who can join Norwich's housing register and who is offered a home first: telling applicants with no priority band that they are unlikely to be rehoused and pointing them elsewhere; raising the local connection rule from six months' residence in Norwich to two years; cutting the number of offers you may refuse from five to three; setting out when someone sleeping rough is given silver band; and offering a home to a UK armed forces veteran ahead of others in the same band. Seventy-two responses came in. Agreement ran from 71 per cent on the first change down to 37 per cent on veterans' priority, which 43 per cent were neutral about; the local connection change was the one most people objected to, at 26 per cent against.",
-      "decided": "Two meetings. On 15 January 2026 the Scrutiny committee suggested no changes to the five proposals, then by a majority vote asked Cabinet to consider deleting a sixth thing nobody had proposed changing: paragraph 3.8.7.3, which withholds extra priority from families in a flat with no garden where the children were born after the family moved in. On 11 February 2026 Cabinet adopted the updated policy with all five changes, and refused the Scrutiny request — the report says it “has been considered by the Portfolio Holder but is not accepted”. Cabinet did record one change made because of the consultation: a needs-led assessment before someone sleeping rough is given silver band.",
-      "done": "This one is finished. The Home Options Allocation Scheme 2026 was published on 12 February 2026, the day after Cabinet agreed it, and it is the scheme the council applies now — its own page for applicants states the two-year residence rule the new scheme introduced. What we cannot tell you is what it has changed in practice. The council said the consultation responses “will be published, along with council comments, in an online report” and we could not find that report, and nothing published says how many applicants the two-year rule has kept off the register. On effect, we are still waiting."
+      "decided": "Two meetings. On 15 January 2026 the Scrutiny committee suggested no changes to the five proposals, then by a majority vote asked Cabinet to consider deleting a sixth thing nobody had proposed changing: paragraph 3.8.7.3, which withholds that extra priority where the children were already born when the family accepted the property. On 11 February 2026 Cabinet adopted the updated policy with all five changes, and refused the Scrutiny request — the report says it “has been considered by the Portfolio Holder but is not accepted”. The council says the consultation changed three things in its proposal: how it assesses the needs of someone sleeping rough, the wording on decisions being based on evidence rather than opinion, and how it treats rent arrears caused by financial abuse. All three can be seen in the adopted scheme.",
+      "done": "The rules themselves are finished. The Home Options Allocation Scheme 2026 was published on 12 February 2026, the day after Cabinet agreed it, and it is the scheme the council applies now — its own page for applicants states the two-year residence rule the new scheme introduced. What we cannot tell you is what it has changed in practice. The council said the consultation responses “will be published, along with council comments, in an online report”; a consultation report was published for the homelessness strategy the same survey covered, but not for the allocations half, so what people wrote about these five changes is still unpublished. Nothing published says how many applicants the two-year rule has kept off the register. On effect, we are still waiting."
     }
   },
   "sources": [
@@ -43,8 +43,8 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "9f2e224b59c3d19bad1d5ee35326c62aea3abf92ebed110fb19624c1d5618966"
       }
@@ -60,7 +60,7 @@
       "fetched_at": "2026-09-07T19:40:41+00:00",
       "sha256": "e6b4c95916a39da433f8b55f6a0e5631783c1ce06b90950984a8fe4de97a4935",
       "saved_to": "data/raw/housing-consultation-home-options/allocations-policy-2025-consultation-draft.docx",
-      "summary": "The full draft allocations scheme as residents saw it during the consultation, about 84,000 characters of it. Its value is as a before-and-after: read against the scheme the council adopted three months later, it shows which wording the consultation actually moved. The phrases “needs-led” and “professional judgement” appear nowhere in this draft and twice in the adopted scheme, and this draft gives extra preference to “a person fleeing violence” with rent arrears where the adopted scheme says “fleeing violence or domestic abuse”.",
+      "summary": "The full draft allocations scheme as residents saw it during the consultation, and the longest document in this archive. It sets out who could join the register, the five priority bands, how homes are advertised and bid for, and how to challenge a decision, including the exception that lets someone keep priority despite rent arrears “where a person is fleeing violence and has rent arrears”. Because the council later published the adopted version in the same form, this draft is what makes it possible to see which wording moved and which did not.",
       "ai": {
         "source_ids": [
           "housing-consultation-home-options--allocations-policy-2025-consultation-draft"
@@ -68,9 +68,9 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "d2cdd02815ab36365f7c1476e93a379160200c5abefa4cf2d7d53b7365bacb1a"
       }
     },
@@ -85,7 +85,7 @@
       "fetched_at": "2026-09-07T19:40:42+00:00",
       "sha256": "92c79cff67b2bf763834ee70b793d23ee00007da64804bd45b42961a299c1120",
       "saved_to": "data/raw/housing-consultation-home-options/allocations-policy-2025-briefing-note.docx",
-      "summary": "The council's plain-English summary of what it was proposing, and the shortest answer to “what were people actually asked?” It sets out the legal background — Part VI of the Housing Act requires every council to publish a scheme setting out who qualifies for social housing and in what order — says the current scheme dates from October 2021, then lists three key changes (two years' residence in Norwich instead of six months, three permitted refusals instead of five, and armed forces veterans offered a home first within their band) and eight smaller clarifications, including the one on rough sleeping.",
+      "summary": "The council's plain-English summary of what it was proposing, and the shortest answer to “what were people actually asked?” It sets out the legal background — Part VI of the Housing Act requires every council to publish a scheme setting out who qualifies for social housing and in what order — says the current scheme dates from October 2021, then lists three key changes (two years' residence in Norwich instead of six months, three permitted refusals instead of five, and armed forces veterans offered a home first within their band) and seven smaller clarifications, including the one on rough sleeping.",
       "ai": {
         "source_ids": [
           "housing-consultation-home-options--allocations-policy-2025-briefing-note"
@@ -93,9 +93,9 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "f0889a2859972959b2a4620dea37843fdb988a03c4fe55b0d9591e5b517b7f9c"
       }
     },
@@ -110,7 +110,7 @@
       "fetched_at": "2026-09-07T19:40:43+00:00",
       "sha256": "968963867584189c6ee9eedea8e67383a8f00e76944372a3ac8aef2d5457ef5e",
       "saved_to": "data/raw/housing-consultation-home-options/allocations-policy-2025-equality-impact-assessment.docx",
-      "summary": "The council's own assessment of who the changes would affect, completed on 4 November 2025 — before the consultation opened. It singles out three changes for assessment: the local connection requirement, the cut in permitted refusals, and veterans' priority. It records that the council owned 14,211 properties in October 2025, and it identifies an adverse impact on refugees leaving asylum accommodation, whose application process it says “typically lasts significantly less than the two years required to qualify for the housing register”. It assesses the proposed policy, not the version Cabinet went on to amend.",
+      "summary": "The council's own assessment of who the changes would affect, completed on 4 November 2025 — before the consultation opened. It says it covers the whole policy while highlighting three changes: the local connection requirement, the cut in permitted refusals, and veterans' priority. It records that the council owned 14,211 properties in October 2025, and it marks an adverse impact on three groups: people leaving asylum accommodation, whose application process it says “typically lasts significantly less than the two years required to qualify for the housing register”; people leaving prison, who do not gain a local connection by being held in Norwich; and disabled applicants, who it says may face barriers in navigating the process. It assesses the proposed policy, not the version officers went on to change.",
       "ai": {
         "source_ids": [
           "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment"
@@ -118,9 +118,9 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "6073ea32ba5a02c5b163153ae8c848443615f5205ff5790325a14fefee39dcb1"
       }
     },
@@ -143,8 +143,8 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "48788ab39a2e62263279cefd497c80c9569973bf3c43b7677107c4f72e89c3ca"
       }
@@ -160,7 +160,7 @@
       "fetched_at": "2026-09-07T19:40:44+00:00",
       "sha256": "48e4867e363c19f71b6b8dafe197d411d6fc3f27b2c126a05eb6a283638916d3",
       "saved_to": "data/raw/housing-scrutiny-2026-01-15/scrutiny-minutes-15-january-2026.pdf",
-      "summary": "The record of the one thing anybody argued about. Officers took members through the five proposed changes and told them 72 responses had come in. The committee suggested no changes to the proposals, then by a majority vote asked Cabinet to consider removing a rule the officers had not proposed touching — paragraph 3.8.7.3, which withholds extra priority from families in a flat with no garden where the children were born after the family moved in. Members also asked for more about the council's assessment panel to be written into the policy, and for research on co-parenting in council homes to come back to a later meeting.",
+      "summary": "The record of the meeting where the proposals were tested, and of the only change anyone pressed for. Officers took members through the five proposed changes and told them 72 responses had come in. The committee suggested no changes to the proposals, then by a majority vote asked Cabinet to consider removing a rule the officers had not proposed touching — paragraph 3.8.7.3, which withholds that extra priority where the children were already born when the family accepted the property. Members also asked for more about the council's assessment panel to be written into the policy, and for research on co-parenting in council homes to come back to a later meeting.",
       "ai": {
         "source_ids": [
           "housing-scrutiny-2026-01-15--scrutiny-minutes-15-january-2026"
@@ -168,9 +168,9 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "d5bba7b22fee253efba596f3772f5ae9229625134bfcec520211d6b8ae287664"
       }
     },
@@ -193,8 +193,8 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "13bf57306364ef2b3ecf11ef6d57e1c0c2cf048a2a0b5256864ee4ea0d6962ba"
       }
@@ -218,8 +218,8 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "d30d4a23875ba6d44e532fe0f30d18eb1954125259e34f7ed06438112339a449"
       }
@@ -235,7 +235,7 @@
       "fetched_at": "2026-09-07T19:40:52+00:00",
       "sha256": "f76a8d290369a428087545ae17f017fd519db8e9e7b8c0d0d62fa9909f1bae1f",
       "saved_to": "data/raw/housing-cabinet-minutes-2026-02-11/minutes-of-the-cabinet-meeting-held-on-11-february-2026.pdf",
-      "summary": "The decision record. Minute 123.5 reads “RESOLVED to agree the adoption of the updated Home Options policy.” Minutes 123.1 to 123.4 carry the exchange about the no-garden rule: a councillor's written question asking what the council would do so the rule did not work against children, and the Cabinet member for housing's answer, which points families towards mutual exchange and says 160 council tenant households moved that way in 2025.",
+      "summary": "The decision record. Minute 123.5 reads “RESOLVED to agree the adoption of the updated Home Options policy.” At 123.1 the Cabinet member for housing gives her reason for turning Scrutiny down: “it was a long-standing provision that silver band was not awarded where a situation had arisen due to tenants' own choice”. Minutes 123.2 and 123.3 carry the exchange about the no-garden rule: a councillor's question asking what the council would do so the rule did not work against children, and the Cabinet member's answer, which points families towards mutual exchange and says 160 council tenant households moved that way in 2025.",
       "ai": {
         "source_ids": [
           "housing-cabinet-minutes-2026-02-11--minutes-of-the-cabinet-meeting-held-on-11-february-2026"
@@ -243,9 +243,9 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "15c581aee2d6c05893a2b9c55da837265b82f590a6c684750f39096f1d2affe1"
       }
     },
@@ -268,8 +268,8 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "a9608da7c9b22f764d78817b755decfa6065c09de25b8f33d2e46713a3283025"
       }
@@ -285,7 +285,7 @@
       "fetched_at": "2026-09-07T19:40:52+00:00",
       "sha256": "43c29b844069156ee9d2f453137c790bb024e8545fffce25ffe4a40426641c41",
       "saved_to": "data/raw/housing-applying-for-housing/page.html",
-      "summary": "The page a Norwich resident actually lands on when they want a council home, and the evidence that the new scheme reached the counter rather than just the website. It tells applicants they qualify if they are 18 or older and “you've lived in Norwich for at least 2 years” — the rule the 2026 scheme brought in, replacing six months — lists the five bands, explains bidding, and links the adopted scheme. The page carries no date.",
+      "summary": "The page a Norwich resident actually lands on when they want a council home. It tells applicants they qualify if they are 18 or older and “you've lived in Norwich for at least 2 years” — the rule the 2026 scheme brought in, replacing six months — lists the five bands, explains bidding, and links the adopted scheme. So the new rules are the ones an applicant meets today, though the page carries no date, so we cannot say when it was changed.",
       "ai": {
         "source_ids": [
           "housing-applying-for-housing"
@@ -293,9 +293,9 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "6bf8abe4b39ae652d7ef75e2b70f1eda298a3f9e00250bb17c46ea165f7c6ff4"
       }
     }
@@ -334,8 +334,8 @@
         "prompt_version": "event-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "5ab325480ec10f6b6058ede33475d2a3b27e284e00be1214eb654ae96138a250"
       }
@@ -345,12 +345,13 @@
       "stage": "decision",
       "date": "2026-01-15",
       "date_precision": "day",
-      "title": "Scrutiny committee asked Cabinet to drop the no-garden rule",
-      "summary": "The Scrutiny committee took the proposals on 15 January 2026. Officers told members the changes had been consulted on and that 72 responses had been received. The committee suggested no changes to the five proposals. It then went beyond what the report asked and, by a majority vote, resolved to “ask Cabinet to consider removing paragraph 3.8.7.3 from the proposed policy” — a rule already in the scheme, and not one of the changes officers had put forward.",
+      "title": "Scrutiny committee asked Cabinet to delete the exception to the no-garden rule",
+      "summary": "The Scrutiny committee took the proposals on 15 January 2026. Officers told members the changes had been consulted on and that 72 responses had been received. The committee suggested no changes to the five proposals. It then went beyond what the report asked and, by a majority vote, resolved to “ask Cabinet to consider removing paragraph 3.8.7.3 from the proposed policy” — a rule already in the scheme, and not one of the changes officers had put forward. Deleting it would have widened who gets the extra priority, not narrowed it.",
       "detail": [
-        "Paragraph 3.8.7 gives silver band to a household with a child aged ten or under living in a flat or maisonette with no garden or private outdoor space. Paragraph 3.8.7.3 withholds it where the children were born after the family accepted the property.",
+        "Paragraph 3.8.7 gives silver band to a household with a child aged ten or under living in a flat or maisonette with no garden or private outdoor space. Paragraph 3.8.7.3 takes it back where the children were already born at the point the family accepted that property.",
         "The minutes record that “Several Members stated that the line in the policy was poorly worded”, and that earlier in the discussion a member was “concerned housing arrangements did not facilitate shared custody of children and that children would be penalised for their parents' decision making”.",
         "The committee noted two further actions. It asked for more about the council's assessment panel — “the make up of the panel, its governance and decision-making processes” — to be written into the policy, and for officers to look for research on the effect of co-parenting in council-owned properties and report back at a later meeting.",
+        "A member also asked whether the “honest and realistic conversations” the housing team has with applicants are guided by trauma-informed care practices. Officers said the council was part of a trauma-informed practice working group and took a person-centred approach.",
         "Officers were asked which changes the law required. The minutes record that “the addition of the realistic conversation and the reduction in number of refusals were Council additions, and the remaining changes were due to guidance and legislation”."
       ],
       "source_ids": [
@@ -369,9 +370,9 @@
         "prompt_version": "event-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "38b9abc104f2dbb5258af068f379ab3f75e7187eb969021a7db4bcefbefd413d"
       }
     },
@@ -381,10 +382,10 @@
       "date": "2026-02-11",
       "date_precision": "day",
       "title": "Cabinet adopted the updated scheme, and turned down Scrutiny's request",
-      "summary": "Cabinet met on 11 February 2026 and, as item 12, “RESOLVED to agree the adoption of the updated Home Options policy.” All five proposed changes went through. The one thing Scrutiny had asked for did not. The report records that the recommendation to remove section 3.8.7.3 “has been considered by the Portfolio Holder but is not accepted”, and the Cabinet member for housing told the meeting that these are households who “made an active choice to move to a property without a garden”.",
+      "summary": "Cabinet met on 11 February 2026 and, as item 12, “RESOLVED to agree the adoption of the updated Home Options policy.” All five proposed changes went through. The one thing Scrutiny had asked for did not. The report records that the recommendation to remove section 3.8.7.3 “has been considered by the Portfolio Holder but is not accepted”, and the Cabinet member for housing told the meeting that these are households who “made an active choice to move to a property without a garden”. The question that prompted that answer had put the other side: a councillor asked what the council would do so the rule did not work against children, since “this is clearly not the children's decision”.",
       "detail": [
         "An applicant now has to have lived in Norwich for two years to join the register, rather than six months, with the exceptions set out in law still applying.",
-        "An applicant may now turn down three offers rather than five before the application is reviewed and may be cancelled for a year. People the council owes a homelessness duty still get a single offer, as the law requires.",
+        "After three refused offers — or three viewings missed without good cause — the council reviews the application and the band. If a team leader or manager decides the refusals were unreasonable or without grounds, the application is cancelled and no new one is accepted for at least twelve months. People the council owes a homelessness duty still get a single offer, as the law requires.",
         "Two other concerns raised in the consultation were answered rather than acted on. The report says that people without a local connection staying longer in hostels is covered by the council's hostel move-on agreement, and that prioritising veterans follows the Armed Forces Covenant, which the council has signed.",
         "Cabinet pointed families in a flat with no garden towards swapping homes with another tenant instead, and gave a figure for how often that works — “in 2025 alone, 160 council tenant households were able to move through this process”."
       ],
@@ -404,9 +405,9 @@
         "prompt_version": "event-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "6432f7fb00f12afab67e4a83b5f49c89d8bdf5e1bb31a76f979287ff2654ddcb"
       }
     },
@@ -418,14 +419,16 @@
       "title": "The new scheme was published the next day",
       "summary": "The Home Options Allocation Scheme 2026 went up on the council's website on 12 February 2026, the day after Cabinet agreed it, as a full web page rather than a download. Its opening summary says the updates “have been shaped through a public consultation which took place in Autumn 2025 and scrutiny by the council's Overview and Scrutiny Committee.”",
       "detail": [
-        "You can see the consultation in the text. The words “needs-led” and “professional judgement” appear nowhere in the draft that went out for consultation; both appear in the adopted scheme, in the section on rough sleeping.",
-        "One more line moved. The draft gave extra preference to “a person fleeing violence” who has rent arrears; the adopted scheme gives it to “a person fleeing violence or domestic abuse”.",
+        "You can see the consultation in the text. The words “needs-led” and “professional judgement” appear nowhere in the draft that went out for consultation. Both appear twice in the adopted scheme: in the summary of changes at the top, and in the rough sleeping section itself. The draft's promise that rough sleeping priority would be “subject to ongoing, regular verification” is not in the adopted scheme.",
+        "The council said it had “updated our policy wording to make it clear that housing application decisions are based on objective evidence rather than opinion”. Neither document uses the phrase “objective evidence”, but the change is there. The clause on behaviour dropped “a history of behaviour which, in the opinion of the council, is unacceptable” for “a history of behaviour which is evidenced to have caused a detrimental effect to others”, and “in the opinion of” appears nowhere in the adopted scheme. One judgement of the council's does survive a few lines later, on rent arrears “which, in the council's view, would entitle the landlord to a possession order”.",
+        "One more line moved, and the council says why. The scheme gives reduced preference to people who owe housing debts, with exceptions. The draft made an exception “where a person is fleeing violence and has rent arrears”; the adopted scheme makes it “where a person is fleeing violence or domestic abuse and has rent arrears”. The council's own update says it changed how the policy refers to rent arrears caused by financial abuse, “to ensure survivors are not unfairly prevented from joining the housing register when they need support”.",
         "Section 3.8.7.3 is still in the scheme, as “This category will not be awarded to those households whose children were born when the current accommodation was accepted.”"
       ],
       "source_ids": [
         "housing-adopted-home-options-2026",
         "housing-consultation-home-options--allocations-policy-2025-consultation-draft",
-        "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
+        "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
+        "housing-consultation-home-options"
       ],
       "source_url": "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026",
       "status": "done",
@@ -433,15 +436,16 @@
         "source_ids": [
           "housing-adopted-home-options-2026",
           "housing-consultation-home-options--allocations-policy-2025-consultation-draft",
-          "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
+          "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
+          "housing-consultation-home-options"
         ],
         "prompt_version": "event-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
-        "cache_key": "5cb169d2bc57dfa991802663ecaf4b6101001dc28a8130d58b8240c0b7e4afbf"
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
+        "cache_key": "8278707d20addd275dc9369aa0f1302cfb68716b90cce322af25f8baf00f7686"
       }
     },
     {
@@ -469,8 +473,8 @@
         "prompt_version": "event-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "6b9d9f5017fe7b4f644ebe8d17ebce6a2feeb8cb73ca2b87b565103bb57064b6"
       }
@@ -483,13 +487,14 @@
       "title": "What the changes have done has not been published",
       "summary": "The scheme has been in force since February 2026 and nothing the council has published says what it has changed: not how many applicants the two-year residence rule has kept off the register, and not how many people sleeping rough have been given silver band under the new needs-led assessment. The scheme says it “will be monitored directly by the Housing Options manager”, weighing application and bidding data and feedback from applicants, but it does not promise to publish any of it.",
       "detail": [
-        "The council also told Cabinet that the consultation responses “will be published, along with council comments, in an online report”. We could not find that report on the consultation page or among the committee papers in this archive.",
-        "Adopting a policy is a thing a council can finish. Knowing whether it worked is not, until somebody counts."
+        "The council also told Cabinet that the consultation responses “will be published, along with council comments, in an online report”. A public consultation report was published for the homelessness strategy the survey covered at the same time — it is on the consultation page and in the Cabinet papers — but no equivalent report for the allocations proposals has appeared.",
+        "The equality assessment sets a date. It says the impact of the policy will be reviewed a year after it started, in February 2027. Nothing from that review has been published, and it is the first thing worth looking for."
       ],
       "source_ids": [
         "housing-adopted-home-options-2026",
         "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
-        "housing-consultation-home-options"
+        "housing-consultation-home-options",
+        "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment"
       ],
       "source_url": "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026",
       "status": "still_waiting",
@@ -497,15 +502,16 @@
         "source_ids": [
           "housing-adopted-home-options-2026",
           "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
-          "housing-consultation-home-options"
+          "housing-consultation-home-options",
+          "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment"
         ],
         "prompt_version": "event-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
-        "cache_key": "2ac926c9dcfec454f3647234bdcbddbdf14295be536aac6d73076e1a04da2d8b"
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
+        "cache_key": "f95acf95bde21915b993caca49b15dc2d1e35f6ff775b7647aac570173cb5028"
       }
     }
   ],
@@ -525,8 +531,8 @@
         "prompt_version": "linkage-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "7513c8fad6666210216c5f4fc928b4656dd7d9364923a2a8d52aef02282b4e60"
       }
@@ -537,7 +543,7 @@
       "tier": "confirmed",
       "evidence": "In response to this concern and to mitigate such a risk, and in accordance with the National Plan to End Homelessness, we have amended the policy proposal to include a needs-led assessment and the use of professional judgement prior to the award of priority banding.",
       "evidence_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=4gqNOx03m%2fePTJEEigGVhJ2RmIv0fJZQSdALhRxrlPqMYaUJuefRkg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "explanation": "The council's own report names the concern people raised in the consultation and says what it changed because of it, so this link is the council's, not ours. It covers one change; the other four proposals went to Cabinet as they were.",
+      "explanation": "The council's own report names the concern people raised in the consultation and says what it changed because of it, so this link is the council's, not ours. It is not the only one: the council's “you said, we did” note claims two further wording changes from the consultation, and both can be seen in the adopted scheme. None of the five headline proposals was dropped.",
       "ai": {
         "source_ids": [
           "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
@@ -546,10 +552,32 @@
         "prompt_version": "linkage-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "7b1a3c39eccaa6ee89945816554959b595477f1a9d8bde9d2efb630aa6c40d79"
+      }
+    },
+    {
+      "from_event": "evt-feedback-2025-11-10",
+      "to_event": "evt-outcome-scheme-2026",
+      "tier": "confirmed",
+      "evidence": "We have changed how we refer to rent arrears caused by financial abuse, to ensure survivors are not unfairly prevented from joining the housing register when they need support.",
+      "evidence_url": "https://gettalking.norwich.gov.uk/homelessnessandallocations",
+      "explanation": "The council says in its own “you said, we did” update that the consultation changed this, so the link is the council's rather than ours. One line in the adopted scheme matches: the exception for rent arrears widened from “a person is fleeing violence” to “a person is fleeing violence or domestic abuse”. The council does not say that is the line it means, and its words are “financial abuse” rather than domestic abuse, so we cannot put it beyond doubt — but it is the only rent-arrears wording that moved between the two versions.",
+      "ai": {
+        "source_ids": [
+          "housing-consultation-home-options",
+          "housing-adopted-home-options-2026",
+          "housing-consultation-home-options--allocations-policy-2025-consultation-draft"
+        ],
+        "prompt_version": "linkage-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
+        "cache_key": "f4bc468f76d9cfa4fe32fc5ccda5a01996d70c4e5f2d635e2fe2c95658e366f3"
       }
     }
   ],
@@ -577,8 +605,8 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "bf702c1f7ca295b7f843a497259df7de2fd33d3786f5ee64e86798ed33ea5a71"
       }
@@ -606,15 +634,15 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "1461c694e0275ce924d631ee3e97084f31b0576dab93d9b183629b755962e916"
       }
     },
     {
       "id": "fig-permitted-refusals",
-      "label": "Offers you may turn down before your application is reviewed",
+      "label": "Refusals before your application is reviewed",
       "kind": "count",
       "value": 3,
       "unit": "refusals",
@@ -626,7 +654,7 @@
         "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
       ],
       "source_url": "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026",
-      "note": "Cut from five to three “to reflect extremely high demand for social housing”. It does not apply to people the council owes a homelessness duty, who by law get one offer.",
+      "note": "Cut from five to three “to reflect extremely high demand for social housing”. A viewing missed without good cause counts the same as a refusal. The review can end in the application being cancelled for at least twelve months, but only if the council decides the refusals were unreasonable or without grounds. None of it applies to people the council owes a homelessness duty, who by law get one offer.",
       "ai": {
         "source_ids": [
           "housing-adopted-home-options-2026",
@@ -635,9 +663,9 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "36b48b1da4fff78917e3d6ca50438bb817df0b41f7f5cf472c4c89a5dbea618f"
       }
     },
@@ -654,7 +682,7 @@
         "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
       ],
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=4gqNOx03m%2fePTJEEigGVhJ2RmIv0fJZQSdALhRxrlPqMYaUJuefRkg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "note": "The most contested of the five proposals: 53% agreed, 26% disagreed and 21% were neutral. Appendix C of the Cabinet report gives percentages only, not counts.",
+      "note": "The most contested of the five proposals: 53% agreed, 26% disagreed and 21% were neutral. The views were collected during the consultation in November and December 2025 and reported to Cabinet on 11 February 2026. Appendix C of the Cabinet report gives percentages only, not counts, and does not say how many of the 72 responses answered each question.",
       "ai": {
         "source_ids": [
           "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
@@ -662,9 +690,9 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "478e8cbc493c5878c9b4b93cfcaf398928e3a936a597b74fda4ef6903472e538"
       }
     },
@@ -681,7 +709,7 @@
         "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
       ],
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=4gqNOx03m%2fePTJEEigGVhJ2RmIv0fJZQSdALhRxrlPqMYaUJuefRkg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "note": "The lowest agreement of the five, though not the most opposed: 37% agreed, 20% disagreed and 43% were neutral. Cabinet adopted it anyway, citing the Armed Forces Covenant.",
+      "note": "The lowest agreement of the five, though not the most opposed: 37% agreed, 20% disagreed and 43% were neutral. Cabinet adopted it, saying it follows the Armed Forces Covenant, which the council has signed. The views were collected during the consultation in November and December 2025 and reported to Cabinet on 11 February 2026.",
       "ai": {
         "source_ids": [
           "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
@@ -689,15 +717,15 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "611c813249226404a305ba7aa2217552e6e4787f404f7b00030cda59656dba64"
       }
     },
     {
       "id": "fig-agree-advice-to-non-priority",
-      "label": "Agreed with telling applicants who will not be rehoused",
+      "label": "Agreed with telling applicants when a council home is unlikely",
       "kind": "share",
       "value": 71,
       "unit": "%",
@@ -708,7 +736,7 @@
         "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
       ],
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=4gqNOx03m%2fePTJEEigGVhJ2RmIv0fJZQSdALhRxrlPqMYaUJuefRkg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "note": "The best supported proposal: 71% agreed, 6% disagreed and 23% were neutral, on advising applicants with no priority band that they are unlikely to get a home this way and pointing them elsewhere.",
+      "note": "The best supported proposal: 71% agreed, 6% disagreed and 23% were neutral. It covers telling applicants who do not qualify for a priority band that they are, in the council's words, “extremely unlikely to be rehoused” through the scheme, and giving them advice about other housing options. The views were collected during the consultation in November and December 2025 and reported to Cabinet on 11 February 2026.",
       "ai": {
         "source_ids": [
           "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
@@ -716,9 +744,9 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "96b8a27efe31d489c47c31540194957d94a8abd114e83bbb7688adb70667081d"
       }
     },
@@ -735,7 +763,7 @@
         "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
       ],
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=4gqNOx03m%2fePTJEEigGVhJ2RmIv0fJZQSdALhRxrlPqMYaUJuefRkg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "note": "70% agreed, 16% disagreed and 14% were neutral.",
+      "note": "70% agreed, 16% disagreed and 14% were neutral. The views were collected during the consultation in November and December 2025 and reported to Cabinet on 11 February 2026.",
       "ai": {
         "source_ids": [
           "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
@@ -743,9 +771,9 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "5d6cde2620547744a82e2f6f6850eb4d4514d7af458c87e8e52859507bbdd777"
       }
     },
@@ -762,7 +790,7 @@
         "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
       ],
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=4gqNOx03m%2fePTJEEigGVhJ2RmIv0fJZQSdALhRxrlPqMYaUJuefRkg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "note": "70% agreed, 16% disagreed and 14% were neutral. This is the proposal the council amended after several respondents warned it might encourage people to sleep rough.",
+      "note": "70% agreed, 16% disagreed and 14% were neutral. This is the proposal the council amended after several respondents warned it might encourage people to sleep rough. The views were collected during the consultation in November and December 2025 and reported to Cabinet on 11 February 2026.",
       "ai": {
         "source_ids": [
           "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
@@ -770,9 +798,9 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
-        "generated_at": "2026-09-07T23:40:00+00:00",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+        "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "106ab5e50f578b20de0afe4994f21cc035e328a4e9a314e8da3dc21e481ec07e"
       }
     },
@@ -797,8 +825,8 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "ab46f0f25a269a7c5d7823f053257aff38e126c0a05befcd903038c90be8e5e4"
       }
@@ -824,8 +852,8 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "low",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "9dd786b025e51553d1c938feebd8a91c9235d4bb8f3b50e0dfa9c857e473130f"
       }
@@ -851,8 +879,8 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "e0ad8af45db03cc1ac2572712a1b0cb558b842dda86c49fbf37f31e672bf094d"
       }
@@ -880,8 +908,8 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "3f96a642f355754c688d33057f0c2e766a0b5ac4b303483ab01c540f4bb77c2a"
       }
@@ -909,8 +937,8 @@
         "prompt_version": "figure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T23:40:00+00:00",
         "cache_key": "d5a14c2fe1727273ee04b17e17942fa4d10acebea448a59b9eca52772bd79172"
       }
@@ -923,11 +951,15 @@
     },
     {
       "stage": "feedback",
-      "description": "The consultation report the council promised. The report to Cabinet says the responses “will be published, along with council comments, in an online report”. We could not find it — not on the consultation page, and not among the committee papers in this archive. What has been published is the agree / disagree / neutral percentages in Appendix C and the council's short “you said, we did” note. What people actually wrote is still unpublished."
+      "description": "The consultation report for the allocations half. The report to Cabinet says the responses “will be published, along with council comments, in an online report”. For the homelessness strategy that happened: a public consultation report sits on the consultation page as Appendix A, and in the Cabinet papers as Annex D to the strategy report taken the same evening. For Home Options there is no equivalent. What has been published for it is the agree / disagree / neutral percentages in Appendix C and the council's short “you said, we did” note. What people actually wrote is still unpublished."
     },
     {
       "stage": "decision",
-      "description": "An equality assessment of the policy Cabinet actually adopted. The assessment in the papers was completed on 4 November 2025 and covers the proposed policy. Cabinet then amended the rough sleeping proposal in response to the consultation, and no revised assessment of the amended version has been published."
+      "description": "An equality assessment of the policy that was actually adopted. The one in the papers was completed on 4 November 2025, before the consultation opened, and it assesses the version that went out to consultation. Officers then changed the rough sleeping proposal in response to what people said, and no revised assessment of the changed version has been published. The assessment does commit the council to reviewing the policy's impact a year after it started, in February 2027."
+    },
+    {
+      "stage": "decision",
+      "description": "How the council's assessment panel decides. The Scrutiny committee asked for “the make up of the panel, its governance and decision-making processes” to be written into the policy, and “Officers agreed to provide that information within the policy”. Part of that happened: the adopted scheme says the panel is “made up of Housing Options team leaders and/or managers”, which the consultation draft did not. But the scheme leaves decisions on medical need, exceptional circumstances and household composition to that panel in fourteen places, and nowhere sets out its governance or how it reaches a decision."
     },
     {
       "stage": "decision",
@@ -938,20 +970,12 @@
       "description": "The research on co-parenting the Scrutiny committee asked for. Officers agreed to look for research on the effect of co-parenting in council-owned properties and “provide a brief update at a future Scrutiny Committee meeting”. We have not gathered any Scrutiny papers later than January 2026, so we cannot say whether that update has happened."
     },
     {
-      "stage": "decision",
-      "description": "What the council's assessment panel is. The Scrutiny committee asked for “the make up of the panel, its governance and decision-making processes” to be written into the policy. The adopted scheme leaves decisions on medical need, exceptional circumstances and household composition to that panel in fourteen places, and nowhere says who sits on it or how it decides."
-    },
-    {
-      "stage": "decision",
-      "description": "Which words changed to show that decisions rest on evidence rather than opinion. The council's “you said, we did” note says it “updated our policy wording to make it clear that housing application decisions are based on objective evidence rather than opinion”. Comparing the consultation draft with the adopted scheme, we could not identify the sentence that changed; the phrase “objective evidence” appears in neither document."
+      "stage": "outcome",
+      "description": "Numbers showing what the new rules have done. Nothing published says how many applicants the two-year residence rule has kept off the register, how many applications have been cancelled after three refusals, or how many people sleeping rough have been placed in silver band under the needs-led assessment. The scheme puts monitoring in the hands of the Housing Options manager without promising to publish what it finds. The equality assessment goes further and commits the council to reviewing the policy's impact a year after it started, in February 2027. Nothing from that review has appeared yet."
     },
     {
       "stage": "outcome",
-      "description": "Numbers showing what the new rules have done. Nothing published says how many applicants the two-year residence rule has kept off the register, how many applications have been cancelled after three refusals, or how many people sleeping rough have been placed in silver band under the needs-led assessment. The scheme commits to monitoring by the Housing Options manager but not to publishing what that monitoring finds."
-    },
-    {
-      "stage": "outcome",
-      "description": "The allocation scheme at the address the council's own report links to. Paragraph 2 of the report to Cabinet names the current scheme as a hyperlink; that link goes to a page which, when we followed it on 7 September 2026, refused us with “Access denied”. The scheme is readable at the address used throughout this page, so nothing is lost — but a council report pointing residents at a page they cannot open is worth recording."
+      "description": "The allocation scheme at the address the council's own report links to. Paragraph 2 of the report to Cabinet names the current scheme as a hyperlink to www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/norwich-home-options-allocation-scheme. Followed on 7 September 2026, that address refused us with “Access denied”. The scheme is readable at the address used throughout this page, so nothing is lost — but a council report pointing residents at a page they cannot open is worth recording, and the address is given here so anyone can check it."
     },
     {
       "stage": null,

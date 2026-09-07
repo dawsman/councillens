@@ -1,0 +1,42 @@
+{
+  "kind": "event",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "id": "evt-outcome-scheme-2026",
+    "stage": "outcome",
+    "date": "2026-02-12",
+    "date_precision": "day",
+    "title": "The new scheme was published the next day",
+    "summary": "The Home Options Allocation Scheme 2026 went up on the council's website on 12 February 2026, the day after Cabinet agreed it, as a full web page rather than a download. Its opening summary says the updates “have been shaped through a public consultation which took place in Autumn 2025 and scrutiny by the council's Overview and Scrutiny Committee.”",
+    "detail": [
+      "You can see the consultation in the text. The words “needs-led” and “professional judgement” appear nowhere in the draft that went out for consultation. Both appear twice in the adopted scheme: in the summary of changes at the top, and in the rough sleeping section itself. The draft's promise that rough sleeping priority would be “subject to ongoing, regular verification” is not in the adopted scheme.",
+      "The council said it had “updated our policy wording to make it clear that housing application decisions are based on objective evidence rather than opinion”. Neither document uses the phrase “objective evidence”, but the change is there. The clause on behaviour dropped “a history of behaviour which, in the opinion of the council, is unacceptable” for “a history of behaviour which is evidenced to have caused a detrimental effect to others”, and “in the opinion of” appears nowhere in the adopted scheme. One judgement of the council's does survive a few lines later, on rent arrears “which, in the council's view, would entitle the landlord to a possession order”.",
+      "One more line moved, and the council says why. The scheme gives reduced preference to people who owe housing debts, with exceptions. The draft made an exception “where a person is fleeing violence and has rent arrears”; the adopted scheme makes it “where a person is fleeing violence or domestic abuse and has rent arrears”. The council's own update says it changed how the policy refers to rent arrears caused by financial abuse, “to ensure survivors are not unfairly prevented from joining the housing register when they need support”.",
+      "Section 3.8.7.3 is still in the scheme, as “This category will not be awarded to those households whose children were born when the current accommodation was accepted.”"
+    ],
+    "source_ids": [
+      "housing-adopted-home-options-2026",
+      "housing-consultation-home-options--allocations-policy-2025-consultation-draft",
+      "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
+      "housing-consultation-home-options"
+    ],
+    "source_url": "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026",
+    "status": "done"
+  },
+  "ai": {
+    "source_ids": [
+      "housing-adopted-home-options-2026",
+      "housing-consultation-home-options--allocations-policy-2025-consultation-draft",
+      "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
+      "housing-consultation-home-options"
+    ],
+    "prompt_version": "event-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
+    "cache_key": "8278707d20addd275dc9369aa0f1302cfb68716b90cce322af25f8baf00f7686"
+  }
+}

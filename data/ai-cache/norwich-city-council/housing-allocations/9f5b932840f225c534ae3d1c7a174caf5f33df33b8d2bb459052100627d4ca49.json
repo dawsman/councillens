@@ -5,7 +5,7 @@
   "payload": {
     "id": "g-assessment-panel-detail",
     "stage": "decision",
-    "description": "What the council's assessment panel is. The Scrutiny committee asked for “the make up of the panel, its governance and decision-making processes” to be written into the policy. The adopted scheme leaves decisions on medical need, exceptional circumstances and household composition to that panel in fourteen places, and nowhere says who sits on it or how it decides."
+    "description": "How the council's assessment panel decides. The Scrutiny committee asked for “the make up of the panel, its governance and decision-making processes” to be written into the policy, and “Officers agreed to provide that information within the policy”. Part of that happened: the adopted scheme says the panel is “made up of Housing Options team leaders and/or managers”, which the consultation draft did not. But the scheme leaves decisions on medical need, exceptional circumstances and household composition to that panel in fourteen places, and nowhere sets out its governance or how it reaches a decision."
   },
   "ai": {
     "source_ids": [
@@ -15,9 +15,9 @@
     "prompt_version": "gap-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T23:40:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-08T01:30:00+00:00",
     "cache_key": "9f5b932840f225c534ae3d1c7a174caf5f33df33b8d2bb459052100627d4ca49"
   }
 }
