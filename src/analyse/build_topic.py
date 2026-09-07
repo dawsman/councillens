@@ -409,17 +409,21 @@ def main():
     tiers = {}
     for link in model["linkages"]:
         tiers[link["tier"]] = tiers.get(link["tier"], 0) + 1
-    needs_review = sum(
-        1 for item in model["sources"] + model["events"] + model["linkages"]
-        if item["ai"].get("review_status") == "needs_review"
-    )
+    reviewable = model["sources"] + model["events"] + model["linkages"]
+    counts = {"needs_review": 0, "ai_reviewed": 0, "reviewed": 0}
+    for item in reviewable:
+        status = item["ai"].get("review_status")
+        if status in counts:
+            counts[status] += 1
 
     print(f"wrote  {out_path.relative_to(ROOT)}")
     print(f"       {len(model['sources'])} sources, {len(model['events'])} entries, "
           f"{len(model['linkages'])} comparisons, {len(model['gaps'])} gaps")
     if tiers:
         print("       comparisons by tier: " + ", ".join(f"{k}={v}" for k, v in sorted(tiers.items())))
-    print(f"       {needs_review} item(s) awaiting human review")
+    print(f"       review status: {counts['needs_review']} unchecked, "
+          f"{counts['ai_reviewed']} checked by a second AI pass, "
+          f"{counts['reviewed']} checked by a person")
     for gap in model["gaps"]:
         print(f"  gap  [{gap['stage'] or '-'}] {gap['description']}")
     return 0

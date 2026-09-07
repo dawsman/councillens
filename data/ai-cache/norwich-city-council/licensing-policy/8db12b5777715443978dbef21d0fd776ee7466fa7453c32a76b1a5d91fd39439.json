@@ -4,7 +4,7 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "source_id": "premises-licence-guidance",
-    "summary": "The page a business lands on when it wants a premises licence in Norwich: who can apply, what to send in, and how to vary, transfer or give up a licence afterwards. It is the only place on the council's website that links the adopted licensing policy, which is how that document was found at all. It is the evidence that the December 2021 policy is the one being applied to applications now."
+    "summary": "The page a business lands on when it wants a premises licence in Norwich: who can apply, what to send in, and how to vary, transfer or give up a licence afterwards. It links out to the licensing policy under 'Related links', which is how we found that document. The link tells you which policy the council points applicants to; it does not itself give a date."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T20:15:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "8db12b5777715443978dbef21d0fd776ee7466fa7453c32a76b1a5d91fd39439"
   }
 }

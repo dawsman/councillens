@@ -4,7 +4,7 @@
   "topic_slug": "licensing-policy",
   "payload": {
     "source_id": "consultation-licensing-policy--summary-of-changes-to-licensing-policy-docx",
-    "summary": "A plain-English summary of what would change between the 2021 policy and the 2026 draft, written for residents rather than lawyers. It lists the main changes: aligning with the government's National Licensing Policy Framework of November 2025, formally adopting the 'agent of change' principle, a new commitment to work with the police and Norwich BID on a night-time safety charter, clearer rules on when conditions can be attached to a licence, a power to restrict high-strength alcohol at off-licences, recognition of staff safety on late shifts, and published service standards. It stresses that most changes are clarifications rather than new rules, and that the four licensing objectives stay as they are."
+    "summary": "A plain-English summary of what would change between the 2021 policy and the 2026 draft, written for residents rather than lawyers. It lists the main changes: aligning with the government's National Licensing Policy Framework of November 2025, formally adopting the 'agent of change' principle, a new commitment to work with the police and Norwich BID on a night-time safety charter, clearer rules on when conditions can be attached to a licence, a route for the council and the police to ask off-licences to accept a limit on high-strength alcohol, recognition of staff safety on late shifts, and published service standards. It stresses that most changes are clarifications rather than new rules, and that the four licensing objectives stay as they are."
   },
   "ai": {
     "source_ids": [
@@ -13,9 +13,9 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
-    "generated_at": "2026-09-07T20:15:00+00:00",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
+    "generated_at": "2026-09-07T22:30:00+00:00",
     "cache_key": "7f43e7fa60deefa8f67672ee618dca420a2e93a085dd30280c9852acf936d9bd"
   }
 }

@@ -18,8 +18,8 @@
     "prompt_version": "linkage-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
     "generated_at": "2026-09-07T20:15:00+00:00",
     "cache_key": "381adac8f4ed30daaf5a829d2cfc9afc4e6e1b59e91535d0df33e980f2115c0f"
   }
