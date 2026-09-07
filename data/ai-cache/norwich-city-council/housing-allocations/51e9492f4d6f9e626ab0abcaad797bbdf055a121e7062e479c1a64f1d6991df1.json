@@ -1,0 +1,38 @@
+{
+  "kind": "event",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "id": "evt-outcome-effect-not-published",
+    "stage": "outcome",
+    "date": null,
+    "date_precision": "unknown",
+    "title": "What the changes have done has not been published",
+    "summary": "The scheme has been in force since February 2026 and nothing the council has published says what it has changed: not how many applicants the two-year residence rule has kept off the register, and not how many people sleeping rough have been given silver band under the new needs-led assessment. The scheme says it “will be monitored directly by the Housing Options manager”, weighing application and bidding data and feedback from applicants, but it does not promise to publish any of it.",
+    "detail": [
+      "The council also told Cabinet that the consultation responses “will be published, along with council comments, in an online report”. We could not find that report on the consultation page or among the committee papers in this archive.",
+      "Adopting a policy is a thing a council can finish. Knowing whether it worked is not, until somebody counts."
+    ],
+    "source_ids": [
+      "housing-adopted-home-options-2026",
+      "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
+      "housing-consultation-home-options"
+    ],
+    "source_url": "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026",
+    "status": "still_waiting"
+  },
+  "ai": {
+    "source_ids": [
+      "housing-adopted-home-options-2026",
+      "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
+      "housing-consultation-home-options"
+    ],
+    "prompt_version": "event-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T23:40:00+00:00",
+    "cache_key": "51e9492f4d6f9e626ab0abcaad797bbdf055a121e7062e479c1a64f1d6991df1"
+  }
+}

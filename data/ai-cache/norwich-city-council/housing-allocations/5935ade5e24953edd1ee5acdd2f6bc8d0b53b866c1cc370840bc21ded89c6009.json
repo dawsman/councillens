@@ -1,0 +1,35 @@
+{
+  "kind": "figure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "id": "fig-consultation-opened",
+    "label": "The consultation opened",
+    "kind": "date",
+    "value": "2025-11-10",
+    "display": "10 November 2025",
+    "unit": null,
+    "as_of": "2025-11-10",
+    "period": null,
+    "order": 12,
+    "source_ids": [
+      "housing-consultation-home-options",
+      "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
+    ],
+    "source_url": "https://gettalking.norwich.gov.uk/homelessnessandallocations",
+    "note": "Both the consultation page and the report to Cabinet give this opening date. They disagree about the closing date: the page says 7 December 2025, the report says 12 December 2025."
+  },
+  "ai": {
+    "source_ids": [
+      "housing-consultation-home-options",
+      "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
+    ],
+    "prompt_version": "figure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T23:40:00+00:00",
+    "cache_key": "5935ade5e24953edd1ee5acdd2f6bc8d0b53b866c1cc370840bc21ded89c6009"
+  }
+}

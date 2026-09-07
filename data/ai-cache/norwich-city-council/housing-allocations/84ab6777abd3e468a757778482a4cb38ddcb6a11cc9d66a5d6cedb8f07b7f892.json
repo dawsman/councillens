@@ -1,0 +1,36 @@
+{
+  "kind": "event",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "id": "evt-outcome-applying-page",
+    "stage": "outcome",
+    "date": null,
+    "date_precision": "unknown",
+    "title": "The new rules are the ones you meet when you apply",
+    "summary": "The council's page for people looking for a council home now sets out the rules the 2026 scheme brought in. It tells applicants they can apply if they are 18 or older and “you've lived in Norwich for at least 2 years” — the requirement that replaced six months — lists the five bands an application can be placed in, and links the adopted scheme. This is the difference between a policy that was agreed and a policy that is being used.",
+    "detail": [
+      "The five bands, in the council's own order: emergency for urgent issues such as unsafe housing or serious medical needs; gold for high priority such as risk of homelessness; silver for medium needs; bronze for lower priority or no local connection; standard for everyone else.",
+      "The page carries no date, so we cannot say when it was changed."
+    ],
+    "source_ids": [
+      "housing-applying-for-housing",
+      "housing-adopted-home-options-2026"
+    ],
+    "source_url": "https://www.norwich.gov.uk/housing-and-community-safety/housing-advice-and-homelessness/applying-housing-norwich",
+    "status": "done"
+  },
+  "ai": {
+    "source_ids": [
+      "housing-applying-for-housing",
+      "housing-adopted-home-options-2026"
+    ],
+    "prompt_version": "event-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T23:40:00+00:00",
+    "cache_key": "84ab6777abd3e468a757778482a4cb38ddcb6a11cc9d66a5d6cedb8f07b7f892"
+  }
+}

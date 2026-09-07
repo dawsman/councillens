@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "source_id": "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment",
+    "summary": "The council's own assessment of who the changes would affect, completed on 4 November 2025 — before the consultation opened. It singles out three changes for assessment: the local connection requirement, the cut in permitted refusals, and veterans' priority. It records that the council owned 14,211 properties in October 2025, and it identifies an adverse impact on refugees leaving asylum accommodation, whose application process it says “typically lasts significantly less than the two years required to qualify for the housing register”. It assesses the proposed policy, not the version Cabinet went on to amend."
+  },
+  "ai": {
+    "source_ids": [
+      "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T23:40:00+00:00",
+    "cache_key": "d2361c3c65eded2051e8240d3ef3c1e2c37d3a5efb70dd8199b6f191197f6278"
+  }
+}

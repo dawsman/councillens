@@ -1,0 +1,35 @@
+{
+  "kind": "figure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "id": "fig-local-connection-years",
+    "label": "Years you must have lived in Norwich to join the register",
+    "kind": "duration",
+    "value": 2,
+    "unit": "years",
+    "display": "2 years",
+    "as_of": "2026-02-12",
+    "period": null,
+    "order": 2,
+    "source_ids": [
+      "housing-adopted-home-options-2026",
+      "housing-applying-for-housing"
+    ],
+    "source_url": "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026",
+    "note": "The 2026 scheme raised this from six months. Exceptions set out in law still apply, and the council's own page repeats the two-year rule to applicants."
+  },
+  "ai": {
+    "source_ids": [
+      "housing-adopted-home-options-2026",
+      "housing-applying-for-housing"
+    ],
+    "prompt_version": "figure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-07T23:40:00+00:00",
+    "cache_key": "b34add3b272b1088754f88063ba88c394c330b60d260dc0d92de8c1aff0b7ae0"
+  }
+}
