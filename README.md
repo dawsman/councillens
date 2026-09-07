@@ -89,7 +89,7 @@ This is an early build. First milestone: **one council, one topic, done really w
 - [x] Publish the first pages
 - [x] Add the feedback → decision → outcome view
 - [x] Add an easy corrections process
-- [ ] Human review of the first topic's AI summaries and linkages (21 items flagged `needs_review`)
+- [ ] Human review of the first topic's AI summaries and linkages (all 30 items are `ai_reviewed`: two independent AI passes reconciled against the sources; a person has not yet read them)
 - [ ] 17 September 2026: add the Licensing committee papers and update the decision stage
 
 ---
