@@ -1,6 +1,6 @@
 {
   "_fixture": true,
-  "_fixture_note": "EXAMPLE DATA ONLY. This file is hand-written so the publish stage can be built and tested before the real pipeline produces output. The council and topic are real; the documents, dates, quotes and summaries below are illustrative and must never be published as fact.",
+  "_fixture_note": "EXAMPLE DATA ONLY. This file is hand-written so the publish stage can be built and tested before the real pipeline produces output. The council and topic are real; the documents, dates, quotes and summaries below are illustrative and must never be published as fact. The figures below are illustrative too.",
   "schema_version": "1",
   "generated_at": "2026-09-07T09:00:00+00:00",
   "council": {
@@ -21,7 +21,7 @@
     "plain_english": "The rules the council uses when it decides who can sell alcohol, open late, or put on live music — and what conditions it can attach to keep noise and disorder down.",
     "questions": {
       "asked": "Residents living near Prince of Wales Road and in the Golden Triangle asked for tighter controls on late-opening venues, mainly because of noise and street disorder after midnight. Some businesses and the trade association asked for the opposite: fewer blanket restrictions and more case-by-case decisions.",
-      "decided": "The council adopted a new five-year licensing policy in January 2025. It kept a special \u201ccumulative impact\u201d area covering Prince of Wales Road, added a new agent-of-change condition for venues near homes, but did not extend the special area into the Golden Triangle as residents there had asked.",
+      "decided": "The council adopted a new five-year licensing policy in January 2025. It kept a special “cumulative impact” area covering Prince of Wales Road, added a new agent-of-change condition for venues near homes, but did not extend the special area into the Golden Triangle as residents there had asked.",
       "done": "The policy was published and took effect in March 2025. The promised review of how the cumulative impact area is working has not been published yet, so we do not know whether anything changed on the ground."
     }
   },
@@ -39,7 +39,9 @@
       "saved_to": "data/raw/norwich-city-council/consultation-draft-slp-2024.html",
       "summary": "The council asked the public what it should change in its licensing policy for the next five years. The consultation ran for eight weeks in summer 2024 and asked specifically about late-night opening hours, the existing special area on Prince of Wales Road, and noise from venues near homes.",
       "ai": {
-        "source_ids": ["src-consultation-2024-draft-slp"],
+        "source_ids": [
+          "src-consultation-2024-draft-slp"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -62,7 +64,9 @@
       "saved_to": "data/raw/norwich-city-council/consultation-responses-slp-2024.pdf",
       "summary": "The officers' report counts and groups the 412 responses. Most residents who replied wanted tighter controls after midnight, especially near Prince of Wales Road and in the Golden Triangle. Licensed businesses and the local trade association argued that blanket restrictions punish well-run venues and asked for decisions to be made case by case.",
       "ai": {
-        "source_ids": ["src-consultation-2024-responses"],
+        "source_ids": [
+          "src-consultation-2024-responses"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
@@ -85,7 +89,9 @@
       "saved_to": "data/raw/norwich-city-council/licensing-committee-2024-11-19-minutes.pdf",
       "summary": "The Licensing Committee went through the consultation responses and agreed what to recommend to Full Council. It kept the Prince of Wales Road special area, added a new condition for venues near homes, and turned down the request to extend the special area into the Golden Triangle because it said the evidence on crime and noise there was not strong enough.",
       "ai": {
-        "source_ids": ["src-licensing-cttee-2024-11-19-minutes"],
+        "source_ids": [
+          "src-licensing-cttee-2024-11-19-minutes"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -108,7 +114,9 @@
       "saved_to": "data/raw/norwich-city-council/full-council-2025-01-28-minutes.pdf",
       "summary": "Full Council formally adopted the Statement of Licensing Policy 2025–2030 as recommended by the Licensing Committee. The minutes record that councillors also asked officers to report back within twelve months on whether the special area is working.",
       "ai": {
-        "source_ids": ["src-full-council-2025-01-28-minutes"],
+        "source_ids": [
+          "src-full-council-2025-01-28-minutes"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -131,7 +139,9 @@
       "saved_to": "data/raw/norwich-city-council/statement-of-licensing-policy-2025-2030.pdf",
       "summary": "The final policy document now in force. It sets out the cumulative impact area on Prince of Wales Road, the hours the council will normally grant, and the new condition requiring new venues near homes to show how they will manage noise.",
       "ai": {
-        "source_ids": ["src-published-slp-2025"],
+        "source_ids": [
+          "src-published-slp-2025"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -154,7 +164,9 @@
       "saved_to": "data/raw/norwich-city-council/licensing-committee-2025-06-17-agenda.pdf",
       "summary": "This agenda is the most recent Licensing Committee paper we could find. It does not contain the twelve-month review of the cumulative impact area that Full Council asked for in January 2025.",
       "ai": {
-        "source_ids": ["src-licensing-cttee-2025-06-17-agenda"],
+        "source_ids": [
+          "src-licensing-cttee-2025-06-17-agenda"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
@@ -177,11 +189,15 @@
         "Open 10 June to 5 August 2024",
         "Ran online, with paper copies at City Hall and the Forum"
       ],
-      "source_ids": ["src-consultation-2024-draft-slp"],
+      "source_ids": [
+        "src-consultation-2024-draft-slp"
+      ],
       "source_url": "https://www.norwich.gov.uk/example/consultation-draft-licensing-policy-2024",
       "status": null,
       "ai": {
-        "source_ids": ["src-consultation-2024-draft-slp"],
+        "source_ids": [
+          "src-consultation-2024-draft-slp"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -203,11 +219,15 @@
         "Most common request: no new licences past 01:00 near housing",
         "Second most common: extend the special area into the Golden Triangle"
       ],
-      "source_ids": ["src-consultation-2024-responses"],
+      "source_ids": [
+        "src-consultation-2024-responses"
+      ],
       "source_url": "https://cmis.norwich.gov.uk/example/document/consultation-responses-slp-2024.pdf",
       "status": null,
       "ai": {
-        "source_ids": ["src-consultation-2024-responses"],
+        "source_ids": [
+          "src-consultation-2024-responses"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
@@ -225,11 +245,15 @@
       "title": "Licensed businesses asked for fewer blanket rules and more case-by-case decisions",
       "summary": "Licence holders and a trade association argued that a special area penalises well-run venues alongside badly-run ones. They asked the council to judge each application on its own evidence rather than applying an area-wide presumption against new licences. The responses report does not give an exact date for these submissions, so we only know the month.",
       "detail": null,
-      "source_ids": ["src-consultation-2024-responses"],
+      "source_ids": [
+        "src-consultation-2024-responses"
+      ],
       "source_url": "https://cmis.norwich.gov.uk/example/document/consultation-responses-slp-2024.pdf",
       "status": null,
       "ai": {
-        "source_ids": ["src-consultation-2024-responses"],
+        "source_ids": [
+          "src-consultation-2024-responses"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "low",
@@ -248,14 +272,18 @@
       "summary": "The committee agreed to recommend the new policy to Full Council. It kept the cumulative impact area on Prince of Wales Road, citing the consultation responses and police data, and added a condition requiring new venues near homes to set out how they will manage noise.",
       "detail": [
         "Cumulative impact area on Prince of Wales Road: kept",
-        "New \u201cagent of change\u201d noise condition: added",
+        "New “agent of change” noise condition: added",
         "Standard hours framework: unchanged"
       ],
-      "source_ids": ["src-licensing-cttee-2024-11-19-minutes"],
+      "source_ids": [
+        "src-licensing-cttee-2024-11-19-minutes"
+      ],
       "source_url": "https://cmis.norwich.gov.uk/example/meeting/licensing-committee-2024-11-19",
       "status": null,
       "ai": {
-        "source_ids": ["src-licensing-cttee-2024-11-19-minutes"],
+        "source_ids": [
+          "src-licensing-cttee-2024-11-19-minutes"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -273,11 +301,15 @@
       "title": "The committee turned down the request to extend the special area into the Golden Triangle",
       "summary": "Residents had asked for the cumulative impact area to cover the Golden Triangle as well. The committee did not agree, recording that the crime and nuisance evidence for that area did not meet the legal test for a cumulative impact assessment.",
       "detail": null,
-      "source_ids": ["src-licensing-cttee-2024-11-19-minutes"],
+      "source_ids": [
+        "src-licensing-cttee-2024-11-19-minutes"
+      ],
       "source_url": "https://cmis.norwich.gov.uk/example/meeting/licensing-committee-2024-11-19",
       "status": null,
       "ai": {
-        "source_ids": ["src-licensing-cttee-2024-11-19-minutes"],
+        "source_ids": [
+          "src-licensing-cttee-2024-11-19-minutes"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -295,11 +327,15 @@
       "title": "Full Council adopted the policy and asked for a review within twelve months",
       "summary": "Councillors formally adopted the Statement of Licensing Policy 2025–2030. The minutes also record a request for officers to report back within twelve months on whether the cumulative impact area is having any effect.",
       "detail": null,
-      "source_ids": ["src-full-council-2025-01-28-minutes"],
+      "source_ids": [
+        "src-full-council-2025-01-28-minutes"
+      ],
       "source_url": "https://cmis.norwich.gov.uk/example/meeting/full-council-2025-01-28",
       "status": null,
       "ai": {
-        "source_ids": ["src-full-council-2025-01-28-minutes"],
+        "source_ids": [
+          "src-full-council-2025-01-28-minutes"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -317,11 +353,15 @@
       "title": "The new policy was published and took effect",
       "summary": "The Statement of Licensing Policy 2025–2030 was published on the council's website and applies to licence applications from 1 March 2025. The new noise condition for venues near homes is in the published text.",
       "detail": null,
-      "source_ids": ["src-published-slp-2025"],
+      "source_ids": [
+        "src-published-slp-2025"
+      ],
       "source_url": "https://www.norwich.gov.uk/example/statement-of-licensing-policy-2025-2030",
       "status": "done",
       "ai": {
-        "source_ids": ["src-published-slp-2025"],
+        "source_ids": [
+          "src-published-slp-2025"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -339,11 +379,17 @@
       "title": "The twelve-month review of the special area has not been published",
       "summary": "Full Council asked for a report within twelve months on whether the cumulative impact area is working. We checked Licensing Committee agendas up to June 2025 and could not find it. We do not know whether it has been written and not published, or not written at all.",
       "detail": null,
-      "source_ids": ["src-licensing-cttee-2025-06-17-agenda", "src-full-council-2025-01-28-minutes"],
+      "source_ids": [
+        "src-licensing-cttee-2025-06-17-agenda",
+        "src-full-council-2025-01-28-minutes"
+      ],
       "source_url": "https://cmis.norwich.gov.uk/example/meeting/licensing-committee-2025-06-17",
       "status": "still_waiting",
       "ai": {
-        "source_ids": ["src-licensing-cttee-2025-06-17-agenda", "src-full-council-2025-01-28-minutes"],
+        "source_ids": [
+          "src-licensing-cttee-2025-06-17-agenda",
+          "src-full-council-2025-01-28-minutes"
+        ],
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
@@ -385,7 +431,10 @@
       "evidence_url": "https://cmis.norwich.gov.uk/example/meeting/licensing-committee-2024-11-19",
       "explanation": "The committee's own minutes say the consultation responses were part of why it kept the special area, so the council has recorded the link itself.",
       "ai": {
-        "source_ids": ["src-licensing-cttee-2024-11-19-minutes", "src-consultation-2024-responses"],
+        "source_ids": [
+          "src-licensing-cttee-2024-11-19-minutes",
+          "src-consultation-2024-responses"
+        ],
         "prompt_version": "linkage-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -403,7 +452,9 @@
       "evidence_url": "https://cmis.norwich.gov.uk/example/meeting/licensing-committee-2024-11-19",
       "explanation": "The minutes name the residents' request and explain why it was turned down — a confirmed link, even though the answer was no.",
       "ai": {
-        "source_ids": ["src-licensing-cttee-2024-11-19-minutes"],
+        "source_ids": [
+          "src-licensing-cttee-2024-11-19-minutes"
+        ],
         "prompt_version": "linkage-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
@@ -421,7 +472,10 @@
       "explanation": "Residents asked for a way to check the special area actually works, and Full Council asked for a twelve-month review — but the minutes do not say the two are connected, so we cannot claim they are.",
       "evidence_url": null,
       "ai": {
-        "source_ids": ["src-full-council-2025-01-28-minutes", "src-consultation-2024-responses"],
+        "source_ids": [
+          "src-full-council-2025-01-28-minutes",
+          "src-consultation-2024-responses"
+        ],
         "prompt_version": "linkage-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
@@ -439,7 +493,10 @@
       "evidence_url": null,
       "explanation": "The businesses' request for case-by-case decisions instead of an area-wide rule is not mentioned anywhere in the committee's recorded reasons, so we found no link.",
       "ai": {
-        "source_ids": ["src-licensing-cttee-2024-11-19-minutes", "src-consultation-2024-responses"],
+        "source_ids": [
+          "src-licensing-cttee-2024-11-19-minutes",
+          "src-consultation-2024-responses"
+        ],
         "prompt_version": "linkage-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
@@ -468,5 +525,142 @@
       "description": "We looked for published noise-complaint or licensing-enforcement figures for Prince of Wales Road before and after March 2025 and found none, so the effect of the policy cannot be measured from public data."
     }
   ],
-  "corrections_url": "https://github.com/dawsman/councillens/issues/new?template=correction.yml"
+  "corrections_url": "https://github.com/dawsman/councillens/issues/new?template=correction.yml",
+  "figures": [
+    {
+      "id": "fig-responses",
+      "label": "Responses to the consultation",
+      "kind": "count",
+      "value": 412,
+      "unit": "responses",
+      "display": null,
+      "as_of": "2024-08-05",
+      "period": null,
+      "source_ids": [
+        "src-consultation-2024-responses"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/example/document/consultation-responses-slp-2024.pdf",
+      "note": "Counted in the officers' report. It does not say how many were from residents and how many from businesses.",
+      "ai": {
+        "source_ids": [
+          "src-consultation-2024-responses"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-02T10:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "fig-late-night-share",
+      "label": "Wanted tighter control of late-night venues",
+      "kind": "share",
+      "value": 68,
+      "unit": null,
+      "display": "68%",
+      "as_of": "2024-08-05",
+      "period": null,
+      "source_ids": [
+        "src-consultation-2024-responses"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/example/document/consultation-responses-slp-2024.pdf",
+      "note": "Share of the 412 responses, as grouped by officers. People could pick more than one theme, so the shares do not add to 100.",
+      "ai": {
+        "source_ids": [
+          "src-consultation-2024-responses"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-02T10:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "fig-policy-term",
+      "label": "How long the policy runs before it must be redone",
+      "kind": "duration",
+      "value": 5,
+      "unit": "years",
+      "display": null,
+      "as_of": null,
+      "period": "2025 to 2030",
+      "source_ids": [
+        "src-published-slp-2025"
+      ],
+      "source_url": "https://www.norwich.gov.uk/example/statement-of-licensing-policy-2025",
+      "note": "Set by the Licensing Act 2003, not by the council.",
+      "ai": {
+        "source_ids": [
+          "src-published-slp-2025"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-02T10:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "fig-licensing-cost",
+      "label": "Cost of running the licensing service",
+      "kind": "money",
+      "value": 1240000,
+      "unit": "GBP",
+      "display": "£1.2m",
+      "as_of": null,
+      "period": "2025/26",
+      "source_ids": [
+        "src-published-slp-2025"
+      ],
+      "source_url": "https://www.norwich.gov.uk/example/statement-of-licensing-policy-2025",
+      "note": "Budgeted, not spent. The out-turn figure for the year has not been published.",
+      "ai": {
+        "source_ids": [
+          "src-published-slp-2025"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "low",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-02T10:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "fig-in-force",
+      "label": "Date the policy took effect",
+      "kind": "date",
+      "value": "2025-03-01",
+      "unit": null,
+      "display": "1 March 2025",
+      "as_of": "2025-03-01",
+      "period": null,
+      "source_ids": [
+        "src-published-slp-2025"
+      ],
+      "source_url": "https://www.norwich.gov.uk/example/statement-of-licensing-policy-2025",
+      "note": "The council published it on the same day it came into force.",
+      "ai": {
+        "source_ids": [
+          "src-published-slp-2025"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-02T10:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ]
 }

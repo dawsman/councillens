@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "_viz.html" as viz with context %}
 
 {% block title %}CouncilLens — see how your council listens{% endblock %}
 
@@ -37,9 +38,14 @@
     {% for c in councils %}
     <li class="council-card">
       <h3><a href="councils/{{ c.slug }}/index.html">{{ c.council.name }}</a></h3>
-      <p class="council-topics">
-        {% for t in c.topics %}{{ t.topic.name }}{% if not loop.last %}, {% endif %}{% endfor %}
-      </p>
+      <ul class="council-topiclist">
+        {% for t in c.topics %}
+        <li class="council-topic">
+          <p class="council-topic-name"><a href="councils/{{ c.slug }}/{{ t._topic_slug }}/index.html">{{ t.topic.name }}</a></p>
+          {{ viz.mini_tracker(t._progress, "Progress on " ~ t.topic.name) }}
+        </li>
+        {% endfor %}
+      </ul>
       <p class="council-count">{{ c.topics | length }} topic{{ '' if c.topics|length == 1 else 's' }} covered so far.</p>
     </li>
     {% endfor %}

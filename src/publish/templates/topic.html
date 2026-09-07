@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "_parts.html" as parts with context %}
+{% import "_viz.html" as viz with context %}
 
 {% block title %}{{ m.topic.name }} — {{ m.council.name }} — CouncilLens{% endblock %}
 {% block description %}{{ m.topic.plain_english }}{% endblock %}
@@ -21,6 +22,10 @@
   <p class="lede">{{ m.topic.plain_english }}</p>
 </header>
 
+{{ viz.tracker(m._progress) }}
+
+{{ viz.figures(m._figures) }}
+
 {# ---- The hero: the three questions, answered, as a visible sequence ---- #}
 <section class="answers" aria-labelledby="three-questions">
   <h2 id="three-questions" class="visually-hidden">The three questions</h2>
@@ -36,10 +41,14 @@
   {% endfor %}
 </section>
 
+{{ viz.ribbon(m._ribbon) }}
+
+{{ viz.changes(m._changes) }}
+
 <nav class="onpage" aria-label="On this page">
   <p class="onpage-label">Further down this page</p>
   <ul>
-    <li><a href="#the-record">How it unfolded, stage by stage</a></li>
+    <li><a href="#the-record">Every record, stage by stage</a></li>
     <li><a href="#gaps-head">What we looked for and couldn't find</a></li>
     <li><a href="#sources-head">Every document we used</a></li>
     <li><a href="timeline/index.html">The same record in date order</a></li>
@@ -47,9 +56,11 @@
 </nav>
 
 {# ---- The record, stage by stage ---- #}
-<h2 class="section-head" id="the-record">How it unfolded</h2>
+<h2 class="section-head" id="the-record">Every record, stage by stage</h2>
 <p class="section-intro">Every card below links to the council document it came from. Where feedback
   and a decision are joined, we say how sure we are — and show the words the council used.</p>
+
+{{ viz.linkage_summary(m._linkage_summary) }}
 
 {% for stage in STAGES %}
 {% set events = m._stages[stage] %}
@@ -111,6 +122,8 @@
   <h2 class="section-head" id="sources-head">Every document we used</h2>
   <p class="section-intro">{{ m._sources | length }} public document{{ '' if m._sources|length == 1 else 's' }}.
     Nothing on this page comes from anywhere else.</p>
+
+  {{ viz.documents(m._documents) }}
   <ol class="source-list">
     {% for s in m._sources %}
     <li class="source" id="{{ s.id }}">
