@@ -15,6 +15,7 @@ Run locally:
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -29,13 +30,62 @@ import canonical  # noqa: E402
 MAX_TEXT_CHARS = 200_000
 
 
+# Site furniture that carries no information about a decision: navigation, cookie
+# banners, skip links, social footers. Stripping it is generic HTML hygiene — it
+# is not council-specific, and every council site has some version of it.
+CHROME_SELECTORS = [
+    "nav", "header", "footer", "form",
+    "[role=navigation]", "[role=banner]", "[role=contentinfo]", "[role=search]",
+    "[class*=cookie]", "[id*=cookie]", "[class*=consent]", "[id*=consent]",
+    "[class*=skip-link]", "[class*=breadcrumb]", "[class*=site-nav]",
+    "[class*=menu]", "[id*=menu]", "[class*=social]", "[class*=pagination]",
+]
+
+
 def extract_html(data):
     from bs4 import BeautifulSoup
 
     soup = BeautifulSoup(data, "html.parser")
-    for tag in soup(["script", "style", "noscript"]):
+    for tag in soup(["script", "style", "noscript", "svg", "iframe"]):
         tag.decompose()
-    return " ".join(soup.get_text(separator=" ").split())
+    for selector in CHROME_SELECTORS:
+        for tag in soup.select(selector):
+            tag.decompose()
+
+    # Prefer the page's main content region when it declares one.
+    main = soup.select_one("main, [role=main], #main-content, #content, .main-content")
+    text = " ".join((main or soup).get_text(separator=" ").split())
+
+    # If stripping the chrome took the substance with it, fall back to the whole
+    # document rather than hand the next stage an empty record.
+    if len(text) < 200:
+        soup2 = BeautifulSoup(data, "html.parser")
+        for tag in soup2(["script", "style", "noscript"]):
+            tag.decompose()
+        text = " ".join(soup2.get_text(separator=" ").split())
+    return text
+
+
+def extract_docx(path):
+    """Councils publish plenty of consultation drafts as Word files. A .docx is a
+    zip of XML, so this needs no extra dependency: pull the paragraph text out of
+    word/document.xml and keep paragraph breaks as spaces."""
+    import zipfile
+    from xml.etree import ElementTree
+
+    ns = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+    parts = []
+    with zipfile.ZipFile(path) as zf:
+        names = [n for n in ("word/document.xml",) if n in zf.namelist()]
+        names += sorted(n for n in zf.namelist()
+                        if n.startswith("word/") and re.match(r"word/(header|footer)\d+\.xml$", n))
+        for name in names:
+            root = ElementTree.fromstring(zf.read(name))
+            for para in root.iter(f"{ns}p"):
+                text = "".join(node.text or "" for node in para.iter(f"{ns}t"))
+                if text.strip():
+                    parts.append(text)
+    return " ".join(" ".join(parts).split())
 
 
 def extract_pdf(path):
@@ -52,6 +102,8 @@ def extract_text(path):
     suffix = path.suffix.lower()
     if suffix == ".pdf":
         return extract_pdf(path)
+    if suffix == ".docx":
+        return extract_docx(path)
     data = path.read_bytes()
     if suffix in {".html", ".htm", ".aspx", ""}:
         return extract_html(data)

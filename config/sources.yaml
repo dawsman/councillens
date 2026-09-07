@@ -5,42 +5,123 @@
 #
 # Adding a council = adding a config block like this one. The pipeline does not
 # change. 'platform' selects the adapter; council-specific mapping (which body,
-# which stage) lives here in config, never in pipeline code.
+# which stage, which documents matter) lives here in config, never in pipeline code.
 #
 # Remit note: Norwich City Council is a district/city council. Highways (e.g.
 # potholes) belong to Norfolk County Council, so topics here focus on city-council
 # services such as licensing, housing, waste, planning and parks.
+#
+# Every URL below was fetched and read on 2026-09-07 before being written down.
+# Sources that could not be verified are disabled, with a note saying what was
+# searched. Nothing here is a guess.
+#
+# Config keys the adapters understand (see src/ingest/adapters.py):
+#   match / exclude   which linked documents to keep, by keyword
+#   documents         explicit {title, url} documents to fetch
+#   include_page      emit a record for the page itself (default true)
+#   follow_links      discover linked documents (default true)
+#   max_bytes         skip any single file larger than this
 
 council: "Norwich City Council"
 topic: "Licensing policy (alcohol, entertainment and late-night venues)"
 
 sources:
-  # --- Feedback ---
+  # ------------------------------------------------------------------
+  # FEEDBACK — what people were asked, and what they said
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-07. The live consultation page for the 2026 review of the
+  # Statement of Licensing Policy. Consultation ran 18 May to 9 August 2026.
+  # Platform is EngagementHQ (Granicus), branded "Get Talking Norwich".
+  # Carries two attachments: the full draft policy and a summary of changes.
   - id: consultation-licensing-policy
-    title: "Licensing Policy consultation (Get Talking Norwich)"
+    title: "Norwich's Licensing Policy — consultation (Get Talking Norwich)"
     type: consultation
     stage: feedback
-    platform: engagement        # engagement platform (vendor to confirm)
+    platform: engagement
     url: "https://gettalking.norwich.gov.uk/licensing"
+    match:
+      - licensing
     enabled: true
 
+  # Verified 2026-09-07: page loads, but by September 2026 it lists only the
+  # current energy and culture consultations. The licensing consultation closed
+  # on 9 August and has been removed, so this page carries nothing about our
+  # topic. Also searched the site's "closed consultations" link and
+  # norwich.gov.uk/search for "statement of licensing policy" — neither surfaced
+  # a licensing consultation record. Left off to avoid banking an irrelevant page.
   - id: consultations-hub
     title: "Consultations and engagement — current consultations"
     type: consultation
     stage: feedback
     platform: localgov_drupal
     url: "https://www.norwich.gov.uk/your-council-explained/consultations-and-engagement"
-    enabled: true
+    enabled: false
 
+  # Verified 2026-09-07: the URL in the first draft of this file was a stale
+  # legacy path; it 301s to the address below, which is a generic "how to start a
+  # petition" page. No petition about licensing policy was found on it. Kept
+  # disabled rather than deleted so the next reviewer can see it was checked.
   - id: epetitions
     title: "Norwich ePetitions"
     type: feedback
     stage: feedback
     platform: localgov_drupal
-    url: "https://www.norwich.gov.uk/info/20011/about_your_council/1347/petitions/5"
+    url: "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/start-or-sign-e-petition-norwich"
+    enabled: false
+
+  # ------------------------------------------------------------------
+  # DECISION — what the council's own committees did about it
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-07. The meeting that started this round: Licensing committee,
+  # 5 March 2026, item 6. Members considered the revised draft policy, amended the
+  # wording on licence conditions, and recommended it to Cabinet for a 12-week
+  # public consultation. The minutes of that meeting are attached to the same
+  # page, so the decision and its record come from one deep link.
+  # The 2Mb combined agenda pack is excluded: every document in it is fetched
+  # individually below, so banking the pack too would only duplicate the repo.
+  - id: licensing-committee-2026-03-05
+    title: "Licensing committee, 5 March 2026 — draft Statement of Licensing Policy"
+    type: agenda
+    stage: decision
+    body: "Licensing committee"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1534/Committee/6/Default.aspx"
+    match:
+      - licensing policy
+      - statement of licensing
+      - equalities impact
+      - minutes
+    exclude:
+      - document pack
+    max_bytes: 5000000
     enabled: true
 
-  # --- Decision ---
+  # Verified 2026-09-07. The meeting where the consultation results are due. The
+  # consultation page says responses will be "analysed and summarised in a report
+  # to the Licensing Committee in September 2026". As of 7 September the meeting
+  # is listed as Scheduled with no documents published. The page is banked anyway,
+  # because it is the evidence for saying this outcome is still waiting.
+  - id: licensing-committee-2026-09-17
+    title: "Licensing committee, 17 September 2026 — consultation results due"
+    type: agenda
+    stage: decision
+    body: "Licensing committee"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1727/Committee/6/Default.aspx"
+    match:
+      - licensing policy
+      - statement of licensing
+      - minutes
+    exclude:
+      - document pack
+    max_bytes: 5000000
+    enabled: true
+
+  # Verified 2026-09-07. The committee's own index of every meeting since 2014 —
+  # the page a resident would land on to check what happens next. Banked as a page
+  # only; its individual meetings are configured above.
   - id: licensing-committee
     title: "Licensing committee — agendas, minutes and decisions"
     type: minutes
@@ -48,13 +129,48 @@ sources:
     body: "Licensing committee"
     platform: cmis
     url: "https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/6/Default.aspx"
+    follow_links: false
     enabled: true
 
-  # --- Outcome ---
+  # ------------------------------------------------------------------
+  # OUTCOME — the policy that is actually in force
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-07. The adopted Statement of Licensing Policy, approved by
+  # full council in December 2021 and still the policy in force while the 2026
+  # revision is consulted on. 79 pages, published as a bare PDF.
+  - id: adopted-licensing-policy-2021
+    title: "Licensing policy approved by Norwich City Council, December 2021"
+    type: policy
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/downloads/file/2258/licensing_policy"
+    enabled: true
+
+  # Verified 2026-09-07. The public-facing page that applicants are pointed to,
+  # and the only place on norwich.gov.uk that links the adopted policy. It is the
+  # evidence that the December 2021 policy is the one currently being applied.
+  - id: premises-licence-guidance
+    title: "Premises licence — how Norwich applies its licensing policy"
+    type: policy
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/licensing/premises-and-alcohol/premises-licence"
+    # The one document this page links is the adopted policy, already banked under
+    # adopted-licensing-policy-2021 from the identical URL. Following the link
+    # would put the same 730Kb PDF in the repo twice, so the page is banked alone.
+    follow_links: false
+    enabled: true
+
+  # Verified 2026-09-07: the page exists and lists dozens of adopted policies, but
+  # its entry labelled "Licensing Policy (PDF)" actually links the Houses in
+  # Multiple Occupation licensing policy, not the Licensing Act 2003 statement.
+  # Banking it would invite exactly the confusion this project exists to avoid.
+  # The correct adopted policy is fetched directly above.
   - id: policies-plans-strategies
     title: "Policies, plans and strategies (adopted licensing policy)"
     type: policy
     stage: outcome
     platform: localgov_drupal
     url: "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies"
-    enabled: true
+    enabled: false

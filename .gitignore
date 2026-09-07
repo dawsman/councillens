@@ -21,3 +21,6 @@ _site/
 public/build/
 
 # Note: data/ is versioned on purpose — do not ignore it.
+
+# Local virtualenv
+.venv/
