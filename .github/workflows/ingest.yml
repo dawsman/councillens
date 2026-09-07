@@ -1,0 +1,51 @@
+name: Ingest sources
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 1st of the month, 05:00 UTC
+    - cron: "0 5 1 * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch sources
+        run: python src/ingest/fetch.py
+
+      - name: Extract / transform
+        run: python src/transform/extract.py
+
+      - name: Validate against the contract
+        run: python scripts/validate.py
+
+      - name: Open a pull request if data changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Ingest: refreshed source documents"
+          branch: auto/ingest
+          title: "Ingest: refreshed source documents"
+          body: |
+            Automated ingest run. This refreshes the raw and processed documents under
+            `data/` from the public sources listed in `config/sources.yaml`.
+
+            A maintainer must review the raw changes in this PR before merging — the
+            content comes straight from council sources and has not been read by a
+            person yet. Once merged, the analyse cache under `data/ai-cache/` may need
+            regenerating for any topic whose source documents changed here.
+          add-paths: |
+            data/raw
+            data/processed

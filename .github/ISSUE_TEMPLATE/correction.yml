@@ -1,0 +1,60 @@
+name: Request a correction or removal
+description: Tell us about something wrong on the site, or ask us to remove something about you.
+title: "Correction: "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to flag this. We only use information that is
+        already public, and we take mistakes seriously — we aim to acknowledge
+        within 2 working days and resolve or explain within 10 working days.
+
+        You don't need to know anything technical to fill this in — just tell us
+        what you've noticed in your own words.
+
+  - type: input
+    id: page-url
+    attributes:
+      label: Which page is this about?
+      description: Paste the web address (URL) of the page. You can copy it from your browser's address bar.
+      placeholder: "https://dawsman.github.io/councillens/..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: whats-wrong
+    attributes:
+      label: What is wrong, or what would you like removed?
+      description: Please describe it as clearly as you can. There's no need to be formal.
+      placeholder: "For example: this says the decision was made in March, but it was actually April."
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct-info
+    attributes:
+      label: What's the correct information?
+      description: If you know it, tell us what it should say instead — and if you have a link to a public document that proves it, please add that too. This is optional.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: named-removal
+    attributes:
+      label: Are you named in this content and asking for it to be removed?
+      description: This helps us prioritise and handle your request the right way.
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
+
+  - type: input
+    id: contact-email
+    attributes:
+      label: Contact email (optional)
+      description: Only used so we can reply to you about this request. We won't use it for anything else.
+      placeholder: "you@example.com"
+    validations:
+      required: false
