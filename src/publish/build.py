@@ -159,16 +159,20 @@ def provenance(ai: dict | None) -> dict | None:
     """Flatten an AI provenance block into what the page needs to show."""
     if not ai:
         return None
-    reviewed = ai.get("review_status") == "reviewed"
+    status = ai.get("review_status")
+    reviewed = status == "reviewed"
+    ai_reviewed = status == "ai_reviewed"
     return {
         "model": ai.get("model") or "unknown model",
         "generated_at": (ai.get("generated_at") or "")[:10],
         "prompt_version": ai.get("prompt_version"),
         "confidence": ai.get("confidence"),
         "reviewed": reviewed,
+        "ai_reviewed": ai_reviewed,
         "review_text": (
             f"checked by {ai['reviewed_by']}" if reviewed and ai.get("reviewed_by")
             else "checked by a person" if reviewed
+            else "checked against the source documents by a second, independent AI review; not yet by a person" if ai_reviewed
             else "not yet reviewed by a person"
         ),
     }

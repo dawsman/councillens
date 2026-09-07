@@ -411,7 +411,7 @@ def main():
         tiers[link["tier"]] = tiers.get(link["tier"], 0) + 1
     needs_review = sum(
         1 for item in model["sources"] + model["events"] + model["linkages"]
-        if item["ai"].get("review_status") != "reviewed"
+        if item["ai"].get("review_status") == "needs_review"
     )
 
     print(f"wrote  {out_path.relative_to(ROOT)}")

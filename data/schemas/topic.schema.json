@@ -19,10 +19,10 @@
         "prompt_version": {"type": "string"},
         "model": {"type": "string"},
         "confidence": {"enum": ["high", "medium", "low"]},
-        "review_status": {"enum": ["needs_review", "reviewed"]},
+        "review_status": {"enum": ["needs_review", "ai_reviewed", "reviewed"], "description": "needs_review: unchecked. ai_reviewed: independently checked against the source documents by a second AI pass, not yet by a person. reviewed: checked by a person."},
         "reviewed_by": {
           "type": ["string", "null"],
-          "description": "Name or handle of the person who reviewed it; null until reviewed."
+          "description": "Who checked it: a person's name or handle, or a description of the AI review pass; null until checked."
         },
         "generated_at": {"type": "string", "format": "date-time"},
         "cache_key": {
