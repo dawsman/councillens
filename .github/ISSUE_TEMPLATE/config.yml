@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How CouncilLens works (methodology)
+    url: https://dawsman.github.io/councillens/methodology/
+    about: Read how we source, summarise and label information before opening an issue.

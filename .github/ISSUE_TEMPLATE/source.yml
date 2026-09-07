@@ -1,0 +1,34 @@
+name: Suggest a public document we've missed
+description: Point us to a council document, page or dataset that should be included.
+title: "Source suggestion: "
+labels: ["source-suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Know a public council document, page or dataset we haven't picked up? Let us know below.
+
+  - type: input
+    id: url
+    attributes:
+      label: Link to the document or page
+      description: Paste the web address (URL).
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: input
+    id: council
+    attributes:
+      label: Which council is this for?
+      placeholder: "e.g. Norwich City Council"
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it matter?
+      description: A sentence or two on what it shows or why it should be included.
+    validations:
+      required: true

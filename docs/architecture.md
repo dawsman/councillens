@@ -83,16 +83,17 @@ and never merged — not argued case by case.
 
 Two pieces cannot be set by an automated token and must be enabled by a repo admin:
 
-1. **Add `.github/workflows/validate.yml`** (provided separately). Writing workflow
-   files needs the token's Workflows permission, so this one is added by hand or
-   with an upgraded token. Without it, the CI check does not run.
+1. **Add `.github/workflows/validate.yml`** — done. The workflow is in place and
+   runs on every pull request and on push to `main`.
 2. **Turn on branch protection** for `main` (Settings -> Branches): require the
    `validate` status check, require a pull request before merging, and require
    review (including code-owner review). Without this, a failing check would not
-   actually block a merge.
+   actually block a merge. This one is still pending — a repo admin needs to set
+   it.
 
-Until both are on, the contract is enforced at ingest and runnable locally, but not
-yet binding on merge.
+The `validate` workflow is now in place and runnable in CI. Until branch
+protection is turned on, the contract is enforced at ingest, runnable locally, and
+checked on every PR, but a failing check does not yet block a merge.
 
 ## The honest hard parts
 
@@ -115,4 +116,6 @@ yet binding on merge.
 - Adapter model: in place (`src/ingest/adapters.py`) with generic + CMIS; more
   platforms to follow.
 - CI gate script: in place (`scripts/validate.py`).
-- CI workflow + branch protection: pending the two one-time switches above.
+- CI workflow: in place (`.github/workflows/validate.yml`), running on every pull
+  request and on push to `main`.
+- Branch protection: pending — the one-time switch above still needs a repo admin.
