@@ -7,17 +7,20 @@
 #
 # `slug` must match this file's name and the directory under config/sources/.
 # `remit_note` is written for residents: what this council controls, and what
-# belongs to Norfolk County Council instead. Norwich is a stock-holding council,
-# so it owns and manages its own council housing.
+# belongs to Norfolk County Council instead. It is shared by every topic, so it
+# stays topic-neutral — no topic may bend it towards its own subject. Norwich is
+# a stock-holding council, so it owns and manages its own council housing.
 
 name: Norwich City Council
 slug: norwich-city-council
 website: https://www.norwich.gov.uk
 tier: district
-remit_note: 'Norwich City Council is a district council with city status. Licensing under the Licensing
-  Act 2003 is its job: who may sell alcohol, put on regulated entertainment, or serve hot food and drink
-  late at night. So are bin collections, council housing, parks and planning. Roads and potholes, schools,
-  libraries and social care belong to Norfolk County Council instead, so you will not find those here.'
+remit_note: 'Norwich City Council is a district council with city status. In Norfolk, local government
+  is split between two councils, and Norwich does the half you meet day to day: the council housing it owns
+  and manages itself, bin collections, parks, planning applications, and licensing — who may sell alcohol,
+  put on entertainment, or serve hot food and drink late at night. Roads and potholes, schools and libraries,
+  and social care for children and adults belong to Norfolk County Council instead, so you will not find
+  those here.'
 platforms:
   committees: cmis
   website: localgov_drupal

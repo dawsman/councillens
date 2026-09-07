@@ -5,7 +5,7 @@ How CouncilLens works, in the open. This is a living document: it grows as counc
 ## Sources
 We use public information only: council agendas and minutes, consultation pages, open data / transparency pages, and published performance or spending data. Every published claim links to its source.
 
-### First council: Norwich City Council, licensing policy
+### Norwich City Council, licensing policy
 
 Eighteen documents, every one fetched and read on 7 September 2026. The council's committee system is CMIS, its website runs on LocalGov Drupal, and its consultations run on EngagementHQ, branded Get Talking Norwich.
 
@@ -32,7 +32,30 @@ Eighteen documents, every one fetched and read on 7 September 2026. The council'
 - [The council's fees and charges book for 2026-27](https://www.norwich.gov.uk/sites/default/files/2026-06/Norwich-City-Council-Fees-and-Charges-2026-2027.pdf), which lists every licensing fee the council collects
 - [Payments to suppliers over £500](https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/find-open-data/payments-over-500), the transparency-code dataset, with January 2026 banked as a worked example
 
-Three pages were checked and deliberately left out, each with the reason recorded in `config/sources.yaml`: the consultations hub, which had dropped the closed licensing consultation by September; the e-petitions page, which carries no licensing petition; and the policies and strategies list, whose entry labelled "Licensing Policy" actually links a different policy about houses in multiple occupation. Banking that one would have caused exactly the confusion this project exists to prevent.
+Three pages were checked and deliberately left out, each with the reason recorded in `config/sources/norwich-city-council/licensing-policy.yaml`: the consultations hub, which had dropped the closed licensing consultation by September; the e-petitions page, which carries no licensing petition; and the policies and strategies list, whose entry labelled "Licensing Policy" actually links a different policy about houses in multiple occupation. Banking that one would have caused exactly the confusion this project exists to prevent.
+
+### Norwich City Council, housing allocations
+
+Eleven documents, every one fetched and read on 7 September 2026. Norwich owns and manages its own council housing, and the law requires it to publish a scheme saying who qualifies for a home and in what order. That scheme is called Home Options, and this topic follows one round of its review from consultation to adoption. The decision went to Cabinet, with the Scrutiny committee looking at it first.
+
+**What people were asked**
+
+- [The consultation itself](https://gettalking.norwich.gov.uk/homelessnessandallocations) — open from 10 November 2025, covering the homelessness strategy at the same time, and now carrying the council's "you said, we did" update
+- [The briefing note](https://gettalking.norwich.gov.uk/42605/widgets/135103/documents/94937/download) — the plain-English version residents were pointed at
+- [The full draft scheme](https://gettalking.norwich.gov.uk/42605/widgets/135103/documents/94939/download) and [the equality impact assessment](https://gettalking.norwich.gov.uk/42605/widgets/135103/documents/94938/download)
+
+**What the council decided**
+
+- [Scrutiny committee, 15 January 2026](https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1561/Committee/4/Default.aspx) — the agenda and the minutes, which record the one thing anybody argued about
+- [Cabinet, 11 February 2026](https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1518/Committee/1/Default.aspx) — the agenda and the officer's report, whose appendices carry the proposed scheme, the equality impact assessment and the consultation figures
+- The minutes of that Cabinet meeting, which CMIS attaches to [the next meeting, on 11 March 2026](https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1530/Committee/1/Default.aspx), where they were confirmed
+
+**What is actually in force**
+
+- [The Home Options Allocation Scheme 2026](https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026), published the day after Cabinet agreed it
+- [The page you apply through](https://www.norwich.gov.uk/housing-and-community-safety/housing-advice-and-homelessness/applying-housing-norwich), which states the new two-year residence rule — the evidence that the scheme reached the counter and not just the website
+
+Two pages were checked and left out, with the reason recorded in `config/sources/norwich-city-council/housing-allocations.yaml`: the index of adopted policies, which is a signpost rather than evidence about allocations, and the older allocation-scheme address the Cabinet report itself links to, which returns "Access denied" to the public. The second is left in the config rather than deleted, because a council report pointing residents at a page they cannot open is worth recording.
 
 ## Linkage tiers
 The hardest question in accountability is whether feedback actually changed a decision. We never imply a connection we cannot evidence. Every feedback ↔ decision comparison is labelled:
