@@ -1,0 +1,376 @@
+{
+  "schema_version": "1",
+  "generated_at": "2026-09-07T19:40:52+00:00",
+  "council": {
+    "name": "Norwich City Council",
+    "slug": "norwich-city-council",
+    "website": "https://www.norwich.gov.uk",
+    "tier": "district",
+    "remit_note": "Norwich City Council is a district council with city status. Licensing under the Licensing Act 2003 is its job: who may sell alcohol, put on regulated entertainment, or serve hot food and drink late at night. So are bin collections, council housing, parks and planning. Roads and potholes, schools, libraries and social care belong to Norfolk County Council instead, so you will not find those here.",
+    "platforms": {
+      "committees": "cmis",
+      "website": "localgov_drupal",
+      "consultations": "engagement"
+    }
+  },
+  "topic": {
+    "name": "Housing allocations",
+    "slug": "housing-allocations",
+    "plain_english": "We do not have a reviewed answer to this question yet.",
+    "questions": {
+      "asked": "We do not have a reviewed answer to this question yet.",
+      "decided": "We do not have a reviewed answer to this question yet.",
+      "done": "We do not have a reviewed answer to this question yet."
+    }
+  },
+  "sources": [
+    {
+      "id": "housing-consultation-home-options",
+      "title": "Homelessness Strategy and Housing Allocations Policy — consultation (Get Talking Norwich)",
+      "type": "consultation",
+      "stage": "feedback",
+      "body": null,
+      "platform": "engagement",
+      "source_url": "https://gettalking.norwich.gov.uk/homelessnessandallocations",
+      "fetched_at": "2026-09-07T19:40:40+00:00",
+      "sha256": "5a3bf05c74b36be276976d691ad69f540599ef9a462ab46c7b70454d6c9e3c3b",
+      "saved_to": "data/raw/housing-consultation-home-options/page.html",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-consultation-home-options"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "housing-consultation-home-options--allocations-policy-2025-consultation-draft",
+      "title": "Allocations policy 2025 - consultation draft",
+      "type": "consultation",
+      "stage": "feedback",
+      "body": null,
+      "platform": "engagement",
+      "source_url": "https://gettalking.norwich.gov.uk/42605/widgets/135103/documents/94939/download",
+      "fetched_at": "2026-09-07T19:40:41+00:00",
+      "sha256": "e6b4c95916a39da433f8b55f6a0e5631783c1ce06b90950984a8fe4de97a4935",
+      "saved_to": "data/raw/housing-consultation-home-options/allocations-policy-2025-consultation-draft.docx",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-consultation-home-options--allocations-policy-2025-consultation-draft"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "housing-consultation-home-options--allocations-policy-2025-briefing-note",
+      "title": "Allocations Policy 2025 – Briefing Note",
+      "type": "consultation",
+      "stage": "feedback",
+      "body": null,
+      "platform": "engagement",
+      "source_url": "https://gettalking.norwich.gov.uk/42605/widgets/135103/documents/94937/download",
+      "fetched_at": "2026-09-07T19:40:42+00:00",
+      "sha256": "92c79cff67b2bf763834ee70b793d23ee00007da64804bd45b42961a299c1120",
+      "saved_to": "data/raw/housing-consultation-home-options/allocations-policy-2025-briefing-note.docx",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-consultation-home-options--allocations-policy-2025-briefing-note"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment",
+      "title": "Allocations Policy 2025 – Equality Impact Assessment",
+      "type": "consultation",
+      "stage": "feedback",
+      "body": null,
+      "platform": "engagement",
+      "source_url": "https://gettalking.norwich.gov.uk/42605/widgets/135103/documents/94938/download",
+      "fetched_at": "2026-09-07T19:40:43+00:00",
+      "sha256": "968963867584189c6ee9eedea8e67383a8f00e76944372a3ac8aef2d5457ef5e",
+      "saved_to": "data/raw/housing-consultation-home-options/allocations-policy-2025-equality-impact-assessment.docx",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-consultation-home-options--allocations-policy-2025-equality-impact-assessment"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "housing-scrutiny-2026-01-15",
+      "title": "Scrutiny committee, 15 January 2026 — revisions to the Home Options policy",
+      "type": "agenda",
+      "stage": "decision",
+      "body": "Scrutiny committee",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1561/Committee/4/Default.aspx",
+      "fetched_at": "2026-09-07T19:40:44+00:00",
+      "sha256": "90a0143fe8caeb8900bdd04363eaccab9f91031215355f4fa927d2f2d393d500",
+      "saved_to": "data/raw/housing-scrutiny-2026-01-15/page.html",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-scrutiny-2026-01-15"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "housing-scrutiny-2026-01-15--scrutiny-minutes-15-january-2026",
+      "title": "Scrutiny Minutes 15 January 2026",
+      "type": "minutes",
+      "stage": "decision",
+      "body": "Scrutiny committee",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=9PnEnmlpuBjqnOT%2fQvCklRKeb1R2mh1NkxSKD45uGSd9D5%2fYnFfVxA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "fetched_at": "2026-09-07T19:40:44+00:00",
+      "sha256": "48e4867e363c19f71b6b8dafe197d411d6fc3f27b2c126a05eb6a283638916d3",
+      "saved_to": "data/raw/housing-scrutiny-2026-01-15/scrutiny-minutes-15-january-2026.pdf",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-scrutiny-2026-01-15--scrutiny-minutes-15-january-2026"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "housing-cabinet-2026-02-11",
+      "title": "Cabinet, 11 February 2026 — revisions to the Home Options policy",
+      "type": "agenda",
+      "stage": "decision",
+      "body": "Cabinet",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1518/Committee/1/Default.aspx",
+      "fetched_at": "2026-09-07T19:40:47+00:00",
+      "sha256": "05906831749c0d8ff7aa64d751d0b1bd86dda38d7ca05cbc9513f22b48a90983",
+      "saved_to": "data/raw/housing-cabinet-2026-02-11/page.html",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-cabinet-2026-02-11"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy",
+      "title": "Revisions to the Home Options Policy",
+      "type": "agenda",
+      "stage": "decision",
+      "body": "Cabinet",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=4gqNOx03m%2fePTJEEigGVhJ2RmIv0fJZQSdALhRxrlPqMYaUJuefRkg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "fetched_at": "2026-09-07T19:40:48+00:00",
+      "sha256": "3abe8dff87126fc708472cd229a54b1cddebd0a94aac07fec5d3c8e5e5b65230",
+      "saved_to": "data/raw/housing-cabinet-2026-02-11/revisions-to-the-home-options-policy.pdf",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-cabinet-2026-02-11--revisions-to-the-home-options-policy"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "housing-cabinet-minutes-2026-02-11--minutes-of-the-cabinet-meeting-held-on-11-february-2026",
+      "title": "Minutes of the Cabinet meeting held on 11 February 2026",
+      "type": "minutes",
+      "stage": "decision",
+      "body": "Cabinet",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=AVUv5jvBRpdc5H%2b3QUWI8W22f9ypHOLRCEmIL7ZJb9py8YFa9lwifg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "fetched_at": "2026-09-07T19:40:52+00:00",
+      "sha256": "f76a8d290369a428087545ae17f017fd519db8e9e7b8c0d0d62fa9909f1bae1f",
+      "saved_to": "data/raw/housing-cabinet-minutes-2026-02-11/minutes-of-the-cabinet-meeting-held-on-11-february-2026.pdf",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-cabinet-minutes-2026-02-11--minutes-of-the-cabinet-meeting-held-on-11-february-2026"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "housing-adopted-home-options-2026",
+      "title": "Home Options Allocation Scheme 2026 (adopted policy)",
+      "type": "policy",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026",
+      "fetched_at": "2026-09-07T19:40:52+00:00",
+      "sha256": "99aa38e3655f4ec927b6ef0c74d0250c488ae6c9e994d327a893fca04791ec60",
+      "saved_to": "data/raw/housing-adopted-home-options-2026/page.html",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-adopted-home-options-2026"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "housing-applying-for-housing",
+      "title": "Applying for housing in Norwich — how the Home Options scheme works",
+      "type": "policy",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/housing-and-community-safety/housing-advice-and-homelessness/applying-housing-norwich",
+      "fetched_at": "2026-09-07T19:40:52+00:00",
+      "sha256": "43c29b844069156ee9d2f453137c790bb024e8545fffce25ffe4a40426641c41",
+      "saved_to": "data/raw/housing-applying-for-housing/page.html",
+      "summary": "Not summarised yet. This document is in the archive but no reviewed plain-English summary has been written for it.",
+      "ai": {
+        "source_ids": [
+          "housing-applying-for-housing"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "none (no cached output)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "1970-01-01T00:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "events": [],
+  "linkages": [],
+  "gaps": [
+    {
+      "stage": "feedback",
+      "description": "No plain-English summary has been written for 'Allocations Policy 2025 – Briefing Note'."
+    },
+    {
+      "stage": "feedback",
+      "description": "No plain-English summary has been written for 'Allocations Policy 2025 – Equality Impact Assessment'."
+    },
+    {
+      "stage": "feedback",
+      "description": "No plain-English summary has been written for 'Allocations policy 2025 - consultation draft'."
+    },
+    {
+      "stage": "feedback",
+      "description": "No plain-English summary has been written for 'Homelessness Strategy and Housing Allocations Policy — consultation (Get Talking Norwich)'."
+    },
+    {
+      "stage": "feedback",
+      "description": "Nothing has been recorded at the feedback stage for this topic yet."
+    },
+    {
+      "stage": "decision",
+      "description": "No plain-English summary has been written for 'Cabinet, 11 February 2026 — revisions to the Home Options policy'."
+    },
+    {
+      "stage": "decision",
+      "description": "No plain-English summary has been written for 'Minutes of the Cabinet meeting held on 11 February 2026'."
+    },
+    {
+      "stage": "decision",
+      "description": "No plain-English summary has been written for 'Revisions to the Home Options Policy'."
+    },
+    {
+      "stage": "decision",
+      "description": "No plain-English summary has been written for 'Scrutiny Minutes 15 January 2026'."
+    },
+    {
+      "stage": "decision",
+      "description": "No plain-English summary has been written for 'Scrutiny committee, 15 January 2026 — revisions to the Home Options policy'."
+    },
+    {
+      "stage": "decision",
+      "description": "Nothing has been recorded at the decision stage for this topic yet."
+    },
+    {
+      "stage": "outcome",
+      "description": "No plain-English summary has been written for 'Applying for housing in Norwich — how the Home Options scheme works'."
+    },
+    {
+      "stage": "outcome",
+      "description": "No plain-English summary has been written for 'Home Options Allocation Scheme 2026 (adopted policy)'."
+    },
+    {
+      "stage": "outcome",
+      "description": "Nothing has been recorded at the outcome stage for this topic yet."
+    },
+    {
+      "stage": null,
+      "description": "No cached overview for this council and topic, so the remit note and the asked / decided / done answers are missing."
+    },
+    {
+      "stage": null,
+      "description": "No key numbers have been recorded for this council and topic, so there is nothing to show at a glance."
+    },
+    {
+      "stage": null,
+      "description": "The AI cache directory for this council and topic does not exist."
+    }
+  ],
+  "corrections_url": "https://github.com/dawsman/councillens/issues/new?template=correction.yml"
+}

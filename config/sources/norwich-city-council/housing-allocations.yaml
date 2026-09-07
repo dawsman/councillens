@@ -1,0 +1,198 @@
+# CouncilLens — Norwich City Council, housing allocations (the Home Options scheme).
+#
+# Norwich owns and manages its own council housing, and Part VI of the Housing Act
+# 1996 requires it to publish a scheme setting out who qualifies for social housing
+# and how applicants are prioritised. In Norwich that scheme is called Home Options.
+#
+# This topic follows ONE round of that scheme's review, end to end:
+#   feedback  a public consultation on the proposed changes, 10 November 2025, with
+#             the council's own "you said, we did" write-up published afterwards
+#   decision  Scrutiny committee on 15 January 2026, then Cabinet on 11 February 2026
+#             agreeing the adoption, with both sets of minutes
+#   outcome   the Home Options Allocation Scheme 2026, published 12 February 2026,
+#             and the resident-facing page that now applies its rules
+#
+# Who the council is — website, tier, remit note, platforms — lives once in
+# config/councils/norwich-city-council.yaml, not here.
+#
+# Every URL below was fetched and read on 2026-09-07 before being written down.
+# Sources that could not be verified are disabled, with a note saying what was
+# searched. Nothing here is a guess.
+#
+# Config keys the adapters understand (see src/ingest/adapters.py):
+#   match / exclude   which linked documents to keep, by keyword
+#   documents         explicit {title, url} documents to fetch
+#   include_page      emit a record for the page itself (default true)
+#   follow_links      discover linked documents (default true)
+#   max_bytes         skip any single file larger than this
+
+council: "Norwich City Council"
+topic: "Housing allocations (who gets a council home, and in what order)"
+
+sources:
+  # ------------------------------------------------------------------
+  # FEEDBACK — what people were asked, and what they said
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-07. The consultation page on Get Talking Norwich
+  # (EngagementHQ / Granicus). It ran from 10 November 2025 and covered two
+  # policies at once: the Homelessness and Rough Sleeping Strategy and the Home
+  # Options allocations policy. Only the allocations documents are fetched — the
+  # `match` keeps the three files whose names begin "Allocations policy 2025" and
+  # leaves the homelessness strategy papers, which belong to a different topic.
+  #
+  # The page is doing double duty as feedback AND as the published result: below
+  # the closed survey it carries the council's "You said, we did" update, which
+  # names four specific changes made because of what people said. That text is the
+  # strongest linkage evidence on this topic.
+  - id: housing-consultation-home-options
+    title: "Homelessness Strategy and Housing Allocations Policy — consultation (Get Talking Norwich)"
+    type: consultation
+    stage: feedback
+    platform: engagement
+    url: "https://gettalking.norwich.gov.uk/homelessnessandallocations"
+    match:
+      - allocations policy 2025
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # DECISION — what the council's own committees did about it
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-07. Scrutiny committee, 15 January 2026, item 4: "Revisions
+  # to the Home Options Policy". This is where councillors went through the
+  # proposals before Cabinet, and where the one contested point was raised — the
+  # committee asked Cabinet to drop the rule that denies extra priority to families
+  # in a flat with no garden where the children were born after they moved in.
+  #
+  # Only the minutes are fetched from this page. The officer report attached here
+  # is byte-for-byte the same PDF that went to Cabinet on 11 February, and is
+  # already banked under housing-cabinet-2026-02-11 below; fetching it twice would
+  # put 561Kb in the repo for no gain.
+  - id: housing-scrutiny-2026-01-15
+    title: "Scrutiny committee, 15 January 2026 — revisions to the Home Options policy"
+    type: agenda
+    stage: decision
+    body: "Scrutiny committee"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1561/Committee/4/Default.aspx"
+    match:
+      - scrutiny minutes 15 january 2026
+    exclude:
+      - document pack
+    max_bytes: 5000000
+    enabled: true
+
+  # Verified 2026-09-07. Cabinet, 11 February 2026, item 12: "Revisions to the Home
+  # Options Policy — to agree an update to the Home Options allocation policy".
+  # This is the meeting that adopted it.
+  #
+  # The single 561Kb PDF behind that item is the whole decision in one file: the
+  # officer report (including the consultation account and the response to
+  # Scrutiny), Appendix A the proposed 2026 policy with changes highlighted,
+  # Appendix B the equality impact assessment, and Appendix C the consultation
+  # response data — the agree / disagree / neutral split for each of the five
+  # proposals. The 2Mb-plus combined agenda pack is excluded: it is the same
+  # document plus fifteen unrelated items.
+  - id: housing-cabinet-2026-02-11
+    title: "Cabinet, 11 February 2026 — revisions to the Home Options policy"
+    type: agenda
+    stage: decision
+    body: "Cabinet"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1518/Committee/1/Default.aspx"
+    match:
+      - home options
+    exclude:
+      - document pack
+    max_bytes: 5000000
+    enabled: true
+
+  # Verified 2026-09-07. The minutes of that Cabinet meeting are not published on
+  # the meeting's own page — CMIS attaches them to the NEXT meeting, where they are
+  # confirmed. So this entry points at Cabinet on 11 March 2026 and takes only one
+  # document from it: the February minutes. The page itself is not banked, because
+  # its own business is a different set of items.
+  #
+  # Minute 123.5 is the decision record in the council's own words: "RESOLVED to
+  # agree the adoption of the updated Home Options policy." Minutes 123.1 to 123.4
+  # carry the exchange about the garden rule, including the Cabinet member's reply
+  # and the figure of 160 households who moved by mutual exchange in 2025.
+  - id: housing-cabinet-minutes-2026-02-11
+    title: "Minutes of the Cabinet meeting held on 11 February 2026"
+    type: minutes
+    stage: decision
+    body: "Cabinet"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1530/Committee/1/Default.aspx"
+    include_page: false
+    match:
+      - minutes of the cabinet meeting held on 11 february 2026
+    exclude:
+      - document pack
+    max_bytes: 5000000
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # OUTCOME — the policy that is actually in force
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-07. The adopted scheme, published 12 February 2026 — the day
+  # after Cabinet agreed it. Published as a full web page rather than a PDF, with
+  # the summary of changes at the top and appendices A to E below.
+  #
+  # Its own opening paragraph is confirmation in the council's words that this
+  # document came out of the consultation: "These updates have been shaped through
+  # a public consultation which took place in Autumn 2025 and scrutiny by the
+  # council's Overview and Scrutiny Committee."
+  #
+  # follow_links is off: the one file it links is Appendix E, a bedroom-size
+  # eligibility table already reproduced in the page text.
+  - id: housing-adopted-home-options-2026
+    title: "Home Options Allocation Scheme 2026 (adopted policy)"
+    type: policy
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026"
+    follow_links: false
+    enabled: true
+
+  # Verified 2026-09-07. The page a Norwich resident actually lands on when they
+  # want to apply for a council home. It is banked as evidence that the new rules
+  # are the ones now being applied: it states the two-year residence requirement
+  # introduced by the 2026 scheme, lists the five priority bands, and links the
+  # adopted policy. Without it, the site could show a policy being adopted but not
+  # that it reached the counter.
+  - id: housing-applying-for-housing
+    title: "Applying for housing in Norwich — how the Home Options scheme works"
+    type: policy
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/housing-and-community-safety/housing-advice-and-homelessness/applying-housing-norwich"
+    follow_links: false
+    enabled: true
+
+  # Verified 2026-09-07: the council's index of adopted policies. It is the page
+  # that led us to the adopted scheme, and it lists fifteen other housing policies.
+  # Left disabled because it is a signpost, not evidence about allocations, and
+  # banking it would add a long list of unrelated policy titles to the archive.
+  - id: housing-policies-index
+    title: "Policies, plans and strategies (index of adopted housing policies)"
+    type: policy
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies"
+    enabled: false
+
+  # Verified 2026-09-07: this is the URL the Cabinet report itself links for the
+  # allocation scheme, and it returns HTTP 403 "Access denied — sorry, you do not
+  # have access to this page" to the public. The live scheme is at the
+  # -2026 address banked above. Recorded here so the next reviewer can see that the
+  # council's own report points residents at a page they cannot open.
+  - id: housing-home-options-legacy-url
+    title: "Norwich Home Options Allocation Scheme (link used in the Cabinet report)"
+    type: policy
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/norwich-home-options-allocation-scheme"
+    enabled: false
