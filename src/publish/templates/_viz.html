@@ -172,13 +172,26 @@
   <ul class="change-rows">
     {% for item in c.paired %}
     <li class="change change-{{ item.kind }}">
+      {#- Captions follow the decision, not the layout. Once a policy is adopted
+          these rows describe something that has happened, so calling either
+          column "proposed" would be telling a resident the opposite of the
+          truth. -#}
       <div class="change-side change-now">
-        <p class="change-cap">{% if item.kind == 'pair' %}Wording now{% else %}Item{% endif %}</p>
+        <p class="change-cap">
+          {%- if item.kind != 'pair' %}Item
+          {%- elif c.adopted %}Before
+          {%- else %}Wording now{% endif -%}
+        </p>
         <p class="change-text">{{ item.now }}</p>
       </div>
       <span class="change-arrow" aria-hidden="true"></span>
       <div class="change-side change-proposed">
-        <p class="change-cap">{% if item.kind == 'pair' %}Proposed wording{% else %}Agreed at committee{% endif %}</p>
+        <p class="change-cap">
+          {%- if item.kind == 'pair' and c.adopted %}After
+          {%- elif item.kind == 'pair' %}Proposed wording
+          {%- elif c.adopted %}What was agreed
+          {%- else %}What is proposed{% endif -%}
+        </p>
         <p class="change-text">{{ item.proposed }}</p>
       </div>
       {% if item.context %}<p class="change-context">{{ item.context }}</p>{% endif %}
@@ -188,7 +201,10 @@
   {% endif %}
   {% if c.plain %}
   <div class="change-also">
-    <h3 class="change-also-head">Also raised, with nothing settled yet</h3>
+    <h3 class="change-also-head">
+      {%- if c.adopted %}Also decided
+      {%- else %}Also raised, with nothing settled yet{% endif -%}
+    </h3>
     <ul class="change-also-list">
       {% for item in c.plain %}
       <li>{{ item.proposed }}</li>
@@ -219,7 +235,7 @@
     {% for row in ls.rows %}
     <li class="linktally-item linktally-{{ row.tier }}{% if not row.count %} is-zero{% endif %}">
       <span class="linktally-count"><span class="linktally-emoji" aria-hidden="true">{{ row.emoji }}</span>{{ row.count }}</span>
-      <span class="linktally-label">{{ row.label }}{{ '' if row.count == 1 else 's' }}</span>
+      <span class="linktally-label">{{ row.label }}</span>
       <span class="linktally-blurb">{{ row.blurb }}</span>
     </li>
     {% endfor %}

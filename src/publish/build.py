@@ -78,20 +78,26 @@ STAGE_QUESTION = {
     "outcome": "What actually got done?",
 }
 
+# Each tier carries its own plural. Sticking an "s" on the label is what turned
+# the tally into "3 No link founds"; "No link found" is a sentence, not a noun,
+# and does not take one.
 TIER = {
     "confirmed": {
         "emoji": "\U0001F7E2",
         "label": "Confirmed link",
+        "label_plural": "Confirmed links",
         "blurb": "The council's own record says this feedback shaped the decision.",
     },
     "possible": {
         "emoji": "\U0001F7E1",
         "label": "Possible link",
+        "label_plural": "Possible links",
         "blurb": "The feedback came first, but nothing on record proves it caused the decision.",
     },
     "none": {
         "emoji": "⚪",
         "label": "No link found",
+        "label_plural": "No link found",
         "blurb": "We found nothing connecting this feedback to the decision.",
     },
 }
@@ -856,7 +862,8 @@ def prepare_linkage_summary(model: dict) -> dict | None:
             "count": count,
             "share": round(100 * count / total, 1),
             "emoji": TIER[tier]["emoji"],
-            "label": TIER[tier]["label"],
+            # Already plural-correct, so the template prints it as it stands.
+            "label": TIER[tier]["label"] if count == 1 else TIER[tier]["label_plural"],
             "blurb": TIER[tier]["blurb"],
         })
     strongest = "confirmed" if counts["confirmed"] else ("possible" if counts["possible"] else "none")
