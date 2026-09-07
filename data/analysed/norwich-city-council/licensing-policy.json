@@ -373,6 +373,106 @@
         "generated_at": "2026-09-07T22:30:00+00:00",
         "cache_key": "8db12b5777715443978dbef21d0fd776ee7466fa7453c32a76b1a5d91fd39439"
       }
+    },
+    {
+      "id": "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+      "title": "Section 2 General Fund - MTFS and 2026-2027 Budget",
+      "type": "spending",
+      "stage": null,
+      "body": "Cabinet",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "fetched_at": "2026-09-07T19:00:18+00:00",
+      "sha256": "72c21cbb2cecdc45339716d6570ce96e8d2520f2fecaa047c5754092d17fa06d",
+      "saved_to": "data/raw/budget-2026-27/section-2-general-fund-mtfs-and-2026-2027-budget.pdf",
+      "summary": "The General Fund half of Norwich's 2026-27 budget, put to Cabinet on 11 February 2026. It sets out what the council plans to spend and raise across every service, and a table towards the back splits the budget service by service. Licensing does not get a line of its own. It is folded into planning and regulatory services, budgeted at £5.4m of spending against £2.4m of income, leaving £3.0m to be met from council tax and government grant.",
+      "ai": {
+        "source_ids": [
+          "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T21:30:00+00:00",
+        "cache_key": "66557b69f81562b1c08823834dedf5c607110b9560b13b853806e7e377431278"
+      }
+    },
+    {
+      "id": "fees-and-charges-2026-27",
+      "title": "Council fees and charges 2026-27",
+      "type": "spending",
+      "stage": null,
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Norwich-City-Council-Fees-and-Charges-2026-2027.pdf",
+      "fetched_at": "2026-09-07T19:00:19+00:00",
+      "sha256": "af348b2c1bdb2ab3e0db09a3c7d6a2f7a25c875f80778a1c679aed856ab3753a",
+      "saved_to": "data/raw/fees-and-charges-2026-27/council-fees-and-charges-2026-27.pdf",
+      "summary": "Every charge Norwich City Council makes in 2026-27, from garden waste collections to burials, in one long PDF. The table headed “Alcohol / Entertainment / Late night refreshment” is the one that matters here: it gives the fee for each type of licence application and the annual charge for each rateable-value band, from £70 up to £1,050. Those amounts come from national regulations, so the council is publishing them rather than choosing them.",
+      "ai": {
+        "source_ids": [
+          "fees-and-charges-2026-27"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T21:30:00+00:00",
+        "cache_key": "6c0c94df481ba03b0c58c0563c891e5e075908c6414af7fcce7fdaacab8df97f"
+      }
+    },
+    {
+      "id": "open-data-payments-over-500",
+      "title": "Payments to suppliers over £500",
+      "type": "spending",
+      "stage": null,
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/find-open-data/payments-over-500",
+      "fetched_at": "2026-09-07T19:00:19+00:00",
+      "sha256": "ba1012b5b127163574b201b0a228fa848455fbb50e2a445d7968224d537eb3c1",
+      "saved_to": "data/raw/open-data-payments-over-500/page.html",
+      "summary": "The council's transparency page listing every payment it made to a supplier over £500, month by month, back to 2021, as both CSV and PDF. It is the most granular spending data Norwich publishes. Nothing on it is grouped in a way that separates licensing from the rest of the council's work.",
+      "ai": {
+        "source_ids": [
+          "open-data-payments-over-500"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T21:30:00+00:00",
+        "cache_key": "5655c4e9bc6adaf7dea6fbd06f67a257e7f0daf75083f63b8081f94e10cb0c04"
+      }
+    },
+    {
+      "id": "open-data-payments-over-500--payments-to-suppliers-over-500-january-2026",
+      "title": "Payments to suppliers over £500 — January 2026",
+      "type": "spending",
+      "stage": null,
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-02/Payments%20to%20suppliers%20over%20%C2%A3500%20January%202026.csv",
+      "fetched_at": "2026-09-07T19:00:20+00:00",
+      "sha256": "da9553a2688742a3d0a24f5c60eb04f6db68417306e1368d0e1c5169763af85c",
+      "saved_to": "data/raw/open-data-payments-over-500/payments-to-suppliers-over-500-january-2026.csv",
+      "summary": "One month of supplier payments over £500, January 2026, exactly as published: cost centre, expenditure category, amount and supplier for each line. We banked it as a worked example and read it looking for licensing. None of the 85 cost centres in the file names licensing, so this route does not answer what the service spends.",
+      "ai": {
+        "source_ids": [
+          "open-data-payments-over-500--payments-to-suppliers-over-500-january-2026"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T21:30:00+00:00",
+        "cache_key": "2bf608b646adb1beab9f0857d09d4cf3c6fb0404e58698af5a431492b3fc8c14"
+      }
     }
   ],
   "events": [
@@ -590,6 +690,334 @@
       }
     }
   ],
+  "figures": [
+    {
+      "id": "fig-annual-licence-fee-range",
+      "label": "Annual fee a licensed venue pays",
+      "kind": "money",
+      "value": null,
+      "unit": "GBP",
+      "display": "£70 to £1,050",
+      "as_of": null,
+      "period": "2026/27",
+      "source_ids": [
+        "fees-and-charges-2026-27"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Norwich-City-Council-Fees-and-Charges-2026-2027.pdf",
+      "note": "A range, not one number: the smallest band A premises pays £70 a year and the largest band E venue that mainly sells drink pays £1,050. The bands follow rateable value and are fixed nationally.",
+      "ai": {
+        "source_ids": [
+          "fees-and-charges-2026-27"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "250d623c382e22b7cc429998bbfee9024578b1fab398f0f33935640b950f7636"
+      }
+    },
+    {
+      "id": "fig-consultation-length",
+      "label": "How long the consultation ran",
+      "kind": "duration",
+      "value": 12,
+      "unit": "weeks",
+      "display": "12 weeks",
+      "as_of": null,
+      "period": "18 May to 9 August 2026",
+      "source_ids": [
+        "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
+        "consultation-licensing-policy"
+      ],
+      "source_url": "https://gettalking.norwich.gov.uk/licensing",
+      "note": "The March 2026 report asked for a 12-week consultation starting 11 May; it actually opened a week later, on 18 May, and closed on 9 August.",
+      "ai": {
+        "source_ids": [
+          "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
+          "consultation-licensing-policy"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "98d18e2418877bf3c17343452edc46c9f1193c507c752adc2db3061fe5b7e982"
+      }
+    },
+    {
+      "id": "fig-consultation-responses",
+      "label": "Responses to the consultation",
+      "kind": "count",
+      "value": 67,
+      "unit": "responses",
+      "display": "67",
+      "as_of": "2026-08-09",
+      "period": "18 May to 9 August 2026",
+      "source_ids": [
+        "consultation-licensing-policy"
+      ],
+      "source_url": "https://gettalking.norwich.gov.uk/licensing",
+      "note": "Sixty-seven people or organisations answered the survey before it closed on 9 August 2026. What they actually said has not been published.",
+      "ai": {
+        "source_ids": [
+          "consultation-licensing-policy"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "9c3bbefe6644ce2049d060a5930bf7da35d4f94e91bdccda8ed7b06ebb0a439e"
+      }
+    },
+    {
+      "id": "fig-current-policy-adopted",
+      "label": "Current policy adopted",
+      "kind": "date",
+      "value": "2021-12",
+      "unit": null,
+      "display": "December 2021",
+      "as_of": "2021-12",
+      "period": null,
+      "source_ids": [
+        "adopted-licensing-policy-2021"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/2258/licensing_policy",
+      "note": "This is still the policy in force. Full council approved it and nothing has replaced it yet.",
+      "ai": {
+        "source_ids": [
+          "adopted-licensing-policy-2021"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "458a6f538224d4c51bf8fbfc316e215e4137999d9f5555c872ca389f66b511c1"
+      }
+    },
+    {
+      "id": "fig-licence-application-fee-lowest-band",
+      "label": "Cheapest premises licence application",
+      "kind": "money",
+      "value": 100,
+      "unit": "GBP",
+      "display": "£100",
+      "as_of": null,
+      "period": "2026/27",
+      "source_ids": [
+        "fees-and-charges-2026-27"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Norwich-City-Council-Fees-and-Charges-2026-2027.pdf",
+      "note": "What a band A premises pays to apply, meaning somewhere with a rateable value up to £4,300. Parliament sets these amounts under the Licensing Act 2003; Norwich publishes them and collects them but cannot change them.",
+      "ai": {
+        "source_ids": [
+          "fees-and-charges-2026-27"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "3b6a1e1424fb56fb49b19b86be3adc15ee7628a0661c801700f369511543a379"
+      }
+    },
+    {
+      "id": "fig-new-policy-target-start",
+      "label": "Date the new policy is meant to start",
+      "kind": "date",
+      "value": "2026-12-01",
+      "unit": null,
+      "display": "1 December 2026",
+      "as_of": null,
+      "period": null,
+      "source_ids": [
+        "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=2BBexLq99%2fgGFNxuHxr3%2bFAOgELy7WmhifjzFETSP9ptRaiAlSz8Lw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "note": "Proposed, not decided. Officers planned a full council vote in November 2026 so the replacement can take effect the day the 2021 policy runs out.",
+      "ai": {
+        "source_ids": [
+          "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "0b088487379a145862fc48d2a6ca679cd792dc04d5537715c6ff0defeeb92830"
+      }
+    },
+    {
+      "id": "fig-personal-licences",
+      "label": "Personal licences held in Norwich",
+      "kind": "count",
+      "value": 1963,
+      "unit": "licences",
+      "display": "1,963",
+      "as_of": "2026-03-05",
+      "period": null,
+      "source_ids": [
+        "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=2BBexLq99%2fgGFNxuHxr3%2bFAOgELy7WmhifjzFETSP9ptRaiAlSz8Lw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "note": "A personal licence is what lets an individual authorise the sale of alcohol, and this is how many people held one in Norwich when the report was written in March 2026.",
+      "ai": {
+        "source_ids": [
+          "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "029ddc43e28d2cc707c4aae65d4cd2d1a08ddd55e5174d26505a32ac2ecb7e9d"
+      }
+    },
+    {
+      "id": "fig-policy-review-cycle",
+      "label": "How often the policy must be reviewed",
+      "kind": "duration",
+      "value": 5,
+      "unit": "years",
+      "display": "every 5 years",
+      "as_of": null,
+      "period": null,
+      "source_ids": [
+        "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=2BBexLq99%2fgGFNxuHxr3%2bFAOgELy7WmhifjzFETSP9ptRaiAlSz8Lw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "note": "The Licensing Act 2003 makes every council revisit this policy at least this often, so the timetable comes from Parliament rather than from Norwich.",
+      "ai": {
+        "source_ids": [
+          "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "92dfdd8e2c33bc7c87c5a1a10e9b8642f6a4c28dd34f445bd3d8540280c5f47d"
+      }
+    },
+    {
+      "id": "fig-premises-licences",
+      "label": "Premises licences in force",
+      "kind": "count",
+      "value": 677,
+      "unit": "licences",
+      "display": "677",
+      "as_of": "2026-03-05",
+      "period": null,
+      "source_ids": [
+        "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=2BBexLq99%2fgGFNxuHxr3%2bFAOgELy7WmhifjzFETSP9ptRaiAlSz8Lw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "note": "Counted in the officer's report to the licensing committee on 5 March 2026. The draft policy rounds the same total to about 680 venues on the city's licensed premises register.",
+      "ai": {
+        "source_ids": [
+          "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "c74708bb9eb26d901c9443c7c60630ebacbb1fa5d43b84c88888ef833cd9b64f"
+      }
+    },
+    {
+      "id": "fig-regulatory-services-fee-income",
+      "label": "Fees and charges those services bring in",
+      "kind": "money",
+      "value": 2447000,
+      "unit": "GBP",
+      "display": "£2.4m",
+      "as_of": null,
+      "period": "2026/27",
+      "source_ids": [
+        "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "note": "Budgeted income for the whole planning and regulatory group in 2026/27, licence fees among it. The council does not publish how much of this comes from alcohol and entertainment licensing.",
+      "ai": {
+        "source_ids": [
+          "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "c279c2261be430ed92b1306a13d07559abba3c26de3af4fbaa3d69bb9ce0cfba"
+      }
+    },
+    {
+      "id": "fig-regulatory-services-net-budget",
+      "label": "Net cost of planning and regulatory services",
+      "kind": "money",
+      "value": 2991000,
+      "unit": "GBP",
+      "display": "£3.0m",
+      "as_of": null,
+      "period": "2026/27",
+      "source_ids": [
+        "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "note": "Licensing has no budget line of its own. It sits inside planning and regulatory services, which the council budgeted to cost £2.99m net in 2026/27 after fees are counted, so treat this as the group licensing belongs to rather than the price of licensing itself.",
+      "ai": {
+        "source_ids": [
+          "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "23941bc6e9d1e2a4fd36beee6ff9d3328e6c58ee16e027acc2c1fee9defa3c76"
+      }
+    },
+    {
+      "id": "fig-temporary-event-notices-2025",
+      "label": "Temporary event notices received in 2025",
+      "kind": "count",
+      "value": 225,
+      "unit": "notices",
+      "display": "225",
+      "as_of": null,
+      "period": "January to December 2025",
+      "source_ids": [
+        "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=2BBexLq99%2fgGFNxuHxr3%2bFAOgELy7WmhifjzFETSP9ptRaiAlSz8Lw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "note": "One-off events, a beer tent at a summer fete for instance, run on a temporary event notice instead of a full licence. This is how many the council took in across the whole of 2025.",
+      "ai": {
+        "source_ids": [
+          "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-07T00:00:00+00:00",
+        "cache_key": "82c53329b1cae8113a674b9970b3153e11bfab04740e6008fefd13ffd8f42449"
+      }
+    }
+  ],
   "gaps": [
     {
       "stage": "feedback",
@@ -621,7 +1049,23 @@
     },
     {
       "stage": "outcome",
+      "description": "How many licence applications Norwich decides in a year, and how many it turns down. The officer's report to the March 2026 committee counts the licences in force but not the decisions behind them, and the council publishes no annual licensing report. The Home Office does publish a per-authority table each year covering applications, refusals and reviews, but it is a national spreadsheet of every licensing authority and we have not brought it into the archive, so we are not quoting figures from it here."
+    },
+    {
+      "stage": "outcome",
       "description": "The full Council meeting in December 2021 that adopted the current policy. The policy itself says it took effect on 17 December 2021, and the officer's report confirms Council adopted it that month, so the fact is well evidenced. We could not find the meeting record itself to link to."
+    },
+    {
+      "stage": null,
+      "description": "Licensing spending in the council's payments-over-£500 data. We read the January 2026 file line by line. Not one of its 85 cost centres names licensing, and the closest match is a capital budget covering planning and regulatory services as a whole. The dataset is published and complete; it simply is not cut in a way that shows what licensing buys."
+    },
+    {
+      "stage": null,
+      "description": "What the licensing service on its own costs to run, and what it earns in fees. Norwich's 2026-27 General Fund budget is the most detailed money document the council publishes, and it does not break licensing out: the service sits inside planning and regulatory services alongside planning, building control and the rest, budgeted together at £5.4m gross. So we can show the group's figures, not licensing's."
+    },
+    {
+      "stage": null,
+      "description": "What the licensing team itself costs to run, and whether the fees it collects cover that cost. Fee levels are fixed by national regulations, so a council that spends more than it collects cannot simply charge more. Norwich publishes neither side of that sum for licensing on its own, and we found nothing in the budget, the statement of accounts or the fees book that would let anyone work it out."
     }
   ],
   "corrections_url": "https://github.com/dawsman/councillens/issues/new?template=correction.yml"

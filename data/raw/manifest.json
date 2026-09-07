@@ -1,7 +1,7 @@
 {
   "council": "Norwich City Council",
   "topic": "Licensing policy (alcohol, entertainment and late-night venues)",
-  "generated_at": "2026-09-07T18:01:22+00:00",
+  "generated_at": "2026-09-07T19:00:20+00:00",
   "documents": [
     {
       "id": "consultation-licensing-policy",
@@ -226,6 +226,70 @@
       "bytes": 68585,
       "sha256": "f03eba415a63ab84d146f15a15e5a9437d38238f472811fdf7893bbba6e4d29a",
       "fetched_at": "2026-09-07T18:01:22+00:00"
+    },
+    {
+      "id": "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+      "council": "Norwich City Council",
+      "topic": "Licensing policy (alcohol, entertainment and late-night venues)",
+      "body": "Cabinet",
+      "stage": null,
+      "type": "spending",
+      "platform": "cmis",
+      "title": "Section 2 General Fund - MTFS and 2026-2027 Budget",
+      "text": "",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "saved_to": "data/raw/budget-2026-27/section-2-general-fund-mtfs-and-2026-2027-budget.pdf",
+      "bytes": 612001,
+      "sha256": "72c21cbb2cecdc45339716d6570ce96e8d2520f2fecaa047c5754092d17fa06d",
+      "fetched_at": "2026-09-07T19:00:18+00:00"
+    },
+    {
+      "id": "fees-and-charges-2026-27",
+      "council": "Norwich City Council",
+      "topic": "Licensing policy (alcohol, entertainment and late-night venues)",
+      "body": null,
+      "stage": null,
+      "type": "spending",
+      "platform": "localgov_drupal",
+      "title": "Council fees and charges 2026-27",
+      "text": "",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Norwich-City-Council-Fees-and-Charges-2026-2027.pdf",
+      "saved_to": "data/raw/fees-and-charges-2026-27/council-fees-and-charges-2026-27.pdf",
+      "bytes": 1160127,
+      "sha256": "af348b2c1bdb2ab3e0db09a3c7d6a2f7a25c875f80778a1c679aed856ab3753a",
+      "fetched_at": "2026-09-07T19:00:19+00:00"
+    },
+    {
+      "id": "open-data-payments-over-500",
+      "council": "Norwich City Council",
+      "topic": "Licensing policy (alcohol, entertainment and late-night venues)",
+      "body": null,
+      "stage": null,
+      "type": "spending",
+      "platform": "localgov_drupal",
+      "title": "Payments to suppliers over \u00a3500",
+      "text": "",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/find-open-data/payments-over-500",
+      "saved_to": "data/raw/open-data-payments-over-500/page.html",
+      "bytes": 88164,
+      "sha256": "ba1012b5b127163574b201b0a228fa848455fbb50e2a445d7968224d537eb3c1",
+      "fetched_at": "2026-09-07T19:00:19+00:00"
+    },
+    {
+      "id": "open-data-payments-over-500--payments-to-suppliers-over-500-january-2026",
+      "council": "Norwich City Council",
+      "topic": "Licensing policy (alcohol, entertainment and late-night venues)",
+      "body": null,
+      "stage": null,
+      "type": "spending",
+      "platform": "localgov_drupal",
+      "title": "Payments to suppliers over \u00a3500 \u2014 January 2026",
+      "text": "",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-02/Payments%20to%20suppliers%20over%20%C2%A3500%20January%202026.csv",
+      "saved_to": "data/raw/open-data-payments-over-500/payments-to-suppliers-over-500-january-2026.csv",
+      "bytes": 87118,
+      "sha256": "da9553a2688742a3d0a24f5c60eb04f6db68417306e1368d0e1c5169763af85c",
+      "fetched_at": "2026-09-07T19:00:20+00:00"
     }
   ]
 }

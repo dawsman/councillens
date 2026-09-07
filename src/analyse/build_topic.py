@@ -43,7 +43,7 @@ SCHEMA_VERSION = "1"
 CORRECTIONS_URL = "https://github.com/dawsman/councillens/issues/new?template=correction.yml"
 
 # Kinds of cached AI output. One file per item, named <cache_key>.json.
-KINDS = ("topic", "summary", "event", "linkage", "gap")
+KINDS = ("topic", "summary", "event", "linkage", "figure", "gap")
 
 PLACEHOLDER_SUMMARY = (
     "Not summarised yet. This document is in the archive but no reviewed "
@@ -365,6 +365,61 @@ def build(manifest, config):
                     ),
                 })
 
+    # --- figures ------------------------------------------------------------
+    # The at-a-glance numbers. Same rule as everything else: a figure exists only
+    # because a cached entry cites a document that is in the archive. Nothing is
+    # calculated here, nothing is estimated, and a figure whose documents have
+    # moved on is flagged rather than quietly reprinted.
+    figures = []
+    seen_figure_ids = set()
+    for entry in cache["figure"]:
+        payload = entry.get("payload", {})
+        fid = payload.get("id")
+        if not fid:
+            gaps.append({
+                "stage": None,
+                "description": f"Cache file {entry['_file']} describes a key number with no id.",
+            })
+            continue
+        if fid in seen_figure_ids:
+            gaps.append({
+                "stage": None,
+                "description": f"Two cached key numbers share the id {fid}; the build used the first.",
+            })
+            continue
+        seen_figure_ids.add(fid)
+        ai = dict(entry.get("ai", {}))
+        ok, note = check_key(entry, fid, ai.get("prompt_version", "figure-v1"), hashes_by_id)
+        if not ok:
+            ai = flag_stale(entry, note, gaps, None, f"The number '{payload.get('label', fid)}'")
+        ai_stamps.append(ai.get("generated_at"))
+        figures.append({
+            "id": fid,
+            "label": payload.get("label", fid),
+            "kind": payload.get("kind", "count"),
+            "value": payload.get("value"),
+            "unit": payload.get("unit"),
+            "display": payload.get("display", ""),
+            "as_of": payload.get("as_of"),
+            "period": payload.get("period"),
+            "source_ids": payload.get("source_ids", []),
+            "source_url": payload.get("source_url"),
+            "note": payload.get("note", ""),
+            "ai": ai,
+            # Optional curated position from the cache entry; never published.
+            "_order": payload.get("order", 10**6),
+        })
+    figures.sort(key=lambda f: (f.pop("_order"), f["id"]))
+
+    if not figures:
+        gaps.append({
+            "stage": None,
+            "description": (
+                "No key numbers have been recorded for this council and topic, so "
+                "there is nothing to show at a glance."
+            ),
+        })
+
     # --- gaps recorded by hand ---------------------------------------------
     for entry in cache["gap"]:
         payload = entry.get("payload", {})
@@ -378,7 +433,7 @@ def build(manifest, config):
     # so an unchanged repo rebuilds byte for byte.
     generated_at = newest(ai_stamps + [d.get("fetched_at") for d in documents])
 
-    return council_slug, topic_slug, {
+    model = {
         "schema_version": SCHEMA_VERSION,
         "generated_at": generated_at,
         "council": council_block,
@@ -386,9 +441,15 @@ def build(manifest, config):
         "sources": sources,
         "events": events,
         "linkages": linkages,
-        "gaps": gaps,
-        "corrections_url": CORRECTIONS_URL,
     }
+    # `figures` is optional in the contract. An empty at-a-glance panel is a
+    # gap, not an empty array, so the key is left out entirely when there is
+    # nothing sourced to put in it.
+    if figures:
+        model["figures"] = figures
+    model["gaps"] = gaps
+    model["corrections_url"] = CORRECTIONS_URL
+    return council_slug, topic_slug, model
 
 
 def main():
@@ -409,7 +470,7 @@ def main():
     tiers = {}
     for link in model["linkages"]:
         tiers[link["tier"]] = tiers.get(link["tier"], 0) + 1
-    reviewable = model["sources"] + model["events"] + model["linkages"]
+    reviewable = model["sources"] + model["events"] + model["linkages"] + model.get("figures", [])
     counts = {"needs_review": 0, "ai_reviewed": 0, "reviewed": 0}
     for item in reviewable:
         status = item["ai"].get("review_status")
@@ -418,7 +479,8 @@ def main():
 
     print(f"wrote  {out_path.relative_to(ROOT)}")
     print(f"       {len(model['sources'])} sources, {len(model['events'])} entries, "
-          f"{len(model['linkages'])} comparisons, {len(model['gaps'])} gaps")
+          f"{len(model['linkages'])} comparisons, {len(model.get('figures', []))} key numbers, "
+          f"{len(model['gaps'])} gaps")
     if tiers:
         print("       comparisons by tier: " + ", ".join(f"{k}={v}" for k, v in sorted(tiers.items())))
     print(f"       review status: {counts['needs_review']} unchecked, "

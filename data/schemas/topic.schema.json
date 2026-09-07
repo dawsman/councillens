@@ -150,6 +150,41 @@
         }
       }
     },
+    "figures": {
+      "type": "array",
+      "description": "Key numbers about this council and topic, for the at-a-glance panel. Optional: the array is present only when the analyse stage found cached figures. Every figure must trace to a public document.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "kind", "value", "unit", "display", "as_of", "period", "source_ids", "source_url", "note", "ai"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^fig-[a-z0-9-]+$"},
+          "label": {"type": "string", "description": "Plain-English name for the number, as a resident would say it."},
+          "kind": {
+            "enum": ["count", "money", "duration", "share", "date"],
+            "description": "What sort of number this is, so the site can format it without knowing the council."
+          },
+          "value": {
+            "type": ["number", "string", "null"],
+            "description": "The number itself. A string only for kind 'date' (YYYY, YYYY-MM or YYYY-MM-DD). Null when the document gives a value the site cannot express as a number."
+          },
+          "unit": {
+            "type": ["string", "null"],
+            "description": "GBP for money; otherwise what is being counted or measured, e.g. 'licences', 'responses', 'working days'. Null for dates."
+          },
+          "display": {"type": "string", "description": "How to show it, already formatted, e.g. '677', '\u00a3585m', '12 weeks'."},
+          "as_of": {"$ref": "#/$defs/date_string"},
+          "period": {
+            "type": ["string", "null"],
+            "description": "The period the number covers, as the document states it, e.g. '2025/26' or '2025'. Null for a point-in-time figure."
+          },
+          "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "source_url": {"type": "string", "format": "uri", "description": "Deep link to the document the number came from."},
+          "note": {"type": "string", "description": "One plain sentence of context: the period, and any caveat such as 'proposed, not yet agreed'."},
+          "ai": {"$ref": "#/$defs/ai"}
+        }
+      }
+    },
     "gaps": {
       "type": "array",
       "items": {
