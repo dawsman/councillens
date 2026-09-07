@@ -512,6 +512,10 @@ def prepare_figures(model: dict) -> list[dict]:
         f["_unit"] = f.get("unit") if kind in ("count", "duration") else None
         if f["_unit"] and str(f["_unit"]).upper() == "GBP":
             f["_unit"] = None
+        # Do not print the unit twice when the display already spells it out
+        # ("12 weeks" + "weeks", "every 5 years" + "years").
+        if f["_unit"] and str(f["_unit"]).lower().rstrip("s") in str(f.get("_display", "")).lower():
+            f["_unit"] = None
         when = f.get("period") or f.get("as_of")
         f["_when"] = (
             f"{f['period']}" if f.get("period")
