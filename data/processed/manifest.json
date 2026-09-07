@@ -203,8 +203,8 @@
       "source_url": "https://gettalking.norwich.gov.uk/licensing",
       "saved_to": "data/raw/consultation-licensing-policy/page.html",
       "bytes": 38008,
-      "sha256": "76d1910c36148a473adfdaae956622b0348bc9344ae3b127f03ab042ca4c3292",
-      "fetched_at": "2026-09-07T18:01:15+00:00"
+      "sha256": "2a39f58132629446377b41d84163ebeefe76996feff3181b836273e44fc05435",
+      "fetched_at": "2026-09-07T20:08:01+00:00"
     },
     {
       "id": "consultation-licensing-policy--summary-of-changes-to-licensing-policy-docx",
@@ -220,7 +220,7 @@
       "saved_to": "data/raw/consultation-licensing-policy/summary-of-changes-to-licensing-policy-docx.docx",
       "bytes": 16259,
       "sha256": "7504673038ff2e0c441cc48c3a3295dfd80c3f52a0e88c51e49d8a9fdf03c303",
-      "fetched_at": "2026-09-07T19:55:56+00:00"
+      "fetched_at": "2026-09-07T20:08:02+00:00"
     },
     {
       "id": "consultation-licensing-policy--draft-licensing-policy-for-consultation-full-version",
@@ -236,7 +236,7 @@
       "saved_to": "data/raw/consultation-licensing-policy/draft-licensing-policy-for-consultation-full-version.docx",
       "bytes": 548009,
       "sha256": "5e8bd648d036e78902fb2b6484fbb41a47bbc8bcd2575f602183aace67e23a53",
-      "fetched_at": "2026-09-07T19:55:56+00:00"
+      "fetched_at": "2026-09-07T20:08:03+00:00"
     },
     {
       "id": "licensing-committee-2026-03-05",
@@ -251,8 +251,8 @@
       "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1534/Committee/6/Default.aspx",
       "saved_to": "data/raw/licensing-committee-2026-03-05/page.html",
       "bytes": 98458,
-      "sha256": "f7c230a8fbe39bb61b72cd7ba5f71b9b62a4f53ed89ca99eb47441c612948452",
-      "fetched_at": "2026-09-07T18:01:17+00:00"
+      "sha256": "eca9fa84d5fca310e1e675a1478b467c7746e007ddbffda0758183eec48003b2",
+      "fetched_at": "2026-09-07T20:08:04+00:00"
     },
     {
       "id": "licensing-committee-2026-03-05--minutes-of-the-licensing-committee-meeting-held-on-4-december-2025",
@@ -268,7 +268,7 @@
       "saved_to": "data/raw/licensing-committee-2026-03-05/minutes-of-the-licensing-committee-meeting-held-on-4-december-2025.pdf",
       "bytes": 60154,
       "sha256": "7c89f7bda974a9e8ecafbd06af8adc934d3c1e558c08d4f40b0101ef000b2552",
-      "fetched_at": "2026-09-07T19:55:58+00:00"
+      "fetched_at": "2026-09-07T20:08:04+00:00"
     },
     {
       "id": "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
@@ -284,7 +284,7 @@
       "saved_to": "data/raw/licensing-committee-2026-03-05/draft-statement-of-licensing-policy-under-the-licensing-act-2003.pdf",
       "bytes": 174798,
       "sha256": "011364eeb88fdb8e95c6a93a127010871bb920b24711b3605aa590e6697f03ff",
-      "fetched_at": "2026-09-07T19:55:58+00:00"
+      "fetched_at": "2026-09-07T20:08:05+00:00"
     },
     {
       "id": "licensing-committee-2026-03-05--appendix-a-draft-statement-of-licensing-policy-under-licensing-act-2003",
@@ -300,7 +300,7 @@
       "saved_to": "data/raw/licensing-committee-2026-03-05/appendix-a-draft-statement-of-licensing-policy-under-licensing-act-2003.pdf",
       "bytes": 925673,
       "sha256": "f3660ead72d7d4e772aaaccb89944bd4532b7c4d50c2f68ef90fc6d9a818d678",
-      "fetched_at": "2026-09-07T19:55:59+00:00"
+      "fetched_at": "2026-09-07T20:08:05+00:00"
     },
     {
       "id": "licensing-committee-2026-03-05--appendix-b-summary-of-changes-to-2021-statement-of-licensing-policy",
@@ -316,7 +316,7 @@
       "saved_to": "data/raw/licensing-committee-2026-03-05/appendix-b-summary-of-changes-to-2021-statement-of-licensing-policy.pdf",
       "bytes": 107717,
       "sha256": "e6ce601177a72adbd806ca2bac9812bd22be8315528c2f546ad498d6c6ab7139",
-      "fetched_at": "2026-09-07T19:55:59+00:00"
+      "fetched_at": "2026-09-07T20:08:06+00:00"
     },
     {
       "id": "licensing-committee-2026-03-05--appendix-c-equalities-impact-assessment",
@@ -332,7 +332,7 @@
       "saved_to": "data/raw/licensing-committee-2026-03-05/appendix-c-equalities-impact-assessment.pdf",
       "bytes": 180874,
       "sha256": "5b7360fc0c7967f3137b18e94f3ae1add5830e44ce57b3c79be64358a9c1637e",
-      "fetched_at": "2026-09-07T19:56:00+00:00"
+      "fetched_at": "2026-09-07T20:08:06+00:00"
     },
     {
       "id": "licensing-committee-2026-03-05--minutes-of-the-licensing-committee-meeting-held-on-5-march-2026",
@@ -348,7 +348,7 @@
       "saved_to": "data/raw/licensing-committee-2026-03-05/minutes-of-the-licensing-committee-meeting-held-on-5-march-2026.pdf",
       "bytes": 137413,
       "sha256": "130481100c1e8d761c3b69f9122d13d81c1a63ce05d976c271e28b687da7218c",
-      "fetched_at": "2026-09-07T19:56:00+00:00"
+      "fetched_at": "2026-09-07T20:08:07+00:00"
     },
     {
       "id": "cabinet-2026-03-11",
@@ -363,8 +363,8 @@
       "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1530/Committee/1/Default.aspx",
       "saved_to": "data/raw/cabinet-2026-03-11/page.html",
       "bytes": 218762,
-      "sha256": "b2f2beb5bf5ede584cc7b31bb5ea8b342c1b5a8b045bd16639b29fef25ee9843",
-      "fetched_at": "2026-09-07T19:56:03+00:00"
+      "sha256": "3b09c673c6a5a57f2c33f8791e4ba5d75e5c83406cd6eefd525889e7338e2cc9",
+      "fetched_at": "2026-09-07T20:08:09+00:00"
     },
     {
       "id": "cabinet-2026-03-11--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
@@ -380,7 +380,7 @@
       "saved_to": "data/raw/cabinet-2026-03-11/draft-statement-of-licensing-policy-under-the-licensing-act-2003.pdf",
       "bytes": 206415,
       "sha256": "496bc20509d1eff43273543711e33c4e8fde1e7de1e761b4e94b6cdac715a379",
-      "fetched_at": "2026-09-07T19:56:03+00:00"
+      "fetched_at": "2026-09-07T20:08:10+00:00"
     },
     {
       "id": "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026",
@@ -396,7 +396,7 @@
       "saved_to": "data/raw/cabinet-2026-03-11/minutes-of-the-cabinet-meeting-held-on-11-march-2026.pdf",
       "bytes": 291921,
       "sha256": "5720b6083deea5e7c770f90fa9a3011e83d54a29f96bc17698f2b8e22b146164",
-      "fetched_at": "2026-09-07T19:56:04+00:00"
+      "fetched_at": "2026-09-07T20:08:10+00:00"
     },
     {
       "id": "licensing-committee-2026-09-17",
@@ -411,8 +411,8 @@
       "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1727/Committee/6/Default.aspx",
       "saved_to": "data/raw/licensing-committee-2026-09-17/page.html",
       "bytes": 61871,
-      "sha256": "628ed18e8639c591afb399677256efc117ecaf59af9243e993deb216fae9b6b0",
-      "fetched_at": "2026-09-07T18:01:20+00:00"
+      "sha256": "7d77aa3862a83cc42f3d078ca445108c793213f1d6ffcfe028628edc176b7168",
+      "fetched_at": "2026-09-07T20:08:11+00:00"
     },
     {
       "id": "licensing-committee",
@@ -426,9 +426,9 @@
       "text": "CMIS > Committees > Licensing committee Norwich City Council Home About your council Committees Login Committees Councillors Outside bodies Meetings calendar Elections ePetitions Archive Search Search Documents Find My Councillor/Ward Licensing committee Committee Details Description: Active: 03 June 2014 - onwards Membership: Fixed Substitutions: All Meetings Members Other Information Meetings Display meetings in date range From: September 2026 September 2026 week M T W T F S S 36 31 1 2 3 4 5 6 37 7 8 9 10 11 12 13 38 14 15 16 17 18 19 20 39 21 22 23 24 25 26 27 40 28 29 30 1 2 3 4 41 5 6 7 8 9 10 11 * * To: September 2026 September 2026 week M T W T F S S 36 31 1 2 3 4 5 6 37 7 8 9 10 11 12 13 38 14 15 16 17 18 19 20 39 21 22 23 24 25 26 27 40 28 29 30 1 2 3 4 41 5 6 7 8 9 10 11 * * * Meeting Date - Start Time : End Time Venue Status Calendar 1 2 3 4 5 6 7 Page 7 of 7, Displaying meetings 61 to 68 of 68 meetings found in selected date range 26 June 2025 - 16:30 : TBC This meeting will not be convened Scheduled 25 September 2025 - 16:30 : TBC CANCELLED Scheduled 04 December 2025 - 16:30 : TBC Mancroft room Occurred 05 March 2026 - 16:30 : TBC Mancroft room Occurred 08 June 2026 - 16:30 : TBC Mancroft room Occurred 17 September 2026 - 16:30 : TBC Mancroft room Scheduled 03 December 2026 - 16:30 : TBC Mancroft room Scheduled 04 March 2027 - 16:30 : TBC Mancroft room Scheduled Members Committee Membership Filters Members On: September 2026 September 2026 week M T W T F S S 36 31 1 2 3 4 5 6 37 7 8 9 10 11 12 13 38 14 15 16 17 18 19 20 39 21 22 23 24 25 26 27 40 28 29 30 1 2 3 4 41 5 6 7 8 9 10 11 * * Include Retired Members: Party Name Role Membership Dates Attendance 1 2 Page 1 of 2, Displaying items 1 to 10 of 12 members/vacancies that match search criteria Liberal Democrats Councillor Caroline Ackroyd Member 22/05/2018 - current 68% The Green Party Councillor Denise Carlo Member 19/05/2026 - current 100% Labour Councillor Jess Carrington Member 20/05/2025 - current 100% The Green Party Councillor Sophia Della Corte Member 19/05/2026 - current 100% Labour Councillor Emma Hampton Member 19/05/2026 - current 100% Labour Councillor Jacob Huntley Member 22/05/2018 - current 74% The Green Party Councillor Jenny Knight Member 19/05/2026 - current 100% Labour Councillor Richard Lawes Member 05/06/2026 - current 67% The Green Party Councillor Ben Price Chair 19/05/2026 - current 65% The Green Party Councillor Martin Schmierer Member 19/05/2026 - current 63% Substitutes No Substitute information needs to be specified as the Substitution type is all. Any elected member may substitute. Other Information Contact us Accessibility Terms and conditions Privacy and cookies Norwich City Council All content \u00a9 Norwich City Council.",
       "source_url": "https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/6/Default.aspx",
       "saved_to": "data/raw/licensing-committee/page.html",
-      "bytes": 161922,
-      "sha256": "67290c768a63a6dacd705a78983c40e5303fdcf8b96885e3e4f3e9b96b09b2ec",
-      "fetched_at": "2026-09-07T18:01:21+00:00"
+      "bytes": 161954,
+      "sha256": "9c7a1f51c203202ea04f0500718bb85680297e4229aee69cd39c2defac50e9cf",
+      "fetched_at": "2026-09-07T20:08:11+00:00"
     },
     {
       "id": "adopted-licensing-policy-2021",
@@ -444,7 +444,7 @@
       "saved_to": "data/raw/adopted-licensing-policy-2021/licensing-policy-approved-by-norwich-city-council-december-2021.pdf",
       "bytes": 730360,
       "sha256": "83239b860256a4527d612402fa93eae0b7b9e2feaa3b5abb26cf6f448aff646a",
-      "fetched_at": "2026-09-07T19:56:05+00:00"
+      "fetched_at": "2026-09-07T20:08:12+00:00"
     },
     {
       "id": "premises-licence-guidance",
@@ -460,7 +460,7 @@
       "saved_to": "data/raw/premises-licence-guidance/page.html",
       "bytes": 68585,
       "sha256": "f03eba415a63ab84d146f15a15e5a9437d38238f472811fdf7893bbba6e4d29a",
-      "fetched_at": "2026-09-07T19:56:05+00:00"
+      "fetched_at": "2026-09-07T20:08:12+00:00"
     },
     {
       "id": "budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
@@ -476,7 +476,7 @@
       "saved_to": "data/raw/budget-2026-27/section-2-general-fund-mtfs-and-2026-2027-budget.pdf",
       "bytes": 612001,
       "sha256": "72c21cbb2cecdc45339716d6570ce96e8d2520f2fecaa047c5754092d17fa06d",
-      "fetched_at": "2026-09-07T19:56:08+00:00"
+      "fetched_at": "2026-09-07T20:08:15+00:00"
     },
     {
       "id": "fees-and-charges-2026-27",
@@ -492,7 +492,7 @@
       "saved_to": "data/raw/fees-and-charges-2026-27/council-fees-and-charges-2026-27.pdf",
       "bytes": 1160127,
       "sha256": "af348b2c1bdb2ab3e0db09a3c7d6a2f7a25c875f80778a1c679aed856ab3753a",
-      "fetched_at": "2026-09-07T19:56:09+00:00"
+      "fetched_at": "2026-09-07T20:08:15+00:00"
     },
     {
       "id": "open-data-payments-over-500",
@@ -508,7 +508,7 @@
       "saved_to": "data/raw/open-data-payments-over-500/page.html",
       "bytes": 88164,
       "sha256": "ba1012b5b127163574b201b0a228fa848455fbb50e2a445d7968224d537eb3c1",
-      "fetched_at": "2026-09-07T19:56:09+00:00"
+      "fetched_at": "2026-09-07T20:08:15+00:00"
     },
     {
       "id": "open-data-payments-over-500--payments-to-suppliers-over-500-january-2026",
@@ -524,7 +524,7 @@
       "saved_to": "data/raw/open-data-payments-over-500/payments-to-suppliers-over-500-january-2026.csv",
       "bytes": 87118,
       "sha256": "da9553a2688742a3d0a24f5c60eb04f6db68417306e1368d0e1c5169763af85c",
-      "fetched_at": "2026-09-07T19:56:09+00:00"
+      "fetched_at": "2026-09-07T20:08:16+00:00"
     }
   ]
 }
