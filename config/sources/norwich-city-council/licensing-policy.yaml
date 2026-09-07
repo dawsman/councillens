@@ -95,6 +95,41 @@ sources:
     max_bytes: 5000000
     enabled: true
 
+  # Verified 2026-09-08. The Cabinet decision this topic could not find until now.
+  # The 5 March committee recommended the draft policy to Cabinet, the consultation
+  # then went ahead, and no published Cabinet decision approving it had been
+  # located. It exists: Cabinet, 11 March 2026, item 9, "Draft Statement of
+  # Licensing Policy under the Licensing Act 2003 — to approve a public
+  # consultation on the draft Statement of Licensing Policy in respect of alcohol,
+  # regulated entertainment and light night refreshment".
+  #
+  # follow_links is off and the two documents that matter are deep-linked instead:
+  # the agenda lists twenty-one items, most of them about local plans, contracts
+  # and debt write-offs, and discovery would drag all of them in. Appendices A to C
+  # of the report are not fetched — they are the same three documents already
+  # banked from the 5 March committee meeting.
+  #
+  # Unusually for CMIS, this meeting's own minutes are published on its own page as
+  # well as on the next meeting's, so the decision and its record come from one
+  # deep link.
+  - id: cabinet-2026-03-11
+    title: "Cabinet, 11 March 2026 — approval of the licensing policy consultation"
+    type: agenda
+    stage: decision
+    body: "Cabinet"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1530/Committee/1/Default.aspx"
+    follow_links: false
+    documents:
+      - title: "Draft Statement of Licensing Policy under the Licensing Act 2003"
+        type: agenda
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=6bk2%2fH0mONctOrZzESoFgveI5xMXvJlDBrgVWUMRIQiMk1H5Kta%2bTQ%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Minutes of the Cabinet meeting held on 11 March 2026"
+        type: minutes
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=enzzA0HlUW6aJ8%2b4%2b%2bGYwnSORiDP5ej6hEtQf1BzX1G23Sq4CHI1gA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+    max_bytes: 5000000
+    enabled: true
+
   # Verified 2026-09-07. The meeting where the consultation results are due. The
   # consultation page says responses will be "analysed and summarised in a report
   # to the Licensing Committee in September 2026". As of 7 September the meeting

@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "generated_at": "2026-09-07T22:30:00+00:00",
+  "generated_at": "2026-09-08T00:20:00+00:00",
   "council": {
     "name": "Norwich City Council",
     "slug": "norwich-city-council",
@@ -19,7 +19,7 @@
     "plain_english": "The rules Norwich City Council follows when it decides who can sell alcohol, put on live music, films or other entertainment, and serve hot food after 11pm. The policy does not decide individual applications, but it sets out what the council will take into account when it does.",
     "questions": {
       "asked": "People were asked for their views on a redrafted policy covering alcohol, entertainment and late-night food. The draft adds the 'agent of change' principle, so that developers building next to an existing pub or music venue deal with the noise rather than the venue; it adds commitments on the safety of women and girls and on staff getting home after late shifts; and where there is evidence of street drinking, the council and the police could ask off-licences to accept a condition limiting the sale of very strong alcohol. Sixty-seven responses to the survey came in before the consultation closed on 9 August 2026. What people actually said has not been published.",
-      "decided": "One decision so far. On 5 March 2026 the Licensing committee went through the draft, agreed a change to the wording on licence conditions, asked officers to look again at three further points — signage, logbook inspections and the paragraph numbering in one section — and recommended that Cabinet put the draft out to public consultation. It also asked Cabinet to consider further steps on the safety of women and girls during that consultation. We could not find a published Cabinet decision agreeing to the consultation, even though it went ahead. The meeting where the responses are due, on 17 September 2026, had no papers published as of 7 September.",
+      "decided": "Two decisions so far. On 5 March 2026 the Licensing committee went through the draft, agreed a change to the wording on licence conditions, asked officers to look again at three further points — signage, logbook inspections and the paragraph numbering in one section — and recommended that Cabinet put the draft out to public consultation. It also asked Cabinet to consider further steps on the safety of women and girls during that consultation. Cabinet did both on 11 March 2026: it authorised the consultation and agreed to consider those further steps. Neither meeting decided the policy itself — after the consultation that goes to full council. The meeting where the responses are due, on 17 September 2026, had no papers published as of 7 September.",
       "done": "Nothing yet. The policy Norwich applies today is still the one full council approved in December 2021: it took effect on 17 December 2021 and, in its own words, runs for no more than five years. Officers proposed taking a final version to full council in November 2026 so a new policy could start on 1 December 2026, before the current one expires. Until that happens, we are still waiting."
     }
   },
@@ -57,7 +57,7 @@
       "body": null,
       "platform": "engagement",
       "source_url": "https://gettalking.norwich.gov.uk/49713/widgets/150659/documents/105900/download",
-      "fetched_at": "2026-09-07T18:01:16+00:00",
+      "fetched_at": "2026-09-07T19:55:56+00:00",
       "sha256": "7504673038ff2e0c441cc48c3a3295dfd80c3f52a0e88c51e49d8a9fdf03c303",
       "saved_to": "data/raw/consultation-licensing-policy/summary-of-changes-to-licensing-policy-docx.docx",
       "summary": "A plain-English summary of what would change between the 2021 policy and the 2026 draft, written for residents rather than lawyers. It lists the main changes: aligning with the government's National Licensing Policy Framework of November 2025, formally adopting the 'agent of change' principle, a new commitment to work with the police and Norwich BID on a night-time safety charter, clearer rules on when conditions can be attached to a licence, a route for the council and the police to ask off-licences to accept a limit on high-strength alcohol, recognition of staff safety on late shifts, and published service standards. It stresses that most changes are clarifications rather than new rules, and that the four licensing objectives stay as they are.",
@@ -82,7 +82,7 @@
       "body": null,
       "platform": "engagement",
       "source_url": "https://gettalking.norwich.gov.uk/49713/widgets/150659/documents/105901/download",
-      "fetched_at": "2026-09-07T18:01:16+00:00",
+      "fetched_at": "2026-09-07T19:55:56+00:00",
       "sha256": "5e8bd648d036e78902fb2b6484fbb41a47bbc8bcd2575f602183aace67e23a53",
       "saved_to": "data/raw/consultation-licensing-policy/draft-licensing-policy-for-consultation-full-version.docx",
       "summary": "The full draft policy residents were asked to comment on, 78 pages. It covers how the council handles applications, objections from residents and responsible authorities, conditions, reviews and enforcement, and it adds new sections on determining applications, on service standards and on shops selling alcohol to take away, plus three flow charts for applicants. It is the same document that went to the March committee as Appendix A, republished here as a Word file. Two things to note: paragraphs 7.1 and 7.4 still read 'necessary and proportionate', the wording councillors asked on 5 March to be changed to 'appropriate and proportionate'; and the new service standards are unfinished, with their targets still written as placeholders in square brackets — calls and emails answered within [3] working days, licences sent out within [10] working days.",
@@ -132,7 +132,7 @@
       "body": "Licensing committee",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=q4upyqwuaCsnYlzm413y2KVIbqgKk9fgGrjSB1FgIu4VB%2fwI5VKE5w%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "fetched_at": "2026-09-07T18:01:18+00:00",
+      "fetched_at": "2026-09-07T19:55:58+00:00",
       "sha256": "7c89f7bda974a9e8ecafbd06af8adc934d3c1e558c08d4f40b0101ef000b2552",
       "saved_to": "data/raw/licensing-committee-2026-03-05/minutes-of-the-licensing-committee-meeting-held-on-4-december-2025.pdf",
       "summary": "The minutes of the previous Licensing committee, held on 4 December 2025 and confirmed as a correct record at the March meeting. Its business was the council's gambling statement of principles, not the licensing policy, so it says nothing directly about this topic. It is here because it was published with the March agenda.",
@@ -157,7 +157,7 @@
       "body": "Licensing committee",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=2BBexLq99%2fgGFNxuHxr3%2bFAOgELy7WmhifjzFETSP9ptRaiAlSz8Lw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "fetched_at": "2026-09-07T18:01:18+00:00",
+      "fetched_at": "2026-09-07T19:55:58+00:00",
       "sha256": "011364eeb88fdb8e95c6a93a127010871bb920b24711b3605aa590e6697f03ff",
       "saved_to": "data/raw/licensing-committee-2026-03-05/draft-statement-of-licensing-policy-under-the-licensing-act-2003.pdf",
       "summary": "The officer's report to the 5 March 2026 committee, written by the council's Regulatory Services Manager. It explains that the Licensing Act 2003 requires a policy to be reviewed at least every five years, that the current one was adopted by full council in December 2021, and that a replacement has to be in place by December 2026 or licensing decisions could be open to challenge. It recommends sending the draft to Cabinet for public consultation, and sets out who must legally be consulted, including the chief constable, the fire service and Norfolk's director of public health. It also gives the scale of licensing in the city: 677 premises licences, 9 club premises certificates, 1,963 personal licences, and 225 temporary event notices — the short-notice permissions used for one-off events — during 2025.",
@@ -182,7 +182,7 @@
       "body": "Licensing committee",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=X0A0Xp8ozcKgkl4Ku5UhpGTNTcif2ubFYTVtFFsKoKd0cu9xPRh4AA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "fetched_at": "2026-09-07T18:01:19+00:00",
+      "fetched_at": "2026-09-07T19:55:59+00:00",
       "sha256": "f3660ead72d7d4e772aaaccb89944bd4532b7c4d50c2f68ef90fc6d9a818d678",
       "saved_to": "data/raw/licensing-committee-2026-03-05/appendix-a-draft-statement-of-licensing-policy-under-licensing-act-2003.pdf",
       "summary": "The draft revised policy as it was put to councillors in March 2026, 79 pages. It keeps the shape of the 2021 policy and adds sections on determining applications, on service standards, and on premises selling alcohol for drinking elsewhere, along with flow charts for new applications and for variations. It is the same document that was later published for public consultation, as a Word file.",
@@ -207,7 +207,7 @@
       "body": "Licensing committee",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=vmOXb%2f3DmpNUECg%2bkMX6cPCjI7GLlXVL22abSGgmFj1tZH1HTJHLpA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "fetched_at": "2026-09-07T18:01:19+00:00",
+      "fetched_at": "2026-09-07T19:55:59+00:00",
       "sha256": "e6ce601177a72adbd806ca2bac9812bd22be8315528c2f546ad498d6c6ab7139",
       "saved_to": "data/raw/licensing-committee-2026-03-05/appendix-b-summary-of-changes-to-2021-statement-of-licensing-policy.pdf",
       "summary": "A table that goes through the policy paragraph by paragraph and says what is being added, deleted or reworded between the 2021 version and the 2026 draft. It is the quickest way to see the substance: new paragraphs on the agent of change principle, on tackling crime against women and other vulnerable people, on conditions restricting high-strength alcohol at off-licences, and on service standards; and the removal of the section on toilet facilities, now dealt with by other legislation. It also records two smaller changes people would notice in practice: control measures updated to allow military ID cards and digital ID where the law permits, and the removal of the requirement for public liability insurance. A good many of the entries are renumbering or tidying rather than a change of policy.",
@@ -232,7 +232,7 @@
       "body": "Licensing committee",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=zFSNr%2fWGnpW%2bSREsrARIx4001vHhmKK6%2fDMeEujjqMc3f36XOENVlw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "fetched_at": "2026-09-07T18:01:20+00:00",
+      "fetched_at": "2026-09-07T19:56:00+00:00",
       "sha256": "5b7360fc0c7967f3137b18e94f3ae1add5830e44ce57b3c79be64358a9c1637e",
       "saved_to": "data/raw/licensing-committee-2026-03-05/appendix-c-equalities-impact-assessment.pdf",
       "summary": "The council's equality impact assessment of the draft policy, completed on 30 January 2026 by the Licensing Team Leader and signed off by the executive director for climate and environment. It records positive effects for children and young people, for women and girls, and for people at risk of harassment in late-night venues because of their race, sexual orientation or gender identity, and it identifies no adverse effects. All wards are marked as affected. The council says the assessment will be updated once the consultation results come back to committee.",
@@ -257,7 +257,7 @@
       "body": "Licensing committee",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=CIs62PewjxX%2bVkV6f0vbLj%2ftxU4daR72tJgpdqnz0Hi13xCvebJ6Cw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "fetched_at": "2026-09-07T18:01:20+00:00",
+      "fetched_at": "2026-09-07T19:56:00+00:00",
       "sha256": "130481100c1e8d761c3b69f9122d13d81c1a63ce05d976c271e28b687da7218c",
       "saved_to": "data/raw/licensing-committee-2026-03-05/minutes-of-the-licensing-committee-meeting-held-on-5-march-2026.pdf",
       "summary": "The minutes of the 5 March 2026 Licensing committee, and the record of what councillors actually did. Members agreed to change paragraphs 7.1 and 7.4 of the draft so that conditions must be 'appropriate and proportionate' rather than 'necessary and proportionate', which officers said gives the council more room to impose conditions. They asked for wording on making signage legible and on how long premises must keep logbooks and who may inspect them, and one member argued for stronger safeguards for women and girls, including anti-spiking measures and clearer routes to report problems. The committee resolved to recommend the amended draft to Cabinet, to recommend that Cabinet start a 12-week consultation, and to ask Cabinet to consider further steps on the safety of women and girls during it.",
@@ -272,6 +272,81 @@
         "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T22:30:00+00:00",
         "cache_key": "a05b437bcefbb9e1eac4cd37f3bfbd6af633da0a156b9e502d9a1dbc9e8ca601"
+      }
+    },
+    {
+      "id": "cabinet-2026-03-11",
+      "title": "Cabinet, 11 March 2026 — approval of the licensing policy consultation",
+      "type": "agenda",
+      "stage": "decision",
+      "body": "Cabinet",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1530/Committee/1/Default.aspx",
+      "fetched_at": "2026-09-07T19:56:03+00:00",
+      "sha256": "b2f2beb5bf5ede584cc7b31bb5ea8b342c1b5a8b045bd16639b29fef25ee9843",
+      "saved_to": "data/raw/cabinet-2026-03-11/page.html",
+      "summary": "The Cabinet meeting page for 11 March 2026. Licensing is item 9, “Draft Statement of Licensing Policy under the Licensing Act 2003 — to approve a public consultation”, sitting among twenty other items about local plans, contracts and debt write-offs. The page carries the officer's report, the four appendices, the tabled papers and, unusually for this committee system, the minutes of the meeting itself.",
+      "ai": {
+        "source_ids": [
+          "cabinet-2026-03-11"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T00:20:00+00:00",
+        "cache_key": "fe73e8f6d5e0a7bbf2464a7ab615862693583fea06273f07926663736e2f8f7d"
+      }
+    },
+    {
+      "id": "cabinet-2026-03-11--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
+      "title": "Draft Statement of Licensing Policy under the Licensing Act 2003",
+      "type": "agenda",
+      "stage": "decision",
+      "body": "Cabinet",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=6bk2%2fH0mONctOrZzESoFgveI5xMXvJlDBrgVWUMRIQiMk1H5Kta%2bTQ%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "fetched_at": "2026-09-07T19:56:03+00:00",
+      "sha256": "496bc20509d1eff43273543711e33c4e8fde1e7de1e761b4e94b6cdac715a379",
+      "saved_to": "data/raw/cabinet-2026-03-11/draft-statement-of-licensing-policy-under-the-licensing-act-2003.pdf",
+      "summary": "The report that asked Cabinet for permission to consult. It is the same officer's report the Licensing committee saw six days earlier, re-presented to Cabinet: the same account of the law, the same four licensing objectives, the same licence counts, and the same note that a cumulative impact assessment is being considered separately. What it asks for is narrow — “That members authorise the revised draft Statement of Licensing Policy to commences public consultation” — and it proposes running that consultation “for 12 weeks from 11 May 2026 to 7 August 2026”.",
+      "ai": {
+        "source_ids": [
+          "cabinet-2026-03-11--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T00:20:00+00:00",
+        "cache_key": "f6dd593bc64807a9d367e31e6c7bbbbba7b3a0f259584105aa1e8bbe8b5f36fb"
+      }
+    },
+    {
+      "id": "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026",
+      "title": "Minutes of the Cabinet meeting held on 11 March 2026",
+      "type": "minutes",
+      "stage": "decision",
+      "body": "Cabinet",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=enzzA0HlUW6aJ8%2b4%2b%2bGYwnSORiDP5ej6hEtQf1BzX1G23Sq4CHI1gA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "fetched_at": "2026-09-07T19:56:04+00:00",
+      "sha256": "5720b6083deea5e7c770f90fa9a3011e83d54a29f96bc17698f2b8e22b146164",
+      "saved_to": "data/raw/cabinet-2026-03-11/minutes-of-the-cabinet-meeting-held-on-11-march-2026.pdf",
+      "summary": "The minutes of Cabinet on 11 March 2026. Minute 123 is the licensing item, and it records two things: Cabinet authorised the consultation, and it accepted the extra recommendation the Licensing committee had made about the safety of women and girls, which reached the meeting as a tabled paper. A councillor asked how the draft policy makes venues rather than the police responsible for customer safety, and the Leader's written answer is minuted in full.",
+      "ai": {
+        "source_ids": [
+          "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T00:20:00+00:00",
+        "cache_key": "d8ba9b5d2c49398f9ea3eb9e2598c1587ba9e4464e94bd0ea73402779fed2171"
       }
     },
     {
@@ -332,7 +407,7 @@
       "body": null,
       "platform": "localgov_drupal",
       "source_url": "https://www.norwich.gov.uk/downloads/file/2258/licensing_policy",
-      "fetched_at": "2026-09-07T18:01:21+00:00",
+      "fetched_at": "2026-09-07T19:56:05+00:00",
       "sha256": "83239b860256a4527d612402fa93eae0b7b9e2feaa3b5abb26cf6f448aff646a",
       "saved_to": "data/raw/adopted-licensing-policy-2021/licensing-policy-approved-by-norwich-city-council-december-2021.pdf",
       "summary": "The licensing policy that is actually in force in Norwich today, approved by full council in December 2021 and running to 79 pages. It sets out how the council decides applications to sell alcohol, put on regulated entertainment or serve hot food between 11pm and 5am, what conditions may be attached to a licence, and how licences are reviewed and enforced, with pools of model conditions for each of the four licensing objectives. It took effect on 17 December 2021 and, on its own terms, runs for no more than five years — which is why a replacement has to be in place by December 2026. The council publishes it as a PDF download.",
@@ -357,7 +432,7 @@
       "body": null,
       "platform": "localgov_drupal",
       "source_url": "https://www.norwich.gov.uk/licensing/premises-and-alcohol/premises-licence",
-      "fetched_at": "2026-09-07T18:01:22+00:00",
+      "fetched_at": "2026-09-07T19:56:05+00:00",
       "sha256": "f03eba415a63ab84d146f15a15e5a9437d38238f472811fdf7893bbba6e4d29a",
       "saved_to": "data/raw/premises-licence-guidance/page.html",
       "summary": "The page a business lands on when it wants a premises licence in Norwich: who can apply, what to send in, and how to vary, transfer or give up a licence afterwards. It links out to the licensing policy under 'Related links', which is how we found that document. The link tells you which policy the council points applicants to; it does not itself give a date.",
@@ -382,7 +457,7 @@
       "body": "Cabinet",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "fetched_at": "2026-09-07T19:00:18+00:00",
+      "fetched_at": "2026-09-07T19:56:08+00:00",
       "sha256": "72c21cbb2cecdc45339716d6570ce96e8d2520f2fecaa047c5754092d17fa06d",
       "saved_to": "data/raw/budget-2026-27/section-2-general-fund-mtfs-and-2026-2027-budget.pdf",
       "summary": "The General Fund half of Norwich's 2026-2027 budget, as taken to Cabinet. It sets out what the council plans to spend and raise across every service, and an appendix at the back splits the provisional budget service by service. Licensing gets no line of its own: it is folded into planning and regulatory services, budgeted at £5.44m of spending against £2.45m of gross income, leaving £2.99m net to be met from the council's general funding.",
@@ -407,7 +482,7 @@
       "body": null,
       "platform": "localgov_drupal",
       "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Norwich-City-Council-Fees-and-Charges-2026-2027.pdf",
-      "fetched_at": "2026-09-07T19:00:19+00:00",
+      "fetched_at": "2026-09-07T19:56:09+00:00",
       "sha256": "af348b2c1bdb2ab3e0db09a3c7d6a2f7a25c875f80778a1c679aed856ab3753a",
       "saved_to": "data/raw/fees-and-charges-2026-27/council-fees-and-charges-2026-27.pdf",
       "summary": "Every charge Norwich City Council makes in 2026-27, from garden waste collections to burials, in one long PDF. The table headed “Alcohol / Entertainment / Late night refreshment” is the one that matters here: application fees run from £100 for the smallest rateable-value band up to £1,905 for the largest venue selling drink, and annual charges from £70 to £1,050. The document lists the amounts without saying who sets them; for alcohol licensing they come from national regulations rather than from the council.",
@@ -432,7 +507,7 @@
       "body": null,
       "platform": "localgov_drupal",
       "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/find-open-data/payments-over-500",
-      "fetched_at": "2026-09-07T19:00:19+00:00",
+      "fetched_at": "2026-09-07T19:56:09+00:00",
       "sha256": "ba1012b5b127163574b201b0a228fa848455fbb50e2a445d7968224d537eb3c1",
       "saved_to": "data/raw/open-data-payments-over-500/page.html",
       "summary": "The council's transparency page, listing every payment it made to a supplier over £500. Monthly files in CSV and PDF go back to 2020, and 2013 to 2018 can be had by email on request. It is the most detailed spending data Norwich puts out, though the one month we read, January 2026, has no cost centre that names licensing.",
@@ -457,7 +532,7 @@
       "body": null,
       "platform": "localgov_drupal",
       "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-02/Payments%20to%20suppliers%20over%20%C2%A3500%20January%202026.csv",
-      "fetched_at": "2026-09-07T19:00:20+00:00",
+      "fetched_at": "2026-09-07T19:56:09+00:00",
       "sha256": "da9553a2688742a3d0a24f5c60eb04f6db68417306e1368d0e1c5169763af85c",
       "saved_to": "data/raw/open-data-payments-over-500/payments-to-suppliers-over-500-january-2026.csv",
       "summary": "One month of supplier payments over £500, January 2026, exactly as published: 634 lines, each giving the service label, cost centre, expenditure category, account, date, amount and supplier. We banked it as a worked example and read it looking for licensing. None of the 84 cost centres in the file names licensing, so this route does not answer what the service spends.",
@@ -546,6 +621,40 @@
       }
     },
     {
+      "id": "evt-decision-2026-03-11",
+      "stage": "decision",
+      "date": "2026-03-11",
+      "date_precision": "day",
+      "title": "Cabinet approved the consultation, and took up the committee's request on women's safety",
+      "summary": "Cabinet met on 11 March 2026 and dealt with licensing as item 9. It resolved to “Authorise the revised draft Statement of Licensing Policy to commences public consultation” and, as a second limb, to “Consider exploring additional steps to address the safety of women and girls through the consultation process” — the recommendation the Licensing committee had asked it to take six days earlier, which reached the meeting as a tabled paper.",
+      "detail": [
+        "The report Cabinet approved proposed consulting “for 12 weeks from 11 May 2026 to 7 August 2026”. The consultation actually opened a week later, on 18 May, and closed on 9 August.",
+        "Asked how the draft policy makes venues rather than the police responsible for customer safety, the Leader answered that it “has been deliberately strengthened to require active safeguarding measures”, and named schemes including Ask for Angela and WAVE training.",
+        "This was permission to ask the public, not a decision on the policy. The report says that after the consultation the policy “is required to be approved by Full Council”."
+      ],
+      "source_ids": [
+        "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026",
+        "cabinet-2026-03-11--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
+        "cabinet-2026-03-11"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1530/Committee/1/Default.aspx",
+      "status": null,
+      "ai": {
+        "source_ids": [
+          "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026",
+          "cabinet-2026-03-11--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
+          "cabinet-2026-03-11"
+        ],
+        "prompt_version": "event-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T00:20:00+00:00",
+        "cache_key": "7f53b49e2ba9014a296a1e96a3f1c5d14b7fb5c3adfddd1173fb706543f35d8d"
+      }
+    },
+    {
       "id": "evt-feedback-2026-05-18",
       "stage": "feedback",
       "date": "2026-05-18",
@@ -620,13 +729,14 @@
       "summary": "The 2026 revision is not in force and has not been adopted. On the timetable officers set out in March, the Licensing committee sees the consultation results in September 2026 and full council is asked to approve a final policy in November, so it can start on 1 December 2026. None of that has happened yet.",
       "detail": [
         "Officers proposed taking the revised policy to full council in November 2026 for adoption by 1 December 2026.",
-        "We could not find a published Cabinet decision approving the consultation, though the consultation went ahead.",
+        "Cabinet authorised the consultation on 11 March 2026. The policy itself has not been to full council, which is the meeting that adopts it.",
         "A cumulative impact assessment, which the March meeting was told would be done separately, has not been published either."
       ],
       "source_ids": [
         "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
         "licensing-committee-2026-09-17",
-        "consultation-licensing-policy"
+        "consultation-licensing-policy",
+        "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026"
       ],
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=2BBexLq99%2fgGFNxuHxr3%2bFAOgELy7WmhifjzFETSP9ptRaiAlSz8Lw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
       "status": "still_waiting",
@@ -634,15 +744,16 @@
         "source_ids": [
           "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
           "licensing-committee-2026-09-17",
-          "consultation-licensing-policy"
+          "consultation-licensing-policy",
+          "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026"
         ],
         "prompt_version": "event-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "ai_reviewed",
-        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
-        "generated_at": "2026-09-07T20:15:00+00:00",
-        "cache_key": "79cf5c3bddc7bf208927c867fefd0a2ef6cf9eb684f6b0bfe0ceeb530ab1ef7c"
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T00:20:00+00:00",
+        "cache_key": "e64e0b417f089940c6e4efe840ae940887321ffb814634de0bdd902b23130736"
       }
     }
   ],
@@ -666,6 +777,27 @@
         "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-07T20:15:00+00:00",
         "cache_key": "381adac8f4ed30daaf5a829d2cfc9afc4e6e1b59e91535d0df33e980f2115c0f"
+      }
+    },
+    {
+      "from_event": "evt-feedback-2026-05-18",
+      "to_event": "evt-decision-2026-03-11",
+      "tier": "none",
+      "evidence": null,
+      "evidence_url": null,
+      "explanation": "No link, and there could not be one: this is the meeting that authorised the consultation, so it came before any of the feedback. The influence runs the other way.",
+      "ai": {
+        "source_ids": [
+          "consultation-licensing-policy",
+          "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026"
+        ],
+        "prompt_version": "linkage-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T00:20:00+00:00",
+        "cache_key": "6080f6ff3c4b771fdc383428fcf45467ae5b514a286f0348de861d7912ca3e8d"
       }
     },
     {
@@ -1026,10 +1158,6 @@
     {
       "stage": "decision",
       "description": "An explanation of one loose end. Councillors agreed on 5 March that paragraphs 7.1 and 7.4 should read 'appropriate and proportionate'. In the draft published for consultation on 18 May, both paragraphs still read 'necessary and proportionate'. We found no record saying whether the change was made later, dropped, or simply missed, so this needs checking with the council."
-    },
-    {
-      "stage": "decision",
-      "description": "The Cabinet decision approving the consultation. The March committee recommended the draft to Cabinet, so a Cabinet decision should exist, and the consultation did go ahead. We could not find one published. It may have been taken as a delegated officer decision, or simply not published. What we searched: the documents in this archive, which do not include Cabinet's own agendas and minutes — if the council can point us to the decision, we will add it."
     },
     {
       "stage": "decision",

@@ -18,10 +18,20 @@
       "plain_english": "The rules Norwich City Council follows when it decides who can sell alcohol, put on live music, films or other entertainment, and serve hot food after 11pm. The policy does not decide individual applications, but it sets out what the council will take into account when it does.",
       "questions": {
         "asked": "People were asked for their views on a redrafted policy covering alcohol, entertainment and late-night food. The draft adds the 'agent of change' principle, so that developers building next to an existing pub or music venue deal with the noise rather than the venue; it adds commitments on the safety of women and girls and on staff getting home after late shifts; and where there is evidence of street drinking, the council and the police could ask off-licences to accept a condition limiting the sale of very strong alcohol. Sixty-seven responses to the survey came in before the consultation closed on 9 August 2026. What people actually said has not been published.",
-        "decided": "One decision so far. On 5 March 2026 the Licensing committee went through the draft, agreed a change to the wording on licence conditions, asked officers to look again at three further points — signage, logbook inspections and the paragraph numbering in one section — and recommended that Cabinet put the draft out to public consultation. It also asked Cabinet to consider further steps on the safety of women and girls during that consultation. We could not find a published Cabinet decision agreeing to the consultation, even though it went ahead. The meeting where the responses are due, on 17 September 2026, had no papers published as of 7 September.",
+        "decided": "Two decisions so far. On 5 March 2026 the Licensing committee went through the draft, agreed a change to the wording on licence conditions, asked officers to look again at three further points — signage, logbook inspections and the paragraph numbering in one section — and recommended that Cabinet put the draft out to public consultation. It also asked Cabinet to consider further steps on the safety of women and girls during that consultation. Cabinet did both on 11 March 2026: it authorised the consultation and agreed to consider those further steps. Neither meeting decided the policy itself — after the consultation that goes to full council. The meeting where the responses are due, on 17 September 2026, had no papers published as of 7 September.",
         "done": "Nothing yet. The policy Norwich applies today is still the one full council approved in December 2021: it took effect on 17 December 2021 and, in its own words, runs for no more than five years. Officers proposed taking a final version to full council in November 2026 so a new policy could start on 1 December 2026, before the current one expires. Until that happens, we are still waiting."
       }
-    }
+    },
+    "source_ids": [
+      "consultation-licensing-policy",
+      "consultation-licensing-policy--draft-licensing-policy-for-consultation-full-version",
+      "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
+      "licensing-committee-2026-03-05--minutes-of-the-licensing-committee-meeting-held-on-5-march-2026",
+      "licensing-committee-2026-09-17",
+      "adopted-licensing-policy-2021",
+      "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026",
+      "cabinet-2026-03-11--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
+    ]
   },
   "ai": {
     "source_ids": [
@@ -30,14 +40,16 @@
       "licensing-committee-2026-03-05--draft-statement-of-licensing-policy-under-the-licensing-act-2003",
       "licensing-committee-2026-03-05--minutes-of-the-licensing-committee-meeting-held-on-5-march-2026",
       "licensing-committee-2026-09-17",
-      "adopted-licensing-policy-2021"
+      "adopted-licensing-policy-2021",
+      "cabinet-2026-03-11--minutes-of-the-cabinet-meeting-held-on-11-march-2026",
+      "cabinet-2026-03-11--draft-statement-of-licensing-policy-under-the-licensing-act-2003"
     ],
     "prompt_version": "topic-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "medium",
-    "review_status": "ai_reviewed",
-    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
-    "generated_at": "2026-09-07T22:30:00+00:00",
-    "cache_key": "f235290478cd4d0b412c07f0b296704837326dad747b33cf4601327705040e22"
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T00:20:00+00:00",
+    "cache_key": "6f2bcf07a207fd5195e8cf1caf4e919a0b307a2e52252a99af6c01a82549a7f5"
   }
 }
