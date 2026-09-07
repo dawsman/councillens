@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% import "_parts.html" as parts with context %}
+
+{% block title %}{{ m.topic.name }} — {{ m.council.name }} — CouncilLens{% endblock %}
+{% block description %}{{ m.topic.plain_english }}{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li><a href="{{ root }}councils/{{ m._council_slug }}/index.html">{{ m.council.name }}</a></li>
+    <li aria-current="page">{{ m.topic.name }}</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="topic-head">
+  <p class="topic-council">{{ m.council.name }}</p>
+  <h1>{{ m.topic.name }}</h1>
+  <p class="lede">{{ m.topic.plain_english }}</p>
+</header>
+
+{# ---- The hero: the three questions, answered, as a visible sequence ---- #}
+<section class="answers" aria-labelledby="three-questions">
+  <h2 id="three-questions" class="visually-hidden">The three questions</h2>
+  {% for stage in STAGES %}
+  {% set key = 'asked' if stage == 'feedback' else ('decided' if stage == 'decision' else 'done') %}
+  <div class="answer answer-{{ stage }}">
+    <p class="answer-marker"><span class="answer-dot" aria-hidden="true"></span>{{ STAGE_LABEL[stage] }}</p>
+    <div class="answer-body">
+      <h3 class="answer-q">{{ STAGE_QUESTION[stage] }}</h3>
+      <p class="answer-a">{{ m.topic.questions.get(key) or 'We have not been able to answer this from the public record yet.' }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<nav class="onpage" aria-label="On this page">
+  <p class="onpage-label">Further down this page</p>
+  <ul>
+    <li><a href="#the-record">How it unfolded, stage by stage</a></li>
+    <li><a href="#gaps-head">What we looked for and couldn't find</a></li>
+    <li><a href="#sources-head">Every document we used</a></li>
+    <li><a href="timeline/index.html">The same record in date order</a></li>
+  </ul>
+</nav>
+
+{# ---- The record, stage by stage ---- #}
+<h2 class="section-head" id="the-record">How it unfolded</h2>
+<p class="section-intro">Every card below links to the council document it came from. Where feedback
+  and a decision are joined, we say how sure we are — and show the words the council used.</p>
+
+{% for stage in STAGES %}
+{% set events = m._stages[stage] %}
+<section class="stage stage-{{ stage }}" aria-labelledby="stage-{{ stage }}">
+  <h3 class="stage-head" id="stage-{{ stage }}">
+    <span class="stage-rule" aria-hidden="true"></span>
+    {{ STAGE_HEADING[stage] }}
+  </h3>
+  {% if events %}
+    {% for e in events %}
+      {% for link in m._links_by_decision.get(e.id, []) %}
+        {{ parts.linkage(link) }}
+      {% endfor %}
+      {{ parts.event_card(e, 'h4') }}
+    {% endfor %}
+  {% else %}
+  <p class="empty">We have not found anything at this stage yet.</p>
+  {% endif %}
+</section>
+{% endfor %}
+
+{% if m._stages['other'] %}
+<section class="stage" aria-labelledby="stage-other">
+  <h3 class="stage-head" id="stage-other"><span class="stage-rule" aria-hidden="true"></span>Other records</h3>
+  {% for e in m._stages['other'] %}{{ parts.event_card(e, 'h4') }}{% endfor %}
+</section>
+{% endif %}
+
+{# ---- Links with no decision to hang off still need to be visible ---- #}
+{% set orphans = m._linkages | rejectattr('_to') | list %}
+{% if orphans %}
+<section class="stage" aria-labelledby="stage-orphans">
+  <h3 class="stage-head" id="stage-orphans"><span class="stage-rule" aria-hidden="true"></span>Other links we checked</h3>
+  {% for link in orphans %}{{ parts.linkage(link) }}{% endfor %}
+</section>
+{% endif %}
+
+{# ---- Gaps ---- #}
+<section class="gaps" aria-labelledby="gaps-head">
+  <h2 class="section-head" id="gaps-head">What we looked for and couldn't find</h2>
+  <p class="section-intro">Missing information matters as much as the rest. These are the things we
+    went looking for in the public record and did not find.</p>
+  {% if m._gaps %}
+  <ul class="gap-list">
+    {% for g in m._gaps %}
+    <li class="gap">
+      <span class="chip chip-gap">Missing at the &ldquo;{{ STAGE_CHIP.get(g.stage, 'unsorted') | lower }}&rdquo; stage</span>
+      <p>{{ g.description }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty">We have not recorded any gaps for this topic yet.</p>
+  {% endif %}
+</section>
+
+{# ---- Sources ---- #}
+<section class="sources" aria-labelledby="sources-head">
+  <h2 class="section-head" id="sources-head">Every document we used</h2>
+  <p class="section-intro">{{ m._sources | length }} public document{{ '' if m._sources|length == 1 else 's' }}.
+    Nothing on this page comes from anywhere else.</p>
+  <ol class="source-list">
+    {% for s in m._sources %}
+    <li class="source" id="{{ s.id }}">
+      <h3 class="source-title"><a href="{{ s.source_url }}">{{ s.title }}</a></h3>
+      <p class="source-meta">
+        {%- set kind = (s.type or 'document') | replace('_', ' ') -%}
+        {{ kind[0]|upper }}{{ kind[1:] }}{% if s.body %} from the {{ s.body }}{% endif %}{% if s.stage %},
+        used for the {{ STAGE_CHIP.get(s.stage, s.stage) | lower }} stage{% endif %}.
+      </p>
+      {% if s.summary %}<p class="source-summary">{{ s.summary }}</p>{% endif %}
+      {{ parts.provenance(s._ai) }}
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="correct-cta" aria-labelledby="correct-head">
+  <h2 id="correct-head">Something wrong here?</h2>
+  <p>If we have got something wrong, missed a document, or named you and you would rather we didn't,
+    tell us and we will look at it.</p>
+  <p><a class="button" href="{{ root }}corrections/index.html">Ask for a correction</a></p>
+</section>
+{% endblock %}

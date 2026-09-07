@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Page not found — CouncilLens{% endblock %}
+{% block description %}That page isn't here.{% endblock %}
+
+{% block main %}
+<header class="page-head">
+  <h1>That page isn't here</h1>
+  <p class="lede">Either the address has a typo in it, or we've moved something and not left a
+    forwarding note. Sorry.</p>
+</header>
+
+<section class="prose">
+  <h2>Try one of these</h2>
+  <ul>
+    <li><a href="{{ root }}index.html">Start from the home page</a> and pick a council.</li>
+    <li><a href="{{ root }}methodology/index.html">Read how we work</a>.</li>
+    <li><a href="{{ root }}corrections/index.html">Tell us about a broken link</a>, if you followed
+      one from somewhere else. Broken links are worth reporting and we do fix them.</li>
+  </ul>
+</section>
+{% endblock %}

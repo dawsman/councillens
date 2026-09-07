@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Ask for a correction — CouncilLens{% endblock %}
+{% block description %}How to tell us we've got something wrong, or ask for something about you to be removed.{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li aria-current="page">Corrections</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="page-head">
+  <h1>Ask for a correction</h1>
+  <p class="lede">We'd rather be corrected than be wrong in public. If something on this site is
+    wrong, out of date, missing, or about you and shouldn't be here, tell us.</p>
+</header>
+
+<section class="prose" aria-labelledby="how-head">
+  <h2 id="how-head">How to tell us</h2>
+  <p>Open a correction request on GitHub. It's a short form, it's free, and you'll need a GitHub
+    account to use it. You don't have to explain the technical side of anything.</p>
+  <p><a class="button" href="{{ corrections_url }}">Open a correction request</a></p>
+  <p>Not on GitHub and don't want to be? That's fine. You can read the whole project, including
+    every issue people have raised, at <a href="{{ REPO_URL }}">our repository page</a>, and the
+    contact details for the maintainers are there too.</p>
+
+  <h2>What to include</h2>
+  <p>The more precise you are, the faster we can fix it. Useful things:</p>
+  <ul>
+    <li>The address of the page (copy it from your browser's address bar).</li>
+    <li>The sentence or card you think is wrong.</li>
+    <li>What it should say instead, if you know.</li>
+    <li>A link to the document that shows it, if there is one.</li>
+  </ul>
+  <p>If you can only manage "the bit about the licensing committee is wrong", send that. We'll work
+    it out.</p>
+
+  <h2>How long we take</h2>
+  <p>We aim to respond within 10 working days. Straightforward factual fixes are usually much
+    quicker than that. If a correction needs us to re-read a long document or go back to the
+    council, we'll tell you that rather than leaving you waiting.</p>
+  <p>Every correction is logged in public on GitHub, so you can see what we changed and when.</p>
+
+  <h2>If you're named on the site</h2>
+  <p>Sometimes people appear in council documents by name. Councillors and senior officers, mostly,
+    acting in their public roles. Occasionally an ordinary resident's name ends up in a published
+    consultation response or a committee paper.</p>
+  <p>If you're named and you'd like it looked at, ask. Say which page and what you'd like us to do.
+    We'll take out anything that isn't necessary for people to understand the decision, and if we
+    decide something has to stay, we'll explain why rather than just refusing.</p>
+  <p>We only ever use documents the council has already published. But "already public" isn't the
+    same as "fine to repeat", and we treat those as different questions.</p>
+
+  <h2>What we won't do</h2>
+  <p>We won't remove an accurate summary of a public decision because someone dislikes how it
+    looks. We also won't take sides in a political argument about whether a decision was right.
+    Our job stops at showing you the record and being honest about what it does and doesn't prove.</p>
+  <p>If you think we've crossed that line, say so in a correction request. That's exactly the sort
+    of thing we want to hear about.</p>
+
+  <h2>Before you write to us</h2>
+  <p>Worth a look first: <a href="{{ root }}methodology/index.html">how we work</a> explains where
+    our summaries come from, what the coloured link labels mean, and why we so often say we don't
+    know. A fair few disagreements turn out to be about that rather than about a fact.</p>
+</section>
+{% endblock %}
