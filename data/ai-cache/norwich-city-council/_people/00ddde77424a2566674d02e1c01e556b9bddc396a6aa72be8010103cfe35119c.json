@@ -1,0 +1,154 @@
+{
+  "kind": "person",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "id": "cllr-carli-harper",
+    "name": "Councillor Carli Harper",
+    "party": "Labour",
+    "ward": "Lakenham",
+    "first_elected": "2024-05-03",
+    "first_elected_precision": "day",
+    "current_term_start": "2024-05-03",
+    "elections": [
+      {
+        "date": "2024-05-02",
+        "date_precision": "day",
+        "result": "elected",
+        "ward": "Lakenham",
+        "votes": 1433,
+        "majority": 981,
+        "turnout_percent": null,
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-results-2-may-2024"
+      }
+    ],
+    "roles": [
+      {
+        "title": "Leader of the Labour group",
+        "body_slug": null,
+        "since": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/223/ScreenMode/Alphabetical/Default.aspx"
+      }
+    ],
+    "committees": [
+      {
+        "slug": "council",
+        "name": "Council",
+        "role": "Member",
+        "since": "2024-05-03"
+      },
+      {
+        "slug": "scrutiny-committee",
+        "name": "Scrutiny committee",
+        "role": "Member",
+        "since": "2026-05-19"
+      }
+    ],
+    "outside_bodies": [],
+    "attendance": {
+      "expected": 32,
+      "attended": 25,
+      "apologies": 7,
+      "period": "the 12 months to 8 September 2026",
+      "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/223/ScreenMode/Alphabetical/Default.aspx",
+      "note": "CMIS counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. The council publishes how many of the missed meetings were apologised for, and both halves of that figure are shown here."
+    },
+    "allowances": {
+      "basic": 7028.76,
+      "special_responsibility": null,
+      "total": 8711.51,
+      "currency": "GBP",
+      "year": "2024-25",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-02/Members-Allowances-2024-25.pdf",
+      "note": "From the council's published schedule of allowances paid in 2024-25, matched on surname and initial. An allowance is not a salary: it is a set payment for doing the job. The schedule has four money columns — basic allowance, special responsibility, expenses and total — but prints a figure in only three of them for almost everyone, so the basic allowance and the total can be read off it and the middle figure cannot be told apart from expenses. This page therefore shows the basic allowance and the total, and says nothing about special responsibility."
+    },
+    "interests": {
+      "register_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=Ur%2fZcr%2bI4%2bZVbRZpL6yoZkCqNr8NVvK0yaGjRxoI4EVdZ%2fNmdFpNKA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "register_date": "2025-03-07",
+      "employment": [],
+      "directorships": [
+        {
+          "text": "Owner & director of Awe & Sonder Ltd.",
+          "category": "Employment, office, trade, profession or vocation"
+        },
+        {
+          "text": "Co-owner & director of Devo Agency Ltd",
+          "category": "Employment, office, trade, profession or vocation"
+        },
+        {
+          "text": "NED, Estuary Housing Association",
+          "category": "Employment, office, trade, profession or vocation"
+        }
+      ],
+      "memberships": [
+        {
+          "text": "Member, Labour Party",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Member, Unite the Union",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Member, RSPB",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Member, Institute of Directors",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Vice Chair, Housing for Women",
+          "category": "Other registrable interests"
+        }
+      ],
+      "sponsorship": [
+        {
+          "text": "Election expenses paid for by the Labour party",
+          "category": "Sponsorship"
+        }
+      ],
+      "land": [],
+      "other": [],
+      "note": "Taken from the register this councillor signed on 7 March 2025. The council had this councillor on its February 2016 form, which has a single column headed 'Details of member's interests', so nothing on it is ambiguous about whose interest it is. Everything on the form is shown. The employment box holds three directorships and nothing else, so this page shows no separate employment. The full form is linked."
+    },
+    "declared_links": [],
+    "contact": {
+      "email": "c.harper@cllr.norwich.gov.uk",
+      "address": null
+    },
+    "summary": "Councillor Carli Harper has represented Lakenham ward since 3 May 2024. They are the Leader of the Labour group. They sit on 2 of the council's committees and panels: Council and Scrutiny committee. The council's committee system records them at 25 of the 32 meetings they were expected at in the 12 months to 8 September 2026. They missed 7, and the council records apologies for all 7. What they declared on their register of interests, signed on 7 March 2025, is set out below, with a note on anything that is not shown.",
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillor-registers--register-of-interests-councillor-carli-harper-notice-of-07-march-2025",
+      "norwich-councillors",
+      "norwich-councillors--councillor-carli-harper",
+      "norwich-election-results-2024"
+    ],
+    "source_urls": [
+      "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=Ur%2fZcr%2bI4%2bZVbRZpL6yoZkCqNr8NVvK0yaGjRxoI4EVdZ%2fNmdFpNKA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "https://cmis.norwich.gov.uk/live/Councillors.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewAttendanceByCommittee/mid/383/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/223/ScreenMode/Alphabetical/Default.aspx",
+      "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-results-2-may-2024"
+    ],
+    "order": 13,
+    "party_history": []
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillor-registers--register-of-interests-councillor-carli-harper-notice-of-07-march-2025",
+      "norwich-councillors",
+      "norwich-councillors--councillor-carli-harper",
+      "norwich-election-results-2024"
+    ],
+    "prompt_version": "person-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "00ddde77424a2566674d02e1c01e556b9bddc396a6aa72be8010103cfe35119c"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "body",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "slug": "audit-committee",
+    "name": "Audit committee",
+    "kind": "committee",
+    "purpose": "Norwich City Council does not publish a plain description of what this committee does. Its papers are on the council's committee system, and its terms of reference are in the constitution.",
+    "members": [
+      "cllr-ash-jones",
+      "cllr-ben-price",
+      "cllr-beth-jones",
+      "cllr-cate-oliver",
+      "cllr-georgia-brumby",
+      "cllr-james-wright",
+      "cllr-keith-driver",
+      "cllr-mike-stonard"
+    ],
+    "chair": "cllr-keith-driver",
+    "vice_chair": null,
+    "source_ids": [
+      "norwich-committees",
+      "norwich-councillors"
+    ],
+    "source_url": "https://cmis.norwich.gov.uk/live/Committees.aspx",
+    "order": 0
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-committees",
+      "norwich-councillors"
+    ],
+    "prompt_version": "body-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "low",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "99a87e935bff649aabce43520faf53128bb4428416b49da7c2d77591f50a9ff3"
+  }
+}

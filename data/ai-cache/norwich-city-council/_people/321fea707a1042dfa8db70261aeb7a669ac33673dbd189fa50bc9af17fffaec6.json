@@ -1,0 +1,21 @@
+{
+  "kind": "gap",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "area": "bodies",
+    "description": "The council explains most of its committees in plain English, but publishes no such description for the audit committee or the treasury management committee. Their terms of reference are in the constitution, which is not part of this archive."
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-committee-types"
+    ],
+    "prompt_version": "gap-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "321fea707a1042dfa8db70261aeb7a669ac33673dbd189fa50bc9af17fffaec6"
+  }
+}

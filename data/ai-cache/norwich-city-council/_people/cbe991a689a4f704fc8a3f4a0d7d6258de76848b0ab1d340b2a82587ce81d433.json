@@ -1,0 +1,42 @@
+{
+  "kind": "body",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "slug": "standards-committee",
+    "name": "Standards committee",
+    "kind": "committee",
+    "purpose": "Standards keeps councillors' conduct up to the mark, and holds hearings when someone is said to have broken the code of conduct.",
+    "members": [
+      "cllr-cate-oliver",
+      "cllr-georgia-brumby",
+      "cllr-keith-driver",
+      "cllr-mike-conroy",
+      "cllr-sophia-della-corte",
+      "cllr-tammy-searle"
+    ],
+    "chair": null,
+    "vice_chair": null,
+    "source_ids": [
+      "norwich-committee-types--standards",
+      "norwich-committees",
+      "norwich-councillors"
+    ],
+    "source_url": "https://cmis.norwich.gov.uk/live/Committees.aspx",
+    "order": 13
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-committee-types--standards",
+      "norwich-committees",
+      "norwich-councillors"
+    ],
+    "prompt_version": "body-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "cbe991a689a4f704fc8a3f4a0d7d6258de76848b0ab1d340b2a82587ce81d433"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "kind": "person",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "id": "cllr-beth-jones",
+    "name": "Councillor Beth Jones",
+    "party": "Labour",
+    "ward": "University",
+    "first_elected": "2016-05-05",
+    "first_elected_precision": "day",
+    "current_term_start": "2023-05-05",
+    "elections": [
+      {
+        "date": "2016-05-05",
+        "date_precision": "day",
+        "result": "elected",
+        "ward": "University",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/118/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2019-05-03",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "University",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/118/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2023-05-04",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "University",
+        "votes": 1206,
+        "majority": 694,
+        "turnout_percent": 31.0,
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-2023"
+      }
+    ],
+    "roles": [],
+    "committees": [
+      {
+        "slug": "audit-committee",
+        "name": "Audit committee",
+        "role": "Member",
+        "since": "2026-05-19"
+      },
+      {
+        "slug": "council",
+        "name": "Council",
+        "role": "Member",
+        "since": "2016-05-10"
+      }
+    ],
+    "outside_bodies": [
+      {
+        "name": "Association of Retained Council Housing",
+        "since": "2023-06-20"
+      },
+      {
+        "name": "Local Government Information Unit",
+        "since": "2023-06-20"
+      }
+    ],
+    "attendance": {
+      "expected": 21,
+      "attended": 20,
+      "apologies": 1,
+      "period": "the 12 months to 8 September 2026",
+      "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/118/ScreenMode/Alphabetical/Default.aspx",
+      "note": "CMIS counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. The council publishes how many of the missed meetings were apologised for, and both halves of that figure are shown here."
+    },
+    "allowances": null,
+    "interests": {
+      "register_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=Ywr%2bkUbLTC3b0Xf7PnATIGbvn0tVFQKqMb6Z6%2fVSbWM01DaG0ToMzQ%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "register_date": "2023-05-23",
+      "employment": [],
+      "directorships": [],
+      "memberships": [],
+      "sponsorship": [],
+      "land": [],
+      "other": [],
+      "note": "Norwich publishes this councillor's register as a scanned picture of the paper form, signed on 23 May 2023. A scan cannot be read as text, so nothing from it is reproduced here. The form itself is linked, and you can read it yourself."
+    },
+    "declared_links": [],
+    "contact": {
+      "email": "b.jones@cllr.norwich.gov.uk",
+      "address": "C/o City Hall Norwich NR2 1NH"
+    },
+    "summary": "Councillor Beth Jones has represented University ward since 5 May 2016. They sit on 2 of the council's committees and panels: Audit committee and Council. The council's committee system records them at 20 of the 21 meetings they were expected at in the 12 months to 8 September 2026. They missed one, and the council records that apologies were sent for it. Their register of interests is published as a scan, so we cannot show what is on it; the form itself is linked.",
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillors",
+      "norwich-councillors--councillor-beth-jones",
+      "norwich-election-results-2023"
+    ],
+    "source_urls": [
+      "https://cmis.norwich.gov.uk/live/Councillors.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewAttendanceByCommittee/mid/383/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/118/ScreenMode/Alphabetical/Default.aspx",
+      "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-2023"
+    ],
+    "order": 34,
+    "party_history": []
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillors",
+      "norwich-councillors--councillor-beth-jones",
+      "norwich-election-results-2023"
+    ],
+    "prompt_version": "person-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "2522e79a7f6cfd8698ec3259a0d8afc379d14035c60e94d87d4193ddf26488ec"
+  }
+}

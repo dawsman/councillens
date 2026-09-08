@@ -1,0 +1,36 @@
+{
+  "kind": "officer",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "id": "officer-chief-executive",
+    "role": "Chief executive",
+    "name": "Louise Rawsthorne",
+    "statutory_role": "head_of_paid_service",
+    "pay_band": "£146,182 - £159,278",
+    "pay_note": "The council's pay policy statement says the chief executive is the head of paid service — the most senior member of staff — and is also the council's returning officer, who runs elections and is paid separate fees for it. From the council's list of salaries over £50,000, published in May 2026. This is the published pay range for the post, not what any individual is paid.",
+    "as_of": "2026-09-08",
+    "summary": "Louise Rawsthorne is the council's most senior employee. Officers are hired, not elected: they carry out what councillors decide. Four executive directors report to her.",
+    "source_ids": [
+      "norwich-council-officers",
+      "norwich-pay-policy-statement",
+      "norwich-salaries-over-50k"
+    ],
+    "source_url": "https://www.norwich.gov.uk/your-council-explained/how-council-run-and-who-makes-decisions/council-officers",
+    "order": 0
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-council-officers",
+      "norwich-pay-policy-statement",
+      "norwich-salaries-over-50k"
+    ],
+    "prompt_version": "officer-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "05e7e94361b61d011a9091dd7f1bf3c0a9f644846407e1339848abe295182315"
+  }
+}
