@@ -1,0 +1,49 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "id": "m-kpi08-temporary-accommodation",
+    "area": "targets",
+    "question": "How many homeless households are stuck in temporary accommodation?",
+    "label": "Homeless households in temporary accommodation, Q1 2025/26",
+    "rule_id": "council-threshold-v1",
+    "target": {
+      "value": 62.0,
+      "display": "62 households or fewer",
+      "unit": "households"
+    },
+    "actual": {
+      "value": 62.0,
+      "display": "62 households",
+      "unit": "households"
+    },
+    "threshold": {
+      "value": 68.0,
+      "display": "the council steps in past 68.0",
+      "unit": "households"
+    },
+    "direction": "lower_is_better",
+    "period": "Q1 2025/26",
+    "as_of": "2025-06-30",
+    "council_caveat": "The council's own note: \"The increase in temporary accommodation use over the past year reflects the increase in homelessness presentations being experienced by all local authorities… Meeting our target under these challenging circumstances is largely due to external funding.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+    "evidence": "Temporary accommodation means a bed and breakfast or hostel rather than a home. The council aims to keep the number at or below 62 households and says it will step in above 68. At the end of the first quarter of 2025/26 it was exactly 62.",
+    "source_ids": [
+      "housing-corporate-performance-2025-26-q1"
+    ],
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "order": 83
+  },
+  "ai": {
+    "source_ids": [
+      "housing-corporate-performance-2025-26-q1"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "medium",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "f961fc48f35949a1f8435cad87888e21ebd91b5cbfbf0e0159e936ac12467742"
+  }
+}

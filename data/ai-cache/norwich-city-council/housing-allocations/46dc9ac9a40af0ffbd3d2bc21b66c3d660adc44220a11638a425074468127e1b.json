@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "source_id": "housing-corporate-performance-2025-26-q1",
+    "summary": "The corporate performance report for the first quarter of 2025/26, taken to Cabinet on 10 September 2025. Every indicator carries a target and an intervention level the council sets itself, with the actual beside them. Of 19 indicators reported that quarter, 13 were green, 2 amber and 4 red. The numbers themselves are in Appendix A as screenshots of a dashboard rather than as text."
+  },
+  "ai": {
+    "source_ids": [
+      "housing-corporate-performance-2025-26-q1"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "46dc9ac9a40af0ffbd3d2bc21b66c3d660adc44220a11638a425074468127e1b"
+  }
+}

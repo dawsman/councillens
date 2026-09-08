@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "generated_at": "2026-09-08T01:30:00+00:00",
+  "generated_at": "2026-09-08T12:00:00+00:00",
   "council": {
     "name": "Norwich City Council",
     "slug": "norwich-city-council",
@@ -32,8 +32,8 @@
       "body": null,
       "platform": "engagement",
       "source_url": "https://gettalking.norwich.gov.uk/homelessnessandallocations",
-      "fetched_at": "2026-09-07T19:40:40+00:00",
-      "sha256": "5a3bf05c74b36be276976d691ad69f540599ef9a462ab46c7b70454d6c9e3c3b",
+      "fetched_at": "2026-09-08T06:23:05+00:00",
+      "sha256": "628c555b9c19effa25341ff2d32fe4609988f3395f184aabf6a5f75424120d78",
       "saved_to": "data/raw/housing-consultation-home-options/page.html",
       "summary": "The council's consultation page on Get Talking Norwich, covering two policies at once: a new homelessness strategy and the Home Options rules for allocating council homes. It says the consultation was open “from Monday 10 November 2025 to Sunday 7 December 2025”, and offers a draft policy, a briefing note and an equality impact assessment to read before answering the survey. Since it closed the council has added a “you said, we did” update naming what it changed in the allocations proposal because of what people said. The page also gives two round numbers for housing pressure in Norwich — around 4,000 people waiting for social housing and over 1,200 enquiries a month — without saying when either was counted.",
       "ai": {
@@ -57,7 +57,7 @@
       "body": null,
       "platform": "engagement",
       "source_url": "https://gettalking.norwich.gov.uk/42605/widgets/135103/documents/94939/download",
-      "fetched_at": "2026-09-07T19:40:41+00:00",
+      "fetched_at": "2026-09-08T06:23:06+00:00",
       "sha256": "e6b4c95916a39da433f8b55f6a0e5631783c1ce06b90950984a8fe4de97a4935",
       "saved_to": "data/raw/housing-consultation-home-options/allocations-policy-2025-consultation-draft.docx",
       "summary": "The full draft allocations scheme as residents saw it during the consultation, and the longest document in this archive. It sets out who could join the register, the five priority bands, how homes are advertised and bid for, and how to challenge a decision, including the exception that lets someone keep priority despite rent arrears “where a person is fleeing violence and has rent arrears”. Because the council later published the adopted version in the same form, this draft is what makes it possible to see which wording moved and which did not.",
@@ -82,7 +82,7 @@
       "body": null,
       "platform": "engagement",
       "source_url": "https://gettalking.norwich.gov.uk/42605/widgets/135103/documents/94937/download",
-      "fetched_at": "2026-09-07T19:40:42+00:00",
+      "fetched_at": "2026-09-08T06:23:07+00:00",
       "sha256": "92c79cff67b2bf763834ee70b793d23ee00007da64804bd45b42961a299c1120",
       "saved_to": "data/raw/housing-consultation-home-options/allocations-policy-2025-briefing-note.docx",
       "summary": "The council's plain-English summary of what it was proposing, and the shortest answer to “what were people actually asked?” It sets out the legal background — Part VI of the Housing Act requires every council to publish a scheme setting out who qualifies for social housing and in what order — says the current scheme dates from October 2021, then lists three key changes (two years' residence in Norwich instead of six months, three permitted refusals instead of five, and armed forces veterans offered a home first within their band) and seven smaller clarifications, including the one on rough sleeping.",
@@ -107,7 +107,7 @@
       "body": null,
       "platform": "engagement",
       "source_url": "https://gettalking.norwich.gov.uk/42605/widgets/135103/documents/94938/download",
-      "fetched_at": "2026-09-07T19:40:43+00:00",
+      "fetched_at": "2026-09-08T06:23:08+00:00",
       "sha256": "968963867584189c6ee9eedea8e67383a8f00e76944372a3ac8aef2d5457ef5e",
       "saved_to": "data/raw/housing-consultation-home-options/allocations-policy-2025-equality-impact-assessment.docx",
       "summary": "The council's own assessment of who the changes would affect, completed on 4 November 2025 — before the consultation opened. It says it covers the whole policy while highlighting three changes: the local connection requirement, the cut in permitted refusals, and veterans' priority. It records that the council owned 14,211 properties in October 2025, and it marks an adverse impact on three groups: people leaving asylum accommodation, whose application process it says “typically lasts significantly less than the two years required to qualify for the housing register”; people leaving prison, who do not gain a local connection by being held in Norwich; and disabled applicants, who it says may face barriers in navigating the process. It assesses the proposed policy, not the version officers went on to change.",
@@ -132,8 +132,8 @@
       "body": "Scrutiny committee",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1561/Committee/4/Default.aspx",
-      "fetched_at": "2026-09-07T19:40:44+00:00",
-      "sha256": "90a0143fe8caeb8900bdd04363eaccab9f91031215355f4fa927d2f2d393d500",
+      "fetched_at": "2026-09-08T06:23:09+00:00",
+      "sha256": "890929985793e13a49f1032e4a50c2335d4292181c48dc0c594d10989db7bec6",
       "saved_to": "data/raw/housing-scrutiny-2026-01-15/page.html",
       "summary": "The Scrutiny committee meeting page for 15 January 2026 on the council's committee system. Item 4 is “Revisions to the Home Options Policy”, with the officer report attached; the minutes were added afterwards. The page also lists who attended and records that no interests were declared. The officer report attached here is the same document that went to Cabinet in February, so it is banked once, under the Cabinet meeting.",
       "ai": {
@@ -157,7 +157,7 @@
       "body": "Scrutiny committee",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=9PnEnmlpuBjqnOT%2fQvCklRKeb1R2mh1NkxSKD45uGSd9D5%2fYnFfVxA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "fetched_at": "2026-09-07T19:40:44+00:00",
+      "fetched_at": "2026-09-08T06:23:10+00:00",
       "sha256": "48e4867e363c19f71b6b8dafe197d411d6fc3f27b2c126a05eb6a283638916d3",
       "saved_to": "data/raw/housing-scrutiny-2026-01-15/scrutiny-minutes-15-january-2026.pdf",
       "summary": "The record of the meeting where the proposals were tested, and of the only change anyone pressed for. Officers took members through the five proposed changes and told them 72 responses had come in. The committee suggested no changes to the proposals, then by a majority vote asked Cabinet to consider removing a rule the officers had not proposed touching — paragraph 3.8.7.3, which withholds that extra priority where the children were already born when the family accepted the property. Members also asked for more about the council's assessment panel to be written into the policy, and for research on co-parenting in council homes to come back to a later meeting.",
@@ -182,8 +182,8 @@
       "body": "Cabinet",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1518/Committee/1/Default.aspx",
-      "fetched_at": "2026-09-07T19:40:47+00:00",
-      "sha256": "05906831749c0d8ff7aa64d751d0b1bd86dda38d7ca05cbc9513f22b48a90983",
+      "fetched_at": "2026-09-08T06:23:12+00:00",
+      "sha256": "ac34115638d6866ed2ac07c1bcd711031386644006505b2fa77a7d9a8a86c0aa",
       "saved_to": "data/raw/housing-cabinet-2026-02-11/page.html",
       "summary": "The Cabinet meeting page for 11 February 2026. The Home Options revisions are item 12, “To agree an update to the Home Options allocation policy”, immediately after item 11, the homelessness strategy the same consultation covered. The page carries the officer report, the decision notice and the minutes of the meeting, and shows the item in the context of a long agenda that also included the council's 2026-2027 budget.",
       "ai": {
@@ -207,7 +207,7 @@
       "body": "Cabinet",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=4gqNOx03m%2fePTJEEigGVhJ2RmIv0fJZQSdALhRxrlPqMYaUJuefRkg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "fetched_at": "2026-09-07T19:40:48+00:00",
+      "fetched_at": "2026-09-08T06:23:13+00:00",
       "sha256": "3abe8dff87126fc708472cd229a54b1cddebd0a94aac07fec5d3c8e5e5b65230",
       "saved_to": "data/raw/housing-cabinet-2026-02-11/revisions-to-the-home-options-policy.pdf",
       "summary": "The whole decision in one document, and the densest thing in this archive. The report sets out the five proposed changes; records that the consultation ran and drew 72 responses; and, in paragraphs 17 to 22, takes each significant objection in turn and says what the council did about it. Paragraphs 23 to 28 record the Scrutiny committee's request to delete section 3.8.7.3 and the portfolio holder's refusal. Appendix A is the proposed 2026 policy, Appendix B the equality impact assessment, and Appendix C the consultation figures — the agree, disagree and neutral split for each of the five proposals.",
@@ -232,7 +232,7 @@
       "body": "Cabinet",
       "platform": "cmis",
       "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=AVUv5jvBRpdc5H%2b3QUWI8W22f9ypHOLRCEmIL7ZJb9py8YFa9lwifg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
-      "fetched_at": "2026-09-07T19:40:52+00:00",
+      "fetched_at": "2026-09-08T06:23:17+00:00",
       "sha256": "f76a8d290369a428087545ae17f017fd519db8e9e7b8c0d0d62fa9909f1bae1f",
       "saved_to": "data/raw/housing-cabinet-minutes-2026-02-11/minutes-of-the-cabinet-meeting-held-on-11-february-2026.pdf",
       "summary": "The decision record. Minute 123.5 reads “RESOLVED to agree the adoption of the updated Home Options policy.” At 123.1 the Cabinet member for housing gives her reason for turning Scrutiny down: “it was a long-standing provision that silver band was not awarded where a situation had arisen due to tenants' own choice”. Minutes 123.2 and 123.3 carry the exchange about the no-garden rule: a councillor's question asking what the council would do so the rule did not work against children, and the Cabinet member's answer, which points families towards mutual exchange and says 160 council tenant households moved that way in 2025.",
@@ -257,8 +257,8 @@
       "body": null,
       "platform": "localgov_drupal",
       "source_url": "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/home-options-allocation-scheme-2026",
-      "fetched_at": "2026-09-07T19:40:52+00:00",
-      "sha256": "99aa38e3655f4ec927b6ef0c74d0250c488ae6c9e994d327a893fca04791ec60",
+      "fetched_at": "2026-09-08T06:23:17+00:00",
+      "sha256": "ee647ed9e57084b97edcccd927eb481967e10dae52b62b1a246aa4e399f303f2",
       "saved_to": "data/raw/housing-adopted-home-options-2026/page.html",
       "summary": "The scheme in force, published on 12 February 2026 — the day after Cabinet agreed it — as a full web page rather than a download. A summary of changes at the top is followed by nine numbered sections and five appendices covering who can apply, the five priority bands, how homes are advertised and bid for, and how to challenge a decision. The summary states in the council's own words that the updates “have been shaped through a public consultation which took place in Autumn 2025 and scrutiny by the council's Overview and Scrutiny Committee”.",
       "ai": {
@@ -282,8 +282,8 @@
       "body": null,
       "platform": "localgov_drupal",
       "source_url": "https://www.norwich.gov.uk/housing-and-community-safety/housing-advice-and-homelessness/applying-housing-norwich",
-      "fetched_at": "2026-09-07T19:40:52+00:00",
-      "sha256": "43c29b844069156ee9d2f453137c790bb024e8545fffce25ffe4a40426641c41",
+      "fetched_at": "2026-09-08T06:23:17+00:00",
+      "sha256": "c3e41aee0274017536ce9533934b4cdb830db1f0208bf36a4b28a25f73b6a996",
       "saved_to": "data/raw/housing-applying-for-housing/page.html",
       "summary": "The page a Norwich resident actually lands on when they want a council home. It tells applicants they qualify if they are 18 or older and “you've lived in Norwich for at least 2 years” — the rule the 2026 scheme brought in, replacing six months — lists the five bands, explains bidding, and links the adopted scheme. So the new rules are the ones an applicant meets today, though the page carries no date, so we cannot say when it was changed.",
       "ai": {
@@ -297,6 +297,56 @@
         "reviewed_by": "two independent AI review passes, reconciled against the source documents, 7 September 2026",
         "generated_at": "2026-09-08T01:30:00+00:00",
         "cache_key": "6bf8abe4b39ae652d7ef75e2b70f1eda298a3f9e00250bb17c46ea165f7c6ff4"
+      }
+    },
+    {
+      "id": "housing-corporate-performance-2025-26-q1",
+      "title": "Corporate performance report, quarter 1 2025-26 (Cabinet, 10 September 2025)",
+      "type": "performance",
+      "stage": "outcome",
+      "body": "Cabinet",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "fetched_at": "2026-09-08T06:23:18+00:00",
+      "sha256": "5d9d91b1a90c2bb1f45da67097e13e02e5f8ee9a75a2931684a2783edd381225",
+      "saved_to": "data/raw/housing-corporate-performance-2025-26-q1/corporate-performance-report-quarter-1-2025-26-cabinet-10-september-2025.pdf",
+      "summary": "The corporate performance report for the first quarter of 2025/26, taken to Cabinet on 10 September 2025. Every indicator carries a target and an intervention level the council sets itself, with the actual beside them. Of 19 indicators reported that quarter, 13 were green, 2 amber and 4 red. The numbers themselves are in Appendix A as screenshots of a dashboard rather than as text.",
+      "ai": {
+        "source_ids": [
+          "housing-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "46dc9ac9a40af0ffbd3d2bc21b66c3d660adc44220a11638a425074468127e1b"
+      }
+    },
+    {
+      "id": "housing-tenant-satisfaction-measures",
+      "title": "Tenant satisfaction measures 2025-26 — what council tenants say",
+      "type": "performance",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/housing-and-community-safety/how-are-we-doing/tenant-satisfaction-measures-tsm-2025-26",
+      "fetched_at": "2026-09-08T06:23:18+00:00",
+      "sha256": "62bdde938a59c20abbffef37015a98b6833e401615b921102ecfac4959a221be",
+      "saved_to": "data/raw/housing-tenant-satisfaction-measures/page.html",
+      "summary": "The council's tenant satisfaction measures for 2025/26 — 26 measures the Regulator of Social Housing requires every landlord to publish, from a survey of 1,002 Norwich tenants between May 2025 and March 2026. Three quarters of tenants, 75.3%, were satisfied with the overall service, up from 71.1% the year before. Satisfaction with how complaints are handled was 30.0%. The council publishes no target for any of the 26.",
+      "ai": {
+        "source_ids": [
+          "housing-tenant-satisfaction-measures"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "2bb2a30096c17296283d25a0fa68e76dc5c9ce9d6227d0bae3d88de83f2cad20"
       }
     }
   ],
@@ -944,6 +994,376 @@
       }
     }
   ],
+  "measures": [
+    {
+      "id": "m-kpi05-rent-collected",
+      "area": "targets",
+      "question": "Is the council collecting the rent its tenants owe?",
+      "label": "Council housing rent collected against target, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 99.8,
+        "display": "99.8% of rent due",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 96.88,
+        "display": "96.88% collected",
+        "unit": "%"
+      },
+      "threshold": {
+        "value": 98.8,
+        "display": "the council steps in past 98.8",
+        "unit": "%"
+      },
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council's own explanation: \"Cash collection in quarter one dropped compared to 2024/25, mainly due to the rise in Universal Credit (UC) claimants—now 55% of tenants. This shift reduced Housing Benefit payments by £1.5 million, with UC managed payments leaving a £110,000 gap… Rising living costs are worsening tenant finances.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "Rent from council tenants pays for repairs, new homes and the debt on the existing ones, so a shortfall matters to every tenant. The council aims to collect 99.8% of the rent due and says it will step in below 98.8%. In the first quarter of 2025/26 it collected 96.88%.",
+      "source_ids": [
+        "housing-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "housing-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "9476ba09bd9f2f25eebbc54810c46f1ddfcb2537ed8bd13ba86c05760621c2f7"
+      }
+    },
+    {
+      "id": "m-kpi06-relet-time",
+      "area": "targets",
+      "question": "How long does a council home stand empty between tenants?",
+      "label": "Average days to re-let a council home, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 21.0,
+        "display": "21 days",
+        "unit": "days"
+      },
+      "actual": {
+        "value": 59.0,
+        "display": "59 days",
+        "unit": "days"
+      },
+      "threshold": {
+        "value": 25.0,
+        "display": "the council steps in past 25.0",
+        "unit": "days"
+      },
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "lower_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council says the delay comes from \"the continued increasing volume of repairs required in minor works voids\" and a new cleaning contractor struggling with resourcing. It also questions its own target: \"Housemark benchmarking data indicates that the average across the sector is 55 days. This suggests that our current target of 21 days is no longer aligned with sector norms.\" It is reviewing the target. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "An empty council home is a family still waiting and rent not collected. The council aims to re-let one in 21 days and says it will step in past 25. In the first quarter of 2025/26 it took 59 days on average.",
+      "source_ids": [
+        "housing-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "housing-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "4fe58088e9c8ce4da30711502548448f6fab1415012959c2e5a06970e1603f61"
+      }
+    },
+    {
+      "id": "m-kpi07-gas-safety",
+      "area": "targets",
+      "question": "Do council homes have an up-to-date gas safety check?",
+      "label": "Council homes with a valid gas safety certificate, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 100.0,
+        "display": "every home",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 99.95,
+        "display": "99.95% of homes",
+        "unit": "%"
+      },
+      "threshold": {
+        "value": 99.8,
+        "display": "the council steps in past 99.8",
+        "unit": "%"
+      },
+      "status": "amber",
+      "status_word": "Close",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council blames \"contractor personnel changes with new service personnel required to complete mandatory training\" and changes to court timetables for the warrants it needs to get into homes where nobody answers. It says both are fixed. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "The law requires a gas safety check every year in every council home with a gas supply. Norwich's target is 100% and it says it will step in below 99.8%. In the first quarter of 2025/26 it was at 99.95% — a handful of homes short of every one.",
+      "source_ids": [
+        "housing-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "housing-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "333b0007cb542c9b77966736d5051e6e5f8b17bf9e82c368aab25fa5b68329bd"
+      }
+    },
+    {
+      "id": "m-kpi08-temporary-accommodation",
+      "area": "targets",
+      "question": "How many homeless households are stuck in temporary accommodation?",
+      "label": "Homeless households in temporary accommodation, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 62.0,
+        "display": "62 households or fewer",
+        "unit": "households"
+      },
+      "actual": {
+        "value": 62.0,
+        "display": "62 households",
+        "unit": "households"
+      },
+      "threshold": {
+        "value": 68.0,
+        "display": "the council steps in past 68.0",
+        "unit": "households"
+      },
+      "status": "green",
+      "status_word": "Met",
+      "direction": "lower_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council's own note: \"The increase in temporary accommodation use over the past year reflects the increase in homelessness presentations being experienced by all local authorities… Meeting our target under these challenging circumstances is largely due to external funding.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "Temporary accommodation means a bed and breakfast or hostel rather than a home. The council aims to keep the number at or below 62 households and says it will step in above 68. At the end of the first quarter of 2025/26 it was exactly 62.",
+      "source_ids": [
+        "housing-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "housing-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "f961fc48f35949a1f8435cad87888e21ebd91b5cbfbf0e0159e936ac12467742"
+      }
+    },
+    {
+      "id": "m-kpi09-homelessness-prevented",
+      "area": "targets",
+      "question": "When someone is threatened with homelessness, does the council find them somewhere?",
+      "label": "Homelessness prevention duties ending in suitable housing, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 75.0,
+        "display": "75% of cases",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 82.0,
+        "display": "82% of cases",
+        "unit": "%"
+      },
+      "threshold": {
+        "value": 67.0,
+        "display": "the council steps in past 67.0",
+        "unit": "%"
+      },
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council raised its own target for this indicator from 67% to 75% during this quarter, so the traffic lights on earlier quarters were set against an easier bar. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "If you are about to lose your home, the council has a legal duty to try to prevent it. This counts the cases where that duty ended because somewhere suitable was found. The council aims for 75% and reached 82% in the first quarter of 2025/26.",
+      "source_ids": [
+        "housing-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "housing-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "dcc814507d0601b3cf5503755799ea0d38636c0a767464c95d1b2ef7342f0a93"
+      }
+    },
+    {
+      "id": "m-kpi18-affordable-homes",
+      "area": "targets",
+      "question": "How many affordable homes did the council help create?",
+      "label": "Affordable homes built, bought or enabled, 2024/25",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 50.0,
+        "display": "50 homes a year",
+        "unit": "homes"
+      },
+      "actual": {
+        "value": 48.0,
+        "display": "48 homes",
+        "unit": "homes"
+      },
+      "threshold": {
+        "value": 45.0,
+        "display": "the council steps in past 45.0",
+        "unit": "homes"
+      },
+      "status": "amber",
+      "status_word": "Close",
+      "direction": "higher_is_better",
+      "period": "2024/25",
+      "as_of": "2025-03-31",
+      "council_caveat": "The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "This is an annual indicator, reported at the end of the year. The council counts homes it built itself, bought, or enabled someone else to provide. Its target is 50 a year and it says it will step in below 45. In 2024/25 it reported 48.",
+      "source_ids": [
+        "housing-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "housing-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "78d6c849c426836994ca56e9fb2bc20fd50bd9f2855a483e7e7a287bacadf07a"
+      }
+    },
+    {
+      "id": "m-kpi13-private-rented-homes-made-safe",
+      "area": "targets",
+      "question": "How many unsafe private rented homes did the council get fixed?",
+      "label": "Private rented homes made safe, 2024/25",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 50.0,
+        "display": "50 homes a year",
+        "unit": "homes"
+      },
+      "actual": {
+        "value": 22.0,
+        "display": "22 homes",
+        "unit": "homes"
+      },
+      "threshold": {
+        "value": 45.0,
+        "display": "the council steps in past 45.0",
+        "unit": "homes"
+      },
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "higher_is_better",
+      "period": "2024/25",
+      "as_of": "2025-03-31",
+      "council_caveat": "The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "Councils can force private landlords to fix dangerous housing. Norwich set itself a target of 50 homes made safe a year and says it will step in below 45. In 2024/25 it reported 22 — less than half the target.",
+      "source_ids": [
+        "housing-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "housing-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "b499c033f0a9069bf88a1a35fad66854b312ad207e473b7243b30b7cd1b0350e"
+      }
+    },
+    {
+      "id": "m-kpi19-new-homes-completed",
+      "area": "targets",
+      "question": "How many new homes were finished in the city?",
+      "label": "New homes completed, council and private, 2024/25",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 477.0,
+        "display": "477 homes a year",
+        "unit": "homes"
+      },
+      "actual": {
+        "value": 246.0,
+        "display": "246 homes",
+        "unit": "homes"
+      },
+      "threshold": {
+        "value": 429.0,
+        "display": "the council steps in past 429.0",
+        "unit": "homes"
+      },
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "higher_is_better",
+      "period": "2024/25",
+      "as_of": "2025-03-31",
+      "council_caveat": "The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "This counts every new home finished in Norwich, private builders included, so it is only partly in the council's hands — its levers are planning permission and its own building programme. The target is 477 a year, the intervention level 429, and the figure reported for 2024/25 was 246.",
+      "source_ids": [
+        "housing-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "housing-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "9658429550a875a2c011919d8bb251ffee52c58ebdc8e49bf69e151841af9288"
+      }
+    }
+  ],
   "gaps": [
     {
       "stage": "feedback",
@@ -968,6 +1388,18 @@
     {
       "stage": "decision",
       "description": "The research on co-parenting the Scrutiny committee asked for. Officers agreed to look for research on the effect of co-parenting in council-owned properties and “provide a brief update at a future Scrutiny Committee meeting”. We have not gathered any Scrutiny papers later than January 2026, so we cannot say whether that update has happened."
+    },
+    {
+      "stage": "outcome",
+      "description": "A published target for the allocations scheme itself. The council measures how long a home stands empty and how much rent it collects, but nothing it publishes sets a target for how long someone waits on the housing register, how many people move out of each priority band, or what the two-year residence rule introduced in 2026 has done to the register. The scheme's own equality assessment commits the council to reviewing its impact in February 2027."
+    },
+    {
+      "stage": "outcome",
+      "description": "A target for anything tenants are asked about. The Regulator of Social Housing makes every landlord publish 26 tenant satisfaction measures, and Norwich publishes all of them: 75.3% of tenants satisfied with the overall service, up from 71.1%, and 30.0% satisfied with how complaints are handled. But the regulator does not require a target and Norwich has not set one, so none of the 26 can be scored. A figure with nothing to compare it against is a figure, not a verdict, and we will not invent the standard."
+    },
+    {
+      "stage": "outcome",
+      "description": "Housing performance figures in a form anyone can check. The council's quarterly report carries a target, an intervention level and an actual for eight housing indicators, which is genuinely good practice. The numbers themselves are screenshots of a dashboard pasted into a PDF, so they cannot be searched or checked by machine. Everything on this page taken from them was read off the images by eye and is flagged for human checking."
     },
     {
       "stage": "outcome",

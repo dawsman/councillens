@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "generated_at": "2026-09-08T01:30:00+00:00",
+  "generated_at": "2026-09-08T12:00:00+00:00",
   "council": {
     "name": "Norwich City Council",
     "slug": "norwich-city-council",
@@ -1170,6 +1170,10 @@
     {
       "stage": "decision",
       "description": "The papers for the 17 September 2026 Licensing committee. As of 7 September 2026 the meeting page said there were no documents for it, so the officers' report on the consultation and any recommendation are not yet public."
+    },
+    {
+      "stage": "outcome",
+      "description": "Any published target for the licensing service. Norwich runs a full traffic-light performance framework, with a target and an intervention level for every corporate indicator, reported to Cabinet each quarter — but none of those indicators is about licensing. There is no published target for how quickly a licence application is decided, how many premises are inspected, or how many licence conditions are enforced. So nothing on this page can be scored against a target the council set itself. The nearest regulatory indicator the council does publish is about food hygiene ratings, which is environmental health rather than licensing, and it is not shown here because it would be misleading to present it as a licensing measure."
     },
     {
       "stage": "outcome",
