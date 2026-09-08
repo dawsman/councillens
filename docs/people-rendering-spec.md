@@ -50,8 +50,14 @@ their own councillor needs:
 
 - name (`name`, as published)
 - ward (`ward`) — the biggest thing on the card after the name
-- party (`party`) as a small text label, colour-matched to the bar
+- party (`party`) as a small text label, colour-matched to the bar. Match on the
+  exact string: `composition.seats_by_party[].party` and `councillors[].party` use
+  the same labels, and "The Green Party" is not "Green Party"
 - one line: "Councillor since <first_elected, formatted to its precision>"
+- where `party_history` is not empty, the current party label carries a small
+  marker, and the expanded card gives the dated history. Three of Norwich's 39
+  changed party while in office, and a card that pairs "Independent" with
+  "councillor since 2016" invites a reading the council's own record contradicts
 - any `roles`, as small pills: "Leader of the council", "Chair, Licensing
   committee"
 
@@ -71,13 +77,19 @@ itself uses: employment, directorships, memberships, sponsorship, land. Each ite
 verbatim from the register.
 
 Expect most of these to be thin, and show `interests.note` whether they are or
-not — for Norwich it is the most important line in the section. Of the 39
+not. For Norwich it is the most important line in the section. Of the 39
 registers, 22 are published as scanned pictures with no text in the file, so
-nothing from them can be shown. Of the 17 that are readable, 13 carry entries
-that could not be attributed with certainty, because the form puts a councillor's
-own interests beside their partner's and the published file does not keep the
-columns apart. The note says which case a councillor is in. Never render an empty
-declarations box as though the councillor declared nothing.
+nothing from them can be shown at all. The 17 readable ones sit on two different
+versions of the council's form. Six are on the February 2016 form, which has a
+single column for the councillor's own interests, and everything on those is
+shown. Eleven are on the April 2026 form, which puts a councillor's answers
+beside their partner's in the pecuniary table; where such a row lists more than
+one answer, it is left out rather than risk printing a partner's job under a
+councillor's name. On both forms the "other registrable interests" box is a
+single list with no partner column, so it is always shown in full. Each note says
+which form that councillor is on and what, if anything, is missing from their
+entry. Never render an empty declarations box as though the councillor declared
+nothing.
 
 Above the list, always, this sentence:
 
@@ -90,17 +102,27 @@ empty, do not show an empty box: show the `interests.note` instead, which says
 what the council does and does not publish.
 
 **Turning up.** `attendance` as one sentence and one small bar: "Went to
-<attended> of <expected> meetings they were expected at, in <period>." Then the
-`note`, always, because the period is a rolling window and the reader will
-otherwise assume it is a year of their own choosing. If `attendance` is null,
-print `attendance.note`'s equivalent from `gaps` — never a zero, never a dash.
+<attended> of the <expected> meetings they were expected at, in <period>. Of the
+<expected − attended> they missed, <apologies> were with apologies." Both halves,
+always, wherever `apologies` is not null. The council publishes an absence figure
+and an apologies figure, and showing only the first makes a councillor who
+apologised for every absence look like one who could not be bothered. Four of
+Norwich's 39 are in exactly that position. Then the `note`, always, because the
+period is a rolling window and the reader will otherwise assume it is a year of
+their own choosing. If `attendance` is null, print the matching line from `gaps`.
+Never a zero, never a dash.
 
-**What they are paid.** `allowances` as one sentence: "Basic allowance
-£<basic> for <year>, plus £<special_responsibility> for <the role>." Follow it
-with one line of context the reader needs: an allowance is not a salary, and the
-amounts are set by the council on the advice of an independent panel. If
-`allowances` is null, say the council does not publish a per-councillor figure,
-and link the scheme if there is one.
+**What they are paid.** `allowances` as one sentence: "Basic allowance £<basic>
+in <year>. Total paid, £<total>." Show `special_responsibility` only when it is
+not null, and for Norwich it never is: the published schedule has four money
+columns and prints figures in three of them, so the middle figure cannot be told
+apart from expenses. Do not label it, do not infer it from whether the councillor
+holds a role, and do not quietly present the total as though it were all basic
+allowance. Follow with one line of context: an allowance is not a salary, and the
+amounts are set by the council on the advice of an independent panel. Always show
+`allowances.note`. If `allowances` is null, say the council publishes no figure
+for that councillor and give the reason from `gaps` — usually that they were not
+in office in the year the schedule covers.
 
 Under all four, `source_urls` as "Where this comes from", and the standard AI
 provenance chip the rest of the site already uses.
@@ -139,50 +161,136 @@ a partial the topic template can include by slug, not as page-only markup.
 This block is not an apology. It is the most honest thing on the page, and it goes
 above the footer, not hidden behind a toggle.
 
-## The honesty note
+## The privacy notice
 
-This goes at the top of the page, under the title, before the composition bar. Not
-in a footer, not behind a link. The wording below is the wording to use.
+This goes at the top of the page, under the title, before the composition bar.
+Not in a footer, not behind a link. A page that names thirty-nine living people
+has to say up front where it got them and what a person can do about it.
+
+Use the wording below. Two blocks, both open on the page. The first is the one
+everybody reads. The second is longer and duller, and it is the one that answers
+a complaint.
 
 > **About this page**
 >
 > Everything here comes from Norwich City Council's own records, or from what
-> councillors have declared about themselves. We have not gone looking anywhere
-> else. No social media, no news reports, no company databases, nothing pieced
+> councillors have declared about themselves. We haven't gone looking anywhere
+> else. No social media. No news reports, no company databases, nothing pieced
 > together from someone's name.
 >
-> Councillors are required by law to declare things that might affect the
-> decisions they take: a job, a directorship, land, help with election costs. They
-> fill that form in themselves and the council publishes it. We reproduce it, we
-> do not interpret it. A declaration is the system working, not evidence of
-> anything.
+> Councillors have to declare, by law, things that might affect the decisions
+> they take: a job, a directorship, land, help with election costs. They fill
+> that form in themselves and the council publishes it. We reproduce it. We
+> don't interpret it, and a declaration is the system working rather than
+> evidence of anything.
 >
-> We do not score anyone. There is no league table here, no "best" or "worst"
-> councillor, and no opinion about how anyone has voted. If a number looks bad, it
-> is the council's number, and the caveat next to it is the council's caveat.
+> We don't score anyone. There's no league table here, no "best" or "worst"
+> councillor, no opinion about how anyone has voted. If a number looks bad, it's
+> the council's number, and the caveat beside it is the council's caveat.
 >
-> Where we could not find something, we say so instead of guessing.
->
-> **Something wrong?** If you are a councillor or an officer and something on this
-> page is out of date, incomplete, or attributed to the wrong person, tell us and
-> we will fix it. [Ask for a correction](<corrections_url>) — it takes a minute
-> and you do not need a GitHub account to email us. We aim to correct factual
-> errors within five working days, and we keep a note of what changed.
->
-> **Want something taken down?** Any councillor or officer named here can ask us
-> to remove or restrict what we show about them, and we will act on it while we
-> look into it rather than after. Write to <REMOVALS_EMAIL> saying what you want
-> removed. We will take the item down within five working days and reply telling
-> you what we did. If we think the material should stay because the council itself
-> still publishes it, we will say so and explain why, and you can take it further
-> with the Information Commissioner's Office. Nothing here is a public-interest
-> judgement we make on our own: if the council stops publishing something, we stop
-> publishing it too.
+> Where we couldn't find something, we say so instead of guessing.
 
-Two things about that last paragraph. It is a real commitment, so the address has
-to work and somebody has to read it. And the promise to remove first and argue
-afterwards is deliberate: the cost of a page being briefly incomplete is far
-smaller than the cost of being wrong about a named person.
+> **About the personal information on this page**
+>
+> **Who we are.** CouncilLens is an independent project. It isn't part of any
+> council and nobody pays for it. Write to <REMOVALS_EMAIL> and a person will
+> read it.
+>
+> **What we publish, and where each part comes from.** All of it is already
+> published by the council about the people who run it:
+>
+> - names, wards, parties, and every term served, from the council's own
+>   councillor directory;
+> - votes and majorities, from the council's published election results;
+> - committee places, roles and meeting attendance, from the council's committee
+>   system;
+> - registers of interests, which councillors write out themselves and the
+>   council publishes because the Localism Act 2011 makes it publish them;
+> - allowances paid, published every year under the Local Authorities (Members'
+>   Allowances) (England) Regulations 2003;
+> - senior officers' posts and published pay bands, under the Local Government
+>   Transparency Code.
+>
+> None of it came from the people named here. It came from their council. When
+> information about someone is collected from somewhere other than that person,
+> data protection law says they should be told what has happened to it, and this
+> block is us telling them. (That rule is Article 14 of the UK GDPR.)
+>
+> **Why we think we may publish it.** Our lawful basis is legitimate interests,
+> Article 6(1)(f). The interest is plain enough: you should be able to find out
+> who decides things where you live, what they have declared about themselves,
+> and whether they turn up. Weighed against that is what it costs the people
+> named, and we think it is small. They hold public office and stood for it.
+> Every line here is about the office, not the person. We carry no home
+> addresses, no personal phone numbers, nothing about family or health, and
+> nothing about anyone's partner; where a register names a street, the street
+> does not reach this page. Officers didn't stand for anything, so we publish
+> less about them: the post, the published pay band, the duty the law gives it.
+> Nothing here is a comment on how anyone has done their job.
+>
+> We're aware that gathering scattered records into one searchable profile is
+> not quite the same as the council publishing them separately, and that is
+> exactly the thing a reader might object to. It is also the only reason the
+> page is any use. So the answer we've settled on is to publish only what the
+> council publishes, to link every line back to it, and to take something down
+> while we look into it rather than afterwards.
+>
+> **Parties and unions.** Which party a councillor belongs to is on every card,
+> and a few registers name a trade union. Both count as special category data,
+> the kind the law protects most tightly. We publish them because the councillor
+> published them: each one wrote the entry on a public register, under their own
+> name, knowing the council would put it online. That is the condition in
+> Article 9(2)(e), information made public by the person it is about. We rely on
+> nothing else, and we never infer either from anything.
+>
+> **Keeping it right.** Records go stale, and a stale record about a person is a
+> wrong one. We refresh this page from the council's records and check it again
+> every year, after the May elections. The date it was last checked is at the
+> foot of the page.
+>
+> **How long we keep it.** When someone stops being a councillor, their card
+> comes off this page within 30 days. What stays is the project's working
+> history, in the public code repository, because that is what lets anyone check
+> what the page said on a given day. Nothing about a former councillor stays on
+> the live page.
+>
+> **Getting something changed, or taken down.** If you are a councillor or an
+> officer and something here is out of date, incomplete, or attributed to the
+> wrong person, tell us. [Ask for a correction](<corrections_url>) if you're
+> happy to do it in the open, or email <REMOVALS_EMAIL> if you'd rather not. We
+> aim to fix factual errors within five working days and we keep a note of what
+> changed.
+>
+> You can also ask us to remove or restrict what we show about you, or object to
+> it being here at all. Say what you want removed and we will take it down
+> within five working days, then reply telling you what we did. If we think it
+> should go back up because the council itself still publishes it, we'll say so
+> and explain why. If the council stops publishing something, we stop too.
+>
+> **If we get it wrong.** You can complain to the Information Commissioner's
+> Office at ico.org.uk, and you don't have to come to us first.
+
+Three notes for whoever owns this page, and none of them are the designer's to
+settle.
+
+**This is a draft, not legal advice.** It was written by an AI agent working
+from what the two review passes found, and every bit of it needs confirming by
+someone qualified before the page goes live. The parts most worth a second
+opinion are the legitimate interests balance, the Article 9(2)(e) reasoning for
+party and union membership, and whether a short data protection impact
+assessment ought to sit behind it. A structured record about thirty-nine named
+people is the shape of thing a regulator asks about first, and two pages of
+working would be the best possible answer.
+
+**The removal address has to work.** `<REMOVALS_EMAIL>` is a placeholder. The
+page names living people, so it cannot go up without an inbox somebody reads and
+acts on. A public GitHub issue is fine for "you've got my ward wrong". It is not
+fine for "please take my name down", which shouldn't require posting in public.
+
+**Decide about search engines on purpose.** Whether these pages are indexed is a
+real choice with real consequences for the people on them, and it should be made
+deliberately and written down, not left to whatever the static site does by
+default.
 
 ## Rules that are not style preferences
 
@@ -223,17 +331,17 @@ brackets, in six words or fewer.
 
 ## Before this page goes live
 
-Two things are not the designer's to decide, and both have to be settled first.
+**A first pass by a person.** Two independent AI review passes have now checked
+every entry against the source documents, and the model records that as
+`ai_reviewed` with who checked it and when. Two entries stayed `needs_review`
+because the council's own record cannot settle them: Richard Lawes's 2025
+majority of one vote, on a results table that prints no count for one candidate,
+and the chair of the treasury management committee, which the committee system
+shows two councillors holding. A person still has to read this page before it
+goes up. `ai_reviewed` means checked twice against the documents, not signed off.
 
-**A removal address that works.** `<REMOVALS_EMAIL>` in the honesty note is a
-placeholder. The page names living people, so it cannot go up without a monitored
-inbox and somebody who will act on what arrives in it. A GitHub issue is fine for
-"you have my ward wrong"; it is not fine for "please take my name down", which
-should not require a public post.
-
-**A first pass by a person.** Every item in `people.json` is `needs_review`. The
-rest of the site already tells readers when nothing human has checked a page, and
-on a page of named people that warning is doing more work than anywhere else.
+The removal address and the search-engine decision are covered under the privacy
+notice above, and both have to be settled first.
 
 ## What Norwich publishes, and what it does not
 
@@ -244,13 +352,14 @@ to degrade gracefully.
 |---|---|
 | Councillor directory | Yes — 39 councillors, in the committee system |
 | First elected, every term served | Yes, per councillor |
-| Committee places, with joining dates | Yes |
-| Outside body appointments | Yes, but only the first five are reachable |
-| Attendance | Yes — meetings expected and attended, rolling twelve months |
-| Register of interests | Yes, but 22 of 39 as scans; no index page; each one behind a form button |
+| Committee places, with joining dates | Yes, in full, once the committee system's paging is followed |
+| Outside body appointments | Yes, in full, once the committee system's paging is followed |
+| Attendance | Yes: expected, attended, absent and apologies received, rolling twelve months |
+| Register of interests | Yes, but 22 of 39 as scans; two form versions; no index page; each one behind a form button |
 | Allowances actually paid | Yes, per councillor, to 2024-25, by surname and initial |
 | Election results | Yes, per ward, per year, with votes; turnout only in 2023 |
 | Seats by party | Yes |
+| Party changes while in office | Yes, dated, per councillor |
 | Next election date | No |
 | Chief executive and directors, by name | Yes |
 | Monitoring officer, by name | No — the post and its pay band only |
