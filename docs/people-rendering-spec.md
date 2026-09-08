@@ -193,7 +193,7 @@ a complaint.
 > **About the personal information on this page**
 >
 > **Who we are.** CouncilLens is an independent project. It isn't part of any
-> council and nobody pays for it. Write to <REMOVALS_EMAIL> and a person will
+> council and nobody pays for it. Write to the correction form on GitHub (a private address will follow after alpha) and a person will
 > read it.
 >
 > **What we publish, and where each part comes from.** All of it is already
@@ -257,7 +257,7 @@ a complaint.
 > **Getting something changed, or taken down.** If you are a councillor or an
 > officer and something here is out of date, incomplete, or attributed to the
 > wrong person, tell us. [Ask for a correction](<corrections_url>) if you're
-> happy to do it in the open, or email <REMOVALS_EMAIL> if you'd rather not. We
+> happy to do it in the open, or email the correction form on GitHub (a private address will follow after alpha) if you'd rather not. We
 > aim to fix factual errors within five working days and we keep a note of what
 > changed.
 >
@@ -282,7 +282,7 @@ assessment ought to sit behind it. A structured record about thirty-nine named
 people is the shape of thing a regulator asks about first, and two pages of
 working would be the best possible answer.
 
-**The removal address has to work.** `<REMOVALS_EMAIL>` is a placeholder. The
+**The removal address has to work.** `the correction form on GitHub (a private address will follow after alpha)` is a placeholder. The
 page names living people, so it cannot go up without an inbox somebody reads and
 acts on. A public GitHub issue is fine for "you've got my ward wrong". It is not
 fine for "please take my name down", which shouldn't require posting in public.

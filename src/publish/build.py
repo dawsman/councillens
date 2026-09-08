@@ -2131,6 +2131,8 @@ def build(out_root: Path, use_fixture: bool, base_path: str) -> int:
 
     # GitHub Pages would otherwise run the output through Jekyll.
     (out_root / ".nojekyll").write_text("", encoding="utf-8")
+    # Alpha build: keep search engines out until the site is ready for them.
+    (out_root / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
 
     print(f"\n  Built {len(written)} file(s) into {out_root.relative_to(REPO_ROOT) if out_root.is_relative_to(REPO_ROOT) else out_root}/")
     for rel in written:
