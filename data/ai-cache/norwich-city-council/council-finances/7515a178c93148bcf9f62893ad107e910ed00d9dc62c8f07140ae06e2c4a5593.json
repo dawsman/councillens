@@ -1,0 +1,45 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "m-promise-enforcement-313k-2026-27",
+    "area": "promises",
+    "question": "Did the extra £313,000 councillors voted for get spent on what they voted for?",
+    "label": "£313,000 for enforcement, communal areas and community clean-ups",
+    "rule_id": "promise-kept-v1",
+    "target": {
+      "value": "2027-03-31",
+      "display": "\"Investments in enforcement to deliver visible improvements… Communal areas improvements… Community clean-up activity… 313\" — Annex C, Budget Council, 24 February 2026",
+      "unit": null
+    },
+    "actual": {
+      "value": null,
+      "display": "the year is still running",
+      "unit": null
+    },
+    "threshold": null,
+    "direction": "higher_is_better",
+    "period": "2026/27",
+    "as_of": "2026-09-08",
+    "council_caveat": "The council built its own check into the promise: \"A six-month review will assess progress against KPIs and consider whether targeted community-action pilots… should be incorporated where evidence shows additional benefit.\"",
+    "evidence": "At the budget meeting in February 2026 the Labour group added £313,000 to the budget for fly-tipping and graffiti enforcement, bin stores and recycling in flats, community clean-ups and political assistants, paid for from the contingency fund. The council said it would review progress after six months. Nothing published yet says what happened.",
+    "source_ids": [
+      "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3"
+    ],
+    "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=230JNwLtTlmaPp%2bkJM49%2bbflMGBwDdPuKhO4HiqbpqEHJ0AYK6GZMg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+    "order": 96
+  },
+  "ai": {
+    "source_ids": [
+      "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "7515a178c93148bcf9f62893ad107e910ed00d9dc62c8f07140ae06e2c4a5593"
+  }
+}

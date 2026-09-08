@@ -1,0 +1,35 @@
+{
+  "kind": "event",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "evt-outcome-performance-q1-2025-26",
+    "stage": "outcome",
+    "date": "2025-09-10",
+    "date_precision": "day",
+    "title": "The council's own scorecard: 13 green, 2 amber, 4 red",
+    "summary": "Norwich publishes a quarterly performance report with a target and an intervention level for every indicator. For the first quarter of 2025/26, 19 indicators were reported: 13 on or above target, 2 needing attention, and 4 at the level where the council says it will step in.",
+    "detail": [
+      "The four red indicators were the speed of processing new housing benefit claims, the share of council housing rent collected, the time taken to re-let an empty council home, and private-sector insulation measures completed.",
+      "The council explains each of them in its own words in the report, and those explanations are carried on this site beside the numbers.",
+      "Two indicators about whether residents feel safe were dropped this quarter, because the council says they are too heavily influenced by other agencies."
+    ],
+    "source_ids": [
+      "finance-corporate-performance-2025-26-q1"
+    ],
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "status": "done"
+  },
+  "ai": {
+    "source_ids": [
+      "finance-corporate-performance-2025-26-q1"
+    ],
+    "prompt_version": "event-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "023e0d8e4d184ccd5e8cc69a5f9a0ce99f9c09f7d6441ff1f37abfc2aac5720c"
+  }
+}

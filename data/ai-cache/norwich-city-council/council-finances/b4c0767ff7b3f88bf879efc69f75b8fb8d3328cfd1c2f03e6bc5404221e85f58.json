@@ -1,0 +1,47 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "m-reserves-vs-minimum-2025-26",
+    "area": "money",
+    "question": "Does the council hold as much in reserve as its own policy says it should?",
+    "label": "Money set aside for emergencies against the council's own floor, 2025/26",
+    "rule_id": "reserves-vs-policy-v1",
+    "target": {
+      "value": 5500000,
+      "display": "£5.5m minimum",
+      "unit": "GBP"
+    },
+    "actual": {
+      "value": 8249000,
+      "display": "£8.249m held",
+      "unit": "GBP"
+    },
+    "threshold": null,
+    "direction": "higher_is_better",
+    "period": "2025/26",
+    "as_of": "2026-03-31",
+    "council_caveat": "The council raised its own floor from £5.4m to £5.5m when it set the 2025/26 budget, after reviewing it as part of the budget process.",
+    "evidence": "Every council's chief finance officer has to publish a prudent minimum for the emergency reserve. Norwich's is £5.5m. The draft 2025/26 accounts show £8.249m in the General Fund working balance at 31 March 2026 — the fourth year-end running at exactly that figure.",
+    "source_ids": [
+      "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+    "order": 50
+  },
+  "ai": {
+    "source_ids": [
+      "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "b4c0767ff7b3f88bf879efc69f75b8fb8d3328cfd1c2f03e6bc5404221e85f58"
+  }
+}

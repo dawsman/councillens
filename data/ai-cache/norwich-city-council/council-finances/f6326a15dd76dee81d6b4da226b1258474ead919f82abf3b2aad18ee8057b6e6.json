@@ -1,0 +1,43 @@
+{
+  "kind": "event",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "evt-outcome-capital-underdelivery",
+    "stage": "outcome",
+    "date": "2026-06-30",
+    "date_precision": "month",
+    "title": "Over five years the council spent £218.6m of a £342.9m building programme",
+    "summary": "Adding up the capital budget and the capital outturn in each set of accounts from 2021/22 to 2025/26 gives £342.9m approved and £218.6m spent — 64%. The best year was 2024/25 at 79%, the worst 2021/22 at 50%.",
+    "detail": [
+      "Money not spent is not money lost. Most of it rolls into the following year, which is why the in-year capital budget keeps growing: councillors approved £67.453m for 2025/26 in February 2025, and the year-end budget was £94.768m.",
+      "It does mean the published capital programme is not a reliable statement of what will actually be built next year.",
+      "The budget figure used here is the revised in-year budget, which is the right basis for comparing delivery but is a target that had already been re-set once."
+    ],
+    "source_ids": [
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22",
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23",
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24",
+      "finance-statement-of-accounts--statement-of-accounts-2024-25",
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+    "status": "in_progress"
+  },
+  "ai": {
+    "source_ids": [
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22",
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23",
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24",
+      "finance-statement-of-accounts--statement-of-accounts-2024-25",
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "prompt_version": "event-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "f6326a15dd76dee81d6b4da226b1258474ead919f82abf3b2aad18ee8057b6e6"
+  }
+}

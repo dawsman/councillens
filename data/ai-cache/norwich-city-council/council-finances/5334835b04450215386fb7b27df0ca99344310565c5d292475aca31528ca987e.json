@@ -1,0 +1,49 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "m-kpi26-complaints-on-time",
+    "area": "service",
+    "question": "Does the council answer complaints when it says it will?",
+    "label": "Complaints answered within the council's own deadline, Q1 2025/26",
+    "rule_id": "council-threshold-v1",
+    "target": {
+      "value": 80.0,
+      "display": "80% on time",
+      "unit": "%"
+    },
+    "actual": {
+      "value": 84.0,
+      "display": "84% on time",
+      "unit": "%"
+    },
+    "threshold": {
+      "value": 72.0,
+      "display": "the council steps in past 72.0",
+      "unit": "%"
+    },
+    "direction": "higher_is_better",
+    "period": "Q1 2025/26",
+    "as_of": "2025-06-30",
+    "council_caveat": "This measures whether a complaint got an answer in time, not whether the answer was any good or whether the complainant was satisfied. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+    "evidence": "The council sets its own deadline for replying to a complaint and aims to meet it 80% of the time. In the first quarter of 2025/26 it met it 84% of the time.",
+    "source_ids": [
+      "finance-corporate-performance-2025-26-q1"
+    ],
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "order": 78
+  },
+  "ai": {
+    "source_ids": [
+      "finance-corporate-performance-2025-26-q1"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "medium",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "5334835b04450215386fb7b27df0ca99344310565c5d292475aca31528ca987e"
+  }
+}

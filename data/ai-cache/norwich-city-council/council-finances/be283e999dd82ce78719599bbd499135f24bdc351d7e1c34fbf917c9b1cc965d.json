@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "source_id": "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22",
+    "summary": "The accounts for 2021/22, the pandemic year: a General Fund surplus of £2.384m, which the council states as 2.18% of its gross expenditure budget. Read the percentage with care — that year it is struck against a roughly £109m gross expenditure figure, where later years use a roughly £65m General Fund figure. Capital spending was £33.585m against £67.007m, half the programme."
+  },
+  "ai": {
+    "source_ids": [
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "be283e999dd82ce78719599bbd499135f24bdc351d7e1c34fbf917c9b1cc965d"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "source_id": "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24",
+    "summary": "The accounts for 2023/24, the widest year of the five: a General Fund underspend of £4.050m, 6.23% of gross expenditure. The council names the reasons — £2.8m of a budgeted reserve drawdown that turned out not to be needed, £1.950m from a change to how it calculates debt repayment, and £1.458m of interest on its day-to-day cash. Capital spending was £40.588m against £55.829m."
+  },
+  "ai": {
+    "source_ids": [
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "303f625cd935de3bfad57f93c8265997b60331c92252be9c53f376516a0dc429"
+  }
+}

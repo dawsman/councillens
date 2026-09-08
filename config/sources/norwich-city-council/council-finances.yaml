@@ -1,0 +1,304 @@
+# CouncilLens — Norwich City Council, council finances.
+#
+# The money topic: what the council said it would spend, what it actually spent,
+# what it set aside, what it owes, and what it promised in writing. Everything on
+# this page is scored against the council's own published numbers by the rules in
+# src/analyse/rules.py — never against another council, an average, or our opinion.
+#
+# Two things a reader has to be told before any number makes sense, and both live
+# in the topic overview rather than here: Norwich is a district council, so it
+# keeps about 13p of every pound of council tax it bills; and it runs two separate
+# pots, the General Fund (bins, parks, planning) and the ring-fenced Housing
+# Revenue Account (about 14,000 council homes). Mixing the two is the commonest
+# way to get a council's finances wrong.
+#
+# The annual cycle this topic follows:
+#   feedback  the budget consultation on Get Talking Norwich, about five weeks
+#             each December to January
+#   decision  Cabinet in early February agrees the budget, then all 39 councillors
+#             vote on it at Budget Council later in the month
+#   outcome   the outturn — what was actually spent — reported in the Statement of
+#             Accounts the following summer
+#
+# Who the council is — website, tier, remit note, platforms — lives once in
+# config/councils/norwich-city-council.yaml, not here.
+#
+# Every URL below was fetched and read before being written down. The figures the
+# measures use were verified document by document in
+# docs/research/norwich-city-council-finances-2026-09.md and re-checked against
+# the saved PDFs by a second pass; this config points at the same documents.
+#
+# On size. Statements of Accounts are large files and five of them is most of this
+# topic's archive. They are here rather than the much smaller provisional outturn
+# reports to Cabinet because the two do not agree: the June 2026 Cabinet report
+# gives a provisional General Fund underspend of £543,000 for 2025/26 where the
+# audited-basis accounts give £710,000, and the capital figures differ more. The
+# accounts are the final record, so the accounts are what is banked and cited.
+#
+# Config keys the adapters understand (see src/ingest/adapters.py):
+#   match / exclude   which linked documents to keep, by keyword
+#   documents         explicit {title, url} documents to fetch
+#   include_page      emit a record for the page itself (default true)
+#   follow_links      discover linked documents (default true)
+#   max_bytes         skip any single file larger than this
+
+council: "Norwich City Council"
+topic: "Council finances (budgets, spending, borrowing and promises)"
+
+sources:
+  # ------------------------------------------------------------------
+  # FEEDBACK — what residents were asked about the budget
+  # ------------------------------------------------------------------
+
+  # The budget consultation for 2026/27, on Get Talking Norwich (EngagementHQ).
+  # It opened on 4 December 2025 and closed on 18 January 2026, and the council
+  # promoted it by text alert to 120,000 residents. The published result is the
+  # first in seven years where more respondents opposed the council tax rise than
+  # supported it — 48% against, 28% for, from 899 responses — and the 2.99% rise
+  # went through unchanged. The full result is an appendix to the February budget
+  # report, banked below; this page is what residents actually saw.
+  #
+  # follow_links is off: the page's attachments are the same budget papers already
+  # banked from the committee system.
+  - id: finance-budget-consultation-2026-27
+    title: "Setting the council budget 2026-27 — consultation (Get Talking Norwich)"
+    type: consultation
+    stage: feedback
+    platform: engagement
+    url: "https://gettalking.norwich.gov.uk/budget2026-27"
+    follow_links: false
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # DECISION — the budget the council agreed, and the vote that agreed it
+  # ------------------------------------------------------------------
+
+  # Cabinet, 11 February 2026. Section 2 of the budget report is the General Fund
+  # budget and medium-term financial strategy for 2026/27: the net budget
+  # requirement, the council tax recommendation, the savings, the minimum reserves
+  # the chief finance officer sets, and Appendix 2(F), which is the consultation
+  # result printed in full including the answers that do not flatter the council.
+  #
+  # Only section 2 is taken. The full agenda pack is several times the size and
+  # repeats it.
+  - id: finance-budget-2026-27
+    title: "Cabinet, 11 February 2026 — General Fund budget and financial strategy 2026-27"
+    type: spending
+    stage: decision
+    body: "Cabinet"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1518/Committee/1/Default.aspx"
+    match:
+      - section 2 general fund
+    exclude:
+      - document pack
+    max_bytes: 5000000
+    enabled: true
+
+  # Cabinet, 5 February 2025 — the same report a year earlier, for 2025/26. It is
+  # the source for the £3.2m of savings built into that year's budget, for the
+  # £5.5m prudent minimum reserve, and for the council's own admission that the
+  # parking income budget had been built on "incorrect assumptions about the
+  # volume of car parking" and had to be re-based. Councils in real trouble do not
+  # usually write that down.
+  #
+  # CMIS does not give this meeting a stable public page we could find, so the
+  # source points at the Cabinet's own index of meetings and names the document
+  # explicitly. The index page itself is not banked — its business is every
+  # Cabinet meeting, not this one.
+  - id: finance-budget-2025-26
+    title: "Cabinet, 5 February 2025 — General Fund budget and financial strategy 2025-26"
+    type: spending
+    stage: decision
+    body: "Cabinet"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/1/Default.aspx"
+    include_page: false
+    follow_links: false
+    documents:
+      - title: "Section 2 General Fund - MTFS and 2025-2026 Budget"
+        type: spending
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=UabZ9pLHUeJ5Uf2RWS0sTg%2fr4n07uL3LMC4wnU4iXFVc8X3%2bJxBAyA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+    enabled: true
+
+  # Budget Council, 24 February 2026 — the meeting where all 39 councillors vote.
+  # Two documents are taken. Annex B is the statutory council tax resolution: the
+  # legal text that actually sets the bill, including the Band D figure of £315.26.
+  # Annex C is the amendments the political groups tabled, which is the clearest
+  # published evidence that the budget can and does change between Cabinet and the
+  # vote — the Labour group added £313,000 of items funded from contingency, and
+  # the Green and Liberal Democrat groups tabled their own.
+  #
+  # As above, the Council's index of meetings is the page the adapter is pointed
+  # at and is not itself banked.
+  - id: finance-budget-council-2026-02-24
+    title: "Budget Council, 24 February 2026 — the vote that set the 2026-27 budget"
+    type: agenda
+    stage: decision
+    body: "Council"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/2/Default.aspx"
+    include_page: false
+    follow_links: false
+    documents:
+      - title: "Annex B - Statutory Council Tax Resolution 2026-2027"
+        type: policy
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=vuSavvQyMukVYU5v2uuvB0brBi1Qzs%2bKcZb5CO9c2q9B83%2bAM%2fR9iA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Updated Annex C - Labour Group and Opposition Proposed Budget Amendments V3"
+        type: agenda
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=230JNwLtTlmaPp%2bkJM49%2bbflMGBwDdPuKhO4HiqbpqEHJ0AYK6GZMg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+    enabled: true
+
+  # The council's own plain-English guide to its budget, which also links every
+  # budget report back to February 2012. Banked because it is the page a curious
+  # resident is most likely to reach, and because it is where the council itself
+  # explains the 13p / 73p / 14p split of a council tax bill.
+  - id: finance-budget-explainer
+    title: "Norwich City Council budget 2026-27 — what you need to know"
+    type: policy
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/norwich-city-council-budget-2026-27-what-you"
+    follow_links: false
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # OUTCOME — what was actually spent, saved, held and owed
+  # ------------------------------------------------------------------
+
+  # The Statement of Accounts index, and the five sets of accounts that carry the
+  # outturn for 2021/22 to 2025/26. The Narrative Report at the front of each one
+  # states, in the council's own words, the General Fund variance in cash and as a
+  # percentage, the same for the Housing Revenue Account, the capital budget
+  # against capital outturn, and a list of the significant reasons for each. That
+  # narrative is where every money measure on this page comes from.
+  #
+  # The audit certificate for 2024/25 is taken from the same page. It is short, and
+  # it is the independent verdict: a disclaimed opinion under the national backstop
+  # arrangements, which is not a finding against Norwich and has to be explained in
+  # the same breath as it is reported.
+  #
+  # Deliberately not taken: the Annual Governance Statements, which repeat the
+  # audit findings at four times the file size, and every year before 2021/22.
+  - id: finance-statement-of-accounts
+    title: "Statement of accounts — Norwich City Council's published accounts"
+    type: spending
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts"
+    match:
+      - statement-of-accounts-2025-26-draft
+      - statement-of-accounts-2024-25
+      - statement_of_accounts_2023-24
+      - statement_of_accounts_-_year_ending_2022-23
+      - statement_of_accounts_-_year_ending_2021-22
+      - audit-certificate-soa-2024-2025
+    max_bytes: 6000000
+    enabled: true
+
+  # The treasury management strategy for 2026/27. This is where a council sets the
+  # limits on its own borrowing — the authorised limit and the operational
+  # boundary, both approved by full Council — and reports its debt against them.
+  # It also carries the prudential indicator "net commercial income as a percentage
+  # of net revenue stream", which is the council's own measure of how much of its
+  # core money comes from renting commercial property.
+  #
+  # Only the current strategy is banked. Each one restates the previous years'
+  # figures, so one file carries the run.
+  - id: finance-treasury-management-strategy
+    title: "Treasury management strategy — how much the council may borrow"
+    type: policy
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/treasury-management-strategy"
+    follow_links: false
+    documents:
+      - title: "Treasury management strategy 2026-27"
+        type: policy
+        url: "https://www.norwich.gov.uk/sites/default/files/2026-03/Treasury-Management-Strategy-2026-2027.pdf"
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # TARGETS — the council's own performance framework
+  # ------------------------------------------------------------------
+
+  # Norwich publishes a full traffic-light performance framework, and it is better
+  # than most district councils manage: every corporate indicator carries a Target
+  # and an Intervention threshold set by the council, tracked quarterly against the
+  # actual, reported to Cabinet and aligned to the "We Are Norwich" corporate plan.
+  #
+  # This is the quarterly report for the first quarter of 2025/26, taken to Cabinet
+  # on 10 September 2025. It carries five quarters of history for most indicators,
+  # so one file gives a run rather than a snapshot.
+  #
+  # ONE IMPORTANT CAVEAT, recorded as a gap on the page as well as here. The
+  # narrative pages of this report are ordinary text, but Appendix A — the part
+  # with the numbers — is a set of dashboard screenshots pasted in as images. Text
+  # extraction therefore gets the commentary and not the figures. The targets and
+  # actuals in this topic's measures were read off those images by eye and are
+  # flagged for human review accordingly. A council that publishes its performance
+  # data as pictures of a dashboard has published it, but not in a form anyone can
+  # check by machine, and that is worth saying plainly.
+  - id: finance-corporate-performance-2025-26-q1
+    title: "Corporate performance report, quarter 1 2025-26 (Cabinet, 10 September 2025)"
+    type: performance
+    stage: outcome
+    body: "Cabinet"
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26"
+    max_bytes: 6000000
+    enabled: true
+
+  # The council's index of performance reports — every quarterly report and annual
+  # report from 2023/24 on. Banked as evidence of what the council publishes and
+  # how often, and so a reader can find the quarter we have not banked.
+  - id: finance-performance-reports-index
+    title: "Performance reports — the council's index of what it publishes"
+    type: performance
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/performance-reports"
+    follow_links: false
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # Checked and deliberately left out
+  # ------------------------------------------------------------------
+
+  # The provisional outturn reports to Cabinet each June or July. They are small,
+  # they are the council's first public statement of how a year ended, and they
+  # were the obvious thing to bank. They are disabled because their figures are
+  # provisional and do not match the audited-basis accounts that this topic cites:
+  # for 2025/26 the June 2026 report gives a General Fund underspend of £543,000
+  # and a General Fund capital underspend of £22.255m, where the accounts give
+  # £710,000 and a combined General Fund and HRA capital underspend of £38.291m.
+  # Publishing both without explaining the difference would create exactly the
+  # confusion this site exists to remove. Left here so the next reviewer can see
+  # the decision rather than guess at it.
+  - id: finance-provisional-outturn-2025-26
+    title: "Cabinet, 10 June 2026 — provisional budget outturn 2025-2026"
+    type: spending
+    stage: outcome
+    body: "Cabinet"
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/1/Default.aspx"
+    include_page: false
+    follow_links: false
+    documents:
+      - title: "Provisional Budget Outturn Report 2025-2026"
+        type: spending
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=LcE9gG3WyLvtbbM%2bT368kyZxvcp0hNDFgtfhqlXXH0k4HcRBAEXw9Q%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+    enabled: false
+
+  # The Power BI performance dashboard the council embeds on its own site. It is
+  # the most current view of the KPIs — it was showing quarter 1 of 2026/27 before
+  # Cabinet had approved that quarter's report — but it is a JavaScript embed, so
+  # fetching the page archives a loading shell and no data. Recorded so nobody
+  # spends an afternoon rediscovering that.
+  - id: finance-performance-dashboard
+    title: "Corporate performance dashboard (Power BI embed)"
+    type: performance
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/corporate-performance-dashboard"
+    enabled: false

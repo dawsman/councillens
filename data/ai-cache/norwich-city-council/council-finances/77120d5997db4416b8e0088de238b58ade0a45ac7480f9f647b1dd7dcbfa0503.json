@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "source_id": "finance-treasury-management-strategy",
+    "summary": "The council's index of treasury management strategies, back to 2019/20. A treasury strategy is where a council sets the limits on its own borrowing and says how it will look after its cash."
+  },
+  "ai": {
+    "source_ids": [
+      "finance-treasury-management-strategy"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "77120d5997db4416b8e0088de238b58ade0a45ac7480f9f647b1dd7dcbfa0503"
+  }
+}

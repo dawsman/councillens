@@ -1,0 +1,45 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "m-hra-variance-2023-24",
+    "area": "money",
+    "question": "Did the council spend what it planned on running its council housing?",
+    "label": "Council housing running costs against budget, 2023/24",
+    "rule_id": "budget-variance-v1",
+    "target": {
+      "value": 0,
+      "display": "on budget",
+      "unit": "%"
+    },
+    "actual": {
+      "value": 1.21,
+      "display": "1.21% over",
+      "unit": "%"
+    },
+    "threshold": null,
+    "direction": "on_target",
+    "period": "2023/24",
+    "as_of": "2024-03-31",
+    "council_caveat": "The council points to £1.965m of extra contract costs, more empty homes needing work, and asbestos surveys, against savings elsewhere.",
+    "evidence": "Council housing has its own ring-fenced pot, the Housing Revenue Account, paid for by rents and by law not usable for anything else. In 2023/24 it came in 1.21% over — £0.953m more than planned. The figure is stated in that year's accounts.",
+    "source_ids": [
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24"
+    ],
+    "source_url": "https://www.norwich.gov.uk/downloads/file/10646/statement_of_accounts_2023-24",
+    "order": 20
+  },
+  "ai": {
+    "source_ids": [
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "81be5c5c8b77200016de3b3fedf3919011d8608b6542dbf869e9e1dd793c0aee"
+  }
+}
