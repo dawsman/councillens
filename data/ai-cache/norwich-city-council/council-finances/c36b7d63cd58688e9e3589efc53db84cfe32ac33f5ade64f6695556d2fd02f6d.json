@@ -1,0 +1,37 @@
+{
+  "kind": "event",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "evt-outcome-auditor-disclaimed-2024-25",
+    "stage": "outcome",
+    "date": "2026-03-23",
+    "date_precision": "day",
+    "title": "The auditors could not give an opinion on the 2024/25 accounts",
+    "summary": "Ernst & Young disclaimed its audit report on the 2024/25 accounts on 23 March 2026: it could not say whether they give a true and fair view. The certificate closing that audit, issued on 17 August 2026, gives no reason for the disclaimer and makes no finding that Norwich's figures are wrong. What the auditor did report, in the certificate for the year before, is a significant weakness in how the council oversees the companies it owns.",
+    "detail": [
+      "The auditor's separate value-for-money work found a significant weakness in governance and in improving economy, efficiency and effectiveness: the council \"did not have effective policies, procedures, or governance arrangements for overseeing its part owned and wholly owned subsidiary companies\". It found this for 2024/25 and says it applies to 2023/24 as well.",
+      "The company in question is Lion Homes (Norwich) Ltd, the council's housing company, which the auditor names among the records it reviewed. The auditor tells the council to rewrite its constitution to cover how it oversees the bodies it owns.",
+      "The audit could not be closed until the National Audit Office confirmed it needed no further assurances. That confirmation came, and the certificate was signed on 17 August 2026."
+    ],
+    "source_ids": [
+      "finance-statement-of-accounts--audit-certificate-2024-25",
+      "finance-statement-of-accounts--audit-certificate-2023-24"
+    ],
+    "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/AuditCertificateSOA2023-24.pdf",
+    "status": "done"
+  },
+  "ai": {
+    "source_ids": [
+      "finance-statement-of-accounts--audit-certificate-2024-25",
+      "finance-statement-of-accounts--audit-certificate-2023-24"
+    ],
+    "prompt_version": "event-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "ba5067ab38fc59939d5249054177dc8fde72cfad48bd8eca0239335bfcd3b4d0"
+  }
+}

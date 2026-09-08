@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "source_id": "finance-budget-2023-24--general-fund-budget-and-financial-strategy-2023-2024",
+    "summary": "The budget report for 2023/24, agreed by full Council on 21 February 2023. It is here for one table. Table 6.3 is the council's own prudential indicator for how much of its core money comes from commercial property and lending, and it states 2021/22 as an actual: net commercial income of £3.531m against a net revenue stream of £21.416m, which the council prints as 16%. The current treasury strategy's version of the same table begins at 2024/25, so this is where the earlier end of that run can be checked."
+  },
+  "ai": {
+    "source_ids": [
+      "finance-budget-2023-24--general-fund-budget-and-financial-strategy-2023-2024"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "e0b9c561be43906d86571e79aca10313ed2cd8bd1d04decbb25e1d694c6b21f6"
+  }
+}

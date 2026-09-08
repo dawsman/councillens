@@ -4,7 +4,7 @@
   "topic_slug": "council-finances",
   "payload": {
     "source_id": "finance-budget-explainer",
-    "summary": "The council's own plain-English guide to its budget for 2026/27, and the page that links every budget report back to February 2012. It is where the council explains that of every pound of council tax it collects, about 13p stays with the city council."
+    "summary": "The council's own page on how it sets the budget for 2026/27: the consultation dates, who votes and when, and a list linking every budget report back to February 2012. It is the page a resident looking for the budget is most likely to reach."
   },
   "ai": {
     "source_ids": [
@@ -13,8 +13,8 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "77eb51fa42e4228a486e1a2a513e97516a315fbc55551b9f0974c0c7486e15db"
   }

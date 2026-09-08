@@ -30,10 +30,10 @@
 #
 # On size. Statements of Accounts are large files and five of them is most of this
 # topic's archive. They are here rather than the much smaller provisional outturn
-# reports to Cabinet because the two do not agree: the June 2026 Cabinet report
-# gives a provisional General Fund underspend of £543,000 for 2025/26 where the
-# audited-basis accounts give £710,000, and the capital figures differ more. The
-# accounts are the final record, so the accounts are what is banked and cited.
+# reports to Cabinet because the accounts are the final record on an audited basis,
+# and mixing a provisional figure with a final one on the same page is the easiest
+# way to mislead a reader. Nothing here asserts what the provisional reports say:
+# they are not in this archive, so this topic does not quote them.
 #
 # Config keys the adapters understand (see src/ingest/adapters.py):
 #   match / exclude   which linked documents to keep, by keyword
@@ -327,14 +327,15 @@ sources:
 
   # The provisional outturn reports to Cabinet each June or July. They are small,
   # they are the council's first public statement of how a year ended, and they
-  # were the obvious thing to bank. They are disabled because their figures are
-  # provisional and do not match the audited-basis accounts that this topic cites:
-  # for 2025/26 the June 2026 report gives a General Fund underspend of £543,000
-  # and a General Fund capital underspend of £22.255m, where the accounts give
-  # £710,000 and a combined General Fund and HRA capital underspend of £38.291m.
-  # Publishing both without explaining the difference would create exactly the
-  # confusion this site exists to remove. Left here so the next reviewer can see
-  # the decision rather than guess at it.
+  # were the obvious thing to bank. They are disabled because a provisional figure
+  # and an audited-basis one are different things, and this topic scores measures
+  # against the accounts. That is a choice about which record to use, not a claim
+  # that the two disagree: this file previously said the June 2026 report and the
+  # draft accounts gave different capital underspends, £22.255m against £38.291m.
+  # They do not. Both numbers are in one table in the draft accounts — £22.255m is
+  # the General Fund line and £38.291m the General Fund and HRA total — and the
+  # provisional report has never been read by anyone working on this topic.
+  # Left here so the next reviewer can see the decision rather than guess at it.
   - id: finance-provisional-outturn-2025-26
     title: "Cabinet, 10 June 2026 — provisional budget outturn 2025-2026"
     type: spending
