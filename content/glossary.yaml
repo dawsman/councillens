@@ -1,0 +1,533 @@
+# CouncilLens glossary
+#
+# Words a reader actually meets on this site, written for someone aged 13 and up.
+#   short    -> the popover. 20 words or fewer. It has to make sense on its own.
+#   long     -> two to four sentences, for the glossary page.
+#   example  -> a real thing from a Norwich page on this site. Null where we have none.
+#   see_also -> ids of other entries.
+#
+# Rule for whoever edits this next: no term may be explained using another term
+# that is itself in this file, unless the explanation still works without it.
+
+version: 1
+updated: 2026-09-08
+terms:
+
+  - id: general-fund
+    term: General Fund
+    short: The pot a council uses for everyday services like bins, parks and planning.
+    long: >-
+      Councils keep their money in separate pots, and the General Fund is the big everyday one.
+      Bin collections, parks, planning, benefits admin and licensing all come out of it. It is paid
+      for by council tax, business rates and government grants. Council housing has its own pot and
+      the two are not allowed to mix.
+    example: >-
+      Licensing has no budget line of its own in Norwich. It sits inside planning and regulatory
+      services, which the 2026/27 budget puts at £2.99m net after £2.45m of income.
+    see_also: [housing-revenue-account, revenue, business-rates, government-grant]
+
+  - id: housing-revenue-account
+    term: Housing Revenue Account
+    short: The separate pot for council housing. Rent money in, housing spending out. Nothing else.
+    long: >-
+      If a council owns homes, the rent it collects goes into the Housing Revenue Account, and by
+      law it can only be spent on housing. The council cannot move that money across to fill a hole
+      in day-to-day services, and it cannot prop up housing with council tax either. So when a
+      council says it has no money for repairs, check which pot it means.
+    example: >-
+      Norwich owned 14,211 homes in October 2025, according to the equality assessment in its
+      housing papers: 13,291 ordinary homes and 920 sheltered.
+    see_also: [general-fund, allocations-scheme, revenue]
+
+  - id: outturn
+    term: Outturn
+    short: What a council actually spent, once the year is over. The budget was only the plan.
+    long: >-
+      A budget is a forecast written before the year starts. The outturn is the real figure,
+      reported afterwards, usually to Cabinet in June or July. Comparing the two is the single most
+      useful thing you can do with a council's finances. A big gap either way is worth a question,
+      and the council's own report usually explains it.
+    example: >-
+      In 2025/26 Norwich's service departments spent £2.282m more than planned, yet the council as
+      a whole finished about 1% under budget, because its central financing line came in £2.992m low.
+    see_also: [revenue, reserves, statement-of-accounts, target]
+
+  - id: reserves
+    term: Reserves
+    short: Money a council has saved. Some is set aside for a known job, some is the rainy-day pot.
+    long: >-
+      Reserves are savings. Earmarked reserves are already promised to something, like a building
+      project or an insurance claim. The general reserve, sometimes called the working balance, is
+      the cushion for surprises. Reserves can only be spent once, so a council that balances its
+      budget by drawing them down is buying time rather than fixing anything.
+    example: >-
+      Norwich's General Fund working balance stood at exactly £8.249m on 31 March in 2023, 2024,
+      2025 and 2026. Three years without touching it, while every forecast predicted a gap.
+    see_also: [general-fund, outturn, medium-term-financial-strategy]
+
+  - id: capital-programme
+    term: Capital programme
+    short: The list of things a council plans to build or buy this year, and what each will cost.
+    long: >-
+      Capital spending buys things that last: homes, roofs, vehicles, play equipment, IT systems.
+      It is budgeted separately from day-to-day running costs and is often paid for by borrowing or
+      by selling something. Building work slips all the time, so councils rarely spend the whole
+      programme in the year they planned to. The money is usually rolled forward rather than lost.
+    example: >-
+      Norwich approved £342.9m of capital work across five years to 2025/26 and spent £218.6m of
+      it, which is 64%. In 2025/26 alone, £38.3m of approved work was not done.
+    see_also: [revenue, borrowing, target]
+
+  - id: revenue
+    term: Revenue (day-to-day spending)
+    short: The money that keeps things running week to week. Wages, fuel, repairs, software.
+    long: >-
+      Revenue spending is the running cost of a council: staff, energy, contracts, the small
+      repairs. Capital spending is the opposite, the things that last for years. Councils are
+      allowed to borrow for capital but broadly not for revenue, which is why the two are always
+      reported separately. Mixing them up is the fastest way to misread a budget.
+    example: >-
+      Norwich's net revenue budget for 2026/27 was £24.250m. Its capital budget for the same year
+      reached £94.768m by the time the accounts were drawn up.
+    see_also: [capital-programme, general-fund, outturn]
+
+  - id: precept
+    term: Precept
+    short: The share of your council tax bill that each separate authority asks for.
+    long: >-
+      One council tax bill, several organisations taking a slice. Each one sets its own share,
+      called a precept, and the district council collects the lot and passes the money on. So the
+      council that sends you the bill is often not the council keeping most of it. If you want to
+      complain about the size of the bill, aim at the right body.
+    example: >-
+      Norwich City Council keeps about 13p of every pound of council tax. Norfolk County Council
+      takes 73p and the Police and Crime Commissioner 14p.
+    see_also: [council-tax-band, two-tier-council, district-council]
+
+  - id: council-tax-band
+    term: Council tax band
+    short: A letter from A to H, set from what your home was worth in 1991, that fixes your bill.
+    long: >-
+      Every home in England sits in a band, A to H, based on what it would have sold for in April
+      1991. Band D is the middle of the range and is the one councils quote when they compare
+      themselves. Your own bill goes up or down from Band D by a fixed ratio. The valuation is done
+      by the Valuation Office Agency, not by the council.
+    example: >-
+      Norwich City Council's share of a Band D bill was £315.26 in 2026/27, after a rise of 2.99%.
+      Six years earlier it was £269.38.
+    see_also: [precept, revenue]
+
+  - id: cabinet
+    term: Cabinet
+    short: A small group of senior councillors who take most of the day-to-day decisions.
+    long: >-
+      The Cabinet is usually eight to ten councillors from the party running the council, each with
+      a subject to look after. It meets in public, its papers are published in advance, and it takes
+      most decisions that do not need a vote of everybody. If you want to know what a council has
+      just decided, Cabinet papers are the first place to look.
+    example: >-
+      Norwich's Cabinet met on 11 February 2026 and adopted the new Home Options housing scheme as
+      item 12 on its agenda.
+    see_also: [full-council, scrutiny-committee, resolution, agenda]
+
+  - id: full-council
+    term: Full Council
+    short: Every elected councillor, meeting together. It sets the budget and the biggest policies.
+    long: >-
+      Full Council is the whole membership in one room. It has a short list of jobs no one else can
+      do: agreeing the budget, setting council tax, and signing off the policies the law reserves
+      to it. Meetings are public and are usually webcast. Votes are recorded, so you can see how
+      your own councillor voted.
+    example: >-
+      Norwich's 39 councillors voted the 2026/27 budget through on 24 February 2026. The revised
+      licensing policy is due in front of them in November 2026.
+    see_also: [cabinet, councillor, resolution]
+
+  - id: scrutiny-committee
+    term: Scrutiny committee
+    short: Councillors who question decisions and ask for changes. They advise; they cannot overrule.
+    long: >-
+      Scrutiny exists so that decisions get challenged in public before and after they are taken.
+      The committee reads the same papers as Cabinet, asks officers questions, and can recommend a
+      change. What it cannot do is force one. Watching whether its recommendations are accepted or
+      turned down tells you a lot about how a council works.
+    example: >-
+      On 15 January 2026 Norwich's Scrutiny committee voted to ask Cabinet to delete one rule from
+      the draft housing scheme. Cabinet considered it and said no.
+    see_also: [cabinet, minutes, resolution]
+
+  - id: licensing-committee
+    term: Licensing committee
+    short: Councillors who set the rules on alcohol, entertainment and late-night food.
+    long: >-
+      Licensing is a legal job rather than a political one, so it gets its own committee. It agrees
+      the council's written policy, and smaller panels of three councillors hear individual
+      applications when someone objects. Decisions have to be tied to four aims set by Parliament:
+      crime and disorder, public safety, nuisance, and protecting children from harm.
+    example: >-
+      Norwich's licensing committee met on 5 March 2026 in the Mancroft room, agreed a wording
+      change to the draft policy, and sent it out to public consultation.
+    see_also: [statement-of-licensing-policy, cumulative-impact-area, temporary-event-notice]
+
+  - id: consultation
+    term: Consultation
+    short: The council asking the public what they think, usually through a survey with a closing date.
+    long: >-
+      A consultation is a formal ask. Sometimes the law requires it, sometimes the council chooses
+      to run one. It is not a vote, and a council can decide against the majority view as long as it
+      can show it considered the answers. The bit worth watching is what the council publishes
+      afterwards: the numbers, and what it says it changed.
+    example: >-
+      Norwich's housing consultation ran from 10 November 2025 and drew 72 responses. Its licensing
+      consultation ran 12 weeks to 9 August 2026 and drew 67.
+    see_also: [equality-impact-assessment, cabinet, agenda]
+
+  - id: statement-of-licensing-policy
+    term: Statement of licensing policy
+    short: The council's written rulebook on alcohol, entertainment and late-night food licences.
+    long: >-
+      Every council has to publish one, and remake it at least every five years. It does not decide
+      individual applications. It sets out what the council will take into account when it does,
+      which is why pubs, residents and the police all pay attention when a draft goes out for
+      comment. The current one is the one that counts until a new one is formally adopted.
+    example: >-
+      Norwich's policy in force runs to 79 pages and was approved in December 2021. A replacement
+      has to be in place by December 2026.
+    see_also: [licensing-committee, cumulative-impact-area, consultation]
+
+  - id: cumulative-impact-area
+    term: Cumulative impact area
+    short: A part of town where the council says another licence would tip the area over the edge.
+    long: >-
+      If one street already has plenty of late licences, the council can name it and say that new
+      applications there start from a position of refusal. Applicants can still win, but they have
+      to argue their way past it. Naming an area needs evidence, so the council first publishes a
+      cumulative impact assessment.
+    example: >-
+      Norwich officers told the March 2026 committee that an assessment would run alongside the
+      consultation. We looked for it and found nothing published, so we have logged that as a gap.
+    see_also: [statement-of-licensing-policy, licensing-committee]
+
+  - id: allocations-scheme
+    term: Allocations scheme
+    short: The written rules deciding who joins the housing waiting list and who is offered a home first.
+    long: >-
+      Councils have far fewer homes than applicants, so the law makes them publish the rules they
+      use to choose. The scheme sets who qualifies to join the register, how urgent cases are ranked,
+      and what happens if you turn an offer down. Changing it does not create a single extra home.
+      It changes the order of the queue.
+    example: >-
+      Norwich calls its scheme Home Options. Around 4,000 people were waiting for social housing
+      when the 2025 consultation opened.
+    see_also: [banding, local-connection, mutual-exchange, housing-revenue-account]
+
+  - id: banding
+    term: Banding
+    short: Sorting housing applicants into priority groups, so the most urgent cases are offered homes first.
+    long: >-
+      Rather than a straight queue, most councils sort applicants into bands by need. Someone
+      homeless or in a dangerous home lands in a higher band than someone who simply wants to move.
+      Inside a band it is usually the person who has waited longest who gets the offer. So which
+      band you are put in matters more than how long you have been waiting.
+    example: >-
+      Norwich's 2026 scheme sets out when a person sleeping rough is given silver band. Seventy per
+      cent of consultation responses agreed with that change.
+    see_also: [allocations-scheme, local-connection]
+
+  - id: minutes
+    term: Minutes
+    short: The official written record of a meeting. Who came, what was discussed, what was agreed.
+    long: >-
+      Minutes are not a transcript. They are a summary written by an officer and signed off at the
+      next meeting, so they record decisions in full but conversations only in outline. Anything
+      written in them is the council's own account of itself, which is what makes them such useful
+      evidence. If something is not minuted, proving it happened gets hard.
+    example: >-
+      The Scrutiny minutes for 15 January 2026 record that 72 consultation responses were reported
+      to the committee. They do not say the committee changed anything because of them.
+    see_also: [agenda, resolution, scrutiny-committee]
+
+  - id: agenda
+    term: Agenda
+    short: The list of items for a meeting, published in advance with the reports attached.
+    long: >-
+      The agenda is published several days before a meeting, and the real content is in the reports
+      hanging off it. Those reports are written by officers for councillors, so they are the fullest
+      explanation of a proposal you will find anywhere. Reading the agenda before the meeting is how
+      you find out what is coming, rather than reading about it afterwards.
+    example: >-
+      The agenda for Norwich's licensing committee on 5 March 2026 put the draft policy at item 4,
+      with the full draft attached as a report.
+    see_also: [minutes, cabinet, officer]
+
+  - id: resolution
+    term: Resolution
+    short: The formal wording of what a meeting decided. Usually starts "RESOLVED".
+    long: >-
+      Discussion is one thing, a resolution is the decision itself. It is written in a set form,
+      voted on, and recorded in the minutes word for word. When you want to know exactly what a
+      council committed to, read the resolution rather than the report or the press release, because
+      only the resolution is binding.
+    example: >-
+      Norwich's Cabinet "RESOLVED to agree the adoption of the updated Home Options policy" on
+      11 February 2026.
+    see_also: [minutes, cabinet, full-council]
+
+  - id: officer
+    term: Officer
+    short: A council employee. Officers write the reports and run the services; they are not elected.
+    long: >-
+      Officers are the staff. They research options, write the reports councillors read, and then
+      carry out whatever is decided. They are politically neutral by law and they stay in post when
+      the political control of the council changes. A report signed by an officer is advice;
+      the decision belongs to the councillors.
+    example: >-
+      Norwich's Housing Options Manager took the Scrutiny committee through the five proposed
+      changes on 15 January 2026 and answered questions on them.
+    see_also: [councillor, section-151-officer, agenda]
+
+  - id: councillor
+    term: Councillor
+    short: Someone elected by local people to run the council. Usually part-time and paid an allowance.
+    long: >-
+      Councillors are elected to represent a ward, normally for four years. Most have other jobs.
+      They vote at Full Council, sit on committees, and take up problems on behalf of people who
+      live in their ward. You can find yours by postcode on the council's website, and writing to
+      them is free and often quicker than a complaints form.
+    example: >-
+      Norwich has 39 councillors. All of them voted on the 2026/27 budget on 24 February 2026.
+    see_also: [full-council, cabinet, officer]
+
+  - id: section-151-officer
+    term: Section 151 officer
+    short: The council's chief finance officer, with a legal duty to stop it spending money it hasn't got.
+    long: >-
+      Named after a section of the Local Government Act 1972, this is the one person legally
+      responsible for the council's financial affairs. Every February they must state in writing
+      whether the budget adds up and the reserves are big enough, and councillors have to take that
+      advice into account. If a council is heading for insolvency, this officer issues a section 114
+      notice and most new spending stops.
+    example: >-
+      Norwich's chief finance officer gives that statutory statement to Budget Council each
+      February, alongside the budget report itself.
+    see_also: [reserves, medium-term-financial-strategy, external-auditor]
+
+  - id: external-auditor
+    term: External auditor
+    short: An independent firm that checks the council's accounts and how well it manages money.
+    long: >-
+      Auditors are appointed from outside and are not answerable to the council. They check that the
+      accounts are accurate, and separately whether the council has proper arrangements for getting
+      value from its spending. When they find a serious problem they write it up in public. Audit
+      language is careful, so a blunt sentence in an audit report is worth reading twice.
+    example: >-
+      Ernst & Young reported a significant weakness at Norwich over its housing company, writing
+      that there was "no indication that adequate oversight arrangements for subsidiaries have ever
+      existed".
+    see_also: [value-for-money, statement-of-accounts, section-151-officer]
+
+  - id: value-for-money
+    term: Value for money
+    short: Whether a council is getting a fair return on what it spends. Auditors judge this separately.
+    long: >-
+      Value for money is a formal audit test, not a figure of speech. The auditor looks at how the
+      council plans its finances, manages risk, and governs what it owns. A "significant weakness"
+      is the auditor's own phrase for a serious failing, and it does not mean money was stolen or
+      wasted. It means the arrangements to prevent that were not good enough.
+    example: >-
+      Norwich's auditors found a significant weakness in the oversight of the council's own housing
+      company, which was wound up in 2025 with its creditors paid in full.
+    see_also: [external-auditor, statement-of-accounts]
+
+  - id: statement-of-accounts
+    term: Statement of accounts
+    short: The council's annual accounts. Long, technical, and the most reliable money document it publishes.
+    long: >-
+      Every council publishes audited accounts once a year, usually running to a couple of hundred
+      pages. Almost all of it is written for accountants. The exception is the narrative report at
+      the front, which explains in ordinary sentences what the year cost and why. That section is
+      where most people should start.
+    example: >-
+      Norwich publishes its accounts on the transparency section of its own website, going back
+      several years.
+    see_also: [outturn, external-auditor, reserves]
+
+  - id: medium-term-financial-strategy
+    term: Medium Term Financial Strategy
+    short: The council's rolling four or five-year money forecast. The gap in it becomes next year's cuts.
+    long: >-
+      Usually shortened to MTFS. It projects what services will cost against the money expected to
+      come in, several years ahead. Where the two lines part company, that gap turns into a savings
+      target. Forecasts this far out are guesses built on assumptions, and the assumptions matter as
+      much as the numbers.
+    example: >-
+      Norwich updates its strategy over the summer and takes it to Cabinet in the autumn, ahead of
+      the December budget consultation.
+    see_also: [reserves, revenue, target]
+
+  - id: borrowing
+    term: Borrowing and the Capital Financing Requirement
+    short: How much a council has had to borrow to pay for building work, and how much it still owes.
+    long: >-
+      Councils borrow to build, mostly from a government lender, and pay it back over decades out of
+      day-to-day income. The Capital Financing Requirement is the technical measure of how much
+      borrowing all their capital plans imply. Borrowing is normal and not in itself a warning sign.
+      What matters is whether the repayments are affordable against the council's income.
+    example: >-
+      Norwich sets a Treasury Management Strategy each February at Budget Council, alongside the
+      budget and the capital programme.
+    see_also: [capital-programme, revenue, medium-term-financial-strategy]
+
+  - id: business-rates
+    term: Business rates
+    short: A tax on shops, offices and factories. Councils keep a share of what they collect.
+    long: >-
+      Every business property pays rates, worked out from a rateable value set by the government.
+      Councils keep a slice of the money and pass the rest up. Because the share is set nationally
+      and changes from year to year, a council can see its business rates income move sharply
+      without anything changing on the ground.
+    example: >-
+      Norwich's retained business rates were budgeted to fall from £8.271m in 2025/26 to £6.600m in
+      2026/27, while its government grant rose sharply.
+    see_also: [government-grant, general-fund, revenue]
+
+  - id: government-grant
+    term: Government grant
+    short: Money from central government. Revenue Support Grant is the main general-purpose one.
+    long: >-
+      Grants are the third leg of council funding, next to council tax and business rates. Some are
+      tied to a named job and some, like Revenue Support Grant, can be spent on anything. The
+      settlement that sets them is announced each December for the year ahead, which is why council
+      budgets are written so late.
+    example: >-
+      Norwich's Revenue Support Grant jumped from £0.589m in 2025/26 to £5.100m in 2026/27, though
+      most of that was funding moved across from business rates rather than new money.
+    see_also: [business-rates, general-fund, medium-term-financial-strategy]
+
+  - id: two-tier-council
+    term: Two-tier council area
+    short: Two councils covering the same place, each doing different jobs. Norfolk works this way.
+    long: >-
+      In much of England the work is split between a county council and a district, borough or city
+      council. Neither is in charge of the other. They do different jobs and set their own share of
+      your bill. Knowing which one owns a problem saves you a wasted complaint, and it is the first
+      thing to check before you blame anyone.
+    example: >-
+      Norfolk County Council runs roads, schools and social care. Norwich City Council runs housing,
+      bins, parks, planning and licensing.
+    see_also: [district-council, precept, councillor]
+
+  - id: district-council
+    term: District, borough or city council
+    short: The smaller of the two councils. Housing, bins, parks, planning and licensing.
+    long: >-
+      District councils handle the services you meet most often, and they send out the council tax
+      bill for everyone. A city or borough title is a matter of history and civic status, not extra
+      power. Some of them own and manage council housing; many sold theirs off decades ago, so this
+      varies from place to place.
+    example: >-
+      Norwich City Council is a district council with city status, and still owns its housing:
+      14,211 homes as of October 2025.
+    see_also: [two-tier-council, precept, housing-revenue-account]
+
+  - id: transparency-code
+    term: Transparency code
+    short: National rules forcing councils to publish set information, including every payment over £500.
+    long: >-
+      The Local Government Transparency Code says what councils must put online without anyone
+      having to ask: spending over £500, contracts, senior salaries, land they own, councillor
+      allowances. It is the reason so much of this site exists. Publishing something is not the same
+      as making it findable, and councils vary enormously on that second part.
+    example: >-
+      Norwich groups its published data under a transparency and accountability section on its own
+      website, which is where its accounts and budget papers sit.
+    see_also: [statement-of-accounts, agenda]
+
+  - id: equality-impact-assessment
+    term: Equality impact assessment
+    short: A written check on who a decision might hit hardest, before the decision is taken.
+    long: >-
+      Public bodies have to think about the effect of what they do on people protected by the
+      Equality Act, including disabled people, older people, and people of different races and
+      religions. The assessment is the written proof they did. Two things are worth checking: the
+      date it was done, and whether anything changed afterwards.
+    example: >-
+      The assessment in Norwich's housing papers was completed on 4 November 2025, before the
+      consultation closed. We could not find one covering the scheme that was actually adopted.
+    see_also: [consultation, allocations-scheme, cabinet]
+
+  - id: rag-status
+    term: RAG status
+    short: Red, amber or green. A quick colour code for whether something is on track.
+    long: >-
+      Councils use red, amber and green in their own performance reports, and we use the same idea
+      on our scorecard. Ours is worked out by a published rule applied to the council's own figures,
+      never by us deciding whether we like the result. Each colour carries a word next to it, so the
+      meaning survives for anyone who cannot easily tell red from green.
+    example: >-
+      Every status on this site shows the rule behind it, the target, the actual figure and the
+      document they came from, one tap away.
+    see_also: [target, kpi, outturn]
+
+  - id: target
+    term: Target
+    short: A number the council said it was aiming for, published before the result was known.
+    long: >-
+      A target only counts if the council set it in public and in advance. Comparing a target with
+      what actually happened is fair. Judging performance against a number invented afterwards is
+      not, so we only use targets that appear in the council's own published papers, with the date
+      they were set.
+    example: >-
+      Norwich's approved budget is a target of exactly this kind. Its outturn report each summer is
+      the actual figure to set beside it.
+    see_also: [kpi, rag-status, outturn]
+
+  - id: kpi
+    term: KPI (key performance indicator)
+    short: One measure a council has chosen to track, like repair times or homes let per year.
+    long: >-
+      Organisations pick a handful of numbers to watch and report on them regularly. The choice is
+      itself a decision: what gets measured tends to get attention, and what nobody measures tends
+      not to. Reading a set of KPIs, ask what is missing as well as what the figures say.
+    example: null
+    see_also: [target, rag-status]
+
+  - id: local-connection
+    term: Local connection
+    short: A rule saying you must have lived in or worked in an area before you can join its housing list.
+    long: >-
+      Councils use local connection rules to limit their waiting lists to people with ties to the
+      area. The law sets out exceptions that always apply, including for people fleeing violence and
+      for some armed forces cases. Tightening the rule does not change how many homes exist. It
+      changes who is allowed to queue for them.
+    example: >-
+      Norwich raised its rule from six months' residence to two years in 2026. Of those who
+      responded to the consultation, 53% agreed and 26% disagreed, the largest objection of the five
+      changes.
+    see_also: [allocations-scheme, banding, consultation]
+
+  - id: mutual-exchange
+    term: Mutual exchange
+    short: Two council or housing association tenants swapping homes, with their landlords' permission.
+    long: >-
+      Rather than waiting for an offer, tenants can find each other and swap. Both landlords have to
+      agree, and there are grounds on which they can refuse. Councils often point people towards
+      swapping when the waiting list will not realistically produce an offer, which is worth knowing
+      before you turn one down.
+    example: >-
+      A Norwich Cabinet member said 160 council tenant households moved by swapping in 2025, when
+      asked about families in flats with no garden.
+    see_also: [allocations-scheme, banding]
+
+  - id: temporary-event-notice
+    term: Temporary event notice
+    short: A short form letting someone run a one-off licensed event without a full licence.
+    long: >-
+      A beer tent at a summer fete, or a village hall selling drinks at a wedding. You give the
+      council notice, pay a small fee, and the police and environmental health can object. There are
+      limits on how many you can use in a year and how many people can attend. It is the light-touch
+      end of licensing.
+    example: >-
+      Norwich received 225 temporary event notices during 2025, alongside 677 full premises licences
+      in force.
+    see_also: [licensing-committee, statement-of-licensing-policy]

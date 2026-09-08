@@ -1,0 +1,134 @@
+# "Why this matters" and "How to read this" boxes.
+#
+# One entry per thing a reader meets on the site. Each `why` and each `how` is
+# 80 words or fewer, so a box never pushes the thing it explains off the screen.
+# Keys are stable: the templates look them up by key, not by position.
+#
+# Tone rule: explain the mechanism, never tell anyone what to conclude from it.
+
+version: 1
+updated: 2026-09-08
+explainers:
+
+  three_questions:
+    title: The three questions
+    why: >-
+      Councils publish thousands of pages, and almost none of it answers the question people
+      actually have. So we ask three, in order. What did people ask for? What did the council
+      decide? What actually got done? Everything on the page hangs off those three, because a
+      decision on its own tells you very little without what came before and after it.
+    how: >-
+      Read them top to bottom. The first answer covers consultations, petitions and questions put
+      at meetings. The second covers the minute, the vote, the policy. The third covers what has
+      happened since, and says so plainly where nothing has. Each answer links to the documents it
+      came from, so you can check any sentence of it yourself.
+
+  progress_tracker:
+    title: Where this stands
+    why: >-
+      Most council work takes years, and it is easy to mistake a proposal for a done deal. The
+      tracker shows the same three stages as a path, so you can see at a glance how far something
+      has actually got. It is drawn from the documents on this page and nothing else.
+    how: >-
+      Three steps, left to right, each with a word saying what state it is in. Solid means we found
+      it in the record. Dashed and hatched means it has not happened yet. The date at the bottom is
+      the day the page was built, not today, so what you see will not shift under you between
+      visits.
+
+  linkage_tiers:
+    title: Did what people said change anything?
+    why: >-
+      This is the hard part. Councils rarely write down that feedback changed their mind, so
+      claiming it did would usually be a guess. Rather than guess, we label every possible
+      connection with how much evidence stands behind it, and show you that evidence. You can then
+      disagree with our label using the same documents we used.
+    how: >-
+      Green means the council's own record says the feedback shaped the decision, and we quote the
+      sentence. Yellow means the feedback came first but nothing proves it caused anything. White
+      means we looked and found no connection. Most links are yellow. That is honest rather than
+      unhelpful.
+
+  figures_strip:
+    title: The numbers so far
+    why: >-
+      A handful of numbers usually tell you more than a page of prose. These are the ones a council
+      report puts in a table or buries in a paragraph, pulled out so you can see them together.
+      Every one comes from a published document.
+    how: >-
+      Read the note under each number before you use it. That is where the catch lives: whether a
+      count is of responses or of people, which year it covers, whether the council itself flagged
+      it as partial. "Where this comes from" takes you to the document. If a number has no source,
+      it does not go on this site.
+
+  timeline:
+    title: Everything, in date order
+    why: >-
+      The main page groups records by stage, which is good for understanding and bad for spotting
+      how long things took. The timeline does the opposite. Gaps become obvious: eight months
+      between a consultation closing and a report on it is a fact about the council, and it only
+      shows up when you lay the dates end to end.
+    how: >-
+      One entry per document, oldest first, with the colour down the left telling you which
+      question it belongs to. Anything without a settled date sits at the bottom under "still
+      waiting", because we will not invent a date to make a chart look tidy.
+
+  scorecard:
+    title: The scorecard
+    why: >-
+      Council performance reports are written for councillors and auditors, not for you. The
+      scorecard pulls out the comparisons those reports contain and puts them side by side: what
+      was budgeted against what was spent, what was promised against what the council later said
+      happened.
+    how: >-
+      Each row is one comparison. It shows the question, the council's own target, the council's
+      own reported figure, and the rule we applied to the two. Tap any row to see the rule in full,
+      the documents behind both numbers, and any caveat the council gave. Rows are not scores and
+      they do not add up to a mark out of ten.
+
+  rag_statuses:
+    title: What Met, Close, Missed and Can't tell mean
+    why: >-
+      A colour is a strong claim, so it had better not be our opinion. Every status here is worked
+      out by a published rule applied to the council's own published numbers: its budget against
+      its own outturn, its target against its own reported figure, its promise against its own
+      later report. We wrote the rules once, in the open, and the same rules run for every council.
+    how: >-
+      Read the word, not the colour. Met, Close, Missed and Can't tell say the same thing as green,
+      amber, red and grey, and they survive printing and colour blindness. The rule that produced
+      the status is one tap away, in the same words for every council. If you think the rule is
+      wrong, argue with the rule.
+
+  cant_tell:
+    title: Can't tell
+    why: >-
+      Grey is a real answer, not a failure. It means the council has not published enough for
+      anyone to judge, and that is worth knowing on its own. Filling the gap with a guess, or
+      quietly leaving the row out, would both mislead you about how much is actually on the record.
+    how: >-
+      A grey row tells you what we looked for and where we looked. Often the missing piece is a
+      figure the council has promised but not yet published, in which case the row will go green,
+      amber or red once it appears. If you know of a document we missed, tell us and we will use it.
+
+  ai_provenance:
+    title: Written by AI, checked how?
+    why: >-
+      The summaries on this site were drafted by an AI model reading the council's documents. That
+      is fast and it is also fallible, so we say so under every piece of writing rather than hiding
+      it. The documents themselves are never rewritten. Only our summaries of them are.
+    how: >-
+      The line under each card names the model, the date, and how far the writing has been checked.
+      "Not yet reviewed by a person" means exactly that. "Checked by a second, independent AI
+      review" means another model verified it against the source documents. "Checked by a person"
+      is the only label a human has signed off. Follow the source link to check any of it yourself.
+
+  corrections:
+    title: Tell us we're wrong
+    why: >-
+      A site about accuracy that is hard to correct would be a poor joke. We would rather be
+      corrected than be wrong in public, and every correction is logged where anyone can read it,
+      including the ones we turn down.
+    how: >-
+      Say which page, which sentence, and what it should say instead. A link to the document that
+      shows it helps most of all. You do not need to know anything technical, and "the bit about
+      the licensing committee is wrong" is a perfectly good start. We aim to reply within ten
+      working days.
