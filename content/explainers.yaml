@@ -91,7 +91,9 @@ explainers:
       A colour is a strong claim, so it had better not be our opinion. Every status here is worked
       out by a published rule applied to the council's own published numbers: its budget against
       its own outturn, its target against its own reported figure, its promise against its own
-      later report. We wrote the rules once, in the open, and the same rules run for every council.
+      later report. Where the council sets its own target and warning level, the rule uses those.
+      Where it does not, the rule uses a fixed line we chose and wrote down. The numbers are always
+      the council's; the rules are published once, in the open, and run the same for every council.
     how: >-
       Read the word, not the colour. Met, Close, Missed and Can't tell say the same thing as green,
       amber, red and grey, and they survive printing and colour blindness. The rule that produced
