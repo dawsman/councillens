@@ -4,7 +4,7 @@
   "topic_slug": "council-finances",
   "payload": {
     "source_id": "finance-performance-reports-index",
-    "summary": "The council's index of performance reports: a report to Cabinet every quarter plus an annual report, going back to 2023/24. Publishing this at all puts Norwich ahead of many district councils."
+    "summary": "The council's index of performance reports: a report to Cabinet every quarter plus an annual report, going back to 2023/24. It is how a resident can find the quarters this site has not banked."
   },
   "ai": {
     "source_ids": [
@@ -13,8 +13,8 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "3e196fd59eead82eb4f1ee875054604bef2c7de67203b2b302fab9c3152ed052"
   }

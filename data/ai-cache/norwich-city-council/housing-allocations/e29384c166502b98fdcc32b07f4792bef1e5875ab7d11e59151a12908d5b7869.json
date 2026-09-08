@@ -5,7 +5,7 @@
   "payload": {
     "id": "g-tsm-no-targets",
     "stage": "outcome",
-    "description": "A target for anything tenants are asked about. The Regulator of Social Housing makes every landlord publish 26 tenant satisfaction measures, and Norwich publishes all of them: 75.3% of tenants satisfied with the overall service, up from 71.1%, and 30.0% satisfied with how complaints are handled. But the regulator does not require a target and Norwich has not set one, so none of the 26 can be scored. A figure with nothing to compare it against is a figure, not a verdict, and we will not invent the standard."
+    "description": "A target for anything tenants are asked about. The Regulator of Social Housing makes every landlord publish a set of tenant satisfaction measures, and Norwich publishes 22 of them on this page: 75.3% of tenants satisfied with the overall service, up from 71.1%, and 30.0% satisfied with how complaints are handled. But the regulator does not require a target and Norwich has not set one, so none of them can be scored. A figure with nothing to compare it against is a figure, not a verdict, and we will not invent the standard."
   },
   "ai": {
     "source_ids": [
@@ -14,8 +14,8 @@
     "prompt_version": "gap-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "e29384c166502b98fdcc32b07f4792bef1e5875ab7d11e59151a12908d5b7869"
   }

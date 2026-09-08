@@ -11,7 +11,7 @@
     "summary": "The draft accounts for 2025/26 report a General Fund underspend of £0.710m — 1.03% of the gross General Fund expenditure budget — and a Housing Revenue Account underspend of £4.223m, 5.08%. Capital spending was £56.477m against a budget of £94.768m, so £38.291m of approved building work did not happen that year.",
     "detail": [
       "The council names £1.286m of interest on its day-to-day cash as contributing to a £2.992m underspend in Corporate Financing, the central pot.",
-      "Service departments went over budget by £2.282m; the central pot covered it. That has happened three years running.",
+      "Everything outside that central pot went over budget by £2.282m, and the central pot covered it. Something similar happened in each of the two years before, at very different scale: £2.011m in 2023/24, and £118,000 in 2024/25, which on a budget of about £65m is a rounding error, and in that year three of the four service areas underspent.",
       "The accounts are draft, which means the external auditor has not signed them off."
     ],
     "source_ids": [
@@ -27,8 +27,8 @@
     "prompt_version": "event-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "4916a46ea92d3e883bba67703b1702c5fa6b230389ef4b5109536a1fd62fb9f2"
   }

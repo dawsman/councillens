@@ -4,7 +4,7 @@
   "topic_slug": "council-finances",
   "payload": {
     "source_id": "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3",
-    "summary": "The amendments the political groups put to Budget Council on 24 February 2026. The Labour group added £313,000 of items to the main motion — fly-tipping and graffiti enforcement, communal-area improvements, community clean-ups and political assistant provision — funded from the 2026/27 contingency. The Green and Liberal Democrat groups tabled a £65,000 ward-level community cohesion fund, and the Green group £45,000 for tree planting at a stated £459 per tree."
+    "summary": "The extra spending the political groups put to Budget Council on 24 February 2026, all of it \"to fund these in-year from the 2026-2027 budget contingency\". Part A is £313,000 from the Labour group — fly-tipping and graffiti enforcement, communal-area improvements, community clean-ups and political assistant provision — and the annex says it \"will form part of the substantive motion and not as an amendment\". Parts B and C are amendments: a £65,000 ward-level community cohesion fund from the Green and Liberal Democrat groups, and from the Green group £45,000 for planting 100 trees at a stated £459 each and £55,000 for river health education, signage and match funding."
   },
   "ai": {
     "source_ids": [
@@ -13,8 +13,8 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "e6e8ccff0218ec6df6e948b1f63ad35c8eb2ea6f89de765e3fdff2c6e6534f38"
   }
