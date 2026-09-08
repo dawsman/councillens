@@ -15,6 +15,14 @@ Run locally:
 
 `--only` re-extracts one topic and replaces just that topic's records in the
 processed manifest, leaving every other topic's extracted text untouched.
+
+Config key this stage understands, in the topic config file alongside `match`,
+`exclude` and `max_bytes`:
+
+    max_text_chars:  how much extracted text this source's records keep. Defaults
+                     to 200,000. Raise it for a source whose documents are long
+                     enough that the part a claim rests on falls off the end — a
+                     Statement of Accounts, say, whose notes sit at the back.
 """
 from __future__ import annotations
 
@@ -34,7 +42,21 @@ sys.path.insert(0, str(ROOT / "src" / "ingest"))
 import canonical  # noqa: E402
 import config as cfg  # noqa: E402
 
-MAX_TEXT_CHARS = 200_000
+# How much extracted text a record keeps. A cap is needed: a few council PDFs run
+# to hundreds of pages, and an unbounded manifest becomes unreadable and unusable
+# in a diff. 200,000 characters covers the whole of nearly every document a
+# council publishes.
+#
+# It does not cover all of them. A Statement of Accounts runs past a third of a
+# million characters, and the notes at the back — the ones that say what a failed
+# company cost, or how a property portfolio moved — fall off the end. A claim
+# drawn from the back of such a document cannot then be checked against the
+# archive, which breaks the rule that every claim links to its source.
+#
+# So the cap is a default, not a law. Any source may raise it for itself with
+# `max_text_chars` in its topic config file. Raising it only ever ADDS text: the
+# characters already kept do not move, so nothing already cited can disappear.
+DEFAULT_MAX_TEXT_CHARS = 200_000
 
 
 # Site furniture that carries no information about a decision: navigation, cookie
@@ -139,6 +161,37 @@ def extract_text(path):
     return text or data.decode("utf-8", errors="replace")
 
 
+def text_limits():
+    """The character cap for each source id, from the topic config files.
+
+    Config, not code, decides which documents need more room — the same rule that
+    keeps `match`, `exclude` and `max_bytes` out of the adapters. Nothing here
+    knows a council or a document; it knows that a source may ask for a larger cap.
+    """
+    limits = {}
+    for topic in cfg.load_topics():
+        for source in topic.sources:
+            limit = source.get("max_text_chars")
+            if limit and str(source.get("id") or "").strip():
+                limits[source["id"]] = int(limit)
+    return limits
+
+
+def limit_for(record_id, limits):
+    """The cap that applies to one record.
+
+    A record is either a source's own page (`<source-id>`) or a document found
+    under it (`<source-id>--<slug>`). The longest matching source id wins, so a
+    source id that is a prefix of another cannot claim its documents.
+    """
+    best = None
+    for source_id, limit in limits.items():
+        if record_id == source_id or record_id.startswith(f"{source_id}--"):
+            if best is None or len(source_id) > len(best[0]):
+                best = (source_id, limit)
+    return best[1] if best else DEFAULT_MAX_TEXT_CHARS
+
+
 def load_existing():
     if not PROCESSED_MANIFEST.exists():
         return []
@@ -180,6 +233,7 @@ def main(argv=None):
     else:
         selected = documents
 
+    limits = text_limits()
     processed = []
     failures = 0
     for record in selected:
@@ -188,7 +242,7 @@ def main(argv=None):
         path = ROOT / saved if saved else None
         if path and path.exists():
             try:
-                out["text"] = extract_text(path)[:MAX_TEXT_CHARS]
+                out["text"] = extract_text(path)[:limit_for(record.get("id", ""), limits)]
             except Exception as exc:
                 print(f"  FAIL  {record.get('id')}: extract error: {exc}")
                 failures += 1
