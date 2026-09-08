@@ -39,18 +39,21 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 import config as cfg  # noqa: E402
+import rules  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 PROCESSED_MANIFEST = ROOT / "data" / "processed" / "manifest.json"
 CACHE_ROOT = ROOT / "data" / "ai-cache"
 ANALYSED_ROOT = ROOT / "data" / "analysed"
+SCORING_DOC = ROOT / "methodology" / "scoring.md"
 
 SCHEMA_VERSION = "1"
 CORRECTIONS_URL = "https://github.com/dawsman/councillens/issues/new?template=correction.yml"
 
 # Kinds of cached AI output. One file per item, named <cache_key>.json.
-KINDS = ("topic", "summary", "event", "linkage", "figure", "gap")
+KINDS = ("topic", "summary", "event", "linkage", "figure", "measure", "gap")
 
 PLACEHOLDER_SUMMARY = (
     "Not summarised yet. This document is in the archive but no reviewed "
@@ -452,6 +455,97 @@ def build(council_name, topic_config_name, documents, topic_config):
             ),
         })
 
+    # --- measures -----------------------------------------------------------
+    # The scorecard. A measure is the council's own target or plan on one side,
+    # the council's own reported figure on the other, and a published RULE in
+    # between. The STATUS is never carried in the cache: it is computed here, by
+    # the rule named in the entry, from the two numbers the entry supplies. That
+    # is the whole point — change the wording of a rule and every colour it ever
+    # produced changes with it, and nobody can hand-colour a measure green.
+    #
+    # A measure whose rule_id this build does not recognise is REFUSED, not
+    # guessed at: it is left out and a gap says so. A promise (area "promises")
+    # is the same object with a dated written commitment as its target, and is
+    # collected separately so the site can show promises as promises.
+    measures = []
+    promises = []
+    seen_measure_ids = set()
+    for entry in cache["measure"]:
+        payload = entry.get("payload", {})
+        mid = payload.get("id")
+        if not mid:
+            gaps.append({
+                "stage": None,
+                "description": f"Cache file {entry['_file']} describes a measure with no id.",
+            })
+            continue
+        if mid in seen_measure_ids:
+            gaps.append({
+                "stage": None,
+                "description": f"Two cached measures share the id {mid}; the build used the first.",
+            })
+            continue
+        seen_measure_ids.add(mid)
+
+        rule_id = payload.get("rule_id")
+        if not rules.is_known(rule_id):
+            gaps.append({
+                "stage": None,
+                "description": (
+                    f"The measure '{payload.get('label', mid)}' asks for a scoring rule "
+                    f"({rule_id!r}) that does not exist, so it has been left out. A status "
+                    "is only ever published when a written rule produced it."
+                ),
+            })
+            continue
+
+        ai = dict(entry.get("ai", {}))
+        ok, note = check_key(entry, mid, ai.get("prompt_version", "measure-v1"), hashes_by_id)
+        if not ok:
+            ai = flag_stale(entry, note, gaps, None, f"The measure '{payload.get('label', mid)}'")
+        ai_stamps.append(ai.get("generated_at"))
+
+        direction = payload.get("direction") or "higher_is_better"
+        target = payload.get("target")
+        actual = payload.get("actual")
+        # Some councils publish a second line beside the target: the level at which
+        # they say they will intervene. Where they do, the rule uses it, so the
+        # colour here is the colour on the council's own dashboard.
+        threshold = payload.get("threshold")
+        status, status_word = rules.apply_rule(rule_id, target, actual, direction, threshold)
+
+        measure = {
+            "id": mid,
+            "area": payload.get("area", "money"),
+            "question": payload.get("question", ""),
+            "label": payload.get("label", mid),
+            "rule_id": rule_id,
+            # The published wording comes from the code, never from the cache, so
+            # the rule shown on the page is the rule that ran.
+            "rule": rules.summary_line(rule_id),
+            "target": target,
+            "actual": actual,
+            "threshold": threshold,
+            "status": status,
+            "status_word": status_word,
+            "direction": direction,
+            "period": payload.get("period"),
+            "as_of": payload.get("as_of"),
+            "council_caveat": payload.get("council_caveat"),
+            "evidence": payload.get("evidence", ""),
+            "source_ids": payload.get("source_ids", []),
+            "source_url": payload.get("source_url"),
+            "ai": ai,
+            # Optional curated position from the cache entry; never published.
+            "_order": payload.get("order", 10**6),
+        }
+        (promises if measure["area"] == "promises" else measures).append(measure)
+
+    for bucket in (measures, promises):
+        bucket.sort(key=lambda m: (m["_order"], m["id"]))
+        for m in bucket:
+            m.pop("_order")
+
     # --- gaps recorded by hand ---------------------------------------------
     for entry in cache["gap"]:
         payload = entry.get("payload", {})
@@ -479,6 +573,12 @@ def build(council_name, topic_config_name, documents, topic_config):
     # nothing sourced to put in it.
     if figures:
         model["figures"] = figures
+    # Same rule as figures: an empty scorecard is a gap, not an empty array, so
+    # the key is left out entirely when nothing sourced went into it.
+    if measures:
+        model["measures"] = measures
+    if promises:
+        model["promises"] = promises
     model["gaps"] = gaps
     model["corrections_url"] = CORRECTIONS_URL
     return council_slug, topic_slug, model
@@ -488,7 +588,9 @@ def report(model, out_path):
     tiers = {}
     for link in model["linkages"]:
         tiers[link["tier"]] = tiers.get(link["tier"], 0) + 1
-    reviewable = model["sources"] + model["events"] + model["linkages"] + model.get("figures", [])
+    reviewable = (model["sources"] + model["events"] + model["linkages"]
+                  + model.get("figures", []) + model.get("measures", [])
+                  + model.get("promises", []))
     counts = {"needs_review": 0, "ai_reviewed": 0, "reviewed": 0}
     for item in reviewable:
         status = item["ai"].get("review_status")
@@ -498,7 +600,15 @@ def report(model, out_path):
     print(f"wrote  {out_path.relative_to(ROOT)}")
     print(f"       {len(model['sources'])} sources, {len(model['events'])} entries, "
           f"{len(model['linkages'])} comparisons, {len(model.get('figures', []))} key numbers, "
+          f"{len(model.get('measures', []))} measures, {len(model.get('promises', []))} promises, "
           f"{len(model['gaps'])} gaps")
+    scored = model.get("measures", []) + model.get("promises", [])
+    if scored:
+        by_status = {}
+        for item in scored:
+            by_status[item["status"]] = by_status.get(item["status"], 0) + 1
+        print("       measures by status: " + ", ".join(
+            f"{rules.STATUS_WORDS[k]}={v}" for k, v in sorted(by_status.items())))
     if tiers:
         print("       comparisons by tier: " + ", ".join(f"{k}={v}" for k, v in sorted(tiers.items())))
     print(f"       review status: {counts['needs_review']} unchecked, "
@@ -508,6 +618,87 @@ def report(model, out_path):
         print(f"  gap  [{gap['stage'] or '-'}] {gap['description']}")
 
 
+# --------------------------------------------------------------------------
+# The published rules, written out
+# --------------------------------------------------------------------------
+
+SCORING_PREAMBLE = """<!-- GENERATED FILE. Do not edit by hand.
+     Written by src/analyse/build_topic.py from the docstrings in
+     src/analyse/rules.py. Change a rule there and rebuild. -->
+
+# How a red, amber or green status is worked out
+
+CouncilLens does not grade councils. A colour on this site is never our opinion
+about whether a council is doing well. It is the result of a rule, written down
+here in plain English and applied by code, comparing the council's own numbers
+against each other: its own budget against its own outturn, its own target
+against its own reported figure, its own written promise against its own later
+report.
+
+Four answers are possible, and the word matters more than the colour:
+
+| Colour | Word | What it means |
+|---|---|---|
+| Green | Met | The council's own record shows it did what it planned. |
+| Amber | Close | Nearly, or late, or only partly. |
+| Red | Missed | The council's own record shows it did not. |
+| Grey | Can't tell | The published record does not answer the question. |
+
+Grey is a real answer and an honest one. It is not a mark against the council and
+it is not a shrug from us: it says the documents a resident can read do not
+settle the question. Where a whole area is grey, that is worth knowing on its own.
+
+Every status on the site shows, one tap away, the rule that produced it, the
+target, the figure, a link to the document both came from, and any explanation the
+council itself gave. If you think a status is wrong, the numbers behind it are all
+public and there is a correction link at the bottom of every page.
+
+## The rules
+"""
+
+
+def scoring_markdown():
+    """methodology/scoring.md, built from the docstrings in rules.py.
+
+    Deterministic: no clock, no council, no counts. The same code produces the
+    same bytes, which is what lets the file be committed and checked in review.
+    Generating it rather than writing it by hand is what stops the published rule
+    and the rule that ran from ever disagreeing."""
+    out = [SCORING_PREAMBLE.rstrip(), ""]
+    for rule_id in sorted(rules.RULES):
+        paragraphs = rules.full_text(rule_id)
+        question = paragraphs[0] if paragraphs else rule_id
+        out.append(f"### {question}")
+        out.append("")
+        out.append(f"Rule id `{rule_id}`.")
+        out.append("")
+        for para in paragraphs[1:]:
+            # The last paragraph of a docstring says which field an author has to
+            # fill in. That is a note to whoever writes a measure, not to a
+            # resident reading the methodology, so it stays in the code.
+            if para.startswith("`"):
+                continue
+            out.append(para)
+            out.append("")
+        rows = rules.thresholds(rule_id)
+        if rows:
+            out.append("| What decides the colour | Value |")
+            out.append("|---|---|")
+            for label, value in rows:
+                out.append(f"| {label} | {value} |")
+            out.append("")
+    return "\n".join(out).rstrip() + "\n"
+
+
+def write_scoring_doc():
+    SCORING_DOC.parent.mkdir(parents=True, exist_ok=True)
+    text = scoring_markdown()
+    if SCORING_DOC.exists() and SCORING_DOC.read_text(encoding="utf-8") == text:
+        return False
+    SCORING_DOC.write_text(text, encoding="utf-8")
+    return True
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Assemble one topic model per council + topic.")
     parser.add_argument(
@@ -515,6 +706,12 @@ def main(argv=None):
         help="Build one topic only, e.g. norwich-city-council/licensing-policy.",
     )
     args = parser.parse_args(argv)
+
+    # The published rules are written out of the code on every run, so the page a
+    # resident reads and the function that coloured a measure cannot drift apart.
+    changed = write_scoring_doc()
+    print(f"{'wrote ' if changed else 'ok    '} {SCORING_DOC.relative_to(ROOT)} "
+          f"({len(rules.RULES)} published rules)")
 
     try:
         wanted = cfg.parse_only(args.only)

@@ -44,7 +44,7 @@ Every file has the same envelope:
 }
 ```
 
-Five kinds, and what each `payload` carries:
+Six kinds, and what each `payload` carries:
 
 | kind | payload | prompt version |
 |---|---|---|
@@ -52,6 +52,7 @@ Five kinds, and what each `payload` carries:
 | `summary` | `source_id` and a 2–4 sentence plain-English `summary` of that one document | `summarise-v1` |
 | `event` | one thing that happened: id, stage, date, date precision, title, summary, detail bullets, source ids, a deep link, and a status for outcomes | `event-v1` |
 | `linkage` | one feedback-to-decision comparison: from, to, tier, verbatim evidence quote, evidence link, explanation | `linkage-v1` |
+| `measure` | one scored comparison: id, area, question, label, rule_id, target, actual, direction, period, as_of, the council's own caveat, evidence, sources | `measure-v1` |
 | `gap` | something we looked for and could not find: id, stage, description | `gap-v1` |
 
 ## How `cache_key` is worked out
@@ -62,8 +63,9 @@ cache_key = sha256( item_key | sorted(source text fingerprints) | prompt_version
 joined with `|`, hex digest, lowercase.
 
 - `item_key` is the source id for a summary, the event id for an event, the
-  figure id for a figure, `<from_event>><to_event>` for a linkage, `gap:<gap id>`
-  for a gap, and `topic:<council-slug>/<topic-slug>` for the overview.
+  figure id for a figure, the measure id for a measure, `<from_event>><to_event>`
+  for a linkage, `gap:<gap id>` for a gap, and
+  `topic:<council-slug>/<topic-slug>` for the overview.
 - a **text fingerprint** is `sha256` of the `text` field in
   `data/processed/manifest.json` — the words the transform stage read out of the
   document. Fingerprints are taken for exactly the documents listed in
@@ -110,6 +112,37 @@ The cache was re-keyed onto this rule in one pass by
 that mirrors it and left every payload alone. It has done its job and is kept for
 the record; there is no reason to run it again.
 
+## Measures: where a red, amber or green comes from
+
+A measure is the council's own plan or target on one side, the council's own
+reported figure on the other, and a published rule in between. The rules are
+council-agnostic functions in `rules.py`, one per `rule_id`, each with a
+plain-English docstring that IS the published rule.
+
+**The cache never carries a status.** It carries `rule_id`, `target`, `actual` and
+`direction`; the build runs the rule and computes `status` and `status_word` from
+them. Nobody can hand-colour a measure, and changing a threshold recolours every
+measure that ever used it. A cache entry naming a `rule_id` that does not exist is
+refused outright — the measure is left out and a gap says why — because a status
+with no rule behind it is exactly what this project exists not to publish.
+
+`rule` on the published measure is written from the rule's docstring, not from the
+cache, so the sentence a reader sees is the sentence of the code that ran.
+`methodology/scoring.md` is generated from the same docstrings on every build and
+committed, which is why it carries a "do not edit by hand" banner. Edit `rules.py`
+and rebuild; never edit the markdown.
+
+A measure with `area: promises` is collected into the model's `promises` array
+instead of `measures`. A promise is a dated commitment the council put in writing:
+`target` holds the commitment and the date it gave, `actual` holds what a later
+council record says happened, as one of `done_on_time`, `done_late`, `partly_done`
+or `not_done`. No later record means grey — the promise cannot be checked, which is
+not the same as broken.
+
+Every side of a comparison can be null. That is the point: a council that
+publishes a figure but no target scores grey, and grey is a finding about the
+council's publishing, not a hole in ours.
+
 ## What happens when something is missing
 
 Nothing is invented, and the build still exits 0 — a hole in the evidence is a
@@ -125,6 +158,9 @@ fact about what the council has published, not a build failure.
 - No `config/councils/<council-slug>.yaml`: placeholder remit note, plus a gap.
 - A feedback and a decision entry that nobody has compared: a gap. Every
   feedback-to-decision pair has to be judged, including the ones judged ⚪.
+- A measure naming a rule that does not exist: refused, and a gap says which rule
+  was asked for. A measure whose target or actual is missing is kept and scores
+  grey — "we can't tell from the published record" is an answer, not an error.
 
 ## Marking something reviewed
 
