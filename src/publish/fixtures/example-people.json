@@ -1,0 +1,901 @@
+{
+  "_fixture": true,
+  "schema_version": "1",
+  "generated_at": "2026-09-08T12:00:00+00:00",
+  "council": {
+    "name": "Example Borough Council",
+    "slug": "example-borough-council",
+    "website": "https://example.org/example-borough-council",
+    "tier": "district",
+    "remit_note": "Example Borough Council is an invented council used to test this page. Nothing here describes a real place or a real person.",
+    "platforms": {
+      "committees": "https://example.org/example-borough-council/committees"
+    }
+  },
+  "composition": {
+    "as_of": "2026-09-08",
+    "total_seats": 6,
+    "seats_by_party": [
+      {
+        "party": "Green Party",
+        "seats": 2
+      },
+      {
+        "party": "Labour",
+        "seats": 1
+      },
+      {
+        "party": "Liberal Democrats",
+        "seats": 1
+      },
+      {
+        "party": "Reform UK",
+        "seats": 1
+      },
+      {
+        "party": "Independent",
+        "seats": 1
+      }
+    ],
+    "next_election": null,
+    "next_election_note": "Example Borough Council does not publish a date for its next election on any page we could find, so we do not give one.",
+    "source_ids": [
+      "fixture-directory"
+    ],
+    "source_url": "https://example.org/example-borough-council/councillors",
+    "summary": "Example Borough Council has 6 councillors: three for each of its two wards. The Green Party holds 2 seats, Labour 1, the Liberal Democrats 1, Reform UK 1, and one councillor sits as an independent. No party has a majority.",
+    "ai": {
+      "source_ids": [
+        "fixture-directory",
+        "fixture-register"
+      ],
+      "prompt_version": "composition-v1",
+      "model": "fixture (no model was run)",
+      "confidence": "high",
+      "review_status": "needs_review",
+      "reviewed_by": null,
+      "generated_at": "2026-09-08T12:00:00+00:00",
+      "cache_key": "a1ad06d154ce8eb827a943274fb3d312029e2da15b279db469568df209b68673"
+    }
+  },
+  "councillors": [
+    {
+      "id": "cllr-ada-fennimore",
+      "name": "Councillor Ada Fennimore",
+      "party": "The Green Party",
+      "ward": "Bridgegate",
+      "first_elected": "2018-05-03",
+      "first_elected_precision": "day",
+      "current_term_start": "2018-05-03",
+      "elections": [
+        {
+          "date": "2018-05-03",
+          "date_precision": "day",
+          "result": "elected",
+          "ward": "Bridgegate",
+          "votes": null,
+          "majority": null,
+          "turnout_percent": null,
+          "source_url": "https://example.org/example-borough-council/councillors"
+        }
+      ],
+      "roles": [
+        {
+          "title": "Leader of the council",
+          "body_slug": null,
+          "since": "2023-05-18",
+          "source_url": "https://example.org/example-borough-council/councillors"
+        },
+        {
+          "title": "Chair, Cabinet",
+          "body_slug": "cabinet",
+          "since": "2023-05-18",
+          "source_url": "https://example.org/example-borough-council/councillors"
+        }
+      ],
+      "committees": [
+        {
+          "slug": "cabinet",
+          "name": "Cabinet",
+          "role": "Chair",
+          "since": "2023-05-18"
+        },
+        {
+          "slug": "council",
+          "name": "Council",
+          "role": "Member",
+          "since": "2018-05-04"
+        }
+      ],
+      "outside_bodies": [
+        {
+          "name": "There are no current outside bodies for this member.",
+          "since": null
+        }
+      ],
+      "attendance": {
+        "expected": 46,
+        "attended": 44,
+        "period": "the 12 months to 8 September 2026",
+        "source_url": "https://example.org/example-borough-council/councillors",
+        "note": "The committee system counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. Being counted absent is not the same as being unexcused: apologies are recorded separately."
+      },
+      "allowances": {
+        "basic": 7805.08,
+        "special_responsibility": 12240.0,
+        "total": 20045.08,
+        "currency": "GBP",
+        "year": "2024-25",
+        "source_url": "https://example.org/example-borough-council/councillors",
+        "note": "From the council's published schedule of allowances paid in 2024-25, matched on surname and initial. An allowance is not a salary: it is a set payment for doing the job, plus extra for anyone carrying extra responsibility."
+      },
+      "interests": {
+        "register_url": "https://example.org/example-borough-council/councillors",
+        "register_date": "2026-05-14",
+        "employment": [
+          {
+            "text": "Lecturer, Example College",
+            "category": "Employment, office, trade or profession"
+          }
+        ],
+        "directorships": [],
+        "memberships": [
+          {
+            "text": "The Green Party",
+            "category": "Other registrable interests"
+          }
+        ],
+        "sponsorship": [
+          {
+            "text": "Election expenses paid for by The Green Party",
+            "category": "Sponsorship"
+          }
+        ],
+        "land": [],
+        "other": [],
+        "note": "Taken in full from the register this councillor signed on 14 May 2026."
+      },
+      "declared_links": [],
+      "contact": {
+        "email": "ada.fennimore@cllr.example.gov.uk",
+        "address": "C/O the Guildhall, Example EX1 1AA"
+      },
+      "summary": "Councillor Ada Fennimore has represented Bridgegate ward since 3 May 2018 and leads the council. She chairs Cabinet and sits on full Council.",
+      "source_ids": [
+        "fixture-directory"
+      ],
+      "source_urls": [
+        "https://example.org/example-borough-council/councillors"
+      ],
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "councillor-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "b176701bddd8592b0a4b767bb43265482cc3aa8afb1218ac51000ca68d1f9ac1"
+      }
+    },
+    {
+      "id": "cllr-bevan-okoro",
+      "name": "Councillor Bevan Okoro",
+      "party": "Labour",
+      "ward": "Bridgegate",
+      "first_elected": "2022-05-05",
+      "first_elected_precision": "day",
+      "current_term_start": "2022-05-05",
+      "elections": [
+        {
+          "date": "2022-05-05",
+          "date_precision": "day",
+          "result": "elected",
+          "ward": "Bridgegate",
+          "votes": null,
+          "majority": null,
+          "turnout_percent": null,
+          "source_url": "https://example.org/example-borough-council/councillors"
+        }
+      ],
+      "roles": [],
+      "committees": [
+        {
+          "slug": "council",
+          "name": "Council",
+          "role": "Member",
+          "since": "2022-05-06"
+        },
+        {
+          "slug": "scrutiny-committee",
+          "name": "Scrutiny committee",
+          "role": "Member",
+          "since": "2022-05-19"
+        }
+      ],
+      "outside_bodies": [
+        {
+          "name": "There are no current outside bodies for this member.",
+          "since": null
+        }
+      ],
+      "attendance": {
+        "expected": 38,
+        "attended": 31,
+        "period": "the 12 months to 8 September 2026",
+        "source_url": "https://example.org/example-borough-council/councillors",
+        "note": "The committee system counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. Being counted absent is not the same as being unexcused: apologies are recorded separately."
+      },
+      "allowances": null,
+      "interests": {
+        "register_url": "https://example.org/example-borough-council/councillors",
+        "register_date": "2026-05-14",
+        "employment": [],
+        "directorships": [],
+        "memberships": [],
+        "sponsorship": [],
+        "land": [],
+        "other": [],
+        "note": "Example Borough publishes this councillor's register as a scanned picture of the paper form, signed on 14 May 2026. A scan cannot be read as text, so nothing from it is reproduced here. The form itself is linked, and you can read it yourself."
+      },
+      "declared_links": [],
+      "contact": {
+        "email": "bevan.okoro@cllr.example.gov.uk",
+        "address": "C/O the Guildhall, Example EX1 1AA"
+      },
+      "summary": "Councillor Bevan Okoro has represented Bridgegate ward since 5 May 2022. He sits on full Council and the Scrutiny committee.",
+      "source_ids": [
+        "fixture-directory"
+      ],
+      "source_urls": [
+        "https://example.org/example-borough-council/councillors"
+      ],
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "councillor-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "5cc1126a0efbf91ad0287207876f5e4321488ecd9487ce2cc04d7a98a024a5ff"
+      }
+    },
+    {
+      "id": "cllr-cerys-hallam",
+      "name": "Councillor Cerys Hallam",
+      "party": "Liberal Democrats",
+      "ward": "Bridgegate",
+      "first_elected": "2011",
+      "first_elected_precision": "year",
+      "current_term_start": "2011",
+      "elections": [
+        {
+          "date": "2011",
+          "date_precision": "year",
+          "result": "elected",
+          "ward": "Bridgegate",
+          "votes": null,
+          "majority": null,
+          "turnout_percent": null,
+          "source_url": "https://example.org/example-borough-council/councillors"
+        }
+      ],
+      "roles": [
+        {
+          "title": "Chair, Scrutiny committee",
+          "body_slug": "scrutiny-committee",
+          "since": "2024-05-21",
+          "source_url": "https://example.org/example-borough-council/councillors"
+        }
+      ],
+      "committees": [
+        {
+          "slug": "council",
+          "name": "Council",
+          "role": "Member",
+          "since": "2011-05-06"
+        },
+        {
+          "slug": "scrutiny-committee",
+          "name": "Scrutiny committee",
+          "role": "Chair",
+          "since": "2024-05-21"
+        }
+      ],
+      "outside_bodies": [
+        {
+          "name": "There are no current outside bodies for this member.",
+          "since": null
+        }
+      ],
+      "attendance": {
+        "expected": 41,
+        "attended": 40,
+        "period": "the 12 months to 8 September 2026",
+        "source_url": "https://example.org/example-borough-council/councillors",
+        "note": "The committee system counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. Being counted absent is not the same as being unexcused: apologies are recorded separately."
+      },
+      "allowances": {
+        "basic": 7805.08,
+        "special_responsibility": 4648.6,
+        "total": 12453.68,
+        "currency": "GBP",
+        "year": "2024-25",
+        "source_url": "https://example.org/example-borough-council/councillors",
+        "note": "From the council's published schedule of allowances paid in 2024-25, matched on surname and initial. An allowance is not a salary: it is a set payment for doing the job, plus extra for anyone carrying extra responsibility."
+      },
+      "interests": {
+        "register_url": "https://example.org/example-borough-council/councillors",
+        "register_date": "2026-05-14",
+        "employment": [],
+        "directorships": [],
+        "memberships": [],
+        "sponsorship": [],
+        "land": [
+          {
+            "text": "A share in a field at the edge of Marlpit ward",
+            "category": "Land and property"
+          }
+        ],
+        "other": [],
+        "note": "The published form puts this councillor's own interests in the same column as their partner's, and the file does not keep the two apart. We show only the entries we could attribute with certainty, which is why this list may be shorter than the form."
+      },
+      "declared_links": [],
+      "contact": {
+        "email": "cerys.hallam@cllr.example.gov.uk",
+        "address": "C/O the Guildhall, Example EX1 1AA"
+      },
+      "summary": "Councillor Cerys Hallam has represented Bridgegate ward since 2011 and chairs the Scrutiny committee.",
+      "source_ids": [
+        "fixture-directory"
+      ],
+      "source_urls": [
+        "https://example.org/example-borough-council/councillors"
+      ],
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "councillor-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "0b29dacc3d223258ec21d2a2599d11b4e34f2ddb004657c93cddcda29fcabc94"
+      }
+    },
+    {
+      "id": "cllr-dorian-pace",
+      "name": "Councillor Dorian Pace",
+      "party": "The Green Party",
+      "ward": "Marlpit",
+      "first_elected": "2024-05-02",
+      "first_elected_precision": "day",
+      "current_term_start": "2024-05-02",
+      "elections": [
+        {
+          "date": "2024-05-02",
+          "date_precision": "day",
+          "result": "elected",
+          "ward": "Marlpit",
+          "votes": null,
+          "majority": null,
+          "turnout_percent": null,
+          "source_url": "https://example.org/example-borough-council/councillors"
+        }
+      ],
+      "roles": [],
+      "committees": [
+        {
+          "slug": "cabinet",
+          "name": "Cabinet",
+          "role": "Member",
+          "since": "2024-05-16"
+        },
+        {
+          "slug": "council",
+          "name": "Council",
+          "role": "Member",
+          "since": "2024-05-03"
+        }
+      ],
+      "outside_bodies": [
+        {
+          "name": "There are no current outside bodies for this member.",
+          "since": null
+        }
+      ],
+      "attendance": {
+        "expected": 40,
+        "attended": 39,
+        "period": "the 12 months to 8 September 2026",
+        "source_url": "https://example.org/example-borough-council/councillors",
+        "note": "The committee system counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. Being counted absent is not the same as being unexcused: apologies are recorded separately."
+      },
+      "allowances": {
+        "basic": 7805.08,
+        "special_responsibility": 9120.0,
+        "total": 16925.08,
+        "currency": "GBP",
+        "year": "2024-25",
+        "source_url": "https://example.org/example-borough-council/councillors",
+        "note": "From the council's published schedule of allowances paid in 2024-25, matched on surname and initial. An allowance is not a salary: it is a set payment for doing the job, plus extra for anyone carrying extra responsibility."
+      },
+      "interests": {
+        "register_url": "https://example.org/example-borough-council/councillors",
+        "register_date": "2026-05-14",
+        "employment": [],
+        "directorships": [],
+        "memberships": [
+          {
+            "text": "The Green Party",
+            "category": "Other registrable interests"
+          }
+        ],
+        "sponsorship": [],
+        "land": [],
+        "other": [],
+        "note": "Taken in full from the register this councillor signed on 14 May 2026."
+      },
+      "declared_links": [],
+      "contact": {
+        "email": "dorian.pace@cllr.example.gov.uk",
+        "address": "C/O the Guildhall, Example EX1 1AA"
+      },
+      "summary": "Councillor Dorian Pace has represented Marlpit ward since 2 May 2024 and sits in Cabinet.",
+      "source_ids": [
+        "fixture-directory"
+      ],
+      "source_urls": [
+        "https://example.org/example-borough-council/councillors"
+      ],
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "councillor-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "0514cc930b0755fd74c2b55203d55205f0a38280b19c339c2be1f602c19d38f0"
+      }
+    },
+    {
+      "id": "cllr-esme-quill",
+      "name": "Councillor Esme Quill",
+      "party": "Independent",
+      "ward": "Marlpit",
+      "first_elected": "2026-05-07",
+      "first_elected_precision": "day",
+      "current_term_start": "2026-05-07",
+      "elections": [
+        {
+          "date": "2026-05-07",
+          "date_precision": "day",
+          "result": "elected",
+          "ward": "Marlpit",
+          "votes": null,
+          "majority": null,
+          "turnout_percent": null,
+          "source_url": "https://example.org/example-borough-council/councillors"
+        }
+      ],
+      "roles": [],
+      "committees": [
+        {
+          "slug": "council",
+          "name": "Council",
+          "role": "Member",
+          "since": "2026-05-08"
+        },
+        {
+          "slug": "licensing-committee",
+          "name": "Licensing committee",
+          "role": "Member",
+          "since": "2026-06-05"
+        }
+      ],
+      "outside_bodies": [
+        {
+          "name": "There are no current outside bodies for this member.",
+          "since": null
+        }
+      ],
+      "attendance": null,
+      "allowances": null,
+      "interests": {
+        "register_url": null,
+        "register_date": null,
+        "employment": [],
+        "directorships": [],
+        "memberships": [],
+        "sponsorship": [],
+        "land": [],
+        "other": [],
+        "note": "The council has not published a register entry for this councillor. They were elected in May 2026 and the form may not have been filed yet."
+      },
+      "declared_links": [],
+      "contact": {
+        "email": "esme.quill@cllr.example.gov.uk",
+        "address": "C/O the Guildhall, Example EX1 1AA"
+      },
+      "summary": "Councillor Esme Quill has represented Marlpit ward since 7 May 2026. She sits on full Council and the Licensing committee.",
+      "source_ids": [
+        "fixture-directory"
+      ],
+      "source_urls": [
+        "https://example.org/example-borough-council/councillors"
+      ],
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "councillor-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "753267ef677583ad000e38516edb57ff9e24f4f512be56afd0930c1cb38e5a42"
+      }
+    },
+    {
+      "id": "cllr-fitz-arundel",
+      "name": "Councillor Fitz Arundel",
+      "party": "Reform UK",
+      "ward": "Marlpit",
+      "first_elected": "2026-05-07",
+      "first_elected_precision": "day",
+      "current_term_start": "2026-05-07",
+      "elections": [
+        {
+          "date": "2026-05-07",
+          "date_precision": "day",
+          "result": "elected",
+          "ward": "Marlpit",
+          "votes": null,
+          "majority": null,
+          "turnout_percent": null,
+          "source_url": "https://example.org/example-borough-council/councillors"
+        }
+      ],
+      "roles": [],
+      "committees": [
+        {
+          "slug": "council",
+          "name": "Council",
+          "role": "Member",
+          "since": "2026-05-08"
+        },
+        {
+          "slug": "licensing-committee",
+          "name": "Licensing committee",
+          "role": "Vice chair",
+          "since": "2026-06-05"
+        }
+      ],
+      "outside_bodies": [
+        {
+          "name": "There are no current outside bodies for this member.",
+          "since": null
+        }
+      ],
+      "attendance": {
+        "expected": 12,
+        "attended": 5,
+        "period": "the 12 months to 8 September 2026",
+        "source_url": "https://example.org/example-borough-council/councillors",
+        "note": "The committee system counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. Being counted absent is not the same as being unexcused: apologies are recorded separately."
+      },
+      "allowances": null,
+      "interests": {
+        "register_url": "https://example.org/example-borough-council/councillors",
+        "register_date": "2026-05-14",
+        "employment": [],
+        "directorships": [],
+        "memberships": [],
+        "sponsorship": [],
+        "land": [],
+        "other": [],
+        "note": "Example Borough publishes this councillor's register as a scanned picture of the paper form, signed on 14 May 2026. A scan cannot be read as text, so nothing from it is reproduced here. The form itself is linked, and you can read it yourself."
+      },
+      "declared_links": [],
+      "contact": {
+        "email": "fitz.arundel@cllr.example.gov.uk",
+        "address": "C/O the Guildhall, Example EX1 1AA"
+      },
+      "summary": "Councillor Fitz Arundel has represented Marlpit ward since 7 May 2026. He is vice chair of the Licensing committee.",
+      "source_ids": [
+        "fixture-directory"
+      ],
+      "source_urls": [
+        "https://example.org/example-borough-council/councillors"
+      ],
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "councillor-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "035dd71722958a17132ae66348b7f73ed055033f06a9d595391aa4a932adfaef"
+      }
+    }
+  ],
+  "officers": [
+    {
+      "id": "officer-chief-executive",
+      "role": "Chief executive",
+      "name": "Marion Threlfall",
+      "statutory_role": "head_of_paid_service",
+      "pay_band": "£146,182 - £159,278",
+      "pay_note": "The council's pay policy statement says the chief executive is the head of paid service — the most senior member of staff — and is also the returning officer, who runs elections and is paid separate fees for it.",
+      "as_of": "2026-09-08",
+      "summary": "Marion Threlfall is the council's most senior employee. Officers are hired, not elected: they carry out what councillors decide.",
+      "source_ids": [
+        "fixture-officers"
+      ],
+      "source_url": "https://example.org/example-borough-council/councillors",
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "officer-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "41e63d617f76773b442969c494bc7db2aed4beead5d52f4e310a88af87d3bc82"
+      }
+    },
+    {
+      "id": "officer-director-of-resources",
+      "role": "Executive director of resources",
+      "name": null,
+      "statutory_role": null,
+      "pay_band": "£103,686 - £111,508",
+      "pay_note": "This is the executive director pay scale from the council's own pay policy statement. Its list of salaries over £50,000 does not show this post separately.",
+      "as_of": "2026-09-08",
+      "summary": "The post is vacant, or the council does not say who holds it.",
+      "source_ids": [
+        "fixture-officers"
+      ],
+      "source_url": "https://example.org/example-borough-council/councillors",
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "officer-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "218a9168a25f2753d7886a4d72ffa39f79c6828dd1138ef16ef12ec7e785ca33"
+      }
+    },
+    {
+      "id": "officer-monitoring-officer",
+      "role": "Head of legal and governance",
+      "name": null,
+      "statutory_role": "monitoring_officer",
+      "pay_band": "£77,443 - £81,707",
+      "pay_note": null,
+      "as_of": "2026-09-08",
+      "summary": "The council names the post and its pay band, but not the person in it.",
+      "source_ids": [
+        "fixture-officers"
+      ],
+      "source_url": "https://example.org/example-borough-council/councillors",
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "officer-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "72989abfa230cf7f40c084c62f67245cd0ed055158ce2381e37a1a7f711e9e52"
+      }
+    },
+    {
+      "id": "officer-section-151",
+      "role": "Section 151 officer",
+      "name": null,
+      "statutory_role": "section_151",
+      "pay_band": null,
+      "pay_note": null,
+      "as_of": "2026-09-08",
+      "summary": "The council names the role in its constitution but does not publish who holds it.",
+      "source_ids": [
+        "fixture-officers"
+      ],
+      "source_url": "https://example.org/example-borough-council/councillors",
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "officer-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "43f404361900aa57a7d453ccba8821cf6e72cd1642ee2115d7cf56113f4b0c4e"
+      }
+    }
+  ],
+  "bodies": [
+    {
+      "slug": "cabinet",
+      "name": "Cabinet",
+      "kind": "cabinet",
+      "purpose": "The Cabinet is the small group of councillors the leader appoints to take the day-to-day decisions. Each member looks after one area, such as housing or money.",
+      "members": [
+        "cllr-ada-fennimore",
+        "cllr-dorian-pace"
+      ],
+      "chair": "cllr-ada-fennimore",
+      "vice_chair": null,
+      "source_ids": [
+        "fixture-committees"
+      ],
+      "source_url": "https://example.org/example-borough-council/councillors",
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "body-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "dd205d75679f528a17f3a9eb2a1bbb83d8e4c21340fe7e77f81445bca452186a"
+      }
+    },
+    {
+      "slug": "council",
+      "name": "Council",
+      "kind": "council",
+      "purpose": "Every councillor sits on full Council. It sets the budget and the council tax, and it is the only body that can change the constitution.",
+      "members": [
+        "cllr-ada-fennimore",
+        "cllr-bevan-okoro",
+        "cllr-cerys-hallam",
+        "cllr-dorian-pace",
+        "cllr-esme-quill",
+        "cllr-fitz-arundel"
+      ],
+      "chair": null,
+      "vice_chair": null,
+      "source_ids": [
+        "fixture-committees"
+      ],
+      "source_url": "https://example.org/example-borough-council/councillors",
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "body-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "13c477af29d8773b05d5d30411db599f470ecd813ed5492ccf3e19e940a351d0"
+      }
+    },
+    {
+      "slug": "licensing-committee",
+      "name": "Licensing committee",
+      "kind": "committee",
+      "purpose": "The Licensing committee makes sure venues and events follow the rules on selling alcohol, putting on entertainment and running clubs.",
+      "members": [
+        "cllr-esme-quill",
+        "cllr-fitz-arundel"
+      ],
+      "chair": null,
+      "vice_chair": "cllr-fitz-arundel",
+      "source_ids": [
+        "fixture-committees"
+      ],
+      "source_url": "https://example.org/example-borough-council/councillors",
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "body-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "78c119c5d9082724aeb6aaa038c1746bad8c490cc9a37ee3a67f5c440cff4449"
+      }
+    },
+    {
+      "slug": "scrutiny-committee",
+      "name": "Scrutiny committee",
+      "kind": "committee",
+      "purpose": "The Scrutiny committee checks the decisions Cabinet takes and can ask it to think again. It cannot overturn a decision on its own.",
+      "members": [
+        "cllr-bevan-okoro",
+        "cllr-cerys-hallam"
+      ],
+      "chair": "cllr-cerys-hallam",
+      "vice_chair": null,
+      "source_ids": [
+        "fixture-committees"
+      ],
+      "source_url": "https://example.org/example-borough-council/councillors",
+      "ai": {
+        "source_ids": [
+          "fixture-directory",
+          "fixture-register"
+        ],
+        "prompt_version": "body-v1",
+        "model": "fixture (no model was run)",
+        "confidence": "low",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "86cbb1f89f4c768e35c2ca7be3092fd0bbf3e385a1e58ffae6467bacfd11f14d"
+      }
+    }
+  ],
+  "gaps": [
+    {
+      "area": "composition",
+      "description": "The council does not publish the date of its next election anywhere we could find, so this page does not give one."
+    },
+    {
+      "area": "interests",
+      "description": "Two of the six registers are published as scanned pictures with no text in the file, so nothing from them can be shown here."
+    },
+    {
+      "area": "interests",
+      "description": "One register puts a councillor's own interests in the same column as their partner's, and the published file does not keep the two apart."
+    },
+    {
+      "area": "allowances",
+      "description": "The council publishes allowances a year in arrears, so there is no figure yet for anyone elected in May 2026."
+    },
+    {
+      "area": "officers",
+      "description": "The council names the monitoring officer post and the section 151 role, but not the people holding them."
+    },
+    {
+      "area": "attendance",
+      "description": "One councillor has no attendance figure published, so this page shows none rather than a zero."
+    }
+  ],
+  "corrections_url": "https://example.org/corrections"
+}

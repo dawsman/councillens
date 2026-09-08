@@ -2437,3 +2437,449 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   .gloss-more { display: none; }
   .explain > summary { color: #000; }
 }
+
+/* ==========================================================================
+   Who decides
+
+   The one page that names living people. It reads like a record, not a
+   lineup: no photographs, no faces, no shadows, and nothing that puts anyone
+   in an order. Party colour lives in exactly three places — the composition
+   bar, the swatch beside a party name, and a card's left rule — and never in
+   the same block as a scorecard status, so the site's two colour systems
+   cannot be read as one.
+
+   Palette checked with the dataviz validator against #fcfcfb and the dark
+   surface. Light passes the lightness band, adjacent-pair CVD separation
+   (worst is Labour vs Green, deutan dE 12.0 — the pair that matters most on
+   a page about who runs the council), the normal-vision floor (16.6) and 3:1
+   against the surface. Dark passes CVD, normal vision and contrast. One
+   deliberate failure in both: the Independent grey is below the chroma floor,
+   because "independent" means no party and the colour should read as an
+   absence, exactly as the scorecard's grey does.
+   ========================================================================== */
+
+:root {
+  --party-green: #4C9B5F;      --party-green-on: #14201F;   --party-green-text: #2F6B41;
+  --party-labour: #A82D45;     --party-labour-on: #FFFFFF;  --party-labour-text: #8E1F30;
+  --party-libdem: #C07B00;     --party-libdem-on: #14201F;  --party-libdem-text: #7C5000;
+  --party-reform: #0F94B5;     --party-reform-on: #14201F;  --party-reform-text: #0A5F75;
+  --party-conservative: #2F5DA8; --party-conservative-on: #FFFFFF; --party-conservative-text: #274C88;
+  --party-independent: #5B6067; --party-independent-on: #FFFFFF; --party-independent-text: #4A5057;
+  --party-other: #6E5A86;      --party-other-on: #FFFFFF;   --party-other-text: #574569;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --party-green: #5CC97F;      --party-green-on: #08171A;   --party-green-text: #5CC97F;
+    --party-labour: #D95A74;     --party-labour-on: #08171A;  --party-labour-text: #E97E93;
+    --party-libdem: #CE9426;     --party-libdem-on: #08171A;  --party-libdem-text: #DDA83F;
+    --party-reform: #36B4DE;     --party-reform-on: #08171A;  --party-reform-text: #36B4DE;
+    --party-conservative: #6E9BE8; --party-conservative-on: #08171A; --party-conservative-text: #6E9BE8;
+    --party-independent: #9AA6AC; --party-independent-on: #08171A; --party-independent-text: #9AA6AC;
+    --party-other: #AE95C9;      --party-other-on: #08171A;   --party-other-text: #AE95C9;
+  }
+}
+
+.party-green { --party: var(--party-green); --party-on: var(--party-green-on); }
+.party-labour { --party: var(--party-labour); --party-on: var(--party-labour-on); }
+.party-libdem { --party: var(--party-libdem); --party-on: var(--party-libdem-on); }
+.party-reform { --party: var(--party-reform); --party-on: var(--party-reform-on); }
+.party-conservative { --party: var(--party-conservative); --party-on: var(--party-conservative-on); }
+.party-independent { --party: var(--party-independent); --party-on: var(--party-independent-on); }
+.party-other { --party: var(--party-other); --party-on: var(--party-other-on); }
+
+.party-text-green { color: var(--party-green-text); }
+.party-text-labour { color: var(--party-labour-text); }
+.party-text-libdem { color: var(--party-libdem-text); }
+.party-text-reform { color: var(--party-reform-text); }
+.party-text-conservative { color: var(--party-conservative-text); }
+.party-text-independent { color: var(--party-independent-text); }
+.party-text-other { color: var(--party-other-text); }
+
+@media (min-width: 62rem) {
+  main.wrap > .pgrid-wrap,
+  main.wrap > .pbodies,
+  main.wrap > .pofficers,
+  main.wrap > .composition { max-width: none; }
+}
+.pcard p, .pbody p, .honesty p, .plegend-item p { max-width: none; }
+
+/* ------------------------------------------------------ the honesty note -- */
+
+/* Under the title, before anything is asked of the reader. Not a footnote,
+   not behind a toggle: on a page of named people it is part of the page. */
+.honesty {
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--link);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1.1rem 1.3rem 1.2rem;
+  margin: 0 0 2rem;
+}
+.honesty-head { font-size: var(--step-1); margin-bottom: 0.6rem; }
+.honesty p { margin-bottom: 0.7rem; max-width: 40rem; }
+.honesty p:last-child { margin-bottom: 0; }
+/* A placeholder that must not be mistaken for an address. */
+.todo-token {
+  font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 0.92em;
+  background: var(--amber-wash);
+  color: var(--amber-ink);
+  border: 1px dashed var(--amber-edge);
+  border-radius: var(--radius);
+  padding: 0.05rem 0.3rem;
+  white-space: nowrap;
+}
+.honesty-todo {
+  border-top: 1px dashed var(--line-strong);
+  padding-top: 0.7rem;
+  color: var(--ink);
+}
+.review-warn {
+  border: 1px solid var(--amber-edge);
+  border-left: 5px solid var(--amber);
+  background: var(--amber-wash);
+  color: var(--amber-ink);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.1rem;
+  margin: 0 0 2rem;
+}
+.review-warn a { color: inherit; }
+
+/* ------------------------------------------------------- the seats held --- */
+
+.composition { margin: 0 0 2.4rem; }
+.composition-summary { font-size: var(--step-1); max-width: 40rem; margin-bottom: 1rem; }
+.pbar {
+  display: flex;
+  gap: 2px;
+  block-size: 2.6rem;
+  margin: 0 0 0.7rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.pbar-seg {
+  background: var(--party);
+  color: var(--party-on);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  min-inline-size: 2px;
+}
+/* Only segments wide enough to hold their number carry one. A one-seat
+   segment is nine pixels across on a phone, and widening it to fit text
+   would misstate the share — so the legend below carries every count, and it
+   is always visible rather than a fallback. */
+.pbar-count { font-size: var(--step--1); }
+.plegend {
+  list-style: none;
+  margin: 0 0 0.8rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.4rem;
+}
+.plegend-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: var(--step--1);
+}
+.pswatch {
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+  border-radius: 2px;
+  background: var(--party);
+  flex: none;
+  align-self: center;
+}
+.plegend-party { font-weight: 700; }
+.plegend-seats { font-variant-numeric: tabular-nums; }
+.plegend-share { color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.plegend-inline { margin-bottom: 0.6rem; gap: 0.3rem 1rem; }
+.composition-asof, .composition-next {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-bottom: 0.3rem;
+  max-width: 40rem;
+}
+
+/* ------------------------------------------------------- councillors ------ */
+
+.pward-nav { margin: 1.1rem 0 1.2rem; }
+.pward-nav-label {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+.pward-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+}
+.pward-nav a {
+  display: inline-block;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.2rem 0.55rem;
+  font-size: var(--step--1);
+  text-decoration: none;
+  background: var(--surface);
+}
+.pward-nav a:hover { border-color: var(--link); text-decoration: underline; }
+
+.pcontrols {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.7rem 1.1rem;
+  margin: 0 0 1.4rem;
+  padding: 0.85rem 1rem;
+  background: var(--surface-sunk);
+  border-radius: var(--radius);
+}
+.pcontrol { display: grid; gap: 0.25rem; }
+.pcontrol label { font-size: var(--step--1); color: var(--ink-soft); }
+.pcontrol input, .pcontrol select {
+  font: inherit;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  min-inline-size: 12rem;
+}
+.pcontrol-count { font-size: var(--step--1); color: var(--ink-soft); margin: 0; align-self: center; }
+
+.pward { margin: 0 0 1.8rem; }
+.pward-head {
+  font-size: var(--step-1);
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.pgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 0.9rem;
+}
+.pcard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--party, var(--line-strong));
+  border-radius: var(--radius);
+  padding: 0.85rem 1.05rem 0.9rem;
+}
+.pcard-name { font-size: var(--step-2); line-height: 1.15; margin-bottom: 0.15rem; }
+/* Cards live under a ward heading, so a headline-sized ward on each of the
+   three cards below it says the same word four times. It stays, because the
+   search filter mixes wards together, but as a label rather than a headline. */
+.pcard-ward {
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+/* An opened card needs room to hold a register entry, so it takes the whole
+   row rather than squeezing four sections into one column. */
+.pgrid .pcard:has(> details[open]) { grid-column: 1 / -1; }
+.pcard-party {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--step--1);
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+.pcard-since { font-size: var(--step--1); color: var(--ink-soft); margin-bottom: 0.5rem; }
+.prole-list { list-style: none; margin: 0 0 0.6rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.prole {
+  font-size: var(--step--1);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  background: var(--surface-sunk);
+}
+.pcard-more { margin-top: 0.2rem; }
+.pcard-sec {
+  font-size: var(--step--1);
+  text-transform: none;
+  color: var(--ink-soft);
+  margin: 1rem 0 0.35rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--line);
+}
+.pcard-sec:first-child { margin-top: 0; }
+.pjobs, .psources, .pdecl-items { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3rem; }
+.pjobs li, .psources li, .pdecl-items li { font-size: var(--step--1); }
+.pjob-since, .pjob-role { color: var(--ink-soft); }
+.pjob-role::before, .pjob-since::before { content: "· "; }
+.pjobs-outside { margin-top: 0.4rem; color: var(--ink-soft); }
+.pjobs-none, .pnone { color: var(--ink-soft); font-size: var(--step--1); }
+.psources li { overflow-wrap: anywhere; }
+.pmail { font-size: var(--step--1); }
+.pmail-note { display: block; color: var(--ink-soft); }
+
+/* What a councillor declared. The standing sentence is not a caption: it is
+   the thing that stops a register being read as an accusation, so it sits
+   above the list and never below it. */
+.pdecl-standing {
+  font-size: var(--step--1);
+  color: var(--ink);
+  background: var(--surface-sunk);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.7rem;
+  margin-bottom: 0.6rem;
+}
+.pdecl-list { margin: 0 0 0.6rem; }
+.pdecl-row { margin-bottom: 0.55rem; }
+.pdecl-row dt { font-size: var(--step--1); font-weight: 700; margin-bottom: 0.15rem; }
+.pdecl-row dd { margin: 0; }
+.pdecl-cat { color: var(--ink-soft); }
+.pdecl-cat::before { content: "· "; }
+.pdecl-note, .patt-note, .pallow-note {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-bottom: 0.4rem;
+}
+.pdecl-src, .pallow-src { font-size: var(--step--1); overflow-wrap: anywhere; }
+
+.patt-line, .pallow-line { font-size: var(--step--1); margin-bottom: 0.35rem; }
+.patt-bar {
+  block-size: 0.5rem;
+  background: var(--surface-sunk);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.35rem;
+  max-inline-size: 18rem;
+}
+.patt-fill { display: block; block-size: 100%; background: var(--line-strong); }
+.patt-none, .pallow-none { color: var(--ink-soft); }
+
+/* --------------------------------------------------------- the officers --- */
+
+.pofficers { margin: 0 0 2.4rem; }
+.ptable-wrap { overflow-x: auto; margin: 1.1rem 0 0.8rem; }
+.ptable { border-collapse: collapse; inline-size: 100%; min-inline-size: 34rem; }
+.ptable th, .ptable td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.55rem 0.8rem 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--step--1);
+}
+.ptable thead th {
+  border-bottom: 2px solid var(--line-strong);
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+.ptable tbody th { font-weight: 700; padding-right: 1.2rem; }
+.ptable td:last-child { font-variant-numeric: tabular-nums; }
+.ptable td:last-child { min-inline-size: 11rem; }
+.pduty { color: var(--ink-soft); }
+/* On a phone a four-column table is a sideways scroll, which is the one thing
+   a reader looking for a name will not do. Each row becomes a small block
+   with its own labels instead, and nothing is dropped. */
+@media (max-width: 44rem) {
+  .ptable-wrap { overflow-x: visible; }
+  .ptable { min-inline-size: 0; }
+  .ptable thead { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); }
+  .ptable tr {
+    display: block;
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 0.7rem 0.9rem 0.75rem;
+    margin-bottom: 0.7rem;
+  }
+  .ptable th, .ptable td { display: block; border: 0; padding: 0; }
+  .ptable tbody th {
+    font-size: var(--step-1);
+    padding: 0 0 0.45rem;
+    line-height: 1.25;
+  }
+  .ptable td { padding-top: 0.45rem; }
+  .ptable td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+  }
+  .ptable td:last-child { min-inline-size: 0; }
+}
+.pofficer-note {
+  display: block;
+  font-size: 0.92em;
+  font-variant-numeric: normal;
+  color: var(--ink-soft);
+  margin-top: 0.3rem;
+  max-width: 24rem;
+}
+
+/* -------------------------------------------------------- the committees -- */
+
+.pbodies { margin: 0 0 2.4rem; }
+.pbody-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.1rem;
+}
+.pbody {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem 1rem;
+}
+.pbody-name { font-size: var(--step-1); margin-bottom: 0.3rem; }
+.pbody-purpose { font-size: var(--step--1); color: var(--ink); margin-bottom: 0.4rem; }
+.pbody-count { font-size: var(--step--1); color: var(--ink-soft); margin-bottom: 0.5rem; }
+.pbody-members { list-style: none; margin: 0 0 0.6rem; padding: 0; display: grid; gap: 0.28rem; }
+.pbody-member { font-size: var(--step--1); display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.45rem; }
+.pbody-role {
+  font-weight: 700;
+  color: var(--ink-soft);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0 0.45rem;
+  font-size: 0.88em;
+}
+.pbody-link {
+  font-weight: 600;
+  border-left: 3px solid var(--party, var(--line-strong));
+  padding-left: 0.4rem;
+}
+.pbody-ward { color: var(--ink-soft); }
+.pbody-src { font-size: var(--step--1); }
+.pbodies-topic .pbody-grid { grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); }
+.pbodies-more { font-size: var(--step--1); margin-top: 0.9rem; }
+
+.pgap-group { margin-bottom: 1.2rem; }
+.pgap-area {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-bottom: 0.4rem;
+}
+
+.who-cta, .council-who { margin: 0 0 2rem; }
+.council-who { margin: 0.9rem 0 0.9rem; }
+.council-who-head { font-weight: 700; margin-bottom: 0.4rem; }
+
+@media print {
+  .pcontrols, .pward-nav, .pbodies-more, .who-cta .button { display: none !important; }
+  .pcard, .pbody, .pward, .honesty { break-inside: avoid; }
+  .pcard { border: 1px solid #000; border-left: 5px solid #000; background: #fff; }
+  .pbody { border: 1px solid #000; border-top: 5px solid #000; background: #fff; }
+  .pbar-seg { border: 1px solid #000; color: #000; background: #fff; }
+  .pswatch { border: 1px solid #000; }
+  .honesty { border: 1px solid #000; border-left: 5px solid #000; }
+  .review-warn { border: 1px solid #000; background: #fff; color: #000; }
+  .todo-token { border: 1px dashed #000; background: #fff; color: #000; }
+  .ptable th, .ptable td { border-bottom: 1px solid #666; }
+}

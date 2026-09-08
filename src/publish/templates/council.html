@@ -35,6 +35,23 @@
 </section>
 {% endif %}
 
+{% if council.people %}
+<section class="who-cta" aria-labelledby="who-cta-head">
+  <h2 class="section-head" id="who-cta-head">Who decides all this?</h2>
+  <p>{{ council.people.composition.summary | gloss }}</p>
+  <ul class="plegend plegend-inline">
+    {% for pa in council.people._parties %}
+    <li class="plegend-item">
+      <span class="pswatch party-{{ pa.key }}" aria-hidden="true"></span>
+      <span class="plegend-party party-text-{{ pa.key }}">{{ pa.party }}</span>
+      <span class="plegend-seats">{{ pa.seats }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  <p><a class="button" href="who-decides/index.html">The councillors, the committees and the officers</a></p>
+</section>
+{% endif %}
+
 {% if council.council.remit_note %}
 <section class="remit" aria-labelledby="remit-head">
   <h2 id="remit-head">What this council is actually in charge of</h2>

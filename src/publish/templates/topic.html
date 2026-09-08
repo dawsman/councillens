@@ -2,6 +2,7 @@
 {% import "_parts.html" as parts with context %}
 {% import "_viz.html" as viz with context %}
 {% import "_score.html" as score with context %}
+{% import "_people.html" as people with context %}
 
 {% block title %}{{ m.topic.name }} — {{ m.council.name }} — CouncilLens{% endblock %}
 {% block description %}{{ m.topic.plain_english }}{% endblock %}
@@ -105,6 +106,21 @@
 <section class="stage" aria-labelledby="stage-orphans">
   <h3 class="stage-head" id="stage-orphans"><span class="stage-rule" aria-hidden="true"></span>Other links we checked</h3>
   {% for link in orphans %}{{ parts.linkage(link) }}{% endfor %}
+</section>
+{% endif %}
+
+{# ---- Who took these decisions ---- #}
+{% if topic_bodies %}
+<section class="pbodies pbodies-topic" aria-labelledby="topic-bodies-head">
+  <h2 class="section-head" id="topic-bodies-head">Who decided this</h2>
+  <p class="section-intro">The documents on this page came out of {{ "these rooms" if topic_bodies | length > 1 else "this room" }}.
+    These are the councillors who sit in {{ "them" if topic_bodies | length > 1 else "it" }}.</p>
+  <div class="pbody-grid">
+    {% for b in topic_bodies %}
+    {{ people.committee(b, pp, 'h3', standalone=true) }}
+    {% endfor %}
+  </div>
+  <p class="pbodies-more"><a href="{{ root }}councils/{{ m._council_slug }}/who-decides/index.html">Every councillor, committee and officer at this council</a></p>
 </section>
 {% endif %}
 

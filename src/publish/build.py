@@ -295,14 +295,21 @@ def load_models(use_fixture: bool) -> tuple[list[dict], list[str]]:
     """Return (topic models, notes to print)."""
     notes: list[str] = []
     if use_fixture:
-        fixtures = sorted(FIXTURE_PATH.parent.glob("*.json"))
-        if not fixtures:
-            sys.exit(f"No fixtures found in {FIXTURE_PATH.parent}")
+        # The fixtures directory holds more than topics — the example people
+        # model lives there too — so the same rule applies as to the analysed
+        # directory: a topic model is the one with a `topic` block.
+        loaded = []
+        for path in sorted(FIXTURE_PATH.parent.glob("*.json")):
+            model = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(model, dict) and "topic" in model:
+                loaded.append((path, model))
+        if not loaded:
+            sys.exit(f"No topic fixtures found in {FIXTURE_PATH.parent}")
         notes.append(
             "Building from the example topic model(s): "
-            + ", ".join(f.name for f in fixtures) + "."
+            + ", ".join(f.name for f, _ in loaded) + "."
         )
-        return [json.loads(f.read_text(encoding="utf-8")) for f in fixtures], notes
+        return [m for _, m in loaded], notes
 
     files = sorted(ANALYSED_DIR.glob("**/*.json")) if ANALYSED_DIR.exists() else []
     if not files:
@@ -316,9 +323,18 @@ def load_models(use_fixture: bool) -> tuple[list[dict], list[str]]:
     models = []
     for path in files:
         try:
-            models.append(json.loads(path.read_text(encoding="utf-8")))
+            model = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError as exc:
             notes.append(f"Skipped {path.relative_to(REPO_ROOT)}: not valid JSON ({exc}).")
+            continue
+        # data/analysed/ holds one file per analyse stage, and not all of them are
+        # topics. A topic model is the one with a `topic` block; anything else
+        # belongs to a page this build does not render yet, and rendering it as a
+        # topic would put a page on the site that no analyse stage wrote.
+        if not isinstance(model, dict) or "topic" not in model:
+            notes.append(f"Skipped {path.relative_to(REPO_ROOT)}: not a topic model.")
+            continue
+        models.append(model)
     notes.append(f"Loaded {len(models)} topic model(s) from data/analysed/.")
     return models, notes
 
@@ -592,6 +608,32 @@ def money(value: Any, display: str | None) -> str | None:
     if abs(n) >= 1_000:
         return f"\u00a3{n / 1_000:,.0f}k"
     return f"\u00a3{n:,.0f}"
+
+
+def pounds(value: Any) -> str | None:
+    """An exact amount, to the pound. Allowances are rounded by nobody but us,
+    and "£8k" for £7,805.08 is a figure the council never published."""
+    try:
+        return f"\u00a3{round(float(value)):,}"
+    except (TypeError, ValueError):
+        return None
+
+
+def source_label(url: Any) -> str:
+    """A readable name for a bare link: the site, and the page it points at."""
+    text = str(url or "")
+    m = re.match(r"https?://([^/]+)(/.*)?$", text)
+    if not m:
+        return text
+    host = m.group(1).removeprefix("www.")
+    tail = (m.group(2) or "").rstrip("/").rsplit("/", 1)[-1]
+    tail = re.sub(r"\.(aspx|html?|pdf|csv)$", "", tail.split("?")[0], flags=re.I)
+    tail = re.sub(r"[-_+]+", " ", tail).strip()
+    # Council URLs run words into years ("council2025-election-results").
+    tail = re.sub(r"(?<=[a-z])(?=\d)", " ", tail)
+    if not tail or len(tail) > 60 or tail.lower() in ("default", "index"):
+        return host
+    return f"{host} — {tail[:1].upper()}{tail[1:]}"
 
 
 def prepare_figures(model: dict) -> list[dict]:
@@ -1269,19 +1311,265 @@ def prepare_scorecard(council: dict) -> dict | None:
     }
 
 
-def group_councils(models: Iterable[dict]) -> list[dict]:
+# --------------------------------------------------------------------------
+# Who decides
+#
+# One "people" model per council, written by src/analyse/build_people.py and
+# validated against data/schemas/people.schema.json. It is not a topic, so it
+# is loaded separately from the topic models and never rendered as one.
+#
+# This page names living people, so the rules it is built to are stricter than
+# anywhere else on the site: nothing is computed, nothing is ranked, nothing
+# is fetched from a councillor's own links, and an absent field says what the
+# council does not publish rather than showing a blank or a zero.
+# --------------------------------------------------------------------------
+
+# The statutory posts, in the six-words-or-fewer form the spec asks for. The
+# gloss is shown the first time the post appears and not repeated.
+STATUTORY = {
+    "head_of_paid_service": ("Head of paid service", "the council's most senior member of staff"),
+    "monitoring_officer": ("Monitoring officer", "makes sure the council follows the law"),
+    "section_151": ("Section 151 officer", "legally responsible for the council's money"),
+}
+
+# Party colours. Recognisable without being campaign material: one weight, no
+# gradients, and every segment carries its seat count as text, so the colour is
+# never the only thing telling a reader which party a segment is.
+PARTY_KEY = {
+    "green": "green",
+    "labour": "labour", "labour and co-operative": "labour", "labour co-operative": "labour",
+    "liberal democrats": "libdem", "liberal democrat": "libdem", "lib dem": "libdem",
+    "conservative": "conservative", "conservative and unionist": "conservative",
+    "reform uk": "reform", "reform": "reform",
+    "independent": "independent", "no party": "independent", "no party affiliation": "independent",
+}
+
+
+def slugify(text: str) -> str:
+    """A URL and id fragment from a name: "Mile Cross" -> "mile-cross"."""
+    return re.sub(r"[^a-z0-9]+", "-", (text or "").lower()).strip("-") or "unnamed"
+
+
+def party_key(party: str | None) -> str:
+    """A CSS-safe token for a party name, falling back to a neutral slot.
+
+    Councils write the same party two ways in the same file — "Green Party"
+    in the seat counts, "The Green Party" on a councillor — so the name is
+    reduced to a stem before it is looked up, not matched literally.
+    """
+    name = re.sub(r"^the\s+", "", (party or "").strip().lower())
+    name = re.sub(r"\s+(party|group)$", "", name).strip()
+    return PARTY_KEY.get(name, "other")
+
+
+def surname(name: str | None) -> str:
+    """Sort key. "Councillor Beth Jones" files under J, the way a list does."""
+    parts = (name or "").replace("Councillor", "").strip().split()
+    return (parts[-1] if parts else "").lower()
+
+
+def load_people(use_fixture: bool = False) -> dict[str, dict]:
+    """The people models, keyed by council slug.
+
+    One per council, written by the analyse stage to
+    ``data/analysed/<slug>/people.json``. It is not a topic model and is never
+    rendered as one. With ``--fixture`` the example council is used instead, so
+    the page can be designed and reviewed without any real person's details
+    being on this machine at all.
+    """
+    out: dict[str, dict] = {}
+    if use_fixture:
+        for path in sorted(FIXTURE_PATH.parent.glob("*people*.json")):
+            try:
+                model = json.loads(path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                continue
+            slug = (model.get("council") or {}).get("slug") or path.stem
+            model["_fixture"] = True
+            out[slug] = model
+        return out
+    if not ANALYSED_DIR.exists():
+        return out
+    for path in sorted(ANALYSED_DIR.glob("*/people.json")):
+        try:
+            model = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        slug = (model.get("council") or {}).get("slug") or path.parent.name
+        out[slug] = model
+    return out
+
+
+def prepare_people(model: dict) -> dict:
+    """Everything the who-decides template needs, worked out once.
+
+    Nothing here derives a judgement. Sorting is so a reader can find a person,
+    counting is so a bar can be drawn from the council's own seat numbers, and
+    that is the whole of it.
+    """
+    comp = model.get("composition") or {}
+    total = comp.get("total_seats") or sum(
+        (row.get("seats") or 0) for row in comp.get("seats_by_party") or [])
+    parties = []
+    for row in comp.get("seats_by_party") or []:
+        seats = row.get("seats") or 0
+        parties.append({
+            "party": row.get("party") or "Not stated",
+            "seats": seats,
+            "key": party_key(row.get("party")),
+            "share": (100.0 * seats / total) if total else 0.0,
+        })
+    model["_parties"] = parties
+    model["_total_seats"] = total
+    model["_party_key"] = {p["party"]: p["key"] for p in parties}
+
+    by_id: dict[str, dict] = {}
+    for c in model.get("councillors") or []:
+        c["_key"] = party_key(c.get("party"))
+        c["_surname"] = surname(c.get("name"))
+        c["_since"] = human_date(c.get("first_elected"), c.get("first_elected_precision"))
+        c["_email"] = ((c.get("contact") or {}).get("email")) or None
+        c["_ai"] = provenance(c.get("ai"))
+        # The committee system writes "There are no current outside bodies for
+        # this member." into the field itself. That is the council's empty
+        # state, not an appointment, so it is not rendered as one.
+        c["_outside"] = [o for o in (c.get("outside_bodies") or [])
+                         if not re.match(r"there (are|is) no", (o.get("name") or ""), re.I)]
+        # Several source URLs differ only in a query string and would print the
+        # same line three times. One line per distinct label; first URL wins.
+        seen_src: dict[str, str] = {}
+        for url in c.get("source_urls") or []:
+            seen_src.setdefault(source_label(url), url)
+        c["_sources"] = [{"label": k, "url": v} for k, v in seen_src.items()]
+        # A council lists "Chair, Cabinet" as a role AND Cabinet as a committee
+        # place. Both are true, but printing them one under the other reads as
+        # a mistake, so a committee already named by a role is not repeated.
+        named = {r.get("body_slug") for r in (c.get("roles") or []) if r.get("body_slug")}
+        c["_committees"] = [x for x in (c.get("committees") or [])
+                            if x.get("slug") not in named]
+        interests = c.get("interests") or {}
+        c["_interests"] = [
+            (label, interests.get(field) or [])
+            for field, label in (
+                ("employment", "Jobs"),
+                ("directorships", "Companies they help run"),
+                ("memberships", "Groups they belong to"),
+                ("sponsorship", "Help with election costs"),
+                ("land", "Land and property"),
+                ("other", "Anything else"),
+            )
+        ]
+        c["_has_interests"] = any(items for _, items in c["_interests"])
+        c["_register_date"] = human_date(interests.get("register_date"), "day")
+        att = c.get("attendance") or None
+        if att and att.get("expected"):
+            att["_share"] = 100.0 * (att.get("attended") or 0) / att["expected"]
+        c["_attendance"] = att
+        # Committees a card links down to, and the ones with no block on the
+        # page (an outside body, say) which therefore link nowhere.
+        by_id[c["id"]] = c
+
+    model["_councillors"] = sorted(
+        model.get("councillors") or [],
+        key=lambda c: ((c.get("ward") or "").lower(), c["_surname"], c.get("name") or ""))
+
+    wards: dict[str, list[dict]] = {}
+    for c in model["_councillors"]:
+        wards.setdefault(c.get("ward") or "No ward recorded", []).append(c)
+    model["_wards"] = [{"name": w, "id": slugify(w), "councillors": cs}
+                       for w, cs in sorted(wards.items())]
+
+    bodies = []
+    for b in model.get("bodies") or []:
+        members = [by_id[i] for i in (b.get("members") or []) if i in by_id]
+        chair = by_id.get(b.get("chair")) if b.get("chair") else None
+        vice = by_id.get(b.get("vice_chair")) if b.get("vice_chair") else None
+        rest = [m for m in members if m is not chair and m is not vice]
+        rest.sort(key=lambda c: c["_surname"])
+        b["_chair"], b["_vice"], b["_members"] = chair, vice, rest
+        b["_count"] = len(members)
+        b["_ai"] = provenance(b.get("ai"))
+        bodies.append(b)
+    bodies.sort(key=lambda b: (b.get("name") or "").lower())
+    model["_bodies"] = bodies
+    model["_body_by_slug"] = {b["slug"]: b for b in bodies}
+    model["_body_by_name"] = {(b.get("name") or "").strip().lower(): b for b in bodies}
+
+    # Committee names a councillor sits on that have a block on this page.
+    for c in model["_councillors"]:
+        for seat in c.get("committees") or []:
+            seat["_linked"] = seat.get("slug") in model["_body_by_slug"]
+            seat["_since"] = human_date(seat.get("since"), "day")
+        for role in c.get("roles") or []:
+            role["_linked"] = role.get("body_slug") in model["_body_by_slug"]
+            role["_since"] = human_date(role.get("since"), "day")
+
+    seen_gloss: set[str] = set()
+    for o in model.get("officers") or []:
+        key = o.get("statutory_role")
+        label, gloss_text = STATUTORY.get(key, (None, None))
+        o["_duty"] = label
+        o["_duty_gloss"] = gloss_text
+        o["_gloss_here"] = bool(label) and key not in seen_gloss
+        o["_ai"] = provenance(o.get("ai"))
+        if label:
+            seen_gloss.add(key)
+    model["_officers"] = model.get("officers") or []
+
+    gaps: dict[str, list[dict]] = {}
+    for g in model.get("gaps") or []:
+        gaps.setdefault(g.get("area") or "other", []).append(g)
+    model["_gaps"] = [{"area": a, "entries": rows} for a, rows in sorted(gaps.items())]
+
+    comp["_ai"] = provenance(comp.get("ai"))
+    model["_as_of"] = human_date(comp.get("as_of"), "day")
+    model["_unchecked"] = any(
+        ((x.get("ai") or {}).get("review_status") == "needs_review")
+        for x in (model.get("councillors") or []) + (model.get("officers") or [])
+                 + (model.get("bodies") or []))
+    return model
+
+
+def bodies_named_by(topic: dict, people: dict | None) -> list[dict]:
+    """The committee blocks a topic page should carry.
+
+    A topic names the body that took each step — on its records, or failing
+    that on the documents those records came from. Only bodies this council's
+    people model actually describes are embedded; a name we cannot match is
+    left alone rather than guessed at.
+    """
+    if not people:
+        return []
+    names: list[str] = []
+    for item in (topic.get("events") or []) + (topic.get("sources") or []):
+        body = (item.get("body") or "").strip().lower()
+        if body and body not in names:
+            names.append(body)
+    return [people["_body_by_name"][n] for n in names if n in people["_body_by_name"]]
+
+
+def group_councils(models: Iterable[dict], people: dict[str, dict] | None = None) -> list[dict]:
     """Collapse topic models into one entry per council, topics nested."""
+    people = people or {}
     councils: dict[str, dict] = {}
     for m in models:
         slug = m["_council_slug"]
         entry = councils.setdefault(slug, {"council": m.get("council") or {}, "topics": []})
         entry["topics"].append(m)
+    # A council can have a people model before any of its topics have been
+    # analysed. It still gets a page: who runs a council does not depend on
+    # our having looked at anything it decided.
+    for slug, model in people.items():
+        entry = councils.setdefault(slug, {"council": model.get("council") or {}, "topics": []})
+        if not entry["council"]:
+            entry["council"] = model.get("council") or {}
     out = []
     for slug, entry in councils.items():
         entry["slug"] = slug
         entry["topics"].sort(key=lambda m: (m.get("topic") or {}).get("name", ""))
         entry["fixture"] = any(m.get("_fixture") for m in entry["topics"])
         entry["scorecard"] = prepare_scorecard(entry)
+        entry["people"] = people.get(slug)
         out.append(entry)
     out.sort(key=lambda c: c["council"].get("name", c["slug"]))
     return out
@@ -1673,6 +1961,9 @@ def make_env() -> Environment:
     )
     env.filters["human_date"] = human_date
     env.filters["gloss"] = gloss
+    env.filters["money"] = lambda v: money(v, None)
+    env.filters["pounds"] = pounds
+    env.filters["source_label"] = source_label
     env.globals.update(
         STAGE_LABEL=STAGE_LABEL,
         STAGE_CHIP=STAGE_CHIP,
@@ -1688,6 +1979,7 @@ def make_env() -> Environment:
         gloss_all=gloss_all,
         explainer=explainer,
         spread=spread,
+        STATUTORY=STATUTORY,
         count_word=count_word,
     )
     return env
@@ -1732,7 +2024,10 @@ def build(out_root: Path, use_fixture: bool, base_path: str) -> int:
         print(f"  {note}")
 
     models = [prepare(m) for m in models_raw]
-    councils = group_councils(models)
+    people = load_people(use_fixture)
+    for slug_, model_ in people.items():
+        prepare_people(model_)
+    councils = group_councils(models, people)
     env = make_env()
     written: list[str] = []
 
@@ -1749,6 +2044,7 @@ def build(out_root: Path, use_fixture: bool, base_path: str) -> int:
         any_fixture=any(m.get("_fixture") for m in models),
         any_measures=any(m.get("_measures") for m in models),
         has_glossary=bool(GLOSSARY),
+        has_people=any(c.get('people') for c in councils),
     )
 
     def page(rel_path: str, template: str, body_md: str | None = None, **ctx: Any) -> None:
@@ -1813,10 +2109,16 @@ def build(out_root: Path, use_fixture: bool, base_path: str) -> int:
             page(f"{base}/scorecard/index.html", "scorecard.html",
                  root="../../../", page_id="scorecard", council=council,
                  sc=council["scorecard"], has_scoring=bool(scoring))
+        if council.get("people"):
+            page(f"{base}/who-decides/index.html", "who_decides.html",
+                 root="../../../", page_id="who-decides", council=council,
+                 pp=council["people"])
         for model in council["topics"]:
             tdir = f"{base}/{model['_topic_slug']}"
             page(f"{tdir}/index.html", "topic.html",
-                 root="../../../", page_id="topic", m=model, council=council)
+                 root="../../../", page_id="topic", m=model, council=council,
+                 pp=council.get("people"),
+                 topic_bodies=bodies_named_by(model, council.get("people")))
             page(f"{tdir}/timeline/index.html", "timeline.html",
                  root="../../../../", page_id="timeline", m=model, council=council)
 

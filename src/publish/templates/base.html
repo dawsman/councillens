@@ -27,6 +27,10 @@
     </a>
     <nav class="masthead-nav" aria-label="Site">
       <a href="{{ root }}methodology/index.html"{% if page_id == 'methodology' %} aria-current="page"{% endif %}>How we work</a>
+      {% if councils | selectattr("people") | list | length == 1 %}
+      {% set wd = (councils | selectattr("people") | first) %}
+      <a href="{{ root }}councils/{{ wd.slug }}/who-decides/index.html"{% if page_id == 'who-decides' %} aria-current="page"{% endif %}>Who decides</a>
+      {% endif %}
       <a href="{{ root }}learn/index.html"{% if page_id == 'learn' %} aria-current="page"{% endif %}>Learn</a>
       {% if has_glossary %}
       <a href="{{ root }}glossary/index.html"{% if page_id == 'glossary' %} aria-current="page"{% endif %}>Words explained</a>
@@ -56,6 +60,10 @@
     <p class="disclaimer">CouncilLens exists so anyone can see the record and argue about it. We do
       not accuse anyone of breaking the law.</p>
     <nav class="footer-nav" aria-label="Footer">
+      {% if councils | selectattr("people") | list | length == 1 %}
+      {% set wdf = (councils | selectattr("people") | first) %}
+      <a href="{{ root }}councils/{{ wdf.slug }}/who-decides/index.html">Who decides</a>
+      {% endif %}
       <a href="{{ root }}learn/index.html">Learn</a>
       {% if has_glossary %}<a href="{{ root }}glossary/index.html">Words explained</a>{% endif %}
       <a href="{{ root }}methodology/index.html">How we work</a>
@@ -66,5 +74,7 @@
       for anyone to use.</p>
   </div>
 </footer>
+
+{% block scripts %}{% endblock %}
 </body>
 </html>

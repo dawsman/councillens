@@ -48,6 +48,20 @@
         <p class="council-score-line">{{ c.scorecard.tally.sentence }}</p>
       </div>
       {% endif %}
+      {% if c.people %}
+      <div class="council-who">
+        <p class="council-who-head"><a href="councils/{{ c.slug }}/who-decides/index.html">Who decides here?</a></p>
+        <ul class="plegend plegend-inline">
+          {% for pa in c.people._parties %}
+          <li class="plegend-item">
+            <span class="pswatch party-{{ pa.key }}" aria-hidden="true"></span>
+            <span class="plegend-party party-text-{{ pa.key }}">{{ pa.party }}</span>
+            <span class="plegend-seats">{{ pa.seats }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
       <ul class="council-topiclist">
         {% for t in c.topics %}
         <li class="council-topic">

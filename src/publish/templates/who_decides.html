@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% import "_people.html" as people with context %}
+{% import "_score.html" as score with context %}
+
+{% block title %}Who decides — {{ pp.council.name }} — CouncilLens{% endblock %}
+{% block description %}The councillors and officers who run {{ pp.council.name }}, from the council's own records and what councillors have declared about themselves.{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li><a href="{{ root }}councils/{{ pp.council.slug }}/index.html">{{ pp.council.name }}</a></li>
+    <li aria-current="page">Who decides</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="page-head">
+  <p class="topic-council">{{ pp.council.name }}</p>
+  <h1>Who decides?</h1>
+  <p class="lede">Every other page on this site ends at the same question. The council decided
+    something — who are they? These are the {{ pp._total_seats }} councillors people elected, the
+    committees they sit on, and the paid officers who carry the decisions out.</p>
+</header>
+
+{# ---- The honesty note. Under the title, before anything else. ---- #}
+<section class="honesty" aria-labelledby="honesty-head">
+  <h2 class="honesty-head" id="honesty-head">About this page</h2>
+  <p>Everything here comes from {{ pp.council.name }}'s own records, or from what councillors have
+    declared about themselves. We have not gone looking anywhere else. No social media, no news
+    reports, no company databases, nothing pieced together from someone's name.</p>
+  <p>Councillors are required by law to declare things that might affect the decisions they take: a
+    job, a directorship, land, help with election costs. They fill that form in themselves and the
+    council publishes it. We reproduce it, we do not interpret it. A declaration is the system
+    working, not evidence of anything.</p>
+  <p>We do not score anyone. There is no league table here, no &ldquo;best&rdquo; or
+    &ldquo;worst&rdquo; councillor, and no opinion about how anyone has voted. If a number looks
+    bad, it is the council's number, and the caveat next to it is the council's caveat.</p>
+  <p>Where we could not find something, we say so instead of guessing.</p>
+  <p><strong>Something wrong?</strong> If you are a councillor or an officer and something on this
+    page is out of date, incomplete, or attributed to the wrong person, tell us and we will fix it.
+    <a href="{{ pp.corrections_url or corrections_url }}">Ask for a correction</a> — it takes a
+    minute and you do not need a GitHub account to email us. We aim to correct factual errors within
+    five working days, and we keep a note of what changed.</p>
+  <p><strong>Want something taken down?</strong> Any councillor or officer named here can ask us to
+    remove or restrict what we show about them, and we will act on it while we look into it rather
+    than after. Write to <span class="todo-token">&lt;REMOVALS_EMAIL&gt;</span> saying what you want
+    removed. We will take the item down within five working days and reply telling you what we did.
+    If we think the material should stay because the council itself still publishes it, we will say
+    so and explain why, and you can take it further with the Information Commissioner's Office.
+    Nothing here is a public-interest judgement we make on our own: if the council stops publishing
+    something, we stop publishing it too.</p>
+  <p class="honesty-todo" role="note"><strong>Not ready to publish.</strong> The removal address
+    above is still a placeholder. This page names living people, so it cannot go live until that
+    address exists and somebody is reading it.</p>
+</section>
+
+{% if pp._unchecked %}
+<div class="review-warn" role="note">
+  <strong>No person has checked this page yet.</strong> Every entry was written by an AI from the
+  council's own documents and is waiting for a human review. On a page of named people that matters
+  more than anywhere else on this site, so treat it as a draft and
+  <a href="{{ pp.corrections_url or corrections_url }}">tell us</a> about anything that is wrong.
+</div>
+{% endif %}
+
+{{ people.composition(pp) }}
+
+{# ---- The councillors ---- #}
+<section class="pgrid-wrap" aria-labelledby="cllrs-head">
+  <h2 class="section-head" id="cllrs-head">The councillors</h2>
+  <p class="section-intro">Three for each ward, listed by ward and then by surname. There is no
+    order of merit here and there never will be: sorting is for finding a person, not for comparing
+    them. Open a card for their committees, what they have declared, their attendance and their
+    allowance.</p>
+
+  <nav class="pward-nav" aria-label="Jump to a ward">
+    <p class="pward-nav-label">Jump to a ward</p>
+    <ul>
+      {% for w in pp._wards %}
+      <li><a href="#ward-{{ w.id }}">{{ w.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <div id="people-controls" class="pcontrols" hidden></div>
+
+  <div id="people-list">
+    {% for w in pp._wards %}
+    <section class="pward" id="ward-{{ w.id }}" aria-labelledby="ward-head-{{ w.id }}">
+      <h3 class="pward-head" id="ward-head-{{ w.id }}">{{ w.name }}</h3>
+      <div class="pgrid">
+        {% for c in w.councillors %}
+        {{ people.card(c, pp, 'h4') }}
+        {% endfor %}
+      </div>
+    </section>
+    {% endfor %}
+  </div>
+  <p id="people-empty" class="empty" hidden>No councillor matches that.</p>
+</section>
+
+{# ---- The paid people ---- #}
+<section class="pofficers" aria-labelledby="officers-head">
+  <h2 class="section-head" id="officers-head">The paid people in charge</h2>
+  <p class="section-intro">Officers are hired, not elected. They carry out what councillors decide.
+    This is the role, the name where the council publishes one, and the pay band — nothing else,
+    because nothing else is any of our business.</p>
+  <div class="ptable-wrap">
+    <table class="ptable">
+      <thead>
+        <tr><th scope="col">Role</th><th scope="col">Name</th><th scope="col">What the law makes them responsible for</th><th scope="col">Pay band</th></tr>
+      </thead>
+      <tbody>
+        {% for o in pp._officers %}
+        <tr>
+          <th scope="row">{{ o.role }}</th>
+          <td data-label="Name">{% if o.name %}{{ o.name }}{% else %}<span class="pnone">The council does not publish who holds this post.</span>{% endif %}</td>
+          <td data-label="What the law makes them responsible for">{% if o._duty %}{{ o._duty }}{% if o._gloss_here %}
+            <span class="pduty">({{ o._duty_gloss }})</span>{% endif %}{% else %}<span class="pnone">No duty set out in law.</span>{% endif %}</td>
+          <td data-label="Pay band">{% if o.pay_band %}{{ o.pay_band }}{% else %}<span class="pnone">Not published for this post.</span>{% endif %}
+            {% if o.pay_note %}<span class="pofficer-note">{{ o.pay_note }}</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+{# ---- The committees ---- #}
+<section class="pbodies" aria-labelledby="bodies-head">
+  <h2 class="section-head" id="bodies-head">The committees</h2>
+  <p class="section-intro">A council decides things in rooms. These are the rooms, and who is in
+    them. Where a topic page says a committee decided something, this is that committee.</p>
+  <div class="pbody-grid">
+    {% for b in pp._bodies %}
+    {{ people.committee(b, pp, 'h3') }}
+    {% endfor %}
+  </div>
+</section>
+
+{# ---- What we could not find ---- #}
+<section class="gaps" aria-labelledby="pgaps-head">
+  <h2 class="section-head" id="pgaps-head">What we looked for and couldn't find</h2>
+  <p class="section-intro">This is not an apology. It is the most honest thing on the page: what
+    the council does not publish, said plainly, so nobody mistakes a silence for a fact.</p>
+  {% if pp._gaps %}
+  {% for group in pp._gaps %}
+  <div class="pgap-group">
+    <h3 class="pgap-area">{{ group.area | replace("_", " ") | capitalize }}</h3>
+    <ul class="gap-list">
+      {% for g in group.entries %}
+      <li class="gap"><p>{{ g.description }}</p></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+  {% else %}
+  <p class="empty">We have not recorded any gaps for this council's people yet.</p>
+  {% endif %}
+</section>
+
+{{ score.glossary_used() }}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ root }}assets/people.js" defer></script>
+{% endblock %}

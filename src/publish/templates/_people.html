@@ -1,0 +1,254 @@
+{% import "_parts.html" as parts with context %}
+{# ------------------------------------------------------------------ #}
+{# Who decides.                                                        #}
+{#                                                                     #}
+{# This is the only page on the site that names living people, so the  #}
+{# rules are tighter than anywhere else: nothing is ranked, nothing is #}
+{# counted into an order, no photographs, and a field the council does #}
+{# not publish says so in words rather than showing a blank or a zero. #}
+{#                                                                     #}
+{# Party colour appears in exactly three places — the composition bar, #}
+{# the swatch beside a party name, and a card's left rule — and never  #}
+{# in the same block as a scorecard status, so the two colour systems  #}
+{# on this site cannot be read as one.                                 #}
+{# ------------------------------------------------------------------ #}
+
+
+{# -- one party's colour, as a swatch that is never the only signal --- #}
+{% macro swatch(key) %}
+<span class="pswatch party-{{ key }}" aria-hidden="true"></span>
+{% endmacro %}
+
+
+{# -- the seats, as the council itself counts them ------------------- #}
+{% macro composition(pp) %}
+<section class="composition" aria-labelledby="composition-head">
+  <h2 class="section-head" id="composition-head">Who holds the seats</h2>
+  {% if pp.composition.summary %}
+  <p class="composition-summary">{{ pp.composition.summary | gloss }}</p>
+  {% endif %}
+
+  <div class="pbar" role="img"
+       aria-label="{{ pp._total_seats }} seats: {% for p in pp._parties %}{{ p.party }} {{ p.seats }}{{ ', ' if not loop.last }}{% endfor %}.">
+    {% for p in pp._parties %}
+    <span class="pbar-seg party-{{ p.key }}" style="flex-grow: {{ p.seats }}">
+      {% if p.share >= 12 %}<span class="pbar-count">{{ p.seats }}</span>{% endif %}
+    </span>
+    {% endfor %}
+  </div>
+
+  <ul class="plegend">
+    {% for p in pp._parties %}
+    <li class="plegend-item">
+      {{ swatch(p.key) }}
+      <span class="plegend-party party-text-{{ p.key }}">{{ p.party }}</span>
+      <span class="plegend-seats">{{ p.seats }} {{ "seat" if p.seats == 1 else "seats" }}</span>
+      <span class="plegend-share">{{ "%.0f" | format(p.share) }}%</span>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p class="composition-asof">These are the seats as the council's own directory listed them
+    {% if pp._as_of %}on {{ pp._as_of }}{% else %}when we last read it{% endif %}.</p>
+
+  {% if pp.composition.next_election %}
+  <p class="composition-next">The next election is on {{ pp.composition.next_election | human_date }}.</p>
+  {% elif pp.composition.next_election_note %}
+  <p class="composition-next composition-next-none">{{ pp.composition.next_election_note }}</p>
+  {% endif %}
+</section>
+{% endmacro %}
+
+
+{# -- what a councillor told the council about themselves ------------ #}
+{% macro declarations(c) %}
+<div class="pdecl">
+  <p class="pdecl-standing">This is what the councillor declared about themselves, in their own
+    words. Every councillor has to fill in this form by law. It is not a list of accusations, and
+    nothing on it means anything has gone wrong.</p>
+
+  {% if c._has_interests %}
+  <dl class="pdecl-list">
+    {% for label, items in c._interests %}
+    {% if items %}
+    <div class="pdecl-row">
+      <dt>{{ label }}</dt>
+      <dd>
+        <ul class="pdecl-items">
+          {% for item in items %}
+          <li>{{ item.text }}{% if item.category and item.category != label %}
+            <span class="pdecl-cat">{{ item.category }}</span>{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </dd>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </dl>
+  {% endif %}
+
+  {# The note is shown whether the register was readable or not. On a page
+     where most registers are scans, it is the most important line here. #}
+  {% if c.interests.note %}
+  <p class="pdecl-note">{{ c.interests.note }}</p>
+  {% endif %}
+  <p class="pdecl-src">
+    {% if c._register_date %}The form was signed on {{ c._register_date }}. {% endif %}
+    {% if c.interests.register_url %}
+    <a href="{{ c.interests.register_url }}">Read this councillor's register entry</a>
+    {% endif %}
+  </p>
+</div>
+{% endmacro %}
+
+
+{# -- turning up, and what the council says the number means --------- #}
+{% macro attendance(c) %}
+{% set a = c._attendance %}
+<div class="patt">
+  {% if a and a.expected %}
+  <p class="patt-line">Went to <b>{{ a.attended }}</b> of the <b>{{ a.expected }}</b> meetings they
+    were expected at, in {{ a.period }}.</p>
+  <p class="patt-bar" aria-hidden="true"><span class="patt-fill" style="inline-size: {{ '%.1f' | format(a._share) }}%"></span></p>
+  {% else %}
+  <p class="patt-line patt-none">The council does not publish an attendance figure for this
+    councillor, so we do not show one.</p>
+  {% endif %}
+  {% if a and a.note %}<p class="patt-note">{{ a.note }}</p>{% endif %}
+</div>
+{% endmacro %}
+
+
+{# -- allowances, which are not a salary ----------------------------- #}
+{% macro allowances(c) %}
+{% set al = c.allowances %}
+<div class="pallow">
+  {% if al %}
+  <p class="pallow-line">Basic allowance <b>{{ al.basic | pounds }}</b> for {{ al.year }}{% if al.special_responsibility %},
+    plus <b>{{ al.special_responsibility | pounds }}</b> for carrying extra responsibility{% endif %}.{% if al.total %}
+    That is <b>{{ al.total | pounds }}</b> in all.{% endif %}</p>
+  {% if al.note %}<p class="pallow-note">{{ al.note }}</p>
+  {% else %}<p class="pallow-note">An allowance is not a salary. It is a set payment for doing the
+    job, and the amounts are set by the council on the advice of an independent panel.</p>
+  {% endif %}
+  {% if al.source_url %}<p class="pallow-src"><a href="{{ al.source_url }}">The council's own schedule of allowances</a></p>{% endif %}
+  {% else %}
+  <p class="pallow-line pallow-none">The council does not publish a figure for this councillor, so
+    we do not show one.</p>
+  {% endif %}
+</div>
+{% endmacro %}
+
+
+{# -- one councillor, collapsed to what a resident scans for --------- #}
+{% macro card(c, pp, level='h3') %}
+<article class="pcard party-{{ c._key }}" id="{{ c.id }}"
+         data-name="{{ c.name | lower }}" data-ward="{{ (c.ward or '') | lower }}"
+         data-party="{{ c.party or '' }}" data-surname="{{ c._surname }}">
+  <{{ level }} class="pcard-name">{{ c.name }}</{{ level }}>
+  <p class="pcard-ward">{{ c.ward or "No ward recorded" }}</p>
+  <p class="pcard-party party-text-{{ c._key }}">{{ swatch(c._key) }}{{ c.party or "No party recorded" }}</p>
+  <p class="pcard-since">{% if c._since %}Councillor since {{ c._since }}{% else %}The council does not
+    publish when they were first elected{% endif %}</p>
+
+  {% if c.roles %}
+  <ul class="prole-list">
+    {% for r in c.roles %}
+    <li class="prole">{{ r.title }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <details class="working pcard-more">
+    <summary><span class="working-label">More about {{ c.name | replace("Councillor ", "") }}</span></summary>
+    <div class="working-body">
+
+      <h4 class="pcard-sec">Their council jobs</h4>
+      {% if c.roles or c._committees %}
+      <ul class="pjobs">
+        {% for r in c.roles %}
+        <li>{% if r._linked %}<a href="#committee-{{ r.body_slug }}">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %}{% if r._since %}
+          <span class="pjob-since">since {{ r._since }}</span>{% endif %}</li>
+        {% endfor %}
+        {% for s in c._committees %}
+        <li>{% if s._linked %}<a href="#committee-{{ s.slug }}">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}{% if s.role and s.role != 'Member' %}
+          <span class="pjob-role">{{ s.role }}</span>{% endif %}{% if s._since %}
+          <span class="pjob-since">since {{ s._since }}</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="pjobs-none">The council does not list any committee places for this councillor.</p>
+      {% endif %}
+      {% if c._outside %}
+      <ul class="pjobs pjobs-outside">
+        {% for o in c._outside %}
+        <li>{{ o.name }}{% if o.since %} <span class="pjob-since">since {{ o.since | human_date }}</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      <h4 class="pcard-sec">What they have declared</h4>
+      {{ declarations(c) }}
+
+      <h4 class="pcard-sec">Turning up</h4>
+      {{ attendance(c) }}
+
+      <h4 class="pcard-sec">What they are paid</h4>
+      {{ allowances(c) }}
+
+      {% if c._email %}
+      <h4 class="pcard-sec">How to write to them</h4>
+      <p class="pmail"><a href="mailto:{{ c._email }}">{{ c._email }}</a>
+        <span class="pmail-note">The council publishes this address for council business.</span></p>
+      {% endif %}
+
+      {% if c._sources %}
+      <h4 class="pcard-sec">Where this comes from</h4>
+      <ul class="psources">
+        {% for src in c._sources %}
+        <li><a href="{{ src.url }}">{{ src.label }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {{ parts.provenance(c._ai) }}
+    </div>
+  </details>
+</article>
+{% endmacro %}
+
+
+{# -- one committee. Built as a macro because a topic page embeds it -- #}
+{% macro committee(b, pp, level='h3', standalone=false) %}
+<article class="pbody{% if standalone %} pbody-embed{% endif %}" id="committee-{{ b.slug }}">
+  <{{ level }} class="pbody-name">{{ b.name }}</{{ level }}>
+  {% if b.purpose %}<p class="pbody-purpose">{{ b.purpose | gloss }}</p>{% endif %}
+  <p class="pbody-count">{{ b._count }} {{ "councillor" if b._count == 1 else "councillors" }} sit on it.</p>
+  <ul class="pbody-members">
+    {% if b._chair %}
+    <li class="pbody-member is-chair">
+      <span class="pbody-role">Chair</span>
+      {{ member_link(b._chair, pp, standalone) }}
+    </li>
+    {% endif %}
+    {% if b._vice %}
+    <li class="pbody-member is-vice">
+      <span class="pbody-role">Vice chair</span>
+      {{ member_link(b._vice, pp, standalone) }}
+    </li>
+    {% endif %}
+    {% for m in b._members %}
+    <li class="pbody-member">{{ member_link(m, pp, standalone) }}</li>
+    {% endfor %}
+  </ul>
+  {% if b.source_url %}
+  <p class="pbody-src"><a href="{{ b.source_url }}">This committee on the council's own site</a></p>
+  {% endif %}
+</article>
+{% endmacro %}
+
+
+{% macro member_link(c, pp, away=false) %}
+{% set href = (root ~ "councils/" ~ pp.council.slug ~ "/who-decides/index.html#" ~ c.id) if away else ("#" ~ c.id) %}
+<a class="pbody-link party-{{ c._key }}" href="{{ href }}">{{ c.name | replace("Councillor ", "") }}</a>
+<span class="pbody-ward">{{ c.ward }}</span>
+{% endmacro %}
