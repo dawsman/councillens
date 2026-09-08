@@ -22,12 +22,12 @@
     "direction": "higher_is_better",
     "period": "2024/25",
     "as_of": "2025-03-31",
-    "council_caveat": "A single very large award can swing this figure enormously — the previous year's total was £463,086. Treat one year on its own with care. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
-    "evidence": "The council sets itself a target of bringing in £250,000 a year of outside funding for development and regeneration. In 2024/25 it reported £42.7m. This indicator has no intervention level published, so the general target rule applies.",
+    "council_caveat": "One award is nearly all of it. The council's own note lists inside the £42,678,427: \"£35,000,000 from Homes England for the Anglia Square redevelopment to build a new community of affordable homes, retail, office and leisure spaces\", £104,625 from Homes England for East Norwich due diligence, and £520,000 from Sport England for solar panels at Riverside Leisure Centre. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+    "evidence": "The council sets itself a target of bringing in £250,000 a year of outside funding for development and regeneration. In 2024/25 it reported £42,678,427, against £463,086 the year before. A single large award swings this figure enormously, so one year on its own says little. This indicator has no intervention level published, so the general target rule applies.",
     "source_ids": [
       "finance-corporate-performance-2025-26-q1"
     ],
-    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=38",
     "order": 73
   },
   "ai": {
@@ -37,8 +37,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "medium",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "f23be22631ef0520ccf5b79ac9090fe9d09be2c697747a9f03b8c84e611152f3"
   }

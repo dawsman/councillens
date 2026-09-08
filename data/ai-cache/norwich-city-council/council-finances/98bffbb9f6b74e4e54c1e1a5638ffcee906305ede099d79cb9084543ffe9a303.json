@@ -31,7 +31,7 @@
     "source_ids": [
       "finance-corporate-performance-2025-26-q1"
     ],
-    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=30",
     "order": 71
   },
   "ai": {
@@ -41,8 +41,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "medium",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "98bffbb9f6b74e4e54c1e1a5638ffcee906305ede099d79cb9084543ffe9a303"
   }

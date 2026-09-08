@@ -6,7 +6,7 @@
     "id": "m-kpi05-rent-collected",
     "area": "targets",
     "question": "Is the council collecting the rent its tenants owe?",
-    "label": "Council housing rent collected against target, Q1 2025/26",
+    "label": "Council housing rent collected, excluding old arrears, Q1 2025/26",
     "rule_id": "council-threshold-v1",
     "target": {
       "value": 99.8,
@@ -27,11 +27,11 @@
     "period": "Q1 2025/26",
     "as_of": "2025-06-30",
     "council_caveat": "The council's own explanation: \"Cash collection in quarter one dropped compared to 2024/25, mainly due to the rise in Universal Credit (UC) claimants—now 55% of tenants. This shift reduced Housing Benefit payments by £1.5 million, with UC managed payments leaving a £110,000 gap… Rising living costs are worsening tenant finances.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
-    "evidence": "Rent from council tenants pays for repairs, new homes and the debt on the existing ones, so a shortfall matters to every tenant. The council aims to collect 99.8% of the rent due and says it will step in below 98.8%. In the first quarter of 2025/26 it collected 96.88%.",
+    "evidence": "Rent from council tenants pays for repairs, new homes and the debt on the existing ones, so a shortfall matters to every tenant. The council's own title for this indicator is \"% of council housing rent collected (excluding arrears brought forward)\", so unlike the council tax figure on this page it counts only the year's own rent. It aims to collect 99.8% and says it will step in below 98.8%. In the first quarter of 2025/26 it collected 96.88%.",
     "source_ids": [
       "housing-corporate-performance-2025-26-q1"
     ],
-    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=13",
     "order": 80
   },
   "ai": {
@@ -41,8 +41,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "medium",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "9476ba09bd9f2f25eebbc54810c46f1ddfcb2537ed8bd13ba86c05760621c2f7"
   }

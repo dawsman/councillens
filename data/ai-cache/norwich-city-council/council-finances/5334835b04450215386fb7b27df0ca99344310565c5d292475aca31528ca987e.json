@@ -26,12 +26,12 @@
     "direction": "higher_is_better",
     "period": "Q1 2025/26",
     "as_of": "2025-06-30",
-    "council_caveat": "This measures whether a complaint got an answer in time, not whether the answer was any good or whether the complainant was satisfied. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
-    "evidence": "The council sets its own deadline for replying to a complaint and aims to meet it 80% of the time. In the first quarter of 2025/26 it met it 84% of the time.",
+    "council_caveat": "The council's own commentary: \"We have exceeded our target again this quarter with 84% which is a positive start to the year. Our performance has remained consistent for the past four quarters which demonstrates improvements to the process and reporting have had a positive impact. Communities & housing: 84%. Development & city services: 84%. Resources: 85%.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+    "evidence": "The council sets its own deadline for replying to a complaint — its note on method says within 10 days — and aims to meet it 80% of the time. In the first quarter of 2025/26 it met it 84% of the time. This measures whether a complaint got an answer in time, not whether the answer was any good.",
     "source_ids": [
       "finance-corporate-performance-2025-26-q1"
     ],
-    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=35",
     "order": 78
   },
   "ai": {
@@ -41,8 +41,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "medium",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "5334835b04450215386fb7b27df0ca99344310565c5d292475aca31528ca987e"
   }

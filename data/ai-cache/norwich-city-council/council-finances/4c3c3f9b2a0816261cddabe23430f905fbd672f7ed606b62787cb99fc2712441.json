@@ -1,0 +1,22 @@
+{
+  "kind": "gap",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "g-which-kpis-are-shown",
+    "stage": "outcome",
+    "description": "Why some of the council's own indicators are not on this page. Its quarter one 2025/26 report says \"There are 20 quarterly KPIs reported for this period\" and its totals table counts 19, alongside a handful of annual indicators reported once a year. This site carries eighteen of them, picked because each answers a question about money, about a target the council set itself, or about a service a resident uses. Eight are on the same dashboard and are not here: household waste recycled, food premises inspected, planning appeals, planning applications decided in time, underused council land, CO2 reduction, and two on IT availability. We have not published a rule for that choice, so the count of greens, ambers and reds on this page cannot be set against the council's own count. The council also says of every one of these indicators that \"The KPIs in this report have been carried over from the previous Corporate Plan and are under review, as part of the new business planning process.\""
+  },
+  "ai": {
+    "source_ids": [
+      "finance-corporate-performance-2025-26-q1"
+    ],
+    "prompt_version": "gap-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "4c3c3f9b2a0816261cddabe23430f905fbd672f7ed606b62787cb99fc2712441"
+  }
+}
