@@ -468,6 +468,7 @@ def prepare(model: dict) -> dict:
     model["_linkage_summary"] = prepare_linkage_summary(model)
     model["_documents"] = prepare_document_strip(model)
     model["_measures"] = prepare_measures(model)
+    model["_groups"] = group_measures(model["_measures"])
     model["_tally"] = tally(model["_measures"])
     return model
 
@@ -1005,22 +1006,41 @@ def prepare_document_strip(model: dict) -> dict | None:
 # Measures, tallies and the scorecard
 # --------------------------------------------------------------------------
 
-def side(raw: Any) -> dict | None:
-    """One side of a comparison — what was planned, or what happened."""
+def bare_display(value: Any, unit: Any) -> str | None:
+    """A value on its own: "99%", "£5.5m", "12 days"."""
+    if value is None:
+        return None
+    unit_text = str(unit or "")
+    if unit_text.upper() == "GBP":
+        return money(value, None)
+    if unit_text == "%":
+        return f"{value:g}%" if isinstance(value, (int, float)) else f"{value}%"
+    number = f"{value:g}" if isinstance(value, (int, float)) else str(value)
+    return f"{number} {unit_text}".strip() if unit_text else number
+
+
+def side(raw: Any, prefer_value: bool = False) -> dict | None:
+    """One side of a comparison — what was planned, or what happened.
+
+    ``prefer_value`` is for the warning level, where the analyse stage writes a
+    whole sentence ("the council steps in past 99.0"). Beside a label that
+    already says the same thing, the bare number reads better; the sentence is
+    kept and shown in full in the disclosure.
+    """
     if raw is None:
         return None
     if not isinstance(raw, dict):
-        return {"display": str(raw), "value": None, "unit": None}
-    display = raw.get("display")
+        return {"display": str(raw), "sentence": str(raw), "value": None, "unit": None}
     value = raw.get("value")
     unit = raw.get("unit")
-    if display is None and value is not None:
-        display = money(value, None) if str(unit).upper() == "GBP" else str(value)
-        if unit and str(unit) == "%":
-            display = f"{display}%"
+    sentence = raw.get("display")
+    display = bare_display(value, unit) if prefer_value else sentence
+    if display is None:
+        display = sentence if sentence is not None else bare_display(value, unit)
     if display is None:
         return None
-    return {"display": str(display), "value": value,
+    return {"display": str(display), "sentence": str(sentence) if sentence else None,
+            "value": value,
             "unit": None if str(unit or "").upper() in ("GBP", "%") else unit}
 
 
@@ -1056,6 +1076,13 @@ def prepare_measures(model: dict) -> list[dict]:
         m["_area"] = AREA_ALIAS.get(str(m.get("area") or "").lower(), "service")
         m["_target"] = side(m.get("target"))
         m["_actual"] = side(m.get("actual"))
+        # The council's own intervention level: the point at which it says in
+        # writing that it will step in. Shown beside the target and the actual
+        # because without it an amber is unreadable.
+        m["_threshold"] = side(m.get("threshold"), prefer_value=True)
+        # Where the rule only reads the council's own traffic light back, say
+        # so: the reader should know the colour is not ours even in principle.
+        m["_council_light"] = m.get("rule_id") == "council-threshold-v1"
         m["_ai"] = provenance(m.get("ai"))
         m["_when"] = m.get("period") or (
             f"as at {human_date(m['as_of'])}" if m.get("as_of") else None
@@ -1073,6 +1100,98 @@ def prepare_measures(model: dict) -> list[dict]:
         )
         out.append(m)
     return out
+
+
+COUNT_WORD = {2: "twice", 3: "three times", 4: "four times", 5: "five times",
+              6: "six times", 7: "seven times", 8: "eight times", 9: "nine times",
+              10: "ten times"}
+
+
+def count_word(n: int) -> str:
+    """"twice", not "2 times". Numerals are for the figures, not the prose."""
+    return COUNT_WORD.get(n, f"{n} times")
+
+
+def measure_order(m: dict) -> tuple:
+    """Oldest first within a series, by the year being reported on.
+
+    Period, not as_of: the cells are labelled with the period, so that is the
+    order a reader expects. A 2026/27 plan published before the 2025/26
+    outturn would otherwise appear first and read as though the years ran
+    backwards.
+    """
+    return (str(m.get("period") or ""), str(m.get("as_of") or ""), m.get("label") or "")
+
+
+def group_measures(items: list[dict]) -> list[dict]:
+    """Collapse measures answering the same question into one run.
+
+    A council reports the same comparison every year. Five separate cards
+    saying "Did the council spend what it planned?" is five times the page and
+    less information than one card showing the five years in order. Nothing is
+    claimed about the shape of the run — the years are simply shown as they
+    happened, and the card is coloured by the most recent one, which is the
+    only status that describes where things stand now.
+    """
+    order: list[str] = []
+    buckets: dict[str, list[dict]] = {}
+    for m in items:
+        key = (m.get("_question") or m.get("label") or m["id"]).strip().lower()
+        if key not in buckets:
+            buckets[key] = []
+            order.append(key)
+        buckets[key].append(m)
+
+    groups = []
+    for key in order:
+        run = sorted(buckets[key], key=measure_order)
+        latest = run[-1]
+        groups.append({
+            "id": latest["id"],
+            "question": latest["_question"],
+            "measures": run,
+            "latest": latest,
+            "series": len(run) > 1,
+            "count": len(run),
+            "status": latest["_status"],
+            "area": latest["_area"],
+            "rule": latest.get("rule"),
+            "rule_id": latest.get("rule_id"),
+            "council_light": latest.get("_council_light"),
+            "unknown": all(m["_unknown"] for m in run),
+        })
+    # Groups sort the way single cards did: by status, then by question, so a
+    # build is stable and the same question never moves between builds.
+    groups.sort(key=lambda g: (RAG_ORDER.index(g["status"]), g["question"] or ""))
+    return groups
+
+
+def spread(groups: list[dict], limit: int) -> list[dict]:
+    """The first ``limit`` groups, taken one status at a time.
+
+    The scorecard sorts groups by status, which is right on a page that shows
+    all of them. A strip that shows only the first few would then show only the
+    council's best results and hide the rest behind a disclosure — a flattering
+    edit we would not have made deliberately, so we do not make it by accident.
+    Taking one of each status in turn means the visible lines span whatever the
+    council actually reported.
+    """
+    if len(groups) <= limit:
+        return list(groups)
+    by_status: dict[str, list[dict]] = {s: [] for s in RAG_ORDER}
+    for g in groups:
+        by_status[g["status"]].append(g)
+    picked: list[dict] = []
+    while len(picked) < limit:
+        took = False
+        for status in RAG_ORDER:
+            if by_status[status] and len(picked) < limit:
+                picked.append(by_status[status].pop(0))
+                took = True
+        if not took:
+            break
+    order = {id(g): i for i, g in enumerate(groups)}
+    return sorted(picked, key=lambda g: order[id(g)])
 
 
 def tally(measures: list[dict]) -> dict | None:
@@ -1138,7 +1257,7 @@ def prepare_scorecard(council: dict) -> dict | None:
         items = sorted(items, key=lambda m: (RAG_ORDER.index(m["_status"]), m.get("label") or ""))
         areas.append({
             "key": area["key"], "label": area["label"], "question": area["question"],
-            "measures": items, "tally": tally(items),
+            "measures": items, "groups": group_measures(items), "tally": tally(items),
         })
     return {
         "measures": measures,
@@ -1568,6 +1687,8 @@ def make_env() -> Environment:
         gloss_used=gloss_used,
         gloss_all=gloss_all,
         explainer=explainer,
+        spread=spread,
+        count_word=count_word,
     )
     return env
 
@@ -1585,6 +1706,10 @@ def methodology_html() -> str:
     body = render_markdown(METHODOLOGY_MD)
     if body is None:
         return "<p>The methodology document is missing from the repository.</p>"
+    # The document links to its sibling markdown files the way a reader of the
+    # repository would follow them. On the site those are built pages, so the
+    # links are repointed here rather than by editing the document.
+    body = body.replace('href="scoring.md"', 'href="scoring/index.html"')
     return body
 
 

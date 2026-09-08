@@ -23,7 +23,7 @@
   <p class="lede">{{ m.topic.plain_english | gloss }}</p>
 </header>
 
-{{ score.strip(m._measures, m._council_slug) }}
+{{ score.strip(m._groups, m._council_slug, m._tally) }}
 
 {{ viz.tracker(m._progress) }}
 {{ parts.explain('progress_tracker') }}

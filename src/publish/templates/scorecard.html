@@ -76,11 +76,7 @@
   </h2>
   <p class="section-intro">{{ area.question }}</p>
   {{ score.mini_tally(area.tally, area.label ~ ": how many of each") }}
-  <div class="scards">
-    {% for m in area.measures %}
-    {{ score.card(m, 'h3') }}
-    {% endfor %}
-  </div>
+  {{ score.cards(area.groups, 'h3') }}
 </section>
 {% endfor %}
 

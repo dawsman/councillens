@@ -82,13 +82,23 @@
 
 
 {# -- one status card, with its workings one tap away ---------------- #}
-{% macro card(m, level='h3') %}
-<article class="scard rag-{{ m._status }}{% if m._unknown %} scard-unknown{% endif %}" id="{{ m.id }}">
+{% macro card(m, level='h3', compact=false) %}
+{# ``compact`` is for a card sitting inside a series, where the question is
+   already the heading of the card above it. Repeating it once per year is
+   noise, so the year becomes the heading instead. #}
+<article class="scard rag-{{ m._status }}{% if m._unknown %} scard-unknown{% endif %}{% if compact %} scard-compact{% endif %}" id="{{ m.id }}">
   <div class="scard-head">
     {{ pill(m._status) }}
-    <p class="scard-label">{{ m.label }}{% if m._when %} <span class="scard-when">{{ m._when }}</span>{% endif %}</p>
+    {% if not compact %}
+    <p class="scard-label">{{ m.label }}{% if m._when and m._when not in m.label %} <span class="scard-when">{{ m._when }}</span>{% endif %}</p>
+    {% endif %}
   </div>
+  {% if compact %}
+  <{{ level }} class="scard-q scard-q-compact">{{ m._when or m.label }}</{{ level }}>
+  <p class="scard-label">{{ m.label }}</p>
+  {% else %}
   <{{ level }} class="scard-q">{{ m._question }}</{{ level }}>
+  {% endif %}
   {% if m.evidence %}
   <p class="scard-evidence">{{ m.evidence | gloss }}</p>
   {% endif %}
@@ -114,6 +124,20 @@
       <dt>What happened</dt>
       <dd>{{ m._actual.display if m._actual else "No figure published" }}</dd>
     </div>
+    {% if m._threshold %}
+    {# The council's own intervention level. Not a third term in the
+       comparison — the line the council itself drew, which is why it sits
+       under the pair rather than inside the arrow. #}
+    <div class="scard-side scard-warn">
+      <dt>The council's own warning level</dt>
+      <dd>{{ m._threshold.display }}
+        <span class="scard-warn-note">{% if m.direction == 'higher_is_better' %}Drop below this and the
+          council's own report says that is the point it steps in.{% elif m.direction == 'lower_is_better' %}Go
+          above this and the council's own report says that is the point it steps in.{% else %}This is the
+          point at which the council's own report says it steps in.{% endif %}</span>
+      </dd>
+    </div>
+    {% endif %}
   </dl>
   {% endif %}
 
@@ -125,6 +149,15 @@
         <div class="working-row">
           <dt>The rule we ran</dt>
           <dd>{{ m.rule | gloss }}{% if m.rule_id %} <span class="working-ruleid">{{ m.rule_id }}</span>{% endif %}</dd>
+        </div>
+        {% endif %}
+        {% if m._council_light %}
+        <div class="working-row working-row-light">
+          <dt>Whose judgement this is</dt>
+          <dd>The council's. It set the target{% if m._threshold %}, it published the level at
+            which it says it steps in ({{ m._threshold.display }}){% endif %}, and it reported the
+            figure. All this rule does is read those three off and say which band the figure falls
+            in, so the colour above is the council's own traffic light rather than ours.</dd>
         </div>
         {% endif %}
         <div class="working-row">
@@ -157,24 +190,98 @@
 {% endmacro %}
 
 
+{# -- a question the council answers every year ---------------------- #}
+{# One card, one question, every year on record in order. The card wears  #}
+{# the most recent status because that is the only one that describes     #}
+{# where things stand now; the run says nothing about direction, because  #}
+{# five points is not a trend and we do not claim one.                    #}
+{% macro series(g, level='h3') %}
+<article class="sgroup rag-{{ g.status }}" id="{{ g.id }}">
+  <div class="scard-head">
+    {{ pill(g.status) }}
+    <p class="scard-label">Most recent{% if g.latest._when %} <span class="scard-when">{{ g.latest._when }}</span>{% endif %}</p>
+  </div>
+  <{{ level }} class="scard-q">{{ g.question }}</{{ level }}>
+  <p class="sgroup-intro">The council has reported this {{ count_word(g.count) }}. Each year is
+    checked on its own, against what the council planned for that year.</p>
+  <ol class="sgroup-run">
+    {% for m in g.measures %}
+    <li class="sgroup-year rag-{{ m._status }}{% if loop.last %} is-latest{% endif %}">
+      <span class="sgroup-when">{{ m.period or m._when or m.label }}</span>
+      {{ glyph(m._status) }}
+      <span class="sgroup-word">{{ RAG[m._status].word }}</span>
+      <span class="sgroup-figure">{{ m._actual.display if m._actual else "Not published" }}</span>
+    </li>
+    {% endfor %}
+  </ol>
+  {% if g.latest.evidence %}
+  <p class="scard-evidence sgroup-evidence">{{ g.latest.evidence | gloss }}</p>
+  {% endif %}
+  <details class="working sgroup-detail">
+    <summary><span class="working-label">Every year in full, and how each was worked out</span></summary>
+    <div class="working-body sgroup-cards">
+      {% for m in g.measures | reverse %}
+      {{ card(m, 'h4', compact=true) }}
+      {% endfor %}
+    </div>
+  </details>
+</article>
+{% endmacro %}
+
+
+{# -- a run of groups: a series card, or a plain card when there is one - #}
+{% macro cards(groups, level='h3') %}
+<div class="scards">
+  {% for g in groups %}
+  {% if g.series %}{{ series(g, level) }}{% else %}{{ card(g.latest, level) }}{% endif %}
+  {% endfor %}
+</div>
+{% endmacro %}
+
+
 {# -- the compact strip that sits on a topic page -------------------- #}
-{% macro strip(measures, slug, heading="How the council is doing on this") %}
-{% if measures %}
+{% macro strip_row(g, slug) %}
+<li class="sstrip-item rag-{{ g.status }}">
+  <a class="sstrip-link" href="{{ root }}councils/{{ slug }}/scorecard/index.html#{{ g.id }}">
+    <span class="sstrip-status">{{ glyph(g.status) }}<span class="sstrip-word">{{ RAG[g.status].word }}</span></span>
+    <span class="sstrip-q">{{ g.question }}</span>
+    {% if g.series %}<span class="sstrip-when">latest of {{ g.count }} years</span>
+    {% elif g.latest._when %}<span class="sstrip-when">{{ g.latest._when }}</span>{% endif %}
+  </a>
+</li>
+{% endmacro %}
+
+
+{% macro strip(groups, slug, t=none, heading="How the council is doing on this") %}
+{% if groups %}
+{# Six lines is about as much as anyone reads standing up. On a topic with #}
+{# thirty-odd questions the rest are one tap away, not cut — and the six   #}
+{# are taken one status at a time, so a shortened list is never a kinder   #}
+{# list than the full one. The counts above them are always complete.      #}
+{% set shown = spread(groups, 6) %}
+{% set rest = groups | reject("in", shown) | list %}
 <section class="sstrip" aria-labelledby="sstrip-head">
   <h2 class="sstrip-head" id="sstrip-head">{{ heading }}</h2>
   <p class="sstrip-intro">Each line compares something the council said it would do with what its
     own later reports say happened. Follow one through for the rule, the numbers and the source.</p>
+  {% if t %}
+  {{ mini_tally(t, "How many of each on this topic") }}
+  {% if groups | selectattr("series") | list %}
+  <p class="sstrip-note">The counts are of every year checked. The lines below are the questions
+    those years answer, so a question the council reports every year is one line.</p>
+  {% endif %}
+  {% endif %}
   <ul class="sstrip-list">
-    {% for m in measures %}
-    <li class="sstrip-item rag-{{ m._status }}">
-      <a class="sstrip-link" href="{{ root }}councils/{{ slug }}/scorecard/index.html#{{ m.id }}">
-        <span class="sstrip-status">{{ glyph(m._status) }}<span class="sstrip-word">{{ RAG[m._status].word }}</span></span>
-        <span class="sstrip-q">{{ m._question }}</span>
-        {% if m._when %}<span class="sstrip-when">{{ m._when }}</span>{% endif %}
-      </a>
-    </li>
-    {% endfor %}
+    {% for g in shown %}{{ strip_row(g, slug) }}{% endfor %}
   </ul>
+  {% if rest %}
+  <details class="sstrip-rest">
+    <summary><span class="working-label">The other {{ rest | length }} questions on this topic</span></summary>
+    <ul class="sstrip-list">
+      {% for g in rest %}{{ strip_row(g, slug) }}{% endfor %}
+    </ul>
+  </details>
+  {% endif %}
   <p class="sstrip-more"><a href="{{ root }}councils/{{ slug }}/scorecard/index.html">See the whole scorecard for this council</a></p>
 </section>
 {% endif %}

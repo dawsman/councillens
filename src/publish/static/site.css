@@ -1847,6 +1847,39 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   background: var(--line-strong);
   clip-path: polygon(0 38%, 62% 38%, 62% 0, 100% 50%, 62% 100%, 62% 62%, 0 62%);
 }
+/* The council's own intervention level. It is not a third term in the
+   planned-vs-happened comparison, so it does not sit inside the arrow: it is
+   the line the council itself drew, ruled across the bottom of both. */
+.scard-warn {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  background: transparent;
+  border-top: 2px dashed var(--line-strong);
+  border-radius: 0;
+  padding: 0.55rem 0 0;
+  margin-top: 0.15rem;
+}
+.scard-warn dt {
+  display: inline;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.scard-warn dt::after { content: ":"; }
+.scard-warn dd {
+  display: inline;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.scard-warn-note {
+  display: block;
+  font-weight: 400;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-top: 0.15rem;
+  max-width: 34rem;
+}
+.working-row-light dd { color: var(--ink); }
+
 .scard-pair-unknown .scard-side { background: transparent; border: 1px dashed var(--line-strong); }
 .scard-pair-unknown .scard-side dd { font-weight: 400; color: var(--ink); }
 .scard-pair-unknown::before { background: var(--line); }
@@ -1862,7 +1895,105 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
     clip-path: polygon(38% 0, 38% 62%, 0 62%, 50% 100%, 100% 62%, 62% 62%, 62% 0);
   }
   .scard-happened { grid-row: 3; }
+  .scard-warn { grid-row: 4; }
 }
+
+/* ------------------------------------------ a question, asked each year --- */
+
+/* Councils report the same comparison every year. One card per question with
+   the years laid out in order beats five near-identical cards: less page, and
+   more information, because the years can be seen at once. Nothing here says
+   anything about direction of travel — the run is a record, not a trend. */
+.sgroup {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--rag);
+  border-radius: var(--radius);
+  padding: 0.95rem 1.2rem 1.05rem;
+}
+.sgroup-intro {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-bottom: 0.75rem;
+  max-width: none;
+}
+.sgroup-run {
+  list-style: none;
+  margin: 0 0 0.95rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 0.5rem;
+}
+.sgroup-year {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "when when" "glyph word" "figure figure";
+  align-items: center;
+  gap: 0.1rem 0.4rem;
+  background: var(--surface-sunk);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--rag);
+  padding: 0.5rem 0.65rem 0.55rem;
+}
+/* The most recent year is the one that describes where things stand now, so
+   it is the one the card is coloured by — say so rather than imply it. */
+.sgroup-year.is-latest {
+  outline: 2px solid var(--rag);
+  outline-offset: -1px;
+}
+.sgroup-year .sgroup-when {
+  grid-area: when;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.sgroup-year .sgroup-when::before { content: none; }
+.sgroup-year .rag-glyph { grid-area: glyph; width: 1.05rem; height: 1.05rem; color: var(--rag); }
+.sgroup-word { grid-area: word; font-weight: 700; color: var(--rag-text); }
+.sgroup-figure {
+  grid-area: figure;
+  font-size: var(--step--1);
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.sgroup-evidence { margin-bottom: 0.9rem; }
+.sgroup-detail { margin-top: 0.1rem; }
+.sgroup-cards { display: grid; gap: 0.9rem; }
+/* Inside the run the cards are already inside a card, so they lose the outer
+   frame and keep only their status rule. */
+.sgroup-cards .scard {
+  border: 0;
+  border-left: 3px solid var(--rag);
+  border-radius: 0;
+  padding: 0.1rem 0 0.2rem 0.9rem;
+  background: transparent;
+}
+.sgroup-cards .scard-unknown { background-image: none; border-left-style: dashed; }
+.sgroup-cards .scard-q { font-size: var(--step-1); }
+.scard-q-compact {
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 0.1rem;
+}
+.scard-compact .scard-head { margin-bottom: 0.2rem; }
+.scard-compact .scard-label { margin-bottom: 0.6rem; }
+/* Linked to from the strip or the "can't tell" list: open the run so the
+   reader lands on the year they asked for, not on a shut drawer. */
+.sgroup-detail:has(:target) > .working-body,
+.sgroup-detail:has(:target) > summary ~ * { display: revert; }
+.sgroup-detail:has(:target)::details-content {
+  content-visibility: visible;
+  block-size: auto;
+}
+.scard:target, .sgroup:target { outline: 3px solid var(--rag); outline-offset: 3px; }
+
+/* The strip's overflow, on a topic with more questions than anyone reads
+   standing up. */
+.sstrip .minitally { margin: 0 0 0.5rem; }
+.sstrip-note { font-size: var(--step--1); color: var(--ink-soft); margin: 0 0 0.85rem; max-width: 38rem; }
+.sstrip-rest { margin: 0 0 0.75rem; }
+.sstrip-rest > summary { cursor: pointer; }
+.sstrip-rest[open] > summary { margin-bottom: 0.5rem; }
 
 /* -------------------------------------------------------- the workings --- */
 
@@ -1872,6 +2003,7 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
 }
 .working > summary,
 .howto-key > summary,
+.sstrip-rest > summary,
 .explain > summary {
   cursor: pointer;
   list-style: none;
@@ -1884,9 +2016,11 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
 }
 .working > summary::-webkit-details-marker,
 .howto-key > summary::-webkit-details-marker,
+.sstrip-rest > summary::-webkit-details-marker,
 .explain > summary::-webkit-details-marker { display: none; }
 .working > summary::before,
 .howto-key > summary::before,
+.sstrip-rest > summary::before,
 .explain > summary::before {
   content: "";
   width: 0.5rem;
@@ -1899,8 +2033,10 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
 }
 .working[open] > summary::before,
 .howto-key[open] > summary::before,
+.sstrip-rest[open] > summary::before,
 .explain[open] > summary::before { transform: rotate(45deg); margin-top: -0.25rem; }
 .working > summary:hover .working-label,
+.sstrip-rest > summary:hover .working-label,
 .howto-key > summary:hover .working-label { text-decoration: underline; }
 .working-body {
   margin-top: 0.75rem;
@@ -2100,13 +2236,19 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
 @media print {
   .working > summary::before,
   .howto-key > summary::before,
+  .sstrip-rest > summary::before,
   .explain > summary::before { display: none; }
   .working > summary { color: #000; }
   /* Force every disclosure open for the handout. Two mechanisms, because
      browsers hide closed <details> content in two different ways. */
   details > summary ~ * { display: revert !important; }
   details::details-content { content-visibility: visible !important; block-size: auto !important; }
-  .scard, .tally-row, .sstrip-item, .glossary-entry, .cantell-item { break-inside: avoid; }
+  .scard, .tally-row, .sstrip-item, .glossary-entry, .cantell-item,
+  .sgroup-year { break-inside: avoid; }
+  .sgroup { border: 1px solid #000; border-top: 5px solid #000; background: #fff; }
+  .sgroup-year { background: #fff; border: 1px solid #666; border-left: 3px solid #000; }
+  .sgroup-year.is-latest { outline: 2px solid #000; }
+  .sgroup-cards .scard { border: 0; border-left: 3px solid #000; }
   .scard { border: 1px solid #000; border-top: 5px solid #000; background: #fff; }
   .scard-unknown { border-style: dashed; background-image: none; }
   .scard-side { background: #fff; border: 1px solid #666; }
