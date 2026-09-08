@@ -53,6 +53,11 @@ platform question):
                   shorthand) plus `max`, a cap on the extra pages taken per list
                   (default 20). Each further page is fetched as its own
                   canonical record, so nothing is stitched together in the dark.
+    user_agent:   identify as something other than the default browser string
+                  for this source. Some committee systems render a paginated
+                  list two ways: as JavaScript postbacks for a browser, and as
+                  ordinary links for a crawler. Saying honestly that we are a
+                  robot is what gets the version a robot can read.
     redact:       list of redaction rules applied to what was downloaded BEFORE
                   it is saved or hashed — see REDACTORS below for the rules that
                   exist. This is the only thing in the pipeline that changes a
@@ -187,31 +192,39 @@ REDACTORS = {
 }
 
 
-def redact(source, content):
+def redact(source, content, encoding=None):
     """Apply a source's `redact:` rules to downloaded bytes.
 
-    Only text is redacted, and "text" means bytes that decode as UTF-8. A PDF or
-    a Word file is left exactly as the council served it: a blind substitution
-    inside a compressed stream would corrupt the document rather than clean it.
-    Where a council publishes personal data inside a PDF, the answer is to not
-    bank that PDF, which is a config decision, not a job for a regular
-    expression.
+    Only text is redacted. A PDF or a Word file is left exactly as the council
+    served it: a blind substitution inside a compressed stream would corrupt the
+    document rather than clean it. Where a council publishes personal data inside
+    a PDF the answer is to not bank that PDF, which is a config decision and not
+    a job for a regular expression.
+
+    `encoding` is what the server said the text was, which is worth trusting for
+    the many council files that are still Windows-1252. UTF-8 is tried first
+    because it is what everything else in the pipeline assumes; anything that
+    decodes under neither is treated as not text.
     """
     rules = source.get("redact") or []
     if not rules:
         return content
-    try:
-        text = content.decode("utf-8")
-    except UnicodeDecodeError:
-        print(f"        redact: {source.get('id')} is not text, left as published")
-        return content
-    for name in rules:
-        rule = REDACTORS.get(str(name))
-        if rule is None:
-            print(f"        redact: no rule called {name!r} — nothing applied")
+    for candidate in ("utf-8", (encoding or "").lower()):
+        if not candidate:
             continue
-        text = rule(text)
-    return text.encode("utf-8")
+        try:
+            text = content.decode(candidate)
+        except (UnicodeDecodeError, LookupError):
+            continue
+        for name in rules:
+            rule = REDACTORS.get(str(name))
+            if rule is None:
+                print(f"        redact: no rule called {name!r} — nothing applied")
+                continue
+            text = rule(text)
+        return text.encode(candidate)
+    print(f"        redact: {source.get('id')} is not text, left as published")
+    return content
 
 
 def _matches(source, *candidates):
@@ -233,12 +246,22 @@ class Adapter(ABC):
 
     # ---- shared plumbing -------------------------------------------------
 
+    def _get(self, source, url, **kwargs):
+        """GET, with whatever this source asks us to say about ourselves."""
+        headers = kwargs.pop("headers", None) or {}
+        agent = source.get("user_agent")
+        if agent:
+            headers = {**headers, "User-Agent": str(agent)}
+        return _http_get(url, headers=headers or None, **kwargs)
+
     def _body(self, source, resp):
         """What this project keeps of a response: the bytes, redacted as the
         source asks, and the same bytes as text. Everything that saves, hashes or
         reads a page goes through here, so there is one place where a redaction
         can be missed and it is this one."""
-        content = redact(source, resp.content)
+        ctype = (resp.headers.get("Content-Type") or "").split(";")[0].strip().lower()
+        is_text = ctype.startswith("text/") or ctype in ("application/json", "application/xml")
+        content = redact(source, resp.content, resp.encoding if is_text else None)
         encoding = resp.encoding or resp.apparent_encoding or "utf-8"
         try:
             text = content.decode(encoding, errors="replace")
@@ -286,7 +309,7 @@ class Adapter(ABC):
         which may be None."""
         max_bytes = source.get("max_bytes")
         try:
-            resp = _http_get(url)
+            resp = self._get(source, url)
         except Exception as exc:
             print(f"        skip {title!r}: {exc}")
             return None, None
@@ -305,7 +328,13 @@ class Adapter(ABC):
             seen_ids.add(record_id)
 
         ext = suffix_hint or _extension_for(resp, resp.url or url)
-        saved = self._save(source["id"], f"{_slug(title)}{ext}", content)
+        # The file is named after the record, not the title. Two pages of one
+        # list can share a title ("... (list continued, 2)") and the record ids
+        # are made unique above; naming the file after the title instead would
+        # quietly overwrite one document with another and leave the manifest
+        # holding a hash of bytes that are no longer on disk.
+        stem = record_id[len(source["id"]) + 2:] if record_id.startswith(source["id"] + "--") else record_id
+        saved = self._save(source["id"], f"{_slug(stem)}{ext}", content)
         record = self._record(
             source, council, topic,
             record_id=record_id,
@@ -383,6 +412,17 @@ class Adapter(ABC):
         the whole one. Which links are pager links is a question about the
         platform's own markup, so `paginate.href_contains` answers it in config.
 
+        A needle here names a QUERY PARAMETER and has to be followed by "=" in
+        the address. A pager link carries the page number as a parameter of its
+        own; a login redirect or a "share this" link quotes that address inside
+        one of its own parameters, where the "=" comes through escaped. Without
+        that test the login page gets archived as though it were page two.
+
+        Only the first page's pager is read. A numeric pager lists every page, so
+        one pass reaches them all, and not following pagers on the pages we
+        collect keeps a grid that paginates twice from multiplying out into
+        every combination of the two.
+
         Each further page becomes its own canonical record, with its own URL,
         hash and fetch time. Nothing is stitched together here — the analyse
         stage reads the pages and decides what they add up to.
@@ -399,35 +439,30 @@ class Adapter(ABC):
         limit = int(rules.get("max", 20))
 
         out = []
-        queue = [(base_url, html or "")]
         seen_urls = {base_url}
-        capped = False
-        while queue and not capped:
-            page_url, page_html = queue.pop(0)
-            for match in _ANCHOR_RE.finditer(page_html):
-                if len(out) >= limit:
-                    print(f"        paginate: stopped at the cap of {limit} more pages")
-                    capped = True
-                    break
-                href = match.group("href")
-                if not any(n in href.lower() for n in needles):
-                    continue
-                next_url = urljoin(page_url, href.replace("&amp;", "&"))
-                if next_url in seen_urls:
-                    continue
-                seen_urls.add(next_url)
-                label = _strip_tags(match.group("text")) or str(len(out) + 2)
-                rec, next_html = self._fetch_document_with_text(
-                    source, council, topic,
-                    url=next_url,
-                    title=f"{title} (list continued, {label})",
-                    doc_type=spec.get("type"),
-                    stage=spec.get("stage", source.get("stage")),
-                    seen_ids=seen_ids,
-                )
-                if rec:
-                    out.append(rec)
-                    queue.append((next_url, next_html or ""))
+        for match in _ANCHOR_RE.finditer(html or ""):
+            if len(out) >= limit:
+                print(f"        paginate: stopped at the cap of {limit} more pages")
+                break
+            href = match.group("href")
+            query = href.lower().partition("?")[2]
+            if not any(f"{n}=" in query for n in needles):
+                continue
+            next_url = urljoin(base_url, href.replace("&amp;", "&"))
+            if next_url in seen_urls:
+                continue
+            seen_urls.add(next_url)
+            label = _strip_tags(match.group("text")) or str(len(out) + 2)
+            rec = self._fetch_document(
+                source, council, topic,
+                url=next_url,
+                title=f"{title} (list continued, {label})",
+                doc_type=spec.get("type"),
+                stage=spec.get("stage", source.get("stage")),
+                seen_ids=seen_ids,
+            )
+            if rec:
+                out.append(rec)
         return out
 
     def _explicit_documents(self, source, council, topic, seen_ids):
@@ -466,7 +501,7 @@ class GenericAdapter(Adapter):
 
     def fetch(self, source, council, topic):
         url = source["url"]
-        resp = _http_get(url)
+        resp = self._get(source, url)
         content, text = self._body(source, resp)
         name = Path(unquote(urlparse(url).path)).name
         if not Path(name).suffix:
@@ -509,7 +544,7 @@ class CmisAdapter(Adapter):
 
     def fetch(self, source, council, topic):
         url = source["url"]
-        resp = _http_get(url)
+        resp = self._get(source, url)
         content, text = self._body(source, resp)
         html = html_text = text
         saved = self._save(source["id"], "page.html", content)
@@ -581,7 +616,7 @@ class LocalGovDrupalAdapter(Adapter):
 
     def fetch(self, source, council, topic):
         url = source["url"]
-        resp = _http_get(url)
+        resp = self._get(source, url)
         content, text = self._body(source, resp)
         ctype = (resp.headers.get("Content-Type") or "").split(";")[0].strip().lower()
         ext = _extension_for(resp, resp.url or url)
@@ -654,7 +689,7 @@ class EngagementAdapter(Adapter):
 
     def fetch(self, source, council, topic):
         url = source["url"]
-        resp = _http_get(url)
+        resp = self._get(source, url)
         content, text = self._body(source, resp)
         html_text = text
         saved = self._save(source["id"], "page.html", content)
@@ -684,7 +719,7 @@ class EngagementAdapter(Adapter):
                 suffix = None
                 # Ask the platform for the document's real name and extension.
                 try:
-                    meta = _http_get(doc_url + ".json").json().get("document", {})
+                    meta = self._get(source, doc_url + ".json").json().get("document", {})
                     title = meta.get("name") or title
                     filename = meta.get("filename") or ""
                     if Path(filename).suffix:

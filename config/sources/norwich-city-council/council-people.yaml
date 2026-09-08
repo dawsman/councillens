@@ -62,6 +62,12 @@ sources:
     platform: cmis
     url: "https://cmis.norwich.gov.uk/live/Councillors.aspx"
     redact: [uk_phone_numbers]
+    # CMIS renders a paginated list two ways. To a browser it gives JavaScript
+    # postbacks, which this pipeline cannot follow; to a crawler it gives
+    # ordinary links with the page number in the address. Saying honestly what we
+    # are is what makes the rest of each councillor's committee list readable —
+    # and it is the more polite thing to send a council's server anyway.
+    user_agent: "CouncilLens-ingest/0.3 (+https://github.com/dawsman/councillens)"
     follow_links: false
     follow_pages:
       href_contains:
@@ -76,8 +82,9 @@ sources:
       # and makes committees look as though they have no chair.
       paginate:
         href_contains:
-          - "ChangePage="
-        max: 12
+          - "grdRadCommitteesCurrentChangePage"
+          - "grdRadOutsideBodiesCurrentChangePage"
+        max: 6
     max_bytes: 3000000
     enabled: true
 

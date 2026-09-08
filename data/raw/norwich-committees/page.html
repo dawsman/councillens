@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xml:lang="en-GB" lang="en-GB" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head id="Head"><meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /> <meta name="REVISIT-AFTER" content="1 DAYS" /> <meta name="RATING" content="GENERAL" /> <meta name="RESOURCE-TYPE" content="DOCUMENT" /> <meta content="text/javascript" http-equiv="Content-Script-Type" /> <meta content="text/css" http-equiv="Content-Style-Type" /><title>
+	CMIS > Committees
+</title><meta id="MetaDescription" name="description" content="Displays Organisation Structure(s) and the committees within them." /><meta id="MetaKeywords" name="keywords" content="Committee" /><meta id="MetaRobots" name="robots" content="INDEX, FOLLOW" /><link href="/live/Portals/0-System/dnn-css-variables.css?cdv=526" rel="stylesheet" /><link href="/live/Resources/Shared/stylesheets/dnndefault/10.0.0/default.css?cdv=526" rel="stylesheet" /><link href="/live/Portals/_default/admin.css?cdv=526" rel="stylesheet" /><link href="/live/DesktopModules/CMIS_OrganisationStructure/module.css?cdv=526" rel="stylesheet" /><link href="/Live/Portals/_default/skins/norwich2020/skin.css?cdv=526" rel="stylesheet" /><link href="/Live/Portals/_default/Containers/CMIS_5_2_0/container.css?cdv=526" rel="stylesheet" /><link href="/live/Portals/_default/Containers/CMIS_5_2_0/Title_Blue.css?cdv=526" rel="stylesheet" /><link href="/live/Portals/0/portal.css?cdv=526" rel="stylesheet" /><link href="/live/Portals/_default/skins/norwich2020/Menu/Superfish/superfish.css?cdv=526" rel="stylesheet" /><script src="/live/Resources/libraries/jQuery/03_07_01/jquery.js?cdv=526" type="text/javascript"></script><script src="/live/Resources/libraries/jQuery-Migrate/03_04_01/jquery-migrate.js?cdv=526" type="text/javascript"></script></head>
+<body id="Body">
+
+    <form method="post" action="/live/Committees.aspx" id="Form" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form'];
+if (!theForm) {
+    theForm = document.Form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/Live/WebResource.axd?d=pynGkmcFUV1CNJW91XGfr6_OefaXPP5Dmah3Sf7sh95UQ8hL7QTwiTeisOx94FXGRyeEQEdk0vQ1&amp;t=639190869332169432" type="text/javascript"></script>
+
+<script type="text/javascript">if (!(window.jQuery && window.jQuery.fn && window.jQuery.fn.hoverIntent)) document.write(unescape('%3Cscript src="/live/Portals/_default/skins/norwich2020/Menu/Superfish/hoverIntent.js" type="text/javascript"%3E%3C/script%3E'));</script><script type="text/javascript">if (!(window.jQuery && window.jQuery.fn && window.jQuery.fn.superfish)) document.write(unescape('%3Cscript src="/live/Portals/_default/skins/norwich2020/Menu/Superfish/superfish.js" type="text/javascript"%3E%3C/script%3E'));</script>
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"en-GB","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":".","IsReadOnly":false,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":",","CurrencySymbol":"£","NaNSymbol":"NaN","CurrencyNegativePattern":1,"NumberNegativePattern":1,"PercentPositivePattern":1,"PercentNegativePattern":1,"NegativeInfinitySymbol":"-∞","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":".","NumberGroupSeparator":",","CurrencyPositivePattern":0,"PositiveInfinitySymbol":"∞","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":".","PercentGroupSeparator":",","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"AM","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402300799999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2049,"IsReadOnly":false},"DateSeparator":"/","FirstDayOfWeek":1,"CalendarWeekRule":2,"FullDateTimePattern":"dd MMMM yyyy HH:mm:ss","LongDatePattern":"dd MMMM yyyy","LongTimePattern":"HH:mm:ss","MonthDayPattern":"d MMMM","PMDesignator":"PM","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"dd/MM/yyyy","ShortTimePattern":"HH:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM yyyy","AbbreviatedDayNames":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"ShortestDayNames":["Su","Mo","Tu","We","Th","Fr","Sa"],"DayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"AbbreviatedMonthNames":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],"MonthNames":["January","February","March","April","May","June","July","August","September","October","November","December",""],"IsReadOnly":false,"NativeCalendarName":"Gregorian Calendar","AbbreviatedMonthGenitiveNames":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],"MonthGenitiveNames":["January","February","March","April","May","June","July","August","September","October","November","December",""]},"eras":[1,"A.D.",null,0]};//]]>
+</script>
+
+<script src="/Live/ScriptResource.axd?d=uHIkleVeDJfybYk2lmpqCoq6tVkyb2Cm4-9AY94R2nIPHxLfcy76l8oGFU2UTkoUnrPwSVxvsoZfMcIOEVrOVo2hQfdHU5gNTpurtqE4PaA6pF_UgX6-rrB_Usf__rC8rl8t6U5_jYzzwebZ5yLoBw2&amp;t=ffffffffbec1863d" type="text/javascript"></script>
+<script src="/Live/ScriptResource.axd?d=Jw6tUGWnA17b7soMbsTbOVLHDo8I2KlpwDgAuvPr2SkDJ4gvhE4TtBGAYN4ZUpy3-y5oYaRfseFUgsdjhoqhxWUNSWp_VfuAs9Edmm_sOl4V6lm2CTokNflkvwjz47ZLy12dHL0OVmFMDoFSV5OECEyyd9ZohXVc0&amp;t=ffffffffbec1863d" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="3ED0B191" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="m45/ix8IDxTomaRh5PIZn8I3SONrZWdkk47pXHkVIN8Lu5QYSvUGWdCajxDCFYzanSOaUjc24NyKIldWX7am0R9Eq5PXQU41Azpwbc02Ojbl6ZLD0VROIHdDF4+7ds5T" />
+</div>
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager', 'Form', [], [], [], 5400, '');
+//]]>
+</script>
+
+        <script src="/live/js/dnncore.js?cdv=526" type="text/javascript"></script>
+        
+        
+        
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="/Live/Portals/_default/skins/norwich2020/js/SkinScript.js"></script>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <link rel="stylesheet" href="/Live/Portals/_default/skins/norwich2020/css/norwich-css/screen.css" type="text/css" media="screen,projection" />
+        <link rel="stylesheet" href="/Live/Portals/_default/skins/norwich2020/css/norwich-css/theme1.css" type="text/css"/>
+    </head>
+    <body onload="onLoad()">
+        <!-- IDOX PA START -->
+        <div id="idox">
+            <div id="pa">
+                <div id="headerTrim"></div>
+                <div id="header">
+                    <div class="container">
+                        <div id="logo"><a href="https://www.norwich.gov.uk/" title="Norwich City Council home page"><img src="/Live/Portals/_default/skins/norwich2020/images/norwich-images/logo.svg" alt="Council logo" /><span class="sr-only">Norwich City Council</span></a></div>
+                        <div id="headertitle"></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div id="breadcrumbs">
+                    <div class="container">
+						<div id="Bread">
+							<span id="dnn_dnnTEXT_lblText" class="breadcrumb_text"></span>
+
+					        <ul>
+								<li><a href="https://www.norwich.gov.uk" rel="home" Class="Breadcrumb">Home</a></li>
+								<li><a href="https://www.norwich.gov.uk/info/20011/about_your_council" Class="Breadcrumb">About your council</a></li>
+								<span>
+									<span id="dnn_dnnBREADCRUMB_lblBreadCrumb" itemprop="breadcrumb" itemscope="" itemtype="https://schema.org/breadcrumb"><span itemscope itemtype="http://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="https://cmis.norwich.gov.uk/live/Committees.aspx" class="Breadcrumb" itemprop="item"><span itemprop="name">Committees</span></a><meta itemprop="position" content="1" /></span></span></span>
+								</span>
+							</ul>
+						</div>
+						<div id="Login">
+							<a id="dnn_dnnLOGIN_loginLink" title="Login" class="user" rel="nofollow" onclick="this.disabled=true;" href="https://cmis.norwich.gov.uk/live/login.aspx?ReturnUrl=%2flive%2fCommittees.aspx">Login</a>
+
+						</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+				<div id="Menu">
+					<div class="container superfish-container">
+						<script type="text/javascript">
+			jQuery(function($) {
+				$("#dnn_ctl00").superfish(
+					{MenuStyle:'Menu/Superfish'}
+				);
+			});
+		</script><ul class="sf-menu" id="dnn_ctl00">
+  <li class="current"><a href="https://cmis.norwich.gov.uk/live/Committees.aspx">Committees</a></li>
+  <li><a href="https://cmis.norwich.gov.uk/live/Councillors.aspx">Councillors</a></li>
+  <li><a href="https://cmis.norwich.gov.uk/live/Outsidebodies.aspx">Outside bodies</a></li>
+  <li><a href="https://cmis.norwich.gov.uk/live/Meetingscalendar.aspx">Meetings calendar</a></li>
+  <li><a href="https://www.norwich.gov.uk/info/20021/elections_and_voting">Elections</a></li>
+  <li><a href="https://www.norwich.gov.uk/info/20011/about_your_council/1347/petitions/5">ePetitions</a></li>
+  <li><a href="https://cmis.norwich.gov.uk/live/Archive.aspx">Archive</a></li>
+  <li><a href="https://cmis.norwich.gov.uk/live/Search.aspx">Search</a><ul>
+      <li><a href="https://cmis.norwich.gov.uk/live/Search/SearchDocuments.aspx">Search Documents</a></li>
+      <li><a href="https://cmis.norwich.gov.uk/live/Search/FindMyCouncillorWard.aspx">Find My Councillor/Ward</a></li>
+    </ul>
+  </li>
+</ul>
+						<div class="clear"></div>
+					</div>
+				</div>
+                <div class="container">
+					<div id="Panes">
+						<div id="dnn_ContentPane" class="ContentPane pane"><div class="DnnModule DnnModule-DNN_HTML DnnModule-380 DnnVersionableControl"><a name="380"></a>
+<div class="c_head c_head_blue">
+    <div class="head_title">
+        <div class="c_icon">			
+			
+			<h1>
+				<span id="dnn_ctr380_dnnTITLE_titleLabel" class="TitleHead">Committees </span>
+
+
+				
+			</h1>
+            </div>
+            <div class="title_vis">
+								
+            </div>
+            <div class="clear_float"></div>
+        </div>
+        <div class="c_content">
+            <div id="dnn_ctr380_ContentPane" class="Normal c_contentpane DNNAlignleft"><!-- Start_Module_380 --><div id="dnn_ctr380_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr380_HtmlModule_lblContent" class="Normal">
+	<p><span style="font-family:Arial;">Members of the public and media have the right to attend meetings of full council, the cabinet and committees except where confidential information or exempt information is likely to be disclosed, and the meeting is therefore held in private.</span></p>
+
+<p><span style="font-family:Arial;">Further information about speaking at meetings and filming or recording and&nbsp;use of&nbsp;social media&nbsp;at council meetings is available&nbsp;by clicking<a href="null"> </a><a href="https://www.norwich.gov.uk/info/20191/committees_and_meetings/">here</a>.&nbsp;<br />
+<br />
+To view committee documents from 10 June 2014 please click on the committee to open up the list of meetings or&nbsp;use the&nbsp;interactive meetings calendar.&nbsp; &nbsp;For meetings held before&nbsp;10 June 2014 please use the archived documents tab above.</span></p>
+
+<p><strong><span style="font-family:Arial;">IMPORTANT INFORMATION</span></strong></p>
+
+<p><span style="font-family:Arial;">The majority of committee meetings are being held in person but will continue to be livestreamed and available on the council&#39;s Youtube channel which can be found at this link&nbsp;<a href="https://www.youtube.com/channel/UC_kzIWwc-LQJDHZkJqDwOKQ">https://www.youtube.com/channel/UC_kzIWwc-LQJDHZkJqDwOKQ</a></span></p>
+
+<p>&nbsp;</p>
+
+</div>
+
+</div><!-- End_Module_380 --></div>
+        </div>
+        <div class="c_footer">
+				
+				
+								
+								
+        </div>        </div>
+    
+
+</div><div class="DnnModule DnnModule-CMIS_OrganisationStructure DnnModule-381"><a name="381"></a>
+<div class="c_head c_head_blue">
+    <div class="head_title">
+        <div class="c_icon">			
+			
+			<h1>
+				<span id="dnn_ctr381_dnnTITLE_titleLabel" class="TitleHead"> </span>
+
+
+				
+			</h1>
+            </div>
+            <div class="title_vis">
+								
+            </div>
+            <div class="clear_float"></div>
+        </div>
+        <div class="c_content">
+            <div id="dnn_ctr381_ContentPane" class="Normal c_contentpane"><!-- Start_Module_381 --><div id="dnn_ctr381_ModuleContent" class="DNNModuleContent ModCMISOrganisationStructureC">
+	
+        <h2 class="OrganisationStructure" title=''>
+            
+            Norwich City Council</h2>
+        
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/5/Default.aspx' 
+                        title='Audit committee'>
+                            
+                            Audit committee
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/1/Default.aspx' 
+                        title='Cabinet'>
+                            
+                            Cabinet
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level2'>
+                    
+                    <a class='Committee_Level2'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/9/Default.aspx' 
+                        title='Sustainable development panel'>
+                            
+                            Sustainable development panel
+                    </a>
+                        
+                    <p class='Committee_Level2'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level2'>
+                    
+                    <a class='Committee_Level2'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/31/Default.aspx' 
+                        title='Climate and environment emergency executive panel'>
+                            
+                            Climate and environment emergency executive panel
+                    </a>
+                        
+                    <p class='Committee_Level2'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level2'>
+                    
+                    <a class='Committee_Level2'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/38/Default.aspx' 
+                        title='Treasury Management Committee'>
+                            
+                            Treasury Management Committee
+                    </a>
+                        
+                    <p class='Committee_Level2'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/2/Default.aspx' 
+                        title='Council'>
+                            
+                            Council
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/6/Default.aspx' 
+                        title='Licensing committee'>
+                            
+                            Licensing committee
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level2'>
+                    
+                    <a class='Committee_Level2'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/20/Default.aspx' 
+                        title='Licensing sub committee'>
+                            
+                            Licensing sub committee
+                    </a>
+                        
+                    <p class='Committee_Level2'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/13/Default.aspx' 
+                        title='Mousehold Heath Conservators'>
+                            
+                            Mousehold Heath Conservators
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/11/Default.aspx' 
+                        title='Norwich area museums committee'>
+                            
+                            Norwich area museums committee
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/3/Default.aspx' 
+                        title='Planning Applications Committee'>
+                            
+                            Planning Applications Committee
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level2'>
+                    
+                    <a class='Committee_Level2'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/26/Default.aspx' 
+                        title='Informal planning applications briefing'>
+                            
+                            Informal planning applications briefing
+                    </a>
+                        
+                    <p class='Committee_Level2'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/39/Default.aspx' 
+                        title='Regulatory committee'>
+                            
+                            Regulatory committee
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level2'>
+                    
+                    <a class='Committee_Level2'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/19/Default.aspx' 
+                        title='Regulatory sub committee'>
+                            
+                            Regulatory sub committee
+                    </a>
+                        
+                    <p class='Committee_Level2'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/4/Default.aspx' 
+                        title='Scrutiny committee'>
+                            
+                            Scrutiny committee
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/7/Default.aspx' 
+                        title='Standards committee'>
+                            
+                            Standards committee
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/8/Default.aspx' 
+                        title='Twinning committee'>
+                            
+                            Twinning committee
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+    
+        <h2 class="OrganisationStructure" title=''>
+            
+            Other committees</h2>
+        
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/30/Default.aspx' 
+                        title='Cross party working group - polling district review'>
+                            
+                            Cross party working group - polling district review
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+    
+        <h2 class="OrganisationStructure" title=''>
+            
+            Retired Committees</h2>
+        
+                <div class='Committee_Level1'>
+                    
+                    <a class='Committee_Level1'
+                        href='https://cmis.norwich.gov.uk/live/Committees/tabid/62/ctl/ViewCMIS_CommitteeDetails/mid/381/id/16/Default.aspx' 
+                        title='Norwich Highways Agency committee'>
+                            
+                            Norwich Highways Agency committee
+                    </a>
+                        
+                    <p class='Committee_Level1'>
+                        
+                        
+                    </p>
+                 </div>
+            
+    
+
+
+</div><!-- End_Module_381 --></div>
+        </div>
+        <div class="c_footer">
+				
+				
+								
+								
+        </div>        </div>
+    
+
+</div></div>
+						<div id="dnn_LeftPane" class="LeftPane pane DNNEmptyPane"></div>
+						<div id="dnn_CenterPane" class="CenterPane pane DNNEmptyPane"></div>
+						<div id="dnn_RightPane" class="RightPane pane DNNEmptyPane"></div>
+						<div id="dnn_BottomPane" class="BottomPane pane DNNEmptyPane"></div>
+						<div class="clear"></div>
+					</div>
+                </div>
+                <div id="footer" class="site-footer__contact-links">
+                    <div class="container">
+                        <div id="links">
+                            <ul>
+                                <li><a href="https://www.norwich.gov.uk/contact" class="footer-links">Contact us</a></li>
+								<li><a href="https://www.norwich.gov.uk/accessibility" class="footer-links">Accessibility</a></li>
+                                <li><a href="https://www.norwich.gov.uk/terms" class="footer-links">Terms and conditions</a></li>
+                                <li><a href="https://www.norwich.gov.uk/privacy-and-cookies" class="footer-links">Privacy and cookies</a></li>
+                            </ul>
+                        </div>
+                        <div id="footerLogo"><a href="https://www.norwich.gov.uk"><span>Norwich City Council</span></a></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div id="footerBottom">
+                    <div class="container">
+                        <div id="footercontent">
+                            <p>
+                                All content &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Norwich City Council.
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- IDOX PA END -->           
+    </body>
+</html>
+        <input name="ScrollTop" type="hidden" id="ScrollTop" />
+        <input name="__dnnVariable" type="hidden" id="__dnnVariable" autocomplete="off" />
+        
+        
+    </form>
+    
+</body>
+</html>
