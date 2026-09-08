@@ -41,6 +41,8 @@
 #   include_page      emit a record for the page itself (default true)
 #   follow_links      discover linked documents (default true)
 #   max_bytes         skip any single file larger than this
+#   max_text_chars    how much extracted text this source's records keep
+#                     (default 200,000; see src/transform/extract.py)
 
 council: "Norwich City Council"
 topic: "Council finances (budgets, spending, borrowing and promises)"
@@ -66,6 +68,22 @@ sources:
     stage: feedback
     platform: engagement
     url: "https://gettalking.norwich.gov.uk/budget2026-27"
+    follow_links: false
+    enabled: true
+
+  # The council's news release of 4 December 2025, the day the budget consultation
+  # opened. It is the only place the council itself writes down how a council tax
+  # bill splits three ways — 13p to the city, 73p to Norfolk County Council, 14p to
+  # the police — which is the single most misunderstood fact about a district
+  # council's money, and it states the proposed 2.99% rise in pounds a resident
+  # would recognise. The budget page the council calls its explainer does not carry
+  # the split; this page does, so this is where the site cites it from.
+  - id: finance-news-budget-conversation-2025-12-04
+    title: "Fresh approach to setting our budget for 2026-27 (council news, 4 December 2025)"
+    type: consultation
+    stage: feedback
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/news/2025/fresh-approach-setting-our-budget-2026-27"
     follow_links: false
     enabled: true
 
@@ -149,6 +167,35 @@ sources:
         url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=230JNwLtTlmaPp%2bkJM49%2bbflMGBwDdPuKhO4HiqbpqEHJ0AYK6GZMg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
     enabled: true
 
+  # Budget Council, 21 February 2023 — the budget report for 2023/24. It is banked
+  # for one thing the later reports do not carry: Table 6.3, the council's own
+  # prudential indicator "net commercial income to net revenue stream", stated for
+  # 2021/22 as an actual. The current treasury management strategy's version of
+  # that table begins at 2024/25, so without this document the earlier years of the
+  # council's own commercial-income measure cannot be cited at all, and a fall from
+  # 16% to 4% would be a number with no source behind half of it.
+  #
+  # The council's own budget page links this report by date, so that page is what
+  # the adapter is pointed at and the document is named explicitly. The page itself
+  # is banked separately as finance-budget-explainer.
+  - id: finance-budget-2023-24
+    title: "Budget Council, 21 February 2023 — General Fund budget and financial strategy 2023-24"
+    type: spending
+    stage: decision
+    body: "Council"
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/norwich-city-council-budget-2026-27-what-you"
+    include_page: false
+    follow_links: false
+    documents:
+      - title: "General Fund budget and financial strategy 2023-2024"
+        type: spending
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=NJfV6jrcrzIOMHZiwkq3pYU0HybprNtW8gJYnEdVfUycLA0qa7M4nQ%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+    max_bytes: 5000000
+    # Table 6.3 sits on page 130 of 156, past the default 200,000-character cap.
+    max_text_chars: 400000
+    enabled: true
+
   # The council's own plain-English guide to its budget, which also links every
   # budget report back to February 2012. Banked because it is the page a curious
   # resident is most likely to reach, and because it is where the council itself
@@ -173,13 +220,24 @@ sources:
   # against capital outturn, and a list of the significant reasons for each. That
   # narrative is where every money measure on this page comes from.
   #
-  # The audit certificate for 2024/25 is taken from the same page. It is short, and
-  # it is the independent verdict: a disclaimed opinion under the national backstop
-  # arrangements, which is not a finding against Norwich and has to be explained in
-  # the same breath as it is reported.
+  # Two audit certificates are taken from the same page. The 2024/25 one is short
+  # and is the independent verdict on that year: a disclaimed opinion under the
+  # national backstop arrangements, which is not a finding against Norwich and has
+  # to be explained in the same breath as it is reported. The 2023/24 one is three
+  # pages and is the only document on this council's website that sets out the
+  # auditor's significant weakness in value-for-money arrangements — the oversight
+  # of the council's subsidiary companies — in the auditor's own words. Without it
+  # the site would be reporting a disclaimed opinion with nothing a reader could
+  # follow to find out what the auditor actually said.
   #
   # Deliberately not taken: the Annual Governance Statements, which repeat the
   # audit findings at four times the file size, and every year before 2021/22.
+  #
+  # max_text_chars is raised here because these are the longest documents in the
+  # archive. The default 200,000-character cap stops a third of the way through a
+  # Statement of Accounts, and the notes at the back — what a failed company cost,
+  # how the property portfolio moved — are exactly the parts a resident would want
+  # checked.
   - id: finance-statement-of-accounts
     title: "Statement of accounts — Norwich City Council's published accounts"
     type: spending
@@ -193,7 +251,9 @@ sources:
       - statement_of_accounts_-_year_ending_2022-23
       - statement_of_accounts_-_year_ending_2021-22
       - audit-certificate-soa-2024-2025
+      - auditcertificatesoa2023-24
     max_bytes: 6000000
+    max_text_chars: 600000
     enabled: true
 
   # The treasury management strategy for 2026/27. This is where a council sets the
