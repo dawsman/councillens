@@ -1,34 +1,47 @@
 {% extends "base.html" %}
 {% import "_score.html" as score with context %}
 
-{% block title %}For schools and colleges — CouncilLens{% endblock %}
-{% block description %}How to use CouncilLens in a citizenship, politics or economics lesson, with questions to work through and the words explained.{% endblock %}
+{% block title %}Learn — CouncilLens{% endblock %}
+{% block description %}A short course in how your council works, built around real documents you can open yourself.{% endblock %}
 
 {% block breadcrumb %}
 <nav class="crumbs wrap" aria-label="Breadcrumb">
   <ol>
     <li><a href="{{ root }}index.html">Home</a></li>
-    <li aria-current="page">For schools and colleges</li>
+    <li aria-current="page">Learn</li>
   </ol>
 </nav>
 {% endblock %}
 
 {% block main %}
 <header class="page-head">
-  <h1>For schools and colleges</h1>
-  <p class="lede">This site is built to be read by a thirteen-year-old. Every page uses real
-    documents from a real council, in plain English, with a link to the original so a class can
-    check anything for itself.</p>
-  <p class="page-head-note">Everything here is free to use and free to copy. The site is open
-    source under the MIT licence, and the pages print cleanly for handouts.</p>
+  <h1>Learn</h1>
+  <p class="lede">A short course in how your council works, built around real documents you can
+    open yourself.</p>
+  <p class="page-head-note">Free to use and free to copy. The site is open source, and every page
+    prints cleanly for handouts.</p>
 </header>
 
+{% if learn_pages %}
+<nav class="learn-cards" aria-labelledby="learn-cards-head">
+  <h2 class="section-head" id="learn-cards-head">The pages</h2>
+  <ol class="learn-cardlist">
+    {% for p in learn_pages %}
+    <li class="learn-card">
+      <h3 class="learn-card-title"><a href="{{ root }}learn/{{ p.slug }}/index.html">{{ p.title }}</a></h3>
+      {% if p.description %}<p class="learn-card-desc">{{ p.description }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}
+
 {% if body %}
-<section class="prose md learn-body" aria-label="Classroom guide">
+<section class="prose md learn-body" aria-label="About this course">
   {{ body | safe }}
 </section>
-{% else %}
-<section class="prose learn-body" aria-label="Classroom guide">
+{% elif not learn_pages %}
+<section class="prose learn-body" aria-label="About this course">
   <h2>What a class can do with this site</h2>
   <p>Pick a council, open its scorecard, and take one card. Every card names a thing the council
     said it would do and a thing its own reports say happened. The gap between the two is the
@@ -44,11 +57,8 @@
     <li><strong>Separate the fact from the opinion.</strong> Take one card and write two sentences:
       one that only says what the documents say, and one that says what you think about it.</li>
   </ul>
-  <h2>Where to start</h2>
-  <p>The scorecard for each council is linked from the home page. The <em>How we work</em> page
-    explains where the summaries come from and what we will and will not claim.</p>
-  <p class="learn-placeholder-note">A fuller classroom guide is being written and will replace this
-    page shortly.</p>
+  <p class="learn-placeholder-note">A fuller course is being written and will replace this page
+    shortly.</p>
 </section>
 {% endif %}
 
@@ -60,6 +70,9 @@
     <li><a href="{{ root }}councils/{{ c.slug }}/scorecard/index.html">{{ c.council.name }}: the scorecard</a></li>
     {% endif %}
     {% endfor %}
+    {% if has_glossary %}
+    <li><a href="{{ root }}glossary/index.html">Words explained — every term on the site</a></li>
+    {% endif %}
     <li><a href="{{ root }}methodology/index.html">How we work — where our summaries come from</a></li>
     <li><a href="{{ root }}corrections/index.html">Ask for a correction, if your class finds a mistake</a></li>
   </ul>

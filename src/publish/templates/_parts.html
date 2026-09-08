@@ -6,9 +6,26 @@
 {% if ai %}
 <p class="prov{% if not ai.reviewed %} prov-unreviewed{% endif %}">
   <span class="prov-icon" aria-hidden="true">{% if ai.reviewed %}✓{% else %}!{% endif %}</span>
-  Written by {{ ai.model }}{% if ai.generated_at %} on {{ ai.generated_at }}{% endif %},
-  {% if ai.confidence %}confidence {{ ai.confidence }}, {% endif %}<strong>{{ ai.review_text }}</strong>.
+  {% for sentence in ai.sentences %}{{ sentence }} {% endfor %}
+  <strong>{% for sentence in ai.checked %}{{ sentence }} {% endfor %}</strong>
 </p>
+{% endif %}
+{% endmacro %}
+
+
+{# -- "why this matters", written by the editor in content/explainers.yaml -- #}
+{# Closed by default: a box that pushes the thing it explains off the screen  #}
+{# has stopped explaining it. Print opens every one of them.                  #}
+{% macro explain(key) %}
+{% set e = explainer(key) %}
+{% if e %}
+<details class="explain">
+  <summary><span class="working-label">Why this matters</span></summary>
+  <div class="explain-body">
+    {% if e.why %}<p>{{ e.why | gloss }}</p>{% endif %}
+    {% if e.how %}<p class="explain-how"><b class="explain-how-label">How to read it.</b> {{ e.how | gloss }}</p>{% endif %}
+  </div>
+</details>
 {% endif %}
 {% endmacro %}
 

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% import "_viz.html" as viz with context %}
 {% import "_score.html" as score with context %}
+{% import "_parts.html" as parts with context %}
 
 {% block title %}{{ council.council.name }} — CouncilLens{% endblock %}
 {% block description %}What {{ council.council.name }} was asked, what it decided, and what happened next.{% endblock %}
@@ -17,8 +18,8 @@
 {% block main %}
 <header class="council-head">
   <h1>{{ council.council.name }}</h1>
-  <p class="lede">What this council was asked for, what it decided, and what happened afterwards —
-    put together from its own published documents.</p>
+  <p class="lede">What this council was asked for, what it decided, and what happened next. All of
+    it comes from its own published documents.</p>
   {% if council.council.website %}
   <p class="council-site"><a href="{{ council.council.website }}">{{ council.council.name }}'s own website</a></p>
   {% endif %}
@@ -29,6 +30,7 @@
   {{ score.tally(council.scorecard.tally, "How is this council doing?", 'h2', 'sc-summary-head') }}
   <p class="sc-summary-note">Each one compares something the council said it would do with what its
     own later reports say happened. Nothing here is a grade, a rank or an opinion.</p>
+  {{ parts.explain('scorecard') }}
   <p><a class="button" href="scorecard/index.html">See the whole scorecard</a></p>
 </section>
 {% endif %}
@@ -37,8 +39,8 @@
 <section class="remit" aria-labelledby="remit-head">
   <h2 id="remit-head">What this council is actually in charge of</h2>
   <p>{{ council.council.remit_note | gloss }}</p>
-  <p class="remit-why">This matters: if a problem sits with a different authority, this council
-    cannot fix it however many people ask.</p>
+  <p class="remit-why">This matters. If a problem belongs to a different council, this one cannot
+    fix it, however many people ask.</p>
 </section>
 {% endif %}
 

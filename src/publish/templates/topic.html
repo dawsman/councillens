@@ -26,8 +26,10 @@
 {{ score.strip(m._measures, m._council_slug) }}
 
 {{ viz.tracker(m._progress) }}
+{{ parts.explain('progress_tracker') }}
 
 {{ viz.figures(m._figures) }}
+{{ parts.explain('figures_strip') }}
 
 {# ---- The hero: the three questions, answered, as a visible sequence ---- #}
 <section class="answers" aria-labelledby="three-questions">
@@ -42,9 +44,11 @@
     </div>
   </div>
   {% endfor %}
+  {{ parts.explain('three_questions') }}
 </section>
 
 {{ viz.ribbon(m._ribbon) }}
+{{ parts.explain('timeline') }}
 
 {{ viz.changes(m._changes) }}
 
@@ -60,10 +64,13 @@
 
 {# ---- The record, stage by stage ---- #}
 <h2 class="section-head" id="the-record">Every record, stage by stage</h2>
-<p class="section-intro">Every card below links to the council document it came from. Where feedback
-  and a decision are joined, we say how sure we are — and show the words the council used.</p>
+<p class="section-intro">Every card below links to the council document it came from. Where we think
+  a decision answers something people asked for, we say how sure we are, and show the words the
+  council used.</p>
 
 {{ viz.linkage_summary(m._linkage_summary) }}
+{{ parts.explain('linkage_tiers') }}
+{{ parts.explain('ai_provenance') }}
 
 {% for stage in STAGES %}
 {% set events = m._stages[stage] %}
@@ -104,8 +111,8 @@
 {# ---- Gaps ---- #}
 <section class="gaps" aria-labelledby="gaps-head">
   <h2 class="section-head" id="gaps-head">What we looked for and couldn't find</h2>
-  <p class="section-intro">Missing information matters as much as the rest. These are the things we
-    went looking for in the public record and did not find.</p>
+  <p class="section-intro">What is missing matters as much as what is here. These are the things we
+    went looking for and did not find.</p>
   {% if m._gaps %}
   <ul class="gap-list">
     {% for g in m._gaps %}
@@ -147,8 +154,8 @@
 
 <section class="correct-cta" aria-labelledby="correct-head">
   <h2 id="correct-head">Something wrong here?</h2>
-  <p>If we have got something wrong, missed a document, or named you and you would rather we didn't,
-    tell us and we will look at it.</p>
+  <p>If we have got something wrong, missed a document, or named you when you would rather we
+    hadn't, tell us. We will look at it.</p>
   <p><a class="button" href="{{ root }}corrections/index.html">Ask for a correction</a></p>
 </section>
 {% endblock %}

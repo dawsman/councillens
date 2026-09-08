@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "_score.html" as score with context %}
+
+{% block title %}{{ entry.title }} — Learn — CouncilLens{% endblock %}
+{% block description %}{{ entry.description or entry.title }}{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li><a href="{{ root }}learn/index.html">Learn</a></li>
+    <li aria-current="page">{{ entry.title }}</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="page-head">
+  <h1>{{ entry.title }}</h1>
+  {% if entry.description %}<p class="lede">{{ entry.description }}</p>{% endif %}
+</header>
+
+<article class="prose md learn-body">
+  {{ body | safe }}
+</article>
+
+<nav class="learn-nav" aria-labelledby="learn-nav-head">
+  <h2 class="section-head" id="learn-nav-head">The rest of the course</h2>
+  <ol class="learn-nav-list">
+    {% for p in learn_pages %}
+    <li class="learn-nav-item{% if p.slug == entry.slug %} is-current{% endif %}">
+      {% if p.slug == entry.slug %}
+      <span class="learn-nav-here" aria-current="page">{{ p.title }}</span>
+      {% else %}
+      <a href="{{ root }}learn/{{ p.slug }}/index.html">{{ p.title }}</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</nav>
+
+{{ score.glossary_used() }}
+{% endblock %}

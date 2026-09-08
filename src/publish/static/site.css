@@ -1871,7 +1871,8 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   padding-top: 0.6rem;
 }
 .working > summary,
-.howto-key > summary {
+.howto-key > summary,
+.explain > summary {
   cursor: pointer;
   list-style: none;
   display: flex;
@@ -1882,9 +1883,11 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   padding: 0.15rem 0;
 }
 .working > summary::-webkit-details-marker,
-.howto-key > summary::-webkit-details-marker { display: none; }
+.howto-key > summary::-webkit-details-marker,
+.explain > summary::-webkit-details-marker { display: none; }
 .working > summary::before,
-.howto-key > summary::before {
+.howto-key > summary::before,
+.explain > summary::before {
   content: "";
   width: 0.5rem;
   height: 0.5rem;
@@ -1895,7 +1898,8 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
   flex: none;
 }
 .working[open] > summary::before,
-.howto-key[open] > summary::before { transform: rotate(45deg); margin-top: -0.25rem; }
+.howto-key[open] > summary::before,
+.explain[open] > summary::before { transform: rotate(45deg); margin-top: -0.25rem; }
 .working > summary:hover .working-label,
 .howto-key > summary:hover .working-label { text-decoration: underline; }
 .working-body {
@@ -2095,7 +2099,8 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
    to plain words with the definitions listed at the foot of the page. */
 @media print {
   .working > summary::before,
-  .howto-key > summary::before { display: none; }
+  .howto-key > summary::before,
+  .explain > summary::before { display: none; }
   .working > summary { color: #000; }
   /* Force every disclosure open for the handout. Two mechanisms, because
      browsers hide closed <details> content in two different ways. */
@@ -2123,4 +2128,170 @@ main.wrap { padding-block: 1.75rem 3.5rem; }
     word-break: break-all;
     color: #333;
   }
+}
+
+/* ==========================================================================
+   Words explained, and the Learn course
+   Content written by the editor in content/, rendered here.
+
+   The "why this matters" boxes are closed by default on purpose: the editor's
+   own rule is that a box must never push the thing it explains off the
+   screen. Print opens every one of them, along with every other disclosure.
+   ========================================================================== */
+
+/* ------------------------------------------------- why this matters ------ */
+
+.explain {
+  margin: 0 0 1.6rem;
+  border-left: 3px solid var(--line-strong);
+  padding-left: 0.95rem;
+}
+.explain + .explain { margin-top: -1.1rem; }
+/* Sit the box against the thing it explains, not adrift between sections. */
+.tracker + .explain,
+.figures + .explain,
+.ribbon-wrap + .explain,
+.sstrip + .explain { margin-top: -1.4rem; }
+.explain > summary { color: var(--ink-soft); font-size: var(--step--1); }
+.explain[open] > summary { color: var(--link); }
+.explain-body { margin-top: 0.5rem; }
+.explain-body p {
+  color: var(--ink);
+  font-size: var(--step--1);
+  line-height: 1.6;
+  max-width: var(--measure);
+}
+.explain-how-label { font-family: var(--font-display); }
+
+/* ----------------------------------------------- the popover, extended --- */
+
+.gloss-more {
+  display: block;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+  font-weight: 600;
+}
+
+/* -------------------------------------------------- words explained ------ */
+
+.gloss-index {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding-block: 0.9rem 1rem;
+  margin: 0 0 2rem;
+}
+.gloss-index-label {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+.gloss-index ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.5rem;
+}
+.gloss-index li::after { content: "·"; color: var(--line-strong); margin-left: 0.5rem; }
+.gloss-index li:last-child::after { content: none; }
+
+.gloss-entries { display: grid; gap: 1rem; margin: 0 0 2.2rem; }
+.gloss-entry {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 0.95rem 1.2rem 1.05rem;
+  scroll-margin-top: 1rem;
+}
+.gloss-entry p { max-width: none; }
+.gloss-entry-term { font-size: var(--step-2); margin-bottom: 0.3rem; }
+.gloss-entry-short { font-weight: 700; margin-bottom: 0.55rem; }
+.gloss-entry-long { color: var(--ink); margin-bottom: 0.6rem; }
+.gloss-entry-example,
+.gloss-entry-related {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+.gloss-entry-example {
+  background: var(--surface-sunk);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+}
+.gloss-entry-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink);
+  margin-right: 0.3rem;
+}
+.glossary-used .section-head { margin-bottom: 0.3rem; }
+.glossary-used-more { font-size: var(--step--1); }
+
+/* ------------------------------------------------------- the course ------ */
+
+.learn-cards { margin: 0 0 2.2rem; }
+.learn-cardlist {
+  list-style: none;
+  counter-reset: learn;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+.learn-card {
+  counter-increment: learn;
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.05rem 0.95rem 2.9rem;
+}
+/* Numbered because the course really is a sequence, and reads better in
+   order. Nothing else on this site is numbered for decoration. */
+.learn-card::before {
+  content: counter(learn);
+  position: absolute;
+  left: 1.05rem;
+  top: 0.85rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-1);
+  color: var(--line-strong);
+  font-variant-numeric: tabular-nums;
+}
+.learn-card-title { font-size: var(--step-1); margin-bottom: 0.25rem; }
+.learn-card-desc {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: none;
+}
+
+.learn-nav { margin: 2rem 0 2.2rem; }
+.learn-nav-list {
+  margin: 0.9rem 0 0;
+  padding-left: 1.4rem;
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+.learn-nav-item { margin-bottom: 0.3rem; }
+.learn-nav-here { font-weight: 700; color: var(--ink); }
+.learn-nav-item.is-current::marker { font-weight: 700; }
+
+.learn-body h2 { margin-top: 1.9rem; }
+.learn-body h3 { margin-top: 1.4rem; }
+.learn-body ol, .learn-body ul { max-width: var(--measure); }
+.learn-body li { margin-bottom: 0.35rem; }
+
+@media print {
+  .gloss-index, .learn-nav, .learn-cards { display: none; }
+  .gloss-entry, .learn-card { break-inside: avoid; }
+  .gloss-more { display: none; }
+  .explain > summary { color: #000; }
 }

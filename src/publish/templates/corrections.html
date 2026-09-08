@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "_parts.html" as parts with context %}
 
 {% block title %}Ask for a correction — CouncilLens{% endblock %}
 {% block description %}How to tell us we've got something wrong, or ask for something about you to be removed.{% endblock %}
@@ -15,14 +16,16 @@
 {% block main %}
 <header class="page-head">
   <h1>Ask for a correction</h1>
-  <p class="lede">We'd rather be corrected than be wrong in public. If something on this site is
-    wrong, out of date, missing, or about you and shouldn't be here, tell us.</p>
+  <p class="lede">We'd rather be corrected than be wrong in public. Tell us if something here is
+    wrong, out of date, missing, or about you and should not be here.</p>
 </header>
+
+{{ parts.explain('corrections') }}
 
 <section class="prose" aria-labelledby="how-head">
   <h2 id="how-head">How to tell us</h2>
-  <p>Open a correction request on GitHub. It's a short form, it's free, and you'll need a GitHub
-    account to use it. You don't have to explain the technical side of anything.</p>
+  <p>Open a correction request on GitHub. It is a short form and it is free. You will need a
+    GitHub account. You don't have to explain the technical side of anything.</p>
   <p><a class="button" href="{{ corrections_url }}">Open a correction request</a></p>
   <p>Not on GitHub and don't want to be? That's fine. You can read the whole project, including
     every issue people have raised, at <a href="{{ REPO_URL }}">our repository page</a>, and the
@@ -40,7 +43,7 @@
     it out.</p>
 
   <h2>How long we take</h2>
-  <p>We aim to respond within 10 working days. Straightforward factual fixes are usually much
+  <p>We aim to reply within 10 working days. Straightforward factual fixes are usually much
     quicker than that. If a correction needs us to re-read a long document or go back to the
     council, we'll tell you that rather than leaving you waiting.</p>
   <p>Every correction is logged in public on GitHub, so you can see what we changed and when.</p>
@@ -52,8 +55,8 @@
   <p>If you're named and you'd like it looked at, ask. Say which page and what you'd like us to do.
     We'll take out anything that isn't necessary for people to understand the decision, and if we
     decide something has to stay, we'll explain why rather than just refusing.</p>
-  <p>We only ever use documents the council has already published. But "already public" isn't the
-    same as "fine to repeat", and we treat those as different questions.</p>
+  <p>We only ever use documents the council has already published. But "already public" is not the
+    same as "fine to repeat", and we treat those as two different questions.</p>
 
   <h2>What we won't do</h2>
   <p>We won't remove an accurate summary of a public decision because someone dislikes how it

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "_score.html" as score with context %}
+{% import "_parts.html" as parts with context %}
 
 {% block title %}How is {{ sc.name }} doing? — CouncilLens{% endblock %}
 {% block description %}Things {{ sc.name }} said it would do, set against what its own later reports say happened.{% endblock %}
@@ -24,12 +25,19 @@
 </header>
 
 {# ---- The key, before anything is asked of the reader ---- #}
+{% set sc_box = explainer('scorecard') %}
+{% set rag_box = explainer('rag_statuses') %}
 <section class="howto" aria-labelledby="howto-head">
   <h2 class="howto-head" id="howto-head">How to read this page</h2>
+  {% if sc_box %}
+  <p>{{ sc_box.why | gloss }}</p>
+  <p>{{ sc_box.how | gloss }}</p>
+  {% else %}
   <p>Each card asks a question, gives the short answer, and shows the two numbers behind it: what
-    the council planned, and what happened. Open <strong>How we scored this</strong> on any card to
-    see the exact rule we ran, the source document, and anything the council said in its own
-    defence.</p>
+    the council planned, and what happened. Open <strong>How this status was worked out</strong> on
+    any card to see the exact rule we ran, the source document, and anything the council said in
+    its own defence.</p>
+  {% endif %}
   <p><strong>Grey is a real answer.</strong> A lot of the time the council simply has not published
     the result, so nobody can say whether it hit its own target. We say that rather than guess.</p>
   <details class="howto-key">
@@ -43,8 +51,13 @@
       </li>
       {% endfor %}
     </ul>
+    {% if rag_box %}
+    <p class="howto-note">{{ rag_box.why | gloss }}</p>
+    <p class="howto-note">{{ rag_box.how | gloss }}</p>
+    {% else %}
     <p class="howto-note">The shape changes with the word, so the page still works printed in black
       and white, or read by someone who cannot separate red from green.</p>
+    {% endif %}
   </details>
 </section>
 
@@ -75,9 +88,15 @@
 <section class="cantell" aria-labelledby="cantell-head">
   <h2 class="section-head" id="cantell-head">What we can't tell</h2>
   {% if sc.unknown %}
+  {% set ct = explainer('cant_tell') %}
+  {% if ct %}
+  <p class="section-intro">{{ ct.why | gloss }}</p>
+  <p class="section-intro">{{ ct.how | gloss }}</p>
+  {% else %}
   <p class="section-intro">These are questions with no answer in the published record. That is not
     the same as the council doing badly, and it is not the same as it doing well. It means the
     information a resident would need to judge for themselves has not been put out.</p>
+  {% endif %}
   <ul class="cantell-list">
     {% for m in sc.unknown %}
     <li class="cantell-item">

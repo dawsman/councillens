@@ -26,8 +26,11 @@
       <span class="brand-name">CouncilLens</span>
     </a>
     <nav class="masthead-nav" aria-label="Site">
-      <a href="{{ root }}learn/index.html"{% if page_id == 'learn' %} aria-current="page"{% endif %}>For schools</a>
       <a href="{{ root }}methodology/index.html"{% if page_id == 'methodology' %} aria-current="page"{% endif %}>How we work</a>
+      <a href="{{ root }}learn/index.html"{% if page_id == 'learn' %} aria-current="page"{% endif %}>Learn</a>
+      {% if has_glossary %}
+      <a href="{{ root }}glossary/index.html"{% if page_id == 'glossary' %} aria-current="page"{% endif %}>Words explained</a>
+      {% endif %}
       <a href="{{ root }}corrections/index.html"{% if page_id == 'corrections' %} aria-current="page"{% endif %}>Corrections</a>
     </nav>
   </div>
@@ -36,8 +39,8 @@
 {% if any_fixture %}
 <div class="notice-strip" role="note">
   <div class="wrap">
-    <strong>Example data.</strong> This build was made from a sample file so the pages could be
-    designed and tested. Anything here that looks like a council record is illustrative, not real.
+    <strong>Example data.</strong> These pages were made from a sample file, so the design could
+    be tested. Anything here that looks like a council record is made up.
   </div>
 </div>
 {% endif %}
@@ -50,15 +53,17 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p class="disclaimer">CouncilLens is for transparency and public discussion. It does not make
-      legal findings or accuse anyone of wrongdoing.</p>
+    <p class="disclaimer">CouncilLens exists so anyone can see the record and argue about it. We do
+      not accuse anyone of breaking the law.</p>
     <nav class="footer-nav" aria-label="Footer">
-      <a href="{{ root }}learn/index.html">For schools and colleges</a>
+      <a href="{{ root }}learn/index.html">Learn</a>
+      {% if has_glossary %}<a href="{{ root }}glossary/index.html">Words explained</a>{% endif %}
       <a href="{{ root }}methodology/index.html">How we work</a>
       <a href="{{ root }}corrections/index.html">Ask for a correction</a>
       <a href="{{ REPO_URL }}">Source code and data on GitHub</a>
     </nav>
-    <p class="built">Built {{ built_at }} from public documents. Open source, MIT licensed.</p>
+    <p class="built">Built {{ built_at }} from public documents. The code and the data are free
+      for anyone to use.</p>
   </div>
 </footer>
 </body>

@@ -118,7 +118,7 @@
   {% endif %}
 
   <details class="working">
-    <summary><span class="working-label">How we scored this</span></summary>
+    <summary><span class="working-label">How this status was worked out</span></summary>
     <div class="working-body">
       <dl class="working-list">
         {% if m.rule %}
@@ -187,6 +187,8 @@
 {% if used %}
 <section class="glossary-used" aria-labelledby="glossary-used-head">
   <h2 class="section-head" id="glossary-used-head">Words on this page</h2>
+  <p class="glossary-used-more">The same words are here for printing, because a popover cannot be
+    printed. <a href="{{ root }}glossary/index.html">Every word we explain</a> is on one page.</p>
   <dl class="glossary-list">
     {% for entry in used %}
     <div class="glossary-entry" id="{{ entry.id }}-list">

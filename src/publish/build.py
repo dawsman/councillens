@@ -54,6 +54,7 @@ SCORING_MD = REPO_ROOT / "methodology" / "scoring.md"
 CONTENT_DIR = REPO_ROOT / "content"
 GLOSSARY_PATH = CONTENT_DIR / "glossary.yaml"
 LEARN_DIR = CONTENT_DIR / "learn"
+EXPLAINERS_PATH = CONTENT_DIR / "explainers.yaml"
 
 REPO_URL = "https://github.com/dawsman/councillens"
 DEFAULT_CORRECTIONS_URL = f"{REPO_URL}/issues/new?template=correction.yml"
@@ -95,19 +96,19 @@ TIER = {
         "emoji": "\U0001F7E2",
         "label": "Confirmed link",
         "label_plural": "Confirmed links",
-        "blurb": "The council's own record says this feedback shaped the decision.",
+        "blurb": "The council's own document says this helped change the decision.",
     },
     "possible": {
         "emoji": "\U0001F7E1",
         "label": "Possible link",
         "label_plural": "Possible links",
-        "blurb": "The feedback came first, but nothing on record proves it caused the decision.",
+        "blurb": "People said this before the decision was taken. Nothing written down proves it made any difference.",
     },
     "none": {
         "emoji": "⚪",
         "label": "No link found",
         "label_plural": "No link found",
-        "blurb": "We found nothing connecting this feedback to the decision.",
+        "blurb": "We found nothing connecting what people said to what was decided.",
     },
 }
 
@@ -120,7 +121,7 @@ STATUS = {
     },
     "unknown": {
         "label": "Not known",
-        "note": "The public record does not tell us where this stands.",
+        "note": "The published documents do not tell us where this stands.",
     },
 }
 
@@ -242,25 +243,47 @@ def is_waiting(event: dict) -> bool:
 
 
 def provenance(ai: dict | None) -> dict | None:
-    """Flatten an AI provenance block into what the page needs to show."""
+    """Flatten an AI provenance block into what the page needs to show.
+
+    This is the most-read sentence on the site: it sits under every card. It
+    used to run to 27 words with a semicolon, a raw ISO date and an internal
+    model name, so it is now three or four short sentences instead. The facts
+    are unchanged — model, date, confidence, how far it has been checked —
+    because the project's own rules require every one of them to be on show.
+    The three "checked" phrasings are the ones content/explainers.yaml quotes,
+    so the explainer and the line it explains cannot say different things.
+    """
     if not ai:
         return None
     status = ai.get("review_status")
     reviewed = status == "reviewed"
     ai_reviewed = status == "ai_reviewed"
+    sentences = []
+    written = f"Written by {ai.get('model') or 'an AI model'}"
+    when = (ai.get("generated_at") or "")[:10]
+    if when:
+        written += f" on {human_date(when, 'day')}"
+    sentences.append(written + ".")
+    if ai.get("confidence"):
+        sentences.append(f"It rated its own confidence {ai['confidence']}.")
+    if reviewed and ai.get("reviewed_by"):
+        checked = [f"Checked by {ai['reviewed_by']}."]
+    elif reviewed:
+        checked = ["Checked by a person."]
+    elif ai_reviewed:
+        checked = ["Checked by a second, independent AI review against the council's documents.",
+                   "No person has checked it yet."]
+    else:
+        checked = ["Not yet reviewed by a person."]
     return {
         "model": ai.get("model") or "unknown model",
-        "generated_at": (ai.get("generated_at") or "")[:10],
+        "generated_at": when,
         "prompt_version": ai.get("prompt_version"),
         "confidence": ai.get("confidence"),
         "reviewed": reviewed,
         "ai_reviewed": ai_reviewed,
-        "review_text": (
-            f"checked by {ai['reviewed_by']}" if reviewed and ai.get("reviewed_by")
-            else "checked by a person" if reviewed
-            else "checked against the source documents by a second, independent AI review; not yet by a person" if ai_reviewed
-            else "not yet reviewed by a person"
-        ),
+        "sentences": sentences,
+        "checked": checked,
     }
 
 
@@ -1161,7 +1184,13 @@ TAGS_RE = re.compile(r"<[^>]+>")
 
 
 def load_glossary() -> list[dict]:
-    """Read content/glossary.yaml in whichever shape the editor wrote it."""
+    """Read content/glossary.yaml.
+
+    The editor writes ``id``, ``term``, ``short`` (the popover, 20 words or
+    fewer), ``long`` (the glossary page), ``example`` and ``see_also``. Older
+    and simpler shapes still load, because a glossary that will not parse must
+    never take the site down — it just means no popovers this build.
+    """
     if not GLOSSARY_PATH.exists() or yaml_lib is None:
         return []
     try:
@@ -1175,30 +1204,46 @@ def load_glossary() -> list[dict]:
 
     entries: list[dict] = []
 
+    def slug(text: str) -> str:
+        return re.sub(r"[^a-z0-9]+", "-", str(text).lower()).strip("-")
+
     def add(term: Any, body: Any) -> None:
         term = str(term or "").strip()
         if not term:
             return
         aliases: list[str] = []
+        example = see_also = long_text = None
         if isinstance(body, dict):
-            definition = (body.get("definition") or body.get("plain")
-                          or body.get("text") or body.get("meaning") or "")
+            short = (body.get("short") or body.get("definition") or body.get("plain")
+                     or body.get("text") or body.get("meaning") or "")
+            long_text = body.get("long")
+            example = body.get("example")
+            see_also = body.get("see_also") or []
             for key in ("aliases", "also", "variants", "synonyms"):
                 extra = body.get(key)
                 if isinstance(extra, str):
                     aliases.append(extra)
                 elif isinstance(extra, list):
                     aliases.extend(str(a) for a in extra)
+            ident = body.get("id") or slug(term)
+            exact = str(body.get("match") or "").lower() == "exact"
         else:
-            definition = body
-        definition = str(definition or "").strip()
-        if not definition:
+            short = body
+            ident = slug(term)
+            exact = False
+        short = " ".join(str(short or "").split())
+        if not short:
             return
         entries.append({
             "term": term,
-            "definition": definition,
+            "definition": short,
+            "long": " ".join(str(long_text).split()) if long_text else None,
+            "example": " ".join(str(example).split()) if example else None,
+            "see_also": [str(x) for x in (see_also or [])],
             "forms": [term] + [a.strip() for a in aliases if str(a).strip()],
-            "id": "gloss-" + re.sub(r"[^a-z0-9]+", "-", term.lower()).strip("-"),
+            "exact": exact,
+            "slug": str(ident),
+            "id": "gloss-" + str(ident),
         })
 
     if isinstance(data, dict):
@@ -1211,16 +1256,58 @@ def load_glossary() -> list[dict]:
 
     # Longest first, so "Housing Revenue Account" wins over "account".
     entries.sort(key=lambda e: -max(len(f) for f in e["forms"]))
+    by_slug = {e["slug"]: e for e in entries}
+    for entry in entries:
+        entry["_related"] = [by_slug[x] for x in entry["see_also"] if x in by_slug]
     return entries
 
 
+def load_explainers() -> dict[str, dict]:
+    """Read content/explainers.yaml: the "why this matters" boxes, by key."""
+    if not EXPLAINERS_PATH.exists() or yaml_lib is None:
+        return {}
+    try:
+        data = yaml_lib.safe_load(EXPLAINERS_PATH.read_text(encoding="utf-8")) or {}
+    except Exception as exc:
+        print(f"  Could not read {EXPLAINERS_PATH.name} ({exc}); building without the boxes.")
+        return {}
+    boxes = data.get("explainers") if isinstance(data, dict) else None
+    if not isinstance(boxes, dict):
+        boxes = data if isinstance(data, dict) else {}
+    out: dict[str, dict] = {}
+    for key, body in boxes.items():
+        if not isinstance(body, dict):
+            continue
+        why = " ".join(str(body.get("why") or "").split())
+        how = " ".join(str(body.get("how") or "").split())
+        if not (why or how):
+            continue
+        out[str(key)] = {
+            "key": str(key),
+            "title": str(body.get("title") or key).strip(),
+            "why": why or None,
+            "how": how or None,
+        }
+    return out
+
+
 GLOSSARY: list[dict] = []
+EXPLAINERS: dict[str, dict] = {}
 GLOSS_SEEN: dict[str, dict] = {}
+# The popover's "read more" link has to reach the glossary page from whatever
+# depth the current page sits at, and a Jinja filter cannot see `root`.
+GLOSS_ROOT = [""]
 
 
-def reset_glossary() -> None:
+def reset_glossary(root: str = "") -> None:
     """First use is per page, so the state resets before each page renders."""
     GLOSS_SEEN.clear()
+    GLOSS_ROOT[0] = root
+
+
+def explainer(key: str) -> dict | None:
+    """One "why this matters" box, or nothing where the editor wrote none."""
+    return EXPLAINERS.get(key)
 
 
 def gloss_term_html(entry: dict, shown: str) -> str:
@@ -1239,9 +1326,19 @@ def gloss_term_html(entry: dict, shown: str) -> str:
         f'<span class="gloss-plain">{escape(shown)}</span>'
         f'<span popover id="{entry["id"]}" class="gloss-def">'
         f'<b class="gloss-word">{escape(entry["term"])}</b> '
-        f'<span class="gloss-body">{escape(entry["definition"])}</span></span>'
+        f'<span class="gloss-body">{escape(entry["definition"])}</span>'
+        f'<a class="gloss-more" href="{GLOSS_ROOT[0]}glossary/index.html#{entry["id"]}-entry">'
+        f'Read more about this word</a></span>'
         f'</span>'
     )
+
+
+# A term preceded by a number or a quantity word is being counted, not named:
+# "about five minutes" is not the council's minutes, and "200 pages" is not a
+# page of the site. Skipping those is a missed popover; glossing them is wrong.
+COUNTED_BEFORE = re.compile(
+    r"(?:\d|\bone|\btwo|\bthree|\bfour|\bfive|\bsix|\bseven|\beight|\bnine|\bten|"
+    r"\bfew|\bseveral|\bmany|\bsome)\s+$", re.I)
 
 
 def gloss_fragment(fragment: str) -> str:
@@ -1250,7 +1347,13 @@ def gloss_fragment(fragment: str) -> str:
         if entry["id"] in GLOSS_SEEN:
             continue
         for form in entry["forms"]:
-            match = re.search(rf"\b{re.escape(form)}\b", fragment, re.I)
+            flags = 0 if entry.get("exact") else re.I
+            match = None
+            for candidate in re.finditer(rf"\b{re.escape(form)}\b", fragment, flags):
+                if COUNTED_BEFORE.search(fragment[:candidate.start()]):
+                    continue
+                match = candidate
+                break
             if match:
                 GLOSS_SEEN[entry["id"]] = entry
                 head, tail = fragment[:match.start()], fragment[match.end():]
@@ -1274,26 +1377,48 @@ def gloss(value: Any) -> Any:
     return Markup(gloss_fragment(text))
 
 
+NO_GLOSS_INSIDE = ("a", "button", "summary", "code", "pre")
+TAG_NAME_RE = re.compile(r"</?\s*([a-zA-Z0-9]+)")
+
+
 def gloss_html(html: str) -> str:
-    """The same, over already-rendered HTML: text runs only, never inside tags."""
+    """The same, over already-rendered HTML: text runs only, never inside tags.
+
+    Text inside a link, a button or a summary is left alone. The popover is a
+    <button>, and a button nested inside another control is both invalid and
+    impossible to operate.
+    """
     if not GLOSSARY or not html:
         return html
-    out, last = [], 0
+    out, last, depth = [], 0, 0
     for tag in TAGS_RE.finditer(html):
         run = html[last:tag.start()]
-        # gloss_fragment escapes as it goes, so unescape what markdown wrote
-        # before re-escaping it, or "&amp;" turns into "&amp;amp;".
-        out.append(gloss_fragment(unescape_entities(run)) if run.strip() else run)
-        out.append(tag.group(0))
+        if run.strip() and depth == 0:
+            # gloss_fragment escapes as it goes, so unescape what markdown
+            # wrote before re-escaping it, or "&amp;" becomes "&amp;amp;".
+            out.append(gloss_fragment(unescape_entities(run)))
+        else:
+            out.append(run)
+        raw = tag.group(0)
+        name = TAG_NAME_RE.match(raw)
+        if name and name.group(1).lower() in NO_GLOSS_INSIDE and not raw.endswith("/>"):
+            depth += -1 if raw.startswith("</") else 1
+            depth = max(depth, 0)
+        out.append(raw)
         last = tag.end()
     tail = html[last:]
-    out.append(gloss_fragment(unescape_entities(tail)) if tail.strip() else tail)
+    out.append(gloss_fragment(unescape_entities(tail)) if (tail.strip() and depth == 0) else tail)
     return "".join(out)
 
 
 def unescape_entities(text: str) -> str:
     import html as html_mod
     return html_mod.unescape(text)
+
+
+def gloss_all() -> list[dict]:
+    """Every term, A-Z, for the Words explained page."""
+    return sorted(GLOSSARY, key=lambda e: e["term"].lower())
 
 
 def gloss_used() -> list[dict]:
@@ -1327,13 +1452,96 @@ def strip_leading_heading(html: str | None, title: str) -> str | None:
     return html
 
 
-def learn_html() -> str | None:
-    """The classroom page, from every markdown file the editor put in place."""
+FRONT_MATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.S)
+
+
+def read_front_matter(text: str) -> tuple[dict, str]:
+    """Split a markdown file's YAML front matter from its body."""
+    match = FRONT_MATTER_RE.match(text)
+    if not match or yaml_lib is None:
+        return {}, text
+    try:
+        meta = yaml_lib.safe_load(match.group(1)) or {}
+    except Exception:
+        return {}, text
+    return (meta if isinstance(meta, dict) else {}), text[match.end():]
+
+
+LINK_RE = re.compile(r'(href=")([^"]+)(")')
+
+
+def fix_content_links(html: str, root: str, learn_root: str) -> str:
+    """Point a content file's relative links at the pages the build produces.
+
+    Content authors write links between markdown files ("who-decides-what.md")
+    and up to the site root ("../../corrections/index.html"), neither of which
+    survives being rendered at a different depth. Both are normalised here:
+    a .md link becomes that Learn page, and anything climbing out with ../ is
+    resolved against the site root instead of the file's position on disk.
+    """
+    def swap(match: re.Match) -> str:
+        href = match.group(2)
+        if re.match(r"^(https?:|mailto:|tel:|#|/)", href):
+            return match.group(0)
+        anchor = ""
+        if "#" in href:
+            href, anchor = href.split("#", 1)
+            anchor = "#" + anchor
+        if href.endswith(".md"):
+            name = Path(href).stem
+            target = f"{learn_root}index.html" if name == "index" else f"{learn_root}{name}/index.html"
+            return f'{match.group(1)}{target}{anchor}{match.group(3)}'
+        if href.startswith("../"):
+            return f'{match.group(1)}{root}{href.lstrip("./")}{anchor}{match.group(3)}'
+        return match.group(0)
+    return LINK_RE.sub(swap, html)
+
+
+SECTION_RE_TEMPLATE = r"<h2[^>]*>\s*{}\s*</h2>.*?(?=<h2|\Z)"
+
+
+def strip_section(html: str | None, heading: str) -> str | None:
+    """Drop one <h2> section of a rendered markdown file, by its heading.
+
+    The Learn index lists its own pages in prose. The build renders that list
+    as cards above, so printing it twice would just be a longer page.
+    """
+    if not html:
+        return html
+    pattern = SECTION_RE_TEMPLATE.format(re.escape(heading))
+    return re.sub(pattern, "", html, count=1, flags=re.S | re.I)
+
+
+def learn_pages() -> list[dict]:
+    """Every Learn page the editor wrote, in the order they set."""
     if not LEARN_DIR.is_dir():
-        return None
-    parts = [render_markdown(f) for f in sorted(LEARN_DIR.glob("*.md"))]
-    parts = [p for p in parts if p]
-    return "\n".join(parts) if parts else None
+        return []
+    pages = []
+    for path in sorted(LEARN_DIR.glob("*.md")):
+        meta, body = read_front_matter(path.read_text(encoding="utf-8"))
+        html = markdown_body(body)
+        if not html:
+            continue
+        slug = path.stem
+        pages.append({
+            "slug": slug,
+            "is_index": slug == "index",
+            "title": str(meta.get("title") or slug.replace("-", " ").capitalize()),
+            "description": str(meta.get("description") or "") or None,
+            "order": meta.get("order", 999),
+            "html": html,
+        })
+    pages.sort(key=lambda p: (0 if p["is_index"] else 1, p["order"], p["title"]))
+    return pages
+
+
+def markdown_body(text: str, baselevel: int = 2) -> str | None:
+    if markdown_lib is None:
+        sys.exit("The 'markdown' package is required. Run: pip install -r requirements.txt")
+    return markdown_lib.markdown(
+        text, extensions=["extra", "toc", "tables"],
+        extension_configs={"toc": {"baselevel": baselevel}},
+    ) or None
 
 
 def make_env() -> Environment:
@@ -1358,6 +1566,8 @@ def make_env() -> Environment:
         AREAS=AREAS,
         REPO_URL=REPO_URL,
         gloss_used=gloss_used,
+        gloss_all=gloss_all,
+        explainer=explainer,
     )
     return env
 
@@ -1381,10 +1591,17 @@ def methodology_html() -> str:
 def build(out_root: Path, use_fixture: bool, base_path: str) -> int:
     models_raw, notes = load_models(use_fixture)
     GLOSSARY[:] = load_glossary()
+    EXPLAINERS.clear()
+    EXPLAINERS.update(load_explainers())
     notes.append(
         f"Glossary: {len(GLOSSARY)} term(s) from content/glossary.yaml."
         if GLOSSARY else
         "No content/glossary.yaml found; words are rendered as written."
+    )
+    notes.append(
+        f"Explainers: {len(EXPLAINERS)} box(es) from content/explainers.yaml."
+        if EXPLAINERS else
+        "No content/explainers.yaml found; the pages render without the boxes."
     )
     for note in notes:
         print(f"  {note}")
@@ -1406,6 +1623,7 @@ def build(out_root: Path, use_fixture: bool, base_path: str) -> int:
         built_at=built_at,
         any_fixture=any(m.get("_fixture") for m in models),
         any_measures=any(m.get("_measures") for m in models),
+        has_glossary=bool(GLOSSARY),
     )
 
     def page(rel_path: str, template: str, body_md: str | None = None, **ctx: Any) -> None:
@@ -1415,7 +1633,7 @@ def build(out_root: Path, use_fixture: bool, base_path: str) -> int:
         a markdown body has to be marked up AFTER that reset, or the terms it
         explains never reach the list at the foot of the page.
         """
-        reset_glossary()
+        reset_glossary(ctx.get("root", ""))
         if body_md is not None:
             ctx["body"] = gloss_html(body_md)
         write(out_root, rel_path, env.get_template(template).render(**ctx, **common), written)
@@ -1438,12 +1656,29 @@ def build(out_root: Path, use_fixture: bool, base_path: str) -> int:
     else:
         print("  No methodology/scoring.md yet; skipping the scoring page.")
 
-    # For schools and colleges. The editor supplies the copy; if it is not
-    # there yet the page still exists, with a short placeholder, so nothing
-    # linking to it 404s mid-wave.
-    learn = strip_leading_heading(learn_html(), "For schools and colleges")
+    # Learn: a short course, one page per markdown file the editor wrote. If
+    # the directory is not there the index still exists, with a placeholder,
+    # so nothing linking to it 404s mid-wave.
+    learn = learn_pages()
+    index_page = next((p for p in learn if p["is_index"]), None)
+    others = [p for p in learn if not p["is_index"]]
     page("learn/index.html", "learn.html", root="../", page_id="learn",
-         body_md=learn, body=None)
+         body_md=(fix_content_links(
+             strip_section(
+                 strip_leading_heading(index_page["html"], index_page["title"]), "The pages"),
+             "../", "")
+             if index_page else None),
+         body=None, learn_pages=others, learn_meta=index_page)
+    for entry in others:
+        page(f"learn/{entry['slug']}/index.html", "learn-page.html",
+             root="../../", page_id="learn",
+             body_md=fix_content_links(
+                 strip_leading_heading(entry["html"], entry["title"]), "../../", "../"),
+             entry=entry, learn_pages=others)
+
+    # Words explained: every term in one place, with the popovers linking here.
+    if GLOSSARY:
+        page("glossary/index.html", "glossary.html", root="../", page_id="glossary")
 
     for council in councils:
         base = f"councils/{council['slug']}"

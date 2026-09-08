@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Words explained — CouncilLens{% endblock %}
+{% block description %}Council documents are full of words that mean something specific. Here is what each one means.{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li aria-current="page">Words explained</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="page-head">
+  <h1>Words explained</h1>
+  <p class="lede">Council documents are full of words that mean something specific. Here is what
+    each one means, with a Norwich example wherever we have one.</p>
+  <p class="page-head-note">Anywhere one of these words appears on the site, you can tap it and the
+    short version comes up without leaving the page.</p>
+</header>
+
+{% set entries = gloss_all() %}
+<nav class="gloss-index" aria-label="Every word on this page">
+  <p class="gloss-index-label">{{ entries | length }} words</p>
+  <ul>
+    {% for e in entries %}
+    <li><a href="#{{ e.id }}-entry">{{ e.term }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<div class="gloss-entries">
+  {% for e in entries %}
+  <article class="gloss-entry" id="{{ e.id }}-entry">
+    <h2 class="gloss-entry-term">{{ e.term }}</h2>
+    <p class="gloss-entry-short">{{ e.definition }}</p>
+    {% if e.long %}<p class="gloss-entry-long">{{ e.long }}</p>{% endif %}
+    {% if e.example %}
+    <p class="gloss-entry-example"><b class="gloss-entry-label">On this site</b> {{ e.example }}</p>
+    {% endif %}
+    {% if e._related %}
+    <p class="gloss-entry-related">
+      <span class="gloss-entry-label">See also</span>
+      {% for r in e._related %}<a href="#{{ r.id }}-entry">{{ r.term }}</a>{{ ", " if not loop.last }}{% endfor %}
+    </p>
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>
+
+<section class="correct-cta" aria-labelledby="correct-head">
+  <h2 id="correct-head">A word we should explain and don't?</h2>
+  <p>If you hit something on this site you had to look up somewhere else, that is our mistake.</p>
+  <p><a class="button" href="{{ root }}corrections/index.html">Ask for a correction</a></p>
+</section>
+{% endblock %}

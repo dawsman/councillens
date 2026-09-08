@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% import "_viz.html" as viz with context %}
 {% import "_score.html" as score with context %}
+{% import "_parts.html" as parts with context %}
 
 {% block title %}CouncilLens — see how your council listens{% endblock %}
 
 {% block main %}
 <header class="home-head">
   <h1>See how your council listens</h1>
-  <p class="lede">Your council publishes a lot: meeting notes, consultations, reports. It is all
-    public, and almost none of it is written for you. CouncilLens gathers it, puts it in plain
-    English, and lines it up so you can see one thing clearly — what people asked for, what the
-    council decided, and what actually happened.</p>
+  <p class="lede">Your council publishes a lot. Meeting notes, consultations, reports. All of it is
+    public and almost none of it is written for you. We gather it, put it in plain English, and
+    line it up so you can see one thing clearly: what people asked for, what the council decided,
+    and what actually happened.</p>
 </header>
 
 <section class="answers home-questions" aria-labelledby="the-questions">
@@ -30,6 +31,7 @@
     <div class="answer-body"><h3 class="answer-q">What actually got done?</h3>
       <p class="answer-a">And where nothing has happened yet, we say so.</p></div>
   </div>
+  {{ parts.explain('three_questions') }}
 </section>
 
 <section class="councils-list" aria-labelledby="councils-head">
@@ -59,30 +61,34 @@
     {% endfor %}
   </ul>
   {% else %}
-  <p class="empty">No councils are published yet. This is an early build — the first council and
-    topic are on the way. You can follow progress on
+  <p class="empty">No councils are published yet. This is an early version, and the first council
+    and topic are on the way. You can follow progress on
     <a href="{{ REPO_URL }}">GitHub</a> in the meantime.</p>
   {% endif %}
 </section>
 
 <section class="schools" aria-labelledby="schools-head">
-  <h2 class="section-head" id="schools-head">For schools and colleges</h2>
-  <p class="section-intro">This site is written to be read by a thirteen-year-old, and it is free
-    to use in a classroom. Every claim links to the council document it came from, so a class can
-    check our work rather than take it on trust.</p>
+  <h2 class="section-head" id="schools-head">Learn how your council works</h2>
+  <p class="section-intro">A short course in how your council works, built around real documents
+    you can open yourself. Written for secondary school and college, and for anyone at home who
+    never got taught this.</p>
   <ul class="schools-points">
-    <li>Plain English, with the hard words explained where they appear.</li>
-    <li>Questions a class can argue about, and pages that print cleanly for handouts.</li>
-    <li>Real council documents, not made-up examples.</li>
+    <li>Eight pages, about five minutes each.</li>
+    <li>Every hard word explained where it appears, and gathered in one place.</li>
+    <li>Real council documents, not made-up examples. Pages print cleanly for handouts.</li>
   </ul>
-  <p class="home-links"><a class="button" href="learn/index.html">Using this in a lesson</a></p>
+  <p class="home-links">
+    <a class="button" href="learn/index.html">Start the course</a>
+    {% if has_glossary %}<a class="button button-quiet" href="glossary/index.html">Words explained</a>{% endif %}
+  </p>
 </section>
 
 <section class="honesty" aria-labelledby="honesty-head">
-  <h2 class="section-head" id="honesty-head">What we will and won't claim</h2>
-  <p class="section-intro">The hard part of accountability is knowing whether feedback actually
-    changed a decision. Usually nobody writes that down. Rather than guess, we label every
-    connection, and you can see the evidence behind the label.</p>
+  <h2 class="section-head" id="honesty-head">What we will and won't say</h2>
+  <p class="section-intro">The hard part is knowing whether what people said actually changed the
+    decision. Usually nobody writes that down. So rather than guess, we label every link with how
+    much evidence stands behind it, and show you that evidence.</p>
+  {{ parts.explain('linkage_tiers') }}
   <dl class="tiers">
     <div class="tier tier-confirmed">
       <dt><span class="bridge-emoji" aria-hidden="true">🟢</span> Confirmed</dt>
@@ -97,8 +103,8 @@
       <dd>We found no connection, and we say so plainly rather than leaving a gap you might fill in yourself.</dd>
     </div>
   </dl>
-  <p>We would rather tell you we don't know than mislead you. Everything on this site links to the
-    original public document, so you never have to take our word for anything.</p>
+  <p>We would rather tell you we don't know than mislead you. Every page links to the council's own
+    document, so you never have to take our word for anything.</p>
   <p class="home-links">
     <a class="button" href="methodology/index.html">Read how we work</a>
     <a class="button button-quiet" href="corrections/index.html">Ask for a correction</a>

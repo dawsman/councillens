@@ -45,9 +45,10 @@
     {% if p.next.anchor %}<a href="#{{ p.next.anchor }}">{{ p.next.title }}</a>{% else %}{{ p.next.title }}{% endif %}
   </p>
   {% else %}
-  <p class="tracker-next tracker-next-none">Nothing further is in the diary that we can find.</p>
+  <p class="tracker-next tracker-next-none">We cannot find anything else in the council's diary.</p>
   {% endif %}
-  <p class="tracker-asof">Drawn as at {{ p.today_human }}, the day this page was last built.</p>
+  <p class="tracker-asof">This shows the record as it stood on {{ p.today_human }}, the day we last
+    built the page.</p>
 </section>
 {% endmacro %}
 
@@ -82,7 +83,7 @@
       {% if f._when %}<p class="figure-when">{{ f._when }}</p>{% endif %}
       {% if f.note %}<p class="figure-note">{{ f.note }}</p>{% endif %}
       {% if f.source_url %}
-      <p class="figure-src"><a href="{{ f.source_url }}">Where this comes from</a></p>
+      <p class="figure-src"><a href="{{ f.source_url }}">Where this number comes from</a></p>
       {% endif %}
     </li>
     {% endfor %}
@@ -96,9 +97,9 @@
 {% macro ribbon(r) %}
 {% if r %}
 <section class="ribbon-wrap" aria-labelledby="ribbon-head">
-  <h2 class="section-head" id="ribbon-head">How it has unfolded</h2>
-  <p class="section-intro">Each marker is a document we found, in the order things happened. The
-    time between them is written underneath. Anything to the right of today has not happened yet.</p>
+  <h2 class="section-head" id="ribbon-head">How it happened, in order</h2>
+  <p class="section-intro">Each dot is a document we found, in the order things happened. The gap
+    between them is written underneath. Anything to the right of today has not happened yet.</p>
   <svg class="ribbon" viewBox="0 0 {{ r.width }} {{ r.height }}" role="presentation" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
     <line class="rib-rail" x1="{{ r.start_x }}" y1="{{ r.rail_y }}" x2="{{ r.today_x or r.end_x }}" y2="{{ r.rail_y }}"/>
     {% if r.today_x %}
@@ -154,8 +155,8 @@
     Taken word for word from the council's own committee papers. These are the changes that made it
     into the policy now in force.
     {% elif c.in_force %}
-    Taken word for word from the council's own committee papers. None of it is settled: the draft has
-    not been adopted, so the older policy below is still the one that counts.
+    Taken word for word from the council's own committee papers. None of it is settled. The draft
+    has not been adopted, so the older policy below is still the one in force.
     {% else %}
     Taken word for word from the council's own committee papers. None of it is settled, and we have
     found nothing on record saying any of it has been adopted.
@@ -222,8 +223,8 @@
 {% if ls %}
 <aside class="linkviz" aria-labelledby="linkviz-head">
   <h3 class="linkviz-head" id="linkviz-head">Did what people said change anything?</h3>
-  <p class="linkviz-intro">We checked {{ ls.total }} possible connection{{ '' if ls.total == 1 else 's' }} between
-    feedback and a decision. Here is how far the council's own record backs each one up.</p>
+  <p class="linkviz-intro">We checked {{ ls.total }} place{{ '' if ls.total == 1 else 's' }} where something people
+    said might have changed a decision. Here is how far the council's own record backs each one up.</p>
   <p class="linkbar" aria-hidden="true">
     {% for row in ls.rows %}
     {% if row.count %}
@@ -251,8 +252,8 @@
 {% if d %}
 <section class="docstrip" aria-labelledby="docstrip-head">
   <h3 class="docstrip-head" id="docstrip-head">{{ d.total }} document{{ '' if d.total == 1 else 's' }}, grouped by what they tell us</h3>
-  <p class="docstrip-intro">Each square is one public document, numbered to match the list below. Follow a
-    square to what we made of it, or the list below to the document itself.</p>
+  <p class="docstrip-intro">Each square is one public document, numbered to match the list below.
+    Click a square to see what we made of it. Use the list below to reach the document itself.</p>
   <ul class="docgroups">
     {% for g in d.groups %}
     <li class="docgroup docgroup-{{ g.stage }}">
