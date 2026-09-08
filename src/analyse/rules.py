@@ -105,8 +105,18 @@ def budget_variance_v1(target, actual, direction=None, threshold=None):
     or a plan that was wrong — and an overspend is not automatically bad. The
     measure is how close the plan came to the year, nothing more.
 
-    `actual.value` is the variance as a percentage of the approved budget,
-    negative for an underspend and positive for an overspend.
+    The 2% and 5% lines are ours, not the council's. No council publishes a rule
+    saying how far off its own budget is acceptable, so somebody has to draw the
+    line and say where. We put it where a finance officer's own language changes:
+    a variance inside 2% is the sort of thing an outturn report calls routine, and
+    beyond 5% it is the sort of thing that gets its own paragraph. Both numbers are
+    printed here so you can disagree with them. The figures being compared are
+    always the council's.
+
+    `actual.value` is the variance the council itself reports, as a percentage of
+    its gross expenditure budget for that pot, negative for an underspend and
+    positive for an overspend. Councils have been known to change what they divide
+    by from one year to the next; where that happens it is said on the measure.
     """
     variance = _number(actual)
     if variance is None:
@@ -137,6 +147,13 @@ def capital_delivery_v1(target, actual, direction=None, threshold=None):
     repairs it has agreed to pay for. Money not spent is not money lost — most of
     it rolls into next year — but a programme that is only half delivered is a
     programme that was never a reliable statement of what would happen.
+
+    The 90% and 70% lines are ours, and so is the idea that the whole programme is
+    the thing to measure against: the council publishes what it approved and what
+    it spent, and no delivery target at all. We chose 90% because a programme that
+    lands within a tenth of itself is a plan that broadly happened, and 70% because
+    below that the published programme is describing a different year from the one
+    that occurred. The percentage is our division of two council figures.
 
     `actual.value` is the money actually spent as a percentage of the approved
     programme.
@@ -169,6 +186,12 @@ def target_met_v1(target, actual, direction="higher_is_better", threshold=None):
     is good: `higher_is_better` (homes let, calls answered), `lower_is_better`
     (days to process a claim, money borrowed against a limit) or `on_target`,
     where being under is as much of a miss as being over.
+
+    The target is always the council's. The 10% is ours: it exists so that a
+    near miss is not painted the same colour as a wide one, and a tenth of the
+    target is the roundest honest way to say "nearly". Where the council publishes
+    its own warning level as well as its target, this rule is not used at all —
+    council-threshold-v1 is, and then no number in the comparison is ours.
     """
     want = _number(target)
     got = _number(actual)
@@ -202,10 +225,11 @@ def council_threshold_v1(target, actual, direction="higher_is_better", threshold
     the point at which the council says it will step in and act. Red if it crossed that line.
     Grey if the council has not published a target, an intervention level, or the figure.
 
-    This is the strictest form of "the council's own rule": both the pass mark and the alarm
-    line are the council's, published beside the figure in its own performance report, so the
-    colour here should be the colour on the council's own dashboard. Where a council publishes
-    a target but no alarm line, target-met-v1 is used instead.
+    This is the strictest form of "the council's own rule", and the only one where we choose
+    nothing at all: both the pass mark and the alarm line are the council's, published beside
+    the figure in its own performance report, so the colour here should be the colour on the
+    council's own dashboard. Where a council publishes a target but no alarm line,
+    target-met-v1 is used instead.
 
     `threshold.value` is the council's published intervention level.
     """
@@ -260,6 +284,11 @@ def promise_kept_v1(target, actual, direction=None, threshold=None):
     council's own words with the date it gave; `actual` carries what the later
     record says.
 
+    Nothing here is a threshold we chose. The words are the council's, the date is
+    the council's, and the later record is the council's. The only judgement is
+    whether a later document says done, done late, partly done or not done, and
+    where no later document says anything the answer is grey rather than a guess.
+
     `actual.value` is one of: done_on_time, done_late, partly_done, not_done.
     """
     outcome = _word(actual)
@@ -285,6 +314,12 @@ def savings_delivered_v1(target, actual, direction=None, threshold=None):
     afterwards, or don't. Where a council only publishes the savings it *found*
     when writing the budget, and never says how much actually arrived, this
     measure stays grey and says so.
+
+    The 95% and 80% lines are ours. A savings plan is a commitment to find a sum of
+    money, and a plan that lands within a twentieth of it has essentially worked;
+    below four fifths the shortfall has to be filled from somewhere else, usually
+    reserves, which is a decision with consequences for the following year. The
+    savings target itself is always the council's own.
 
     `actual.value` is the savings delivered as a percentage of the savings target.
     """
@@ -318,6 +353,12 @@ def reserves_vs_policy_v1(target, actual, direction=None, threshold=None):
     itself. Holding much more than the minimum is not scored: reserves that look
     large are usually ring-fenced for things like council housing, and calling
     that "hoarding" would be an opinion.
+
+    The floor is the council's. The one thing that is ours is how far below it
+    still counts as a warning rather than a breach: a tenth of the minimum. We drew
+    it there because a reserve a little under its floor is a year to watch and a
+    reserve well under it is a different kind of problem, and because refusing to
+    distinguish them would make the amber pointless.
 
     `target.value` is the published minimum and `actual.value` the balance held,
     both in the same units.
