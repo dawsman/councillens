@@ -94,12 +94,27 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "name", "party", "ward", "first_elected", "first_elected_precision", "current_term_start", "elections", "roles", "committees", "outside_bodies", "attendance", "allowances", "interests", "declared_links", "contact", "summary", "source_ids", "source_urls", "ai"],
+        "required": ["id", "name", "party", "ward", "party_history", "first_elected", "first_elected_precision", "current_term_start", "elections", "roles", "committees", "outside_bodies", "attendance", "allowances", "interests", "declared_links", "contact", "summary", "source_ids", "source_urls", "ai"],
         "properties": {
           "id": {"type": "string", "pattern": "^cllr-[a-z0-9-]+$"},
           "name": {"type": "string", "description": "As the council publishes it."},
           "party": {"type": ["string", "null"], "description": "The party label the council prints. Null where the council prints none."},
           "ward": {"type": ["string", "null"]},
+          "party_history": {
+            "type": "array",
+            "description": "Every party the council's own record shows this councillor sitting for, oldest first, where it publishes more than one. Empty where the council publishes a single party. A councillor who changed party is a fact the council records and the page carries it, because 'Independent since 2016' invites a reading the record does not support.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["party", "from", "to", "source_url"],
+              "properties": {
+                "party": {"type": "string", "description": "The party label the council itself prints."},
+                "from": {"$ref": "#/$defs/date_string"},
+                "to": {"$ref": "#/$defs/date_string", "description": "Null where the council's record shows this as the party they sit for now."},
+                "source_url": {"type": ["string", "null"], "format": "uri"}
+              }
+            }
+          },
           "first_elected": {"$ref": "#/$defs/date_string"},
           "first_elected_precision": {"$ref": "#/$defs/precision"},
           "current_term_start": {"$ref": "#/$defs/date_string", "description": "The start of the term they are serving now, as the council's directory gives it."},
@@ -168,11 +183,12 @@
           "attendance": {
             "type": ["object", "null"],
             "additionalProperties": false,
-            "required": ["expected", "attended", "period", "source_url", "note"],
-            "description": "Null where the council does not publish attendance in a form that can be read. A null is an honest answer, not a missing value to be guessed at.",
+            "required": ["expected", "attended", "apologies", "period", "source_url", "note"],
+            "description": "Null where the council does not publish attendance in a form that can be read. A null is an honest answer, not a missing value to be guessed at. Where the council publishes an apologies figure it must be carried: a councillor who missed eleven meetings and sent apologies for all eleven is not the same as one who simply did not turn up, and publishing only the first half of a figure the council publishes in full is the page taking a side.",
             "properties": {
               "expected": {"type": ["integer", "null"], "minimum": 0},
               "attended": {"type": ["integer", "null"], "minimum": 0},
+              "apologies": {"type": ["integer", "null"], "minimum": 0, "description": "Meetings the councillor missed having sent apologies, as the council counts them. Null only where the council does not publish it."},
               "period": {"type": ["string", "null"]},
               "source_url": {"type": ["string", "null"], "format": "uri"},
               "note": {"type": ["string", "null"]}
@@ -182,7 +198,7 @@
             "type": ["object", "null"],
             "additionalProperties": false,
             "required": ["basic", "special_responsibility", "total", "currency", "year", "source_url", "note"],
-            "description": "What the council's published allowances schedule says this councillor was entitled to or paid. Null where no per-councillor figure is published.",
+            "description": "What the council's published allowances schedule says this councillor was paid. Null where no per-councillor figure is published. `special_responsibility` is null unless the published document makes that column separable from the others — an allowance labelled as payment for extra responsibility is a claim about what someone was paid to do, and a claim like that has to be readable in the source, not inferred from its position in a row.",
             "properties": {
               "basic": {"type": ["number", "null"], "minimum": 0},
               "special_responsibility": {"type": ["number", "null"], "minimum": 0},

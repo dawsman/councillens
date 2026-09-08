@@ -179,6 +179,15 @@ def shape_role(raw):
     }
 
 
+def shape_party_history(raw):
+    return {
+        "party": raw.get("party", ""),
+        "from": raw.get("from"),
+        "to": raw.get("to"),
+        "source_url": raw.get("source_url"),
+    }
+
+
 def shape_committee(raw):
     name = raw.get("name", "")
     return {
@@ -213,11 +222,17 @@ def shape_interests(raw):
 
 
 def shape_attendance(raw):
+    """Both halves of the council's own figure, or neither.
+
+    A committee system that publishes "absent 11, apologies received 11" is
+    saying two things, and carrying only the first would make a councillor who
+    apologised for every absence look like one who did not bother."""
     if not raw:
         return None
     return {
         "expected": raw.get("expected"),
         "attended": raw.get("attended"),
+        "apologies": raw.get("apologies"),
         "period": raw.get("period"),
         "source_url": raw.get("source_url"),
         "note": raw.get("note"),
@@ -319,6 +334,7 @@ def build(council_name, documents):
             "name": payload.get("name", pid),
             "party": payload.get("party"),
             "ward": payload.get("ward"),
+            "party_history": [shape_party_history(h) for h in payload_list(payload, "party_history")],
             "first_elected": payload.get("first_elected"),
             "first_elected_precision": payload.get("first_elected_precision", "unknown"),
             "current_term_start": payload.get("current_term_start"),
