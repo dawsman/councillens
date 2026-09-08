@@ -4,7 +4,7 @@
   "topic_slug": "council-finances",
   "payload": {
     "source_id": "finance-statement-of-accounts--audit-certificate-2024-25",
-    "summary": "The external auditor's certificate for the 2024/25 accounts. Ernst & Young disclaimed its opinion — it could not say whether the accounts give a true and fair view. This is a national arrangement, not a Norwich failing: the government set \"backstop\" dates to clear a countrywide audit backlog, and thousands of council-years were disclaimed the same way. It does mean nobody independently verified the figures."
+    "summary": "The external auditor's completion certificate for the 2024/25 accounts, eight lines long. Ernst & Young records that its audit report of 23 March 2026 was disclaimed — it could not say whether the accounts give a true and fair view — and that it could not close the audit until the National Audit Office confirmed no further assurances were needed from it. That confirmation came, and the audit was certified complete on 17 August 2026. The certificate gives no reason for the disclaimer and makes no finding about Norwich's figures."
   },
   "ai": {
     "source_ids": [
@@ -13,8 +13,8 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "4433791761d76ea1651743f423850b263f56cd978ab96fa86cf7245ba23cd5ef"
   }

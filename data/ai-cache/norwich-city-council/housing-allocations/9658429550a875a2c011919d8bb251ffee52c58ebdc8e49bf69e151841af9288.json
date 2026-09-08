@@ -5,8 +5,8 @@
   "payload": {
     "id": "m-kpi19-new-homes-completed",
     "area": "targets",
-    "question": "How many new homes were finished in the city?",
-    "label": "New homes completed, council and private, 2024/25",
+    "question": "How many new homes were finished across Greater Norwich?",
+    "label": "New homes completed, council and private, across Greater Norwich",
     "rule_id": "council-threshold-v1",
     "target": {
       "value": 477.0,
@@ -25,13 +25,13 @@
     },
     "direction": "higher_is_better",
     "period": "2024/25",
-    "as_of": "2025-03-31",
-    "council_caveat": "The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
-    "evidence": "This counts every new home finished in Norwich, private builders included, so it is only partly in the council's hands — its levers are planning permission and its own building programme. The target is 477 a year, the intervention level 429, and the figure reported for 2024/25 was 246.",
+    "as_of": "2024-09-30",
+    "council_caveat": "The council says this target is out of date. Its own words: \"The number of new homes built in the last two years is at a relatively lower rate, but challenges in the housing market are not unique to Norwich, and nutrient neutrality only compounds this issue. The KPI target was set in 2011 when the Joint Core Strategy was adopted. This plan has been replaced in March 2024 by the adoption of the Greater Norwich Local Plan (GNLP). The GNLP annual target for homes is now calculated across the whole of the three districts (Broadland, Norwich and South Norfolk). We are working towards a more robust target to reflect the GNLP plan.\" The dashboard's own note on method says the same: \"The sum of new homes built in Greater Norwich measured against the annual requirement of the Greater Norwich Local Plan (GNLP)\". The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+    "evidence": "This counts new homes finished across Greater Norwich — Broadland, Norwich and South Norfolk together — private builders included, so most of it is not in the city council's hands. The council's target is 477 a year and it says it will step in below 429. The one figure on the dashboard is 246, in a column headed Q2 2024/2025. The council calls this an annual indicator reported at Q2 and does not say which twelve months the 246 covers.",
     "source_ids": [
       "housing-corporate-performance-2025-26-q1"
     ],
-    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=21",
     "order": 87
   },
   "ai": {
@@ -41,8 +41,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "medium",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "9658429550a875a2c011919d8bb251ffee52c58ebdc8e49bf69e151841af9288"
   }

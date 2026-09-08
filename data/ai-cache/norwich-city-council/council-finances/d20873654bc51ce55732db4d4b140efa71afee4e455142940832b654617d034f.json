@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "source_id": "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23",
+    "summary": "The accounts for 2022/23: a General Fund underspend of £1.796m, 2.76%, transferred to the business change reserve. Capital spending was £39.175m against a £63.308m budget — £24.133m of approved work that did not happen that year."
+  },
+  "ai": {
+    "source_ids": [
+      "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "d20873654bc51ce55732db4d4b140efa71afee4e455142940832b654617d034f"
+  }
+}

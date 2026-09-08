@@ -4,7 +4,7 @@
   "topic_slug": "council-finances",
   "payload": {
     "source_id": "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
-    "summary": "The same report a year earlier, for 2025/26. It identifies £3.2m of permanent savings and extra income, raises the prudent minimum general reserve from £5.4m to £5.5m, and volunteers that the parking income budget had been built on \"incorrect assumptions about the volume of car parking\" and had to be re-based."
+    "summary": "The same report a year earlier, for 2025/26. It identifies £3.2m of permanent savings and extra income, records that the prudent minimum general reserve \"was set at £5.4 million by full Council in February 2024\" and \"has been increased to £5.5 million\", and volunteers that the previous year was heading for a £0.65m overspend \"primarily as a consequence of inaccurate expectations around income streams relating to car parking\", which it re-based by £425,000."
   },
   "ai": {
     "source_ids": [
@@ -13,8 +13,8 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "6f3f79927a7b5ee409ec6dfa01607ffe8d6a74031cddb051af6aaa2c03a0083d"
   }

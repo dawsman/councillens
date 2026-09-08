@@ -10,8 +10,8 @@
     "title": "Cabinet agreed the 2026/27 budget and a 2.99% council tax rise",
     "summary": "Cabinet met on 11 February 2026 and agreed a net budget requirement of £24.25m for 2026/27, with a 2.99% rise in the city council's share of council tax. The report printed the consultation result in full, including the answers that did not flatter the council.",
     "detail": [
-      "2.99% is not a coincidence. A district council needs a local referendum to go above 3%, so every rise Norwich has made since 2019/20 has been 1.99% or 2.99%.",
-      "The budget requirement jumped 16% on the year before, from £20.850m. That is mostly a change in how government money is labelled: Revenue Support Grant rose from £0.589m to £5.100m while retained business rates fell from £8.271m to £6.600m."
+      "The rise stops just under 3%. Above that, a district council has to hold a local referendum: the report says increases are \"limited by referendum principles, which for a district council have been set at a maximum of up to 3% for 2026-2027\".",
+      "The budget requirement rose 16% on the year before, from £20.850m to £24.250m. The council says the settlement replaced its old funding arrangements with a new Fair Funding Allocation, and that its total government funding \"increases from £12,970,000 in 2025-2026 to £13,950,000 in 2026-2027, an increase of £980,000\"."
     ],
     "source_ids": [
       "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
@@ -28,8 +28,8 @@
     "prompt_version": "event-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "ad7b595dcdab3d031bf888117aa816b66d5ea5a4a2664086cfa9ff739e3cbdb5"
   }

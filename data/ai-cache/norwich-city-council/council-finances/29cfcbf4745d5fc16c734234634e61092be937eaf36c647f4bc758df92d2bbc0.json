@@ -1,0 +1,47 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "m-promise-reserve-floor-2025-26",
+    "area": "promises",
+    "question": "Did the emergency reserve stay where the council said it would?",
+    "label": "The emergency reserve to stay at £8.249m, above the £5.5m floor",
+    "rule_id": "promise-kept-v1",
+    "target": {
+      "value": "2026-03-31",
+      "display": "\"The General Fund unallocated reserve, is expected to remain at £8.249 million over the life of the Medium-Term Financial Strategy, which remains above the prudent minimum level.\" — General Fund MTFS and 2025-2026 Budget, the report that set that year's budget",
+      "unit": null
+    },
+    "actual": {
+      "value": "done_on_time",
+      "display": "£8.249m held at 31 March 2026",
+      "unit": null
+    },
+    "threshold": null,
+    "direction": "higher_is_better",
+    "period": "2025/26",
+    "as_of": "2026-03-31",
+    "council_caveat": null,
+    "evidence": "The council said in its 2025/26 budget report that its emergency reserve would stay at £8.249m. The draft accounts published in June 2026 show exactly £8.249m at 31 March 2026 — the fourth year-end running at that figure. This is the same balance the money card on reserves scores; one asks whether the council kept its word, the other whether the balance clears the floor its finance officer sets.",
+    "source_ids": [
+      "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+    "order": 91
+  },
+  "ai": {
+    "source_ids": [
+      "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "29cfcbf4745d5fc16c734234634e61092be937eaf36c647f4bc758df92d2bbc0"
+  }
+}

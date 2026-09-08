@@ -11,8 +11,10 @@
     "summary": "Norwich publishes a quarterly performance report with a target and an intervention level for every indicator. For the first quarter of 2025/26, 19 indicators were reported: 13 on or above target, 2 needing attention, and 4 at the level where the council says it will step in.",
     "detail": [
       "The four red indicators were the speed of processing new housing benefit claims, the share of council housing rent collected, the time taken to re-let an empty council home, and private-sector insulation measures completed.",
-      "The council explains each of them in its own words in the report, and those explanations are carried on this site beside the numbers.",
-      "Two indicators about whether residents feel safe were dropped this quarter, because the council says they are too heavily influenced by other agencies."
+      "One indicator was taken out of the totals this quarter: \"The KPI 'Council on track to remain within General Fund Budget' has been removed from the totals for quarter one 2025-2026.\" The report gives no reason. On a council's own scorecard, that was the indicator for keeping to budget.",
+      "The council says of the whole set that \"The KPIs in this report have been carried over from the previous Corporate Plan and are under review, as part of the new business planning process.\" So these are legacy indicators the council is in the middle of replacing.",
+      "Two indicators about whether residents feel safe were dropped as well, because the council says they are too heavily influenced by other agencies.",
+      "The council explains each red in its own words in the report, and those explanations are carried on this site beside the numbers."
     ],
     "source_ids": [
       "finance-corporate-performance-2025-26-q1"
@@ -27,8 +29,8 @@
     "prompt_version": "event-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "023e0d8e4d184ccd5e8cc69a5f9a0ce99f9c09f7d6441ff1f37abfc2aac5720c"
   }

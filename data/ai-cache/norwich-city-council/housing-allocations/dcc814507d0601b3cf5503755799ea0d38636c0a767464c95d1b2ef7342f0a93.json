@@ -26,12 +26,12 @@
     "direction": "higher_is_better",
     "period": "Q1 2025/26",
     "as_of": "2025-06-30",
-    "council_caveat": "The council raised its own target for this indicator from 67% to 75% during this quarter, so the traffic lights on earlier quarters were set against an easier bar. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+    "council_caveat": "The council raised its own target for this indicator during this quarter and warns that the traffic lights on earlier quarters were set against the old thresholds: \"Please note: The target and interventions levels for this KPI were updated in Q1 2025/26. RAG rating prior to this reflect previous thresholds.\" It does not publish what the old target was. Its reason for raising it: \"Over the past three years, average performance has been 78%, demonstrating consistent excellence. In light of this, we have raised the target to 75% which sets a higher standard and enables earlier identification of any dips in performance.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
     "evidence": "If you are about to lose your home, the council has a legal duty to try to prevent it. This counts the cases where that duty ended because somewhere suitable was found. The council aims for 75% and reached 82% in the first quarter of 2025/26.",
     "source_ids": [
       "housing-corporate-performance-2025-26-q1"
     ],
-    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=17",
     "order": 84
   },
   "ai": {
@@ -41,8 +41,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "medium",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "dcc814507d0601b3cf5503755799ea0d38636c0a767464c95d1b2ef7342f0a93"
   }

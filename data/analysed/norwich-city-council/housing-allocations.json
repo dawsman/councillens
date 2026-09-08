@@ -318,8 +318,8 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
         "generated_at": "2026-09-08T12:00:00+00:00",
         "cache_key": "46dc9ac9a40af0ffbd3d2bc21b66c3d660adc44220a11638a425074468127e1b"
       }
@@ -335,7 +335,7 @@
       "fetched_at": "2026-09-08T06:23:18+00:00",
       "sha256": "62bdde938a59c20abbffef37015a98b6833e401615b921102ecfac4959a221be",
       "saved_to": "data/raw/housing-tenant-satisfaction-measures/page.html",
-      "summary": "The council's tenant satisfaction measures for 2025/26 — 26 measures the Regulator of Social Housing requires every landlord to publish, from a survey of 1,002 Norwich tenants between May 2025 and March 2026. Three quarters of tenants, 75.3%, were satisfied with the overall service, up from 71.1% the year before. Satisfaction with how complaints are handled was 30.0%. The council publishes no target for any of the 26.",
+      "summary": "The council's tenant satisfaction measures for 2025/26 — the set the Regulator of Social Housing requires every landlord to publish, from a survey of 1,002 Norwich tenants \"Between 6 May 2025 and 5 March 2026\". The page carries 22: twelve from the tenant survey and ten the landlord works out from its own records. Three quarters of tenants, 75.3%, were satisfied with the overall service, up from 71.1% the year before. Satisfaction with how complaints are handled was 30.0%. The council publishes no target for any of them.",
       "ai": {
         "source_ids": [
           "housing-tenant-satisfaction-measures"
@@ -343,8 +343,8 @@
         "prompt_version": "summarise-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "high",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
         "generated_at": "2026-09-08T12:00:00+00:00",
         "cache_key": "2bb2a30096c17296283d25a0fa68e76dc5c9ce9d6227d0bae3d88de83f2cad20"
       }
@@ -999,7 +999,7 @@
       "id": "m-kpi05-rent-collected",
       "area": "targets",
       "question": "Is the council collecting the rent its tenants owe?",
-      "label": "Council housing rent collected against target, Q1 2025/26",
+      "label": "Council housing rent collected, excluding old arrears, Q1 2025/26",
       "rule_id": "council-threshold-v1",
       "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
       "target": {
@@ -1023,11 +1023,11 @@
       "period": "Q1 2025/26",
       "as_of": "2025-06-30",
       "council_caveat": "The council's own explanation: \"Cash collection in quarter one dropped compared to 2024/25, mainly due to the rise in Universal Credit (UC) claimants—now 55% of tenants. This shift reduced Housing Benefit payments by £1.5 million, with UC managed payments leaving a £110,000 gap… Rising living costs are worsening tenant finances.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
-      "evidence": "Rent from council tenants pays for repairs, new homes and the debt on the existing ones, so a shortfall matters to every tenant. The council aims to collect 99.8% of the rent due and says it will step in below 98.8%. In the first quarter of 2025/26 it collected 96.88%.",
+      "evidence": "Rent from council tenants pays for repairs, new homes and the debt on the existing ones, so a shortfall matters to every tenant. The council's own title for this indicator is \"% of council housing rent collected (excluding arrears brought forward)\", so unlike the council tax figure on this page it counts only the year's own rent. It aims to collect 99.8% and says it will step in below 98.8%. In the first quarter of 2025/26 it collected 96.88%.",
       "source_ids": [
         "housing-corporate-performance-2025-26-q1"
       ],
-      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=13",
       "ai": {
         "source_ids": [
           "housing-corporate-performance-2025-26-q1"
@@ -1035,8 +1035,8 @@
         "prompt_version": "measure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
         "generated_at": "2026-09-08T12:00:00+00:00",
         "cache_key": "9476ba09bd9f2f25eebbc54810c46f1ddfcb2537ed8bd13ba86c05760621c2f7"
       }
@@ -1073,7 +1073,7 @@
       "source_ids": [
         "housing-corporate-performance-2025-26-q1"
       ],
-      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=14",
       "ai": {
         "source_ids": [
           "housing-corporate-performance-2025-26-q1"
@@ -1081,8 +1081,8 @@
         "prompt_version": "measure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
         "generated_at": "2026-09-08T12:00:00+00:00",
         "cache_key": "4fe58088e9c8ce4da30711502548448f6fab1415012959c2e5a06970e1603f61"
       }
@@ -1119,7 +1119,7 @@
       "source_ids": [
         "housing-corporate-performance-2025-26-q1"
       ],
-      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=15",
       "ai": {
         "source_ids": [
           "housing-corporate-performance-2025-26-q1"
@@ -1127,8 +1127,8 @@
         "prompt_version": "measure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
         "generated_at": "2026-09-08T12:00:00+00:00",
         "cache_key": "333b0007cb542c9b77966736d5051e6e5f8b17bf9e82c368aab25fa5b68329bd"
       }
@@ -1165,7 +1165,7 @@
       "source_ids": [
         "housing-corporate-performance-2025-26-q1"
       ],
-      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=16",
       "ai": {
         "source_ids": [
           "housing-corporate-performance-2025-26-q1"
@@ -1173,8 +1173,8 @@
         "prompt_version": "measure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
         "generated_at": "2026-09-08T12:00:00+00:00",
         "cache_key": "f961fc48f35949a1f8435cad87888e21ebd91b5cbfbf0e0159e936ac12467742"
       }
@@ -1206,12 +1206,12 @@
       "direction": "higher_is_better",
       "period": "Q1 2025/26",
       "as_of": "2025-06-30",
-      "council_caveat": "The council raised its own target for this indicator from 67% to 75% during this quarter, so the traffic lights on earlier quarters were set against an easier bar. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "council_caveat": "The council raised its own target for this indicator during this quarter and warns that the traffic lights on earlier quarters were set against the old thresholds: \"Please note: The target and interventions levels for this KPI were updated in Q1 2025/26. RAG rating prior to this reflect previous thresholds.\" It does not publish what the old target was. Its reason for raising it: \"Over the past three years, average performance has been 78%, demonstrating consistent excellence. In light of this, we have raised the target to 75% which sets a higher standard and enables earlier identification of any dips in performance.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
       "evidence": "If you are about to lose your home, the council has a legal duty to try to prevent it. This counts the cases where that duty ended because somewhere suitable was found. The council aims for 75% and reached 82% in the first quarter of 2025/26.",
       "source_ids": [
         "housing-corporate-performance-2025-26-q1"
       ],
-      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=17",
       "ai": {
         "source_ids": [
           "housing-corporate-performance-2025-26-q1"
@@ -1219,8 +1219,8 @@
         "prompt_version": "measure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
         "generated_at": "2026-09-08T12:00:00+00:00",
         "cache_key": "dcc814507d0601b3cf5503755799ea0d38636c0a767464c95d1b2ef7342f0a93"
       }
@@ -1252,12 +1252,12 @@
       "direction": "higher_is_better",
       "period": "2024/25",
       "as_of": "2025-03-31",
-      "council_caveat": "The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "council_caveat": "The council's own explanation: \"In 2024-25, a total of 48 new affordable homes were completed: 29 homes built by the council at Three Score, five acquired by the council on Barrack Street, and 14 enabled through a grant to a local Registered Provider (RP). Although there has been some delay in development programmes due to Nutrient Neutrality, which prevented us reaching the target of 50 homes, these remaining homes are expected to be delivered over the next two years.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
       "evidence": "This is an annual indicator, reported at the end of the year. The council counts homes it built itself, bought, or enabled someone else to provide. Its target is 50 a year and it says it will step in below 45. In 2024/25 it reported 48.",
       "source_ids": [
         "housing-corporate-performance-2025-26-q1"
       ],
-      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=20",
       "ai": {
         "source_ids": [
           "housing-corporate-performance-2025-26-q1"
@@ -1265,8 +1265,8 @@
         "prompt_version": "measure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
         "generated_at": "2026-09-08T12:00:00+00:00",
         "cache_key": "78d6c849c426836994ca56e9fb2bc20fd50bd9f2855a483e7e7a287bacadf07a"
       }
@@ -1298,12 +1298,12 @@
       "direction": "higher_is_better",
       "period": "2024/25",
       "as_of": "2025-03-31",
-      "council_caveat": "The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "council_caveat": "The council's own explanation: \"Last year's performance was significantly boosted by the lifting of prohibition orders on 53 flats in multi-occupied buildings. In contrast, this year saw improvement notices served on 48 premises, affecting 148 units of accommodation—an increase compared to the previous year. While performance in 2024/25 appears lower, it aligns with historical trends; for example, 26 private rented sector homes were made safe in quarter four of 2022. A new service manager has been appointed, with a key priority for quarter one being the review of outstanding notices and the accurate recording of compliance dates.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
       "evidence": "Councils can force private landlords to fix dangerous housing. Norwich set itself a target of 50 homes made safe a year and says it will step in below 45. In 2024/25 it reported 22 — less than half the target.",
       "source_ids": [
         "housing-corporate-performance-2025-26-q1"
       ],
-      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=19",
       "ai": {
         "source_ids": [
           "housing-corporate-performance-2025-26-q1"
@@ -1311,8 +1311,8 @@
         "prompt_version": "measure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
         "generated_at": "2026-09-08T12:00:00+00:00",
         "cache_key": "b499c033f0a9069bf88a1a35fad66854b312ad207e473b7243b30b7cd1b0350e"
       }
@@ -1320,8 +1320,8 @@
     {
       "id": "m-kpi19-new-homes-completed",
       "area": "targets",
-      "question": "How many new homes were finished in the city?",
-      "label": "New homes completed, council and private, 2024/25",
+      "question": "How many new homes were finished across Greater Norwich?",
+      "label": "New homes completed, council and private, across Greater Norwich",
       "rule_id": "council-threshold-v1",
       "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
       "target": {
@@ -1343,13 +1343,13 @@
       "status_word": "Missed",
       "direction": "higher_is_better",
       "period": "2024/25",
-      "as_of": "2025-03-31",
-      "council_caveat": "The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
-      "evidence": "This counts every new home finished in Norwich, private builders included, so it is only partly in the council's hands — its levers are planning permission and its own building programme. The target is 477 a year, the intervention level 429, and the figure reported for 2024/25 was 246.",
+      "as_of": "2024-09-30",
+      "council_caveat": "The council says this target is out of date. Its own words: \"The number of new homes built in the last two years is at a relatively lower rate, but challenges in the housing market are not unique to Norwich, and nutrient neutrality only compounds this issue. The KPI target was set in 2011 when the Joint Core Strategy was adopted. This plan has been replaced in March 2024 by the adoption of the Greater Norwich Local Plan (GNLP). The GNLP annual target for homes is now calculated across the whole of the three districts (Broadland, Norwich and South Norfolk). We are working towards a more robust target to reflect the GNLP plan.\" The dashboard's own note on method says the same: \"The sum of new homes built in Greater Norwich measured against the annual requirement of the Greater Norwich Local Plan (GNLP)\". The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "This counts new homes finished across Greater Norwich — Broadland, Norwich and South Norfolk together — private builders included, so most of it is not in the city council's hands. The council's target is 477 a year and it says it will step in below 429. The one figure on the dashboard is 246, in a column headed Q2 2024/2025. The council calls this an annual indicator reported at Q2 and does not say which twelve months the 246 covers.",
       "source_ids": [
         "housing-corporate-performance-2025-26-q1"
       ],
-      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=21",
       "ai": {
         "source_ids": [
           "housing-corporate-performance-2025-26-q1"
@@ -1357,10 +1357,52 @@
         "prompt_version": "measure-v1",
         "model": "claude-opus-5 (agent session)",
         "confidence": "medium",
-        "review_status": "needs_review",
-        "reviewed_by": null,
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
         "generated_at": "2026-09-08T12:00:00+00:00",
         "cache_key": "9658429550a875a2c011919d8bb251ffee52c58ebdc8e49bf69e151841af9288"
+      }
+    },
+    {
+      "id": "m-kpi22-private-sector-insulation",
+      "area": "targets",
+      "question": "How many private homes did the council help insulate?",
+      "label": "Private sector insulation measures completed, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": null,
+      "actual": {
+        "value": 0.0,
+        "display": "none",
+        "unit": "measures"
+      },
+      "threshold": {
+        "value": 45.0,
+        "display": "the council steps in past 45.0",
+        "unit": "measures"
+      },
+      "status": "grey",
+      "status_word": "Can't tell",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council's own explanation: \"This figure is at zero for quarter one 2025/2026 pending commencement of delivery for the Warm Homes: Local Grant. This grant funding totalling £4.7m will be used to deliver private sector energy efficiency and insulation measures to an estimated 330 private sector homes over the three-year period to March 2028, with delivery set to commence imminently in quarter two 2025/2026.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "The council marks this indicator red, and has for five quarters running: the reported figure is zero in every quarter from Q1 2024/25 to Q1 2025/26. It is one of the four indicators the council's own report names as needing intervention. Our rule cannot put a colour on it, because the council's dashboard prints the intervention level of 45 but not the target, and we do not invent the missing half of a comparison. Grey here means the record cannot answer the question, not that nothing is wrong.",
+      "source_ids": [
+        "housing-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=24",
+      "ai": {
+        "source_ids": [
+          "housing-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "ai_reviewed",
+        "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "00b5c5f711cad246ec709ff4b5eb61690a94b25e0ca1047905af2c125c095538"
       }
     }
   ],
@@ -1395,11 +1437,11 @@
     },
     {
       "stage": "outcome",
-      "description": "A target for anything tenants are asked about. The Regulator of Social Housing makes every landlord publish 26 tenant satisfaction measures, and Norwich publishes all of them: 75.3% of tenants satisfied with the overall service, up from 71.1%, and 30.0% satisfied with how complaints are handled. But the regulator does not require a target and Norwich has not set one, so none of the 26 can be scored. A figure with nothing to compare it against is a figure, not a verdict, and we will not invent the standard."
+      "description": "A target for anything tenants are asked about. The Regulator of Social Housing makes every landlord publish a set of tenant satisfaction measures, and Norwich publishes 22 of them on this page: 75.3% of tenants satisfied with the overall service, up from 71.1%, and 30.0% satisfied with how complaints are handled. But the regulator does not require a target and Norwich has not set one, so none of them can be scored. A figure with nothing to compare it against is a figure, not a verdict, and we will not invent the standard."
     },
     {
       "stage": "outcome",
-      "description": "Housing performance figures in a form anyone can check. The council's quarterly report carries a target, an intervention level and an actual for eight housing indicators, which is genuinely good practice. The numbers themselves are screenshots of a dashboard pasted into a PDF, so they cannot be searched or checked by machine. Everything on this page taken from them was read off the images by eye and is flagged for human checking."
+      "description": "Housing performance figures in a form anyone can check. The council's quarterly report carries a target, an intervention level and an actual for each housing indicator. The numbers themselves are screenshots of a dashboard pasted into a PDF, so they cannot be searched or checked by machine. Everything on this page taken from them was read off the images by eye and is flagged for human checking."
     },
     {
       "stage": "outcome",
@@ -1408,6 +1450,10 @@
     {
       "stage": "outcome",
       "description": "The allocation scheme at the address the council's own report links to. Paragraph 2 of the report to Cabinet names the current scheme as a hyperlink to www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/norwich-home-options-allocation-scheme. Followed on 7 September 2026, that address refused us with “Access denied”. The scheme is readable at the address used throughout this page, so nothing is lost — but a council report pointing residents at a page they cannot open is worth recording, and the address is given here so anyone can check it."
+    },
+    {
+      "stage": "outcome",
+      "description": "Why some of the council's own indicators are not on this page. Its quarter one 2025/26 report says \"There are 20 quarterly KPIs reported for this period\" and its totals table counts 19, alongside a handful of annual indicators reported once a year. This site carries eighteen of them, picked because each answers a question about money, about a target the council set itself, or about a service a resident uses. Eight are on the same dashboard and are not here: household waste recycled, food premises inspected, planning appeals, planning applications decided in time, underused council land, CO2 reduction, and two on IT availability. We have not published a rule for that choice, so the count of greens, ambers and reds on this page cannot be set against the council's own count. The council also says of every one of these indicators that \"The KPIs in this report have been carried over from the previous Corporate Plan and are under review, as part of the new business planning process.\""
     },
     {
       "stage": null,

@@ -8,9 +8,10 @@
     "date": "2025-12-04",
     "date_precision": "day",
     "title": "The council asked residents what they thought of its 2026/27 budget",
-    "summary": "For five weeks from 4 December 2025 the council ran a survey on its Get Talking Norwich site, promoted by text alert to 120,000 residents. It asked about a 2.99% council tax rise, a new \"live budget\" reviewed during the year, and a ring-fenced Readiness Fund for the costs of local government reorganisation. 899 people answered, well down on the post-2019 average of 1,361.",
+    "summary": "From 4 December 2025 to 18 January 2026 — six and a half weeks — the council ran a survey on its Get Talking Norwich site, promoted by text alert to 120,000 residents. It asked about a 2.99% council tax rise, a new \"live budget\" reviewed during the year, and a ring-fenced Readiness Fund for the costs of local government reorganisation. 899 people answered, well down on the post-2019 average of 1,361.",
     "detail": [
-      "For the first time in seven years, more respondents opposed the council tax rise than supported it: 430 of 899 opposed or strongly opposed it and 248 supported it, with 221 neutral.",
+      "More respondents opposed the council tax rise than supported it: 430 of 899 opposed or strongly opposed it and 248 supported it, with 221 neutral — 48% against and 28% for. The 2.99% went through unchanged.",
+      "Whether that is a first is something we cannot check from here. Nothing in this archive compares support and opposition across years; the only historical figure the report gives is the response count.",
       "The council states plainly that \"no specific factors have been identified to explain the variation in response rate\".",
       "Consulting business ratepayers is a legal duty. Consulting residents is the council's own choice."
     ],
@@ -29,8 +30,8 @@
     "prompt_version": "event-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "3a91e948070c156187aeec6c71ec5977d7f2772a134a64f4faa904eaf83e07dd"
   }

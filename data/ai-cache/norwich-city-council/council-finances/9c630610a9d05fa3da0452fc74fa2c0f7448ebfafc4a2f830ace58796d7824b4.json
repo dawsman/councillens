@@ -1,0 +1,45 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "m-capital-delivery-2025-26",
+    "area": "money",
+    "question": "Did the council build what it said it would build?",
+    "label": "Building programme delivered, 2025/26",
+    "rule_id": "capital-delivery-v1",
+    "target": {
+      "value": 100,
+      "display": "the whole programme it approved (the council sets no delivery target)",
+      "unit": "%"
+    },
+    "actual": {
+      "value": 60,
+      "display": "60% delivered",
+      "unit": "%"
+    },
+    "threshold": null,
+    "direction": "higher_is_better",
+    "period": "2025/26",
+    "as_of": "2026-03-31",
+    "council_caveat": "The budget here is the revised in-year figure, which is the fair basis for judging delivery but is a target the council had already re-set once during the year. Money not spent mostly rolls forward rather than being lost. The percentage is ours: we divide the council's spend by the council's approved programme. The council publishes both figures and no delivery target, and the 90% and 70% lines that decide the colour are CouncilLens's, not the council's.",
+    "evidence": "The council approved a building programme of £94.768m for 2025/26 and spent £56.477m of it — 60%. Both figures are in the capital table in that year's accounts.",
+    "source_ids": [
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+    "order": 34
+  },
+  "ai": {
+    "source_ids": [
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "9c630610a9d05fa3da0452fc74fa2c0f7448ebfafc4a2f830ace58796d7824b4"
+  }
+}

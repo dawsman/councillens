@@ -628,12 +628,15 @@ SCORING_PREAMBLE = """<!-- GENERATED FILE. Do not edit by hand.
 
 # How a red, amber or green status is worked out
 
-CouncilLens does not grade councils. A colour on this site is never our opinion
-about whether a council is doing well. It is the result of a rule, written down
-here in plain English and applied by code, comparing the council's own numbers
-against each other: its own budget against its own outturn, its own target
-against its own reported figure, its own written promise against its own later
-report.
+CouncilLens does not grade councils. A colour on this site is not a view of ours
+about whether a council is doing well: it is what a published rule returns when
+it is run against the council's own numbers — its own budget against its own
+outturn, its own target against its own reported figure, its own written promise
+against its own later report. The rules are all written out below, in plain
+English, and the code that applies them is the code these words come from. Where
+the council publishes its own target and its own warning level we use those.
+Where it does not, we use the fixed lines stated here, and those lines are ours.
+The numbers are always the council's.
 
 Four answers are possible, and the word matters more than the colour:
 
@@ -647,6 +650,21 @@ Four answers are possible, and the word matters more than the colour:
 Grey is a real answer and an honest one. It is not a mark against the council and
 it is not a shrug from us: it says the documents a resident can read do not
 settle the question. Where a whole area is grey, that is worth knowing on its own.
+
+## Which numbers are the council's, and which are ours
+
+Every status on this site is worked out by the rules below, and the numbers being
+compared are always the council's own. Where the council publishes both its target
+and the warning level at which it says it will step in, we use those, and the
+colour you see should be the colour on the council's own dashboard. Where it
+publishes a target and no warning level, the target is still the council's and the
+only thing we add is how near a miss counts as "close". And where the council
+publishes no target at all — for how closely it keeps to its own budget, how much
+of its building programme it delivers, how much of a savings plan arrives — we
+compare the council against its own plan and we choose where the line falls. Those
+lines are set out under each rule, with the reason we drew them there. They are
+ours, nobody at the council picked them, and you are free to think they are in the
+wrong place. The numbers on both sides of every comparison are the council's.
 
 Every status on the site shows, one tap away, the rule that produced it, the
 target, the figure, a link to the document both came from, and any explanation the

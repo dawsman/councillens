@@ -1,0 +1,45 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "id": "m-kpi22-private-sector-insulation",
+    "area": "targets",
+    "question": "How many private homes did the council help insulate?",
+    "label": "Private sector insulation measures completed, Q1 2025/26",
+    "rule_id": "council-threshold-v1",
+    "target": null,
+    "actual": {
+      "value": 0.0,
+      "display": "none",
+      "unit": "measures"
+    },
+    "threshold": {
+      "value": 45.0,
+      "display": "the council steps in past 45.0",
+      "unit": "measures"
+    },
+    "direction": "higher_is_better",
+    "period": "Q1 2025/26",
+    "as_of": "2025-06-30",
+    "council_caveat": "The council's own explanation: \"This figure is at zero for quarter one 2025/2026 pending commencement of delivery for the Warm Homes: Local Grant. This grant funding totalling £4.7m will be used to deliver private sector energy efficiency and insulation measures to an estimated 330 private sector homes over the three-year period to March 2028, with delivery set to commence imminently in quarter two 2025/2026.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+    "evidence": "The council marks this indicator red, and has for five quarters running: the reported figure is zero in every quarter from Q1 2024/25 to Q1 2025/26. It is one of the four indicators the council's own report names as needing intervention. Our rule cannot put a colour on it, because the council's dashboard prints the intervention level of 45 but not the target, and we do not invent the missing half of a comparison. Grey here means the record cannot answer the question, not that nothing is wrong.",
+    "source_ids": [
+      "housing-corporate-performance-2025-26-q1"
+    ],
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=24",
+    "order": 88
+  },
+  "ai": {
+    "source_ids": [
+      "housing-corporate-performance-2025-26-q1"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "medium",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "00b5c5f711cad246ec709ff4b5eb61690a94b25e0ca1047905af2c125c095538"
+  }
+}

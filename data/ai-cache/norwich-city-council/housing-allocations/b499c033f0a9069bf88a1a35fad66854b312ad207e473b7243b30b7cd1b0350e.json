@@ -26,12 +26,12 @@
     "direction": "higher_is_better",
     "period": "2024/25",
     "as_of": "2025-03-31",
-    "council_caveat": "The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+    "council_caveat": "The council's own explanation: \"Last year's performance was significantly boosted by the lifting of prohibition orders on 53 flats in multi-occupied buildings. In contrast, this year saw improvement notices served on 48 premises, affecting 148 units of accommodation—an increase compared to the previous year. While performance in 2024/25 appears lower, it aligns with historical trends; for example, 26 private rented sector homes were made safe in quarter four of 2022. A new service manager has been appointed, with a key priority for quarter one being the review of outstanding notices and the accurate recording of compliance dates.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
     "evidence": "Councils can force private landlords to fix dangerous housing. Norwich set itself a target of 50 homes made safe a year and says it will step in below 45. In 2024/25 it reported 22 — less than half the target.",
     "source_ids": [
       "housing-corporate-performance-2025-26-q1"
     ],
-    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26#page=19",
     "order": 86
   },
   "ai": {
@@ -41,8 +41,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "medium",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "b499c033f0a9069bf88a1a35fad66854b312ad207e473b7243b30b7cd1b0350e"
   }
