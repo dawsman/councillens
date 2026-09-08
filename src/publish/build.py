@@ -210,9 +210,18 @@ def load_models(use_fixture: bool) -> tuple[list[dict], list[str]]:
     models = []
     for path in files:
         try:
-            models.append(json.loads(path.read_text(encoding="utf-8")))
+            model = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError as exc:
             notes.append(f"Skipped {path.relative_to(REPO_ROOT)}: not valid JSON ({exc}).")
+            continue
+        # data/analysed/ holds one file per analyse stage, and not all of them are
+        # topics. A topic model is the one with a `topic` block; anything else
+        # belongs to a page this build does not render yet, and rendering it as a
+        # topic would put a page on the site that no analyse stage wrote.
+        if not isinstance(model, dict) or "topic" not in model:
+            notes.append(f"Skipped {path.relative_to(REPO_ROOT)}: not a topic model.")
+            continue
+        models.append(model)
     notes.append(f"Loaded {len(models)} topic model(s) from data/analysed/.")
     return models, notes
 
