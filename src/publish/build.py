@@ -38,6 +38,11 @@ try:
 except ImportError:  # pragma: no cover - guarded for a clearer message
     markdown_lib = None
 
+try:
+    import yaml as yaml_lib
+except ImportError:  # pragma: no cover - the glossary is optional
+    yaml_lib = None
+
 HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parents[1]
 TEMPLATE_DIR = HERE / "templates"
@@ -45,6 +50,10 @@ STATIC_DIR = HERE / "static"
 FIXTURE_PATH = HERE / "fixtures" / "example-topic.json"
 ANALYSED_DIR = REPO_ROOT / "data" / "analysed"
 METHODOLOGY_MD = REPO_ROOT / "methodology" / "README.md"
+SCORING_MD = REPO_ROOT / "methodology" / "scoring.md"
+CONTENT_DIR = REPO_ROOT / "content"
+GLOSSARY_PATH = CONTENT_DIR / "glossary.yaml"
+LEARN_DIR = CONTENT_DIR / "learn"
 
 REPO_URL = "https://github.com/dawsman/councillens"
 DEFAULT_CORRECTIONS_URL = f"{REPO_URL}/issues/new?template=correction.yml"
@@ -114,6 +123,76 @@ STATUS = {
         "note": "The public record does not tell us where this stands.",
     },
 }
+
+# --------------------------------------------------------------------------
+# The scorecard: RAG statuses computed by a published rule, never by us.
+#
+# A status is arithmetic on the council's OWN two numbers. This stage does not
+# compute it (that is src/analyse/rules.py); it renders it, and it insists on
+# showing the workings. Nothing here knows about any council or any topic.
+# --------------------------------------------------------------------------
+
+# Colour is never the only carrier. Every status has a word, an outline
+# silhouette and an inner mark, so the set survives greyscale printing, colour
+# blindness and a classroom projector.
+RAG = {
+    "green": {
+        "word": "Met",
+        "glyph": "met",
+        "blurb": "The council did what its own plan said it would do.",
+        "aria": "Met: the council did what its own plan said.",
+    },
+    "amber": {
+        "word": "Close",
+        "glyph": "close",
+        "blurb": "Not quite what the plan said, but not far off.",
+        "aria": "Close: not quite what the plan said, but not far off.",
+    },
+    "red": {
+        "word": "Missed",
+        "glyph": "missed",
+        "blurb": "What happened is a long way from what the plan said.",
+        "aria": "Missed: a long way from what the plan said.",
+    },
+    "grey": {
+        "word": "Can't tell",
+        "glyph": "unknown",
+        "blurb": "The published record does not say, so neither do we.",
+        "aria": "Can't tell: the published record does not say.",
+    },
+}
+RAG_ORDER = ("green", "amber", "red", "grey")
+
+# The four areas, in the order they appear on the page. Money first because it
+# is what people arrive asking about, and because spend-against-budget is the
+# easiest rule in the set to follow.
+AREAS = (
+    {"key": "money", "label": "Money",
+     "question": "Is the council spending what it said it would spend?"},
+    {"key": "targets", "label": "Targets",
+     "question": "Is the council hitting the targets it set itself?"},
+    {"key": "promises", "label": "Promises",
+     "question": "Has the council done the things it said it would do?"},
+    {"key": "service", "label": "Services",
+     "question": "Are the services the council runs holding up?"},
+)
+# The contract says "service"; a reader expects the plural. Accept both, and a
+# few near-misses, so one typo upstream never drops a card off the page.
+AREA_ALIAS = {
+    "services": "service", "service": "service",
+    "money": "money", "finance": "money", "finances": "money",
+    "targets": "targets", "target": "targets", "performance": "targets",
+    "promises": "promises", "promise": "promises", "commitments": "promises",
+}
+
+MEASURE_OPTIONAL = {
+    "area": "service", "question": None, "label": "Unlabelled measure",
+    "rule_id": None, "rule": None, "target": None, "actual": None,
+    "status": "grey", "direction": None, "period": None, "as_of": None,
+    "council_caveat": None, "evidence": None, "source_ids": [],
+    "source_url": None, "ai": None, "looked_for": None,
+}
+
 
 MONTHS = (
     "January", "February", "March", "April", "May", "June",
@@ -193,10 +272,14 @@ def load_models(use_fixture: bool) -> tuple[list[dict], list[str]]:
     """Return (topic models, notes to print)."""
     notes: list[str] = []
     if use_fixture:
-        if not FIXTURE_PATH.exists():
-            sys.exit(f"Fixture not found: {FIXTURE_PATH}")
-        notes.append(f"Building from the example topic model ({FIXTURE_PATH.name}).")
-        return [json.loads(FIXTURE_PATH.read_text(encoding="utf-8"))], notes
+        fixtures = sorted(FIXTURE_PATH.parent.glob("*.json"))
+        if not fixtures:
+            sys.exit(f"No fixtures found in {FIXTURE_PATH.parent}")
+        notes.append(
+            "Building from the example topic model(s): "
+            + ", ".join(f.name for f in fixtures) + "."
+        )
+        return [json.loads(f.read_text(encoding="utf-8")) for f in fixtures], notes
 
     files = sorted(ANALYSED_DIR.glob("**/*.json")) if ANALYSED_DIR.exists() else []
     if not files:
@@ -361,6 +444,8 @@ def prepare(model: dict) -> dict:
     model["_changes"] = prepare_changes(model, today)
     model["_linkage_summary"] = prepare_linkage_summary(model)
     model["_documents"] = prepare_document_strip(model)
+    model["_measures"] = prepare_measures(model)
+    model["_tally"] = tally(model["_measures"])
     return model
 
 
@@ -893,6 +978,155 @@ def prepare_document_strip(model: dict) -> dict | None:
     return {"groups": [g for g in groups if g["count"]], "total": len(model["_sources"])}
 
 
+# --------------------------------------------------------------------------
+# Measures, tallies and the scorecard
+# --------------------------------------------------------------------------
+
+def side(raw: Any) -> dict | None:
+    """One side of a comparison — what was planned, or what happened."""
+    if raw is None:
+        return None
+    if not isinstance(raw, dict):
+        return {"display": str(raw), "value": None, "unit": None}
+    display = raw.get("display")
+    value = raw.get("value")
+    unit = raw.get("unit")
+    if display is None and value is not None:
+        display = money(value, None) if str(unit).upper() == "GBP" else str(value)
+        if unit and str(unit) == "%":
+            display = f"{display}%"
+    if display is None:
+        return None
+    return {"display": str(display), "value": value,
+            "unit": None if str(unit or "").upper() in ("GBP", "%") else unit}
+
+
+def prepare_measures(model: dict) -> list[dict]:
+    """Every measure on a topic, ready to render.
+
+    ``promises`` is folded in as measures with ``area: promises`` — the wave 4
+    contract says a promise is a measure, so the page treats it as one and the
+    analyse stage may emit either list.
+    """
+    raw_list = list(model.get("measures") or [])
+    for promise in (model.get("promises") or []):
+        if isinstance(promise, dict):
+            item = dict(promise)
+            item.setdefault("area", "promises")
+            raw_list.append(item)
+
+    out: list[dict] = []
+    for i, raw in enumerate(raw_list):
+        if not isinstance(raw, dict):
+            continue
+        m = fill(dict(raw), MEASURE_OPTIONAL)
+        if not m.get("id"):
+            m["id"] = f"measure-{i + 1}"
+
+        # The status word is derived here, never read from the file. Two
+        # councils must not end up with different words for the same colour.
+        status = str(m.get("status") or "grey").lower()
+        if status not in RAG:
+            status = "grey"
+        m["_status"] = status
+        m["_rag"] = RAG[status]
+        m["_area"] = AREA_ALIAS.get(str(m.get("area") or "").lower(), "service")
+        m["_target"] = side(m.get("target"))
+        m["_actual"] = side(m.get("actual"))
+        m["_ai"] = provenance(m.get("ai"))
+        m["_when"] = m.get("period") or (
+            f"as at {human_date(m['as_of'])}" if m.get("as_of") else None
+        )
+        # A card with no question is still a card; the label carries it.
+        m["_question"] = m.get("question") or m.get("label")
+        m["_council_slug"] = model["_council_slug"]
+        m["_topic_slug"] = model["_topic_slug"]
+        m["_topic_name"] = (model.get("topic") or {}).get("name")
+        # A grey measure shows what we looked for instead of two numbers, so
+        # the empty state reads as an answer rather than a hole in the page.
+        m["_unknown"] = status == "grey"
+        m["_looked_for"] = m.get("looked_for") or (
+            m["_target"]["display"] if m["_target"] else None
+        )
+        out.append(m)
+    return out
+
+
+def tally(measures: list[dict]) -> dict | None:
+    """Counts by status, plus the one sentence of arithmetic above them.
+
+    No average, no percentage, no grade, no rank. Each of those would be a
+    claim the records do not support.
+    """
+    if not measures:
+        return None
+    counts = {key: 0 for key in RAG_ORDER}
+    for m in measures:
+        counts[m["_status"]] += 1
+    total = len(measures)
+    rows = [{
+        "status": key,
+        "count": counts[key],
+        "word": RAG[key]["word"],
+        "glyph": RAG[key]["glyph"],
+        "blurb": RAG[key]["blurb"],
+    } for key in RAG_ORDER]
+
+    said = []
+    if counts["green"]:
+        said.append(f"met {counts['green']}")
+    if counts["amber"]:
+        said.append(f"came close on {counts['amber']}")
+    if counts["red"]:
+        said.append(f"missed {counts['red']}")
+    thing = "thing" if total == 1 else "things"
+    if said:
+        joined = ", ".join(said[:-1]) + (" and " if len(said) > 1 else "") + said[-1]
+        sentence = f"Of {total} {thing} we could check, the council {joined}"
+    else:
+        sentence = f"Of {total} {thing} we could check, none has a published result"
+    if counts["grey"]:
+        sentence += (
+            f", and for {counts['grey']} the published record does not say."
+            if said else
+            f" — for all {counts['grey']} the published record does not say."
+        )
+    else:
+        sentence += "."
+    return {"counts": counts, "rows": rows, "total": total, "sentence": sentence}
+
+
+def prepare_scorecard(council: dict) -> dict | None:
+    """One council's whole scorecard, gathered from all of its topics."""
+    measures: list[dict] = []
+    for model in council["topics"]:
+        measures.extend(model.get("_measures") or [])
+    if not measures:
+        return None
+
+    areas = []
+    for area in AREAS:
+        items = [m for m in measures if m["_area"] == area["key"]]
+        if not items:
+            continue
+        # Strongest evidence of a problem first is a judgment; date order is
+        # not available for every measure. Order by status, which is the one
+        # thing the rules do establish, then by label so builds stay stable.
+        items = sorted(items, key=lambda m: (RAG_ORDER.index(m["_status"]), m.get("label") or ""))
+        areas.append({
+            "key": area["key"], "label": area["label"], "question": area["question"],
+            "measures": items, "tally": tally(items),
+        })
+    return {
+        "measures": measures,
+        "areas": areas,
+        "tally": tally(measures),
+        "unknown": [m for m in measures if m["_unknown"]],
+        "slug": council["slug"],
+        "name": council["council"].get("name"),
+    }
+
+
 def group_councils(models: Iterable[dict]) -> list[dict]:
     """Collapse topic models into one entry per council, topics nested."""
     councils: dict[str, dict] = {}
@@ -905,6 +1139,7 @@ def group_councils(models: Iterable[dict]) -> list[dict]:
         entry["slug"] = slug
         entry["topics"].sort(key=lambda m: (m.get("topic") or {}).get("name", ""))
         entry["fixture"] = any(m.get("_fixture") for m in entry["topics"])
+        entry["scorecard"] = prepare_scorecard(entry)
         out.append(entry)
     out.sort(key=lambda c: c["council"].get("name", c["slug"]))
     return out
@@ -913,6 +1148,193 @@ def group_councils(models: Iterable[dict]) -> list[dict]:
 # --------------------------------------------------------------------------
 # Rendering
 # --------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------
+# Words a reader might not know
+#
+# The editor writes content/glossary.yaml; this stage renders the first use of
+# each term on a page as a small popover. Everything degrades: no file, no
+# popovers, and the words stay exactly as they were written.
+# --------------------------------------------------------------------------
+
+TAGS_RE = re.compile(r"<[^>]+>")
+
+
+def load_glossary() -> list[dict]:
+    """Read content/glossary.yaml in whichever shape the editor wrote it."""
+    if not GLOSSARY_PATH.exists() or yaml_lib is None:
+        return []
+    try:
+        data = yaml_lib.safe_load(GLOSSARY_PATH.read_text(encoding="utf-8")) or {}
+    except Exception as exc:  # a broken glossary must not take the site down
+        print(f"  Could not read {GLOSSARY_PATH.name} ({exc}); building without popovers.")
+        return []
+
+    if isinstance(data, dict) and isinstance(data.get("terms"), (dict, list)):
+        data = data["terms"]
+
+    entries: list[dict] = []
+
+    def add(term: Any, body: Any) -> None:
+        term = str(term or "").strip()
+        if not term:
+            return
+        aliases: list[str] = []
+        if isinstance(body, dict):
+            definition = (body.get("definition") or body.get("plain")
+                          or body.get("text") or body.get("meaning") or "")
+            for key in ("aliases", "also", "variants", "synonyms"):
+                extra = body.get(key)
+                if isinstance(extra, str):
+                    aliases.append(extra)
+                elif isinstance(extra, list):
+                    aliases.extend(str(a) for a in extra)
+        else:
+            definition = body
+        definition = str(definition or "").strip()
+        if not definition:
+            return
+        entries.append({
+            "term": term,
+            "definition": definition,
+            "forms": [term] + [a.strip() for a in aliases if str(a).strip()],
+            "id": "gloss-" + re.sub(r"[^a-z0-9]+", "-", term.lower()).strip("-"),
+        })
+
+    if isinstance(data, dict):
+        for term, body in data.items():
+            add(term, body)
+    elif isinstance(data, list):
+        for item in data:
+            if isinstance(item, dict):
+                add(item.get("term") or item.get("word") or item.get("name"), item)
+
+    # Longest first, so "Housing Revenue Account" wins over "account".
+    entries.sort(key=lambda e: -max(len(f) for f in e["forms"]))
+    return entries
+
+
+GLOSSARY: list[dict] = []
+GLOSS_SEEN: dict[str, dict] = {}
+
+
+def reset_glossary() -> None:
+    """First use is per page, so the state resets before each page renders."""
+    GLOSS_SEEN.clear()
+
+
+def gloss_term_html(entry: dict, shown: str) -> str:
+    """A term, its definition in a popover, and a plain-text fallback.
+
+    <details> would be the obvious control, but it is flow content and cannot
+    live inside a paragraph. A button plus a popover are both phrasing content,
+    need no JavaScript, work from the keyboard and close on Escape. Where the
+    popover API is missing the CSS swaps in the plain word instead.
+    """
+    from markupsafe import escape
+    return (
+        f'<span class="gloss">'
+        f'<button type="button" class="gloss-term" popovertarget="{entry["id"]}">'
+        f'{escape(shown)}</button>'
+        f'<span class="gloss-plain">{escape(shown)}</span>'
+        f'<span popover id="{entry["id"]}" class="gloss-def">'
+        f'<b class="gloss-word">{escape(entry["term"])}</b> '
+        f'<span class="gloss-body">{escape(entry["definition"])}</span></span>'
+        f'</span>'
+    )
+
+
+def gloss_fragment(fragment: str) -> str:
+    """Mark up the first unseen glossary term in one run of plain text."""
+    for entry in GLOSSARY:
+        if entry["id"] in GLOSS_SEEN:
+            continue
+        for form in entry["forms"]:
+            match = re.search(rf"\b{re.escape(form)}\b", fragment, re.I)
+            if match:
+                GLOSS_SEEN[entry["id"]] = entry
+                head, tail = fragment[:match.start()], fragment[match.end():]
+                return (gloss_escape(head)
+                        + gloss_term_html(entry, match.group(0))
+                        + gloss_fragment(tail))
+    return gloss_escape(fragment)
+
+
+def gloss_escape(text: str) -> str:
+    from markupsafe import escape
+    return str(escape(text))
+
+
+def gloss(value: Any) -> Any:
+    """Jinja filter: explain the first use of each glossary term, in place."""
+    from markupsafe import Markup
+    text = "" if value is None else str(value)
+    if not GLOSSARY or not text.strip():
+        return Markup(gloss_escape(text))
+    return Markup(gloss_fragment(text))
+
+
+def gloss_html(html: str) -> str:
+    """The same, over already-rendered HTML: text runs only, never inside tags."""
+    if not GLOSSARY or not html:
+        return html
+    out, last = [], 0
+    for tag in TAGS_RE.finditer(html):
+        run = html[last:tag.start()]
+        # gloss_fragment escapes as it goes, so unescape what markdown wrote
+        # before re-escaping it, or "&amp;" turns into "&amp;amp;".
+        out.append(gloss_fragment(unescape_entities(run)) if run.strip() else run)
+        out.append(tag.group(0))
+        last = tag.end()
+    tail = html[last:]
+    out.append(gloss_fragment(unescape_entities(tail)) if tail.strip() else tail)
+    return "".join(out)
+
+
+def unescape_entities(text: str) -> str:
+    import html as html_mod
+    return html_mod.unescape(text)
+
+
+def gloss_used() -> list[dict]:
+    """Every term explained on the page so far, for the list at its foot."""
+    return sorted(GLOSS_SEEN.values(), key=lambda e: e["term"].lower())
+
+
+def render_markdown(path: Path, baselevel: int = 2) -> str | None:
+    if not path.exists():
+        return None
+    if markdown_lib is None:
+        sys.exit("The 'markdown' package is required. Run: pip install -r requirements.txt")
+    return markdown_lib.markdown(
+        path.read_text(encoding="utf-8"),
+        extensions=["extra", "toc", "tables"],
+        extension_configs={"toc": {"baselevel": baselevel}},
+    )
+
+
+def strip_leading_heading(html: str | None, title: str) -> str | None:
+    """Drop a markdown file's opening heading when the page already says it.
+
+    Both content files start with their own title, which is right in the
+    repository and wrong on a page whose <h1> says the same thing.
+    """
+    if not html:
+        return html
+    match = re.match(r"\s*<h2[^>]*>(.*?)</h2>", html, re.S | re.I)
+    if match and TAGS_RE.sub("", match.group(1)).strip().lower() == title.strip().lower():
+        return html[match.end():]
+    return html
+
+
+def learn_html() -> str | None:
+    """The classroom page, from every markdown file the editor put in place."""
+    if not LEARN_DIR.is_dir():
+        return None
+    parts = [render_markdown(f) for f in sorted(LEARN_DIR.glob("*.md"))]
+    parts = [p for p in parts if p]
+    return "\n".join(parts) if parts else None
+
 
 def make_env() -> Environment:
     env = Environment(
@@ -923,6 +1345,7 @@ def make_env() -> Environment:
         lstrip_blocks=True,
     )
     env.filters["human_date"] = human_date
+    env.filters["gloss"] = gloss
     env.globals.update(
         STAGE_LABEL=STAGE_LABEL,
         STAGE_CHIP=STAGE_CHIP,
@@ -930,7 +1353,11 @@ def make_env() -> Environment:
         STAGE_QUESTION=STAGE_QUESTION,
         STAGES=STAGES,
         TIER=TIER,
+        RAG=RAG,
+        RAG_ORDER=RAG_ORDER,
+        AREAS=AREAS,
         REPO_URL=REPO_URL,
+        gloss_used=gloss_used,
     )
     return env
 
@@ -943,21 +1370,22 @@ def write(out_root: Path, rel_path: str, html: str, written: list[str]) -> None:
 
 
 def methodology_html() -> str:
-    if not METHODOLOGY_MD.exists():
-        return "<p>The methodology document is missing from the repository.</p>"
-    if markdown_lib is None:
-        sys.exit("The 'markdown' package is required. Run: pip install -r requirements.txt")
     # baselevel=2 demotes the document's own "# Methodology" to an <h2>, so the
     # rendered page keeps exactly one <h1> (the page title).
-    return markdown_lib.markdown(
-        METHODOLOGY_MD.read_text(encoding="utf-8"),
-        extensions=["extra", "toc"],
-        extension_configs={"toc": {"baselevel": 2}},
-    )
+    body = render_markdown(METHODOLOGY_MD)
+    if body is None:
+        return "<p>The methodology document is missing from the repository.</p>"
+    return body
 
 
 def build(out_root: Path, use_fixture: bool, base_path: str) -> int:
     models_raw, notes = load_models(use_fixture)
+    GLOSSARY[:] = load_glossary()
+    notes.append(
+        f"Glossary: {len(GLOSSARY)} term(s) from content/glossary.yaml."
+        if GLOSSARY else
+        "No content/glossary.yaml found; words are rendered as written."
+    )
     for note in notes:
         print(f"  {note}")
 
@@ -977,36 +1405,60 @@ def build(out_root: Path, use_fixture: bool, base_path: str) -> int:
         corrections_url=(models[0]["_corrections_url"] if models else DEFAULT_CORRECTIONS_URL),
         built_at=built_at,
         any_fixture=any(m.get("_fixture") for m in models),
+        any_measures=any(m.get("_measures") for m in models),
     )
 
-    write(out_root, "index.html",
-          env.get_template("home.html").render(root="", page_id="home", **common), written)
-    write(out_root, "methodology/index.html",
-          env.get_template("methodology.html").render(
-              root="../", page_id="methodology", body=methodology_html(), **common), written)
-    write(out_root, "corrections/index.html",
-          env.get_template("corrections.html").render(
-              root="../", page_id="corrections", **common), written)
+    def page(rel_path: str, template: str, body_md: str | None = None, **ctx: Any) -> None:
+        """Render one page.
+
+        Glossary first-use is counted per page, so the state resets here — and
+        a markdown body has to be marked up AFTER that reset, or the terms it
+        explains never reach the list at the foot of the page.
+        """
+        reset_glossary()
+        if body_md is not None:
+            ctx["body"] = gloss_html(body_md)
+        write(out_root, rel_path, env.get_template(template).render(**ctx, **common), written)
+
+    page("index.html", "home.html", root="", page_id="home")
+    page("methodology/index.html", "methodology.html",
+         root="../", page_id="methodology", body=methodology_html())
+    page("corrections/index.html", "corrections.html", root="../", page_id="corrections")
     # 404 is served for any missing path, so relative links would resolve against
     # the URL the visitor typed. This one page uses the absolute base path.
-    write(out_root, "404.html",
-          env.get_template("404.html").render(root=base_path, page_id="404", **common), written)
+    page("404.html", "404.html", root=base_path, page_id="404")
+
+    # How we score things, written by the analyse stage from the rule
+    # docstrings so the site and the code cannot disagree. Absent until that
+    # stage has run, and the site is fine without it.
+    scoring = strip_leading_heading(render_markdown(SCORING_MD), "How we score things")
+    if scoring:
+        page("methodology/scoring/index.html", "scoring.html",
+             root="../../", page_id="scoring", body_md=scoring)
+    else:
+        print("  No methodology/scoring.md yet; skipping the scoring page.")
+
+    # For schools and colleges. The editor supplies the copy; if it is not
+    # there yet the page still exists, with a short placeholder, so nothing
+    # linking to it 404s mid-wave.
+    learn = strip_leading_heading(learn_html(), "For schools and colleges")
+    page("learn/index.html", "learn.html", root="../", page_id="learn",
+         body_md=learn, body=None)
 
     for council in councils:
         base = f"councils/{council['slug']}"
-        write(out_root, f"{base}/index.html",
-              env.get_template("council.html").render(
-                  root="../../", page_id="council", council=council, **common), written)
+        page(f"{base}/index.html", "council.html",
+             root="../../", page_id="council", council=council)
+        if council.get("scorecard"):
+            page(f"{base}/scorecard/index.html", "scorecard.html",
+                 root="../../../", page_id="scorecard", council=council,
+                 sc=council["scorecard"], has_scoring=bool(scoring))
         for model in council["topics"]:
             tdir = f"{base}/{model['_topic_slug']}"
-            write(out_root, f"{tdir}/index.html",
-                  env.get_template("topic.html").render(
-                      root="../../../", page_id="topic", m=model,
-                      council=council, **common), written)
-            write(out_root, f"{tdir}/timeline/index.html",
-                  env.get_template("timeline.html").render(
-                      root="../../../../", page_id="timeline", m=model,
-                      council=council, **common), written)
+            page(f"{tdir}/index.html", "topic.html",
+                 root="../../../", page_id="topic", m=model, council=council)
+            page(f"{tdir}/timeline/index.html", "timeline.html",
+                 root="../../../../", page_id="timeline", m=model, council=council)
 
     assets = out_root / "assets"
     assets.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% import "_score.html" as score with context %}
+
+{% block title %}How is {{ sc.name }} doing? — CouncilLens{% endblock %}
+{% block description %}Things {{ sc.name }} said it would do, set against what its own later reports say happened.{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li><a href="{{ root }}councils/{{ sc.slug }}/index.html">{{ sc.name }}</a></li>
+    <li aria-current="page">Scorecard</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="page-head scorecard-head">
+  <p class="topic-council">{{ sc.name }}</p>
+  <h1>How is the council doing?</h1>
+  <p class="lede">Every line on this page compares one thing the council said it would do with what
+    the council's own later reports say happened. We do not grade it, rank it, or compare it to
+    anywhere else. The council's numbers do the talking.</p>
+</header>
+
+{# ---- The key, before anything is asked of the reader ---- #}
+<section class="howto" aria-labelledby="howto-head">
+  <h2 class="howto-head" id="howto-head">How to read this page</h2>
+  <p>Each card asks a question, gives the short answer, and shows the two numbers behind it: what
+    the council planned, and what happened. Open <strong>How we scored this</strong> on any card to
+    see the exact rule we ran, the source document, and anything the council said in its own
+    defence.</p>
+  <p><strong>Grey is a real answer.</strong> A lot of the time the council simply has not published
+    the result, so nobody can say whether it hit its own target. We say that rather than guess.</p>
+  <details class="howto-key">
+    <summary><span class="working-label">What the four words mean</span></summary>
+    <ul class="howto-list">
+      {% for status in RAG_ORDER %}
+      <li class="howto-item rag-{{ status }}">
+        {{ score.glyph(status) }}
+        <span class="howto-word">{{ RAG[status].word }}</span>
+        <span class="howto-blurb">{{ RAG[status].blurb }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="howto-note">The shape changes with the word, so the page still works printed in black
+      and white, or read by someone who cannot separate red from green.</p>
+  </details>
+</section>
+
+{# ---- The tally: arithmetic, not a verdict ---- #}
+<section class="tally-wrap" aria-labelledby="tally-head">
+  {{ score.tally(sc.tally, "Everything we could check, counted", 'h2', 'tally-head') }}
+  <p class="tally-note">There is no overall score on this page, and there never will be. Adding
+    these up into one mark would be our opinion, and our opinion is not evidence.</p>
+</section>
+
+{# ---- The four areas ---- #}
+{% for area in sc.areas %}
+<section class="area area-{{ area.key }}" aria-labelledby="area-{{ area.key }}">
+  <h2 class="section-head area-head" id="area-{{ area.key }}">
+    <span class="stage-rule" aria-hidden="true"></span>{{ area.label }}
+  </h2>
+  <p class="section-intro">{{ area.question }}</p>
+  {{ score.mini_tally(area.tally, area.label ~ ": how many of each") }}
+  <div class="scards">
+    {% for m in area.measures %}
+    {{ score.card(m, 'h3') }}
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+{# ---- Grey, gathered up and given a name ---- #}
+<section class="cantell" aria-labelledby="cantell-head">
+  <h2 class="section-head" id="cantell-head">What we can't tell</h2>
+  {% if sc.unknown %}
+  <p class="section-intro">These are questions with no answer in the published record. That is not
+    the same as the council doing badly, and it is not the same as it doing well. It means the
+    information a resident would need to judge for themselves has not been put out.</p>
+  <ul class="cantell-list">
+    {% for m in sc.unknown %}
+    <li class="cantell-item">
+      {{ score.glyph('grey') }}
+      <a class="cantell-q" href="#{{ m.id }}">{{ m._question }}</a>
+      <span class="cantell-why">{{ (m._actual.display if m._actual else none) or "The council has not published a result we can compare." }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="cantell-ask">If you know of a published document that answers one of these, tell us and
+    we will add it.</p>
+  {% else %}
+  <p class="empty">For everything on this page the council has published a result we could check
+    against its own plan. That is unusual, and worth saying.</p>
+  {% endif %}
+</section>
+
+<section class="scorecard-rules" aria-labelledby="rules-head">
+  <h2 class="section-head" id="rules-head">Who decides what counts as met?</h2>
+  <p>Not us. Every status on this page is worked out by a rule written down in advance, run against
+    the council's own two numbers. The rules are the same for every council on this site, they are
+    published in full, and the page you are reading is generated from the same code that runs
+    them — so the rule described and the rule applied cannot drift apart.</p>
+  <p class="home-links">
+    {% if has_scoring %}
+    <a class="button" href="{{ root }}methodology/scoring/index.html">Read every rule in full</a>
+    {% endif %}
+    <a class="button button-quiet" href="{{ root }}methodology/index.html">How we work</a>
+    <a class="button button-quiet" href="{{ root }}corrections/index.html">Ask for a correction</a>
+  </p>
+</section>
+
+{{ score.glossary_used() }}
+{% endblock %}

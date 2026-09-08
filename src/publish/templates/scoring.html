@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% import "_score.html" as score with context %}
+
+{% block title %}How we score things — CouncilLens{% endblock %}
+{% block description %}Every rule that turns a council's own two numbers into Met, Close, Missed or Can't tell.{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li><a href="{{ root }}methodology/index.html">How we work</a></li>
+    <li aria-current="page">How we score things</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="page-head">
+  <h1>How we score things</h1>
+  <p class="lede">A status on this site is never a judgment we made. It is what one of the rules
+    below says when it is run against two numbers the council published itself.</p>
+  <p class="page-head-note">This page is written straight out of the code that does the scoring, so
+    the rule described here and the rule actually applied cannot drift apart.
+    <a href="{{ REPO_URL }}/blob/main/src/analyse/rules.py">See the code</a>.</p>
+</header>
+
+<section class="howto" aria-labelledby="scoring-key-head">
+  <h2 class="howto-head" id="scoring-key-head">The four answers a rule can give</h2>
+  <ul class="howto-list">
+    {% for status in RAG_ORDER %}
+    <li class="howto-item rag-{{ status }}">
+      {{ score.glyph(status) }}
+      <span class="howto-word">{{ RAG[status].word }}</span>
+      <span class="howto-blurb">{{ RAG[status].blurb }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="prose md" aria-label="The rules">
+  {{ body | safe }}
+</section>
+
+<section class="correct-cta" aria-labelledby="correct-head">
+  <h2 id="correct-head">Think a rule is wrong?</h2>
+  <p>The rules are open to argument as much as the numbers are. If a threshold is unfair to a
+    council, say so and we will look at it.</p>
+  <p><a class="button" href="{{ root }}corrections/index.html">Ask for a correction</a></p>
+</section>
+
+{{ score.glossary_used() }}
+{% endblock %}

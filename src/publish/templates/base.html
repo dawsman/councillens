@@ -26,6 +26,7 @@
       <span class="brand-name">CouncilLens</span>
     </a>
     <nav class="masthead-nav" aria-label="Site">
+      <a href="{{ root }}learn/index.html"{% if page_id == 'learn' %} aria-current="page"{% endif %}>For schools</a>
       <a href="{{ root }}methodology/index.html"{% if page_id == 'methodology' %} aria-current="page"{% endif %}>How we work</a>
       <a href="{{ root }}corrections/index.html"{% if page_id == 'corrections' %} aria-current="page"{% endif %}>Corrections</a>
     </nav>
@@ -52,6 +53,7 @@
     <p class="disclaimer">CouncilLens is for transparency and public discussion. It does not make
       legal findings or accuse anyone of wrongdoing.</p>
     <nav class="footer-nav" aria-label="Footer">
+      <a href="{{ root }}learn/index.html">For schools and colleges</a>
       <a href="{{ root }}methodology/index.html">How we work</a>
       <a href="{{ root }}corrections/index.html">Ask for a correction</a>
       <a href="{{ REPO_URL }}">Source code and data on GitHub</a>

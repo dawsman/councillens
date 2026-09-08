@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "_viz.html" as viz with context %}
+{% import "_score.html" as score with context %}
 
 {% block title %}{{ council.council.name }} — CouncilLens{% endblock %}
 {% block description %}What {{ council.council.name }} was asked, what it decided, and what happened next.{% endblock %}
@@ -23,10 +24,19 @@
   {% endif %}
 </header>
 
+{% if council.scorecard %}
+<section class="sc-summary" aria-labelledby="sc-summary-head">
+  {{ score.tally(council.scorecard.tally, "How is this council doing?", 'h2', 'sc-summary-head') }}
+  <p class="sc-summary-note">Each one compares something the council said it would do with what its
+    own later reports say happened. Nothing here is a grade, a rank or an opinion.</p>
+  <p><a class="button" href="scorecard/index.html">See the whole scorecard</a></p>
+</section>
+{% endif %}
+
 {% if council.council.remit_note %}
 <section class="remit" aria-labelledby="remit-head">
   <h2 id="remit-head">What this council is actually in charge of</h2>
-  <p>{{ council.council.remit_note }}</p>
+  <p>{{ council.council.remit_note | gloss }}</p>
   <p class="remit-why">This matters: if a problem sits with a different authority, this council
     cannot fix it however many people ask.</p>
 </section>
@@ -52,6 +62,8 @@
   <p class="empty">We have not published any topics for this council yet.</p>
   {% endif %}
 </section>
+
+{{ score.glossary_used() }}
 
 <section class="correct-cta" aria-labelledby="correct-head">
   <h2 id="correct-head">Spotted a mistake?</h2>

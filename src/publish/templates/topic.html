@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% import "_parts.html" as parts with context %}
 {% import "_viz.html" as viz with context %}
+{% import "_score.html" as score with context %}
 
 {% block title %}{{ m.topic.name }} — {{ m.council.name }} — CouncilLens{% endblock %}
 {% block description %}{{ m.topic.plain_english }}{% endblock %}
@@ -19,8 +20,10 @@
 <header class="topic-head">
   <p class="topic-council">{{ m.council.name }}</p>
   <h1>{{ m.topic.name }}</h1>
-  <p class="lede">{{ m.topic.plain_english }}</p>
+  <p class="lede">{{ m.topic.plain_english | gloss }}</p>
 </header>
+
+{{ score.strip(m._measures, m._council_slug) }}
 
 {{ viz.tracker(m._progress) }}
 
@@ -139,6 +142,8 @@
     {% endfor %}
   </ol>
 </section>
+
+{{ score.glossary_used() }}
 
 <section class="correct-cta" aria-labelledby="correct-head">
   <h2 id="correct-head">Something wrong here?</h2>

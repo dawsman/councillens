@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "_viz.html" as viz with context %}
+{% import "_score.html" as score with context %}
 
 {% block title %}CouncilLens — see how your council listens{% endblock %}
 
@@ -38,6 +39,13 @@
     {% for c in councils %}
     <li class="council-card">
       <h3><a href="councils/{{ c.slug }}/index.html">{{ c.council.name }}</a></h3>
+      {% if c.scorecard %}
+      <div class="council-score">
+        <p class="council-score-head"><a href="councils/{{ c.slug }}/scorecard/index.html">How is this council doing?</a></p>
+        {{ score.mini_tally(c.scorecard.tally, c.council.name ~ ": how many of each") }}
+        <p class="council-score-line">{{ c.scorecard.tally.sentence }}</p>
+      </div>
+      {% endif %}
       <ul class="council-topiclist">
         {% for t in c.topics %}
         <li class="council-topic">
@@ -55,6 +63,19 @@
     topic are on the way. You can follow progress on
     <a href="{{ REPO_URL }}">GitHub</a> in the meantime.</p>
   {% endif %}
+</section>
+
+<section class="schools" aria-labelledby="schools-head">
+  <h2 class="section-head" id="schools-head">For schools and colleges</h2>
+  <p class="section-intro">This site is written to be read by a thirteen-year-old, and it is free
+    to use in a classroom. Every claim links to the council document it came from, so a class can
+    check our work rather than take it on trust.</p>
+  <ul class="schools-points">
+    <li>Plain English, with the hard words explained where they appear.</li>
+    <li>Questions a class can argue about, and pages that print cleanly for handouts.</li>
+    <li>Real council documents, not made-up examples.</li>
+  </ul>
+  <p class="home-links"><a class="button" href="learn/index.html">Using this in a lesson</a></p>
 </section>
 
 <section class="honesty" aria-labelledby="honesty-head">

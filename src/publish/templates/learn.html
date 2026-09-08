@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% import "_score.html" as score with context %}
+
+{% block title %}For schools and colleges — CouncilLens{% endblock %}
+{% block description %}How to use CouncilLens in a citizenship, politics or economics lesson, with questions to work through and the words explained.{% endblock %}
+
+{% block breadcrumb %}
+<nav class="crumbs wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ root }}index.html">Home</a></li>
+    <li aria-current="page">For schools and colleges</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block main %}
+<header class="page-head">
+  <h1>For schools and colleges</h1>
+  <p class="lede">This site is built to be read by a thirteen-year-old. Every page uses real
+    documents from a real council, in plain English, with a link to the original so a class can
+    check anything for itself.</p>
+  <p class="page-head-note">Everything here is free to use and free to copy. The site is open
+    source under the MIT licence, and the pages print cleanly for handouts.</p>
+</header>
+
+{% if body %}
+<section class="prose md learn-body" aria-label="Classroom guide">
+  {{ body | safe }}
+</section>
+{% else %}
+<section class="prose learn-body" aria-label="Classroom guide">
+  <h2>What a class can do with this site</h2>
+  <p>Pick a council, open its scorecard, and take one card. Every card names a thing the council
+    said it would do and a thing its own reports say happened. The gap between the two is the
+    lesson.</p>
+  <ul>
+    <li><strong>Follow one number to its source.</strong> Open <em>How we scored this</em>, click
+      through to the council's own document, and find the figure on the page. Does it say what we
+      say it says?</li>
+    <li><strong>Argue with a grey card.</strong> Pick something marked <em>Can't tell</em>. Who
+      would need to publish what, for the answer to exist? Why might it not have been published?</li>
+    <li><strong>Write the rule yourself.</strong> Before reading ours, decide how far off budget a
+      council should be before you would call it a miss. Then compare.</li>
+    <li><strong>Separate the fact from the opinion.</strong> Take one card and write two sentences:
+      one that only says what the documents say, and one that says what you think about it.</li>
+  </ul>
+  <h2>Where to start</h2>
+  <p>The scorecard for each council is linked from the home page. The <em>How we work</em> page
+    explains where the summaries come from and what we will and will not claim.</p>
+  <p class="learn-placeholder-note">A fuller classroom guide is being written and will replace this
+    page shortly.</p>
+</section>
+{% endif %}
+
+<section class="learn-links" aria-labelledby="learn-links-head">
+  <h2 class="section-head" id="learn-links-head">Where to go next</h2>
+  <ul class="learn-linklist">
+    {% for c in councils %}
+    {% if c.scorecard %}
+    <li><a href="{{ root }}councils/{{ c.slug }}/scorecard/index.html">{{ c.council.name }}: the scorecard</a></li>
+    {% endif %}
+    {% endfor %}
+    <li><a href="{{ root }}methodology/index.html">How we work — where our summaries come from</a></li>
+    <li><a href="{{ root }}corrections/index.html">Ask for a correction, if your class finds a mistake</a></li>
+  </ul>
+</section>
+
+{{ score.glossary_used() }}
+{% endblock %}

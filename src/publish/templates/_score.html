@@ -1,0 +1,200 @@
+{% import "_parts.html" as parts with context %}
+{# ------------------------------------------------------------------ #}
+{# The scorecard layer.                                                #}
+{#                                                                    #}
+{# A status is never our opinion. It is what a published rule says     #}
+{# when it is run against the council's own two numbers, and every     #}
+{# card can show its working: the rule, the target, the actual, the    #}
+{# source, and whatever the council itself said about it.              #}
+{#                                                                    #}
+{# Colour never carries a status by itself. Each one has a word, an    #}
+{# outline silhouette and an inner mark, so the set still reads in     #}
+{# greyscale, in print, and to a colour-blind reader.                  #}
+{# ------------------------------------------------------------------ #}
+
+
+{# -- the four glyphs. Silhouette and inner mark both change. -------- #}
+{% macro glyph(status) %}
+{% set g = RAG[status].glyph %}
+<svg class="rag-glyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  {% if g == 'met' %}
+  <circle cx="12" cy="12" r="10.4" fill="currentColor"/>
+  <path class="rag-mark" d="M6.9 12.5 10.3 15.9 17.1 8.6" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  {% elif g == 'close' %}
+  <rect x="1.6" y="1.6" width="20.8" height="20.8" rx="5.5" fill="currentColor"/>
+  <path class="rag-mark" d="M7 12 H17" fill="none" stroke-width="2.8" stroke-linecap="round"/>
+  {% elif g == 'missed' %}
+  <path d="M12 0.9 23.1 12 12 23.1 0.9 12Z" fill="currentColor"/>
+  <path class="rag-mark" d="M8.4 8.4 15.6 15.6 M15.6 8.4 8.4 15.6" fill="none" stroke-width="2.6" stroke-linecap="round"/>
+  {% else %}
+  <circle cx="12" cy="12" r="9.8" fill="none" stroke="currentColor" stroke-width="2.8" stroke-dasharray="4.6 3.4"/>
+  <path d="M9.1 9.6a3 3 0 1 1 3.3 3.1v1.4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="12.4" cy="17.5" r="1.5" fill="currentColor"/>
+  {% endif %}
+</svg>
+{% endmacro %}
+
+
+{# -- glyph plus word: the smallest complete statement of a status --- #}
+{% macro pill(status) %}
+<span class="rag rag-{{ status }}">{{ glyph(status) }}<span class="rag-word">{{ RAG[status].word }}</span></span>
+{% endmacro %}
+
+
+{# -- the tally: arithmetic, not a score ---------------------------- #}
+{% macro tally(t, heading, level='h2', id='tally') %}
+{% if t %}
+<div class="tally">
+  {% if heading %}<{{ level }} class="tally-head" id="{{ id }}">{{ heading }}</{{ level }}>{% endif %}
+  <p class="tally-sentence">{{ t.sentence }}</p>
+  <p class="tally-bar" aria-hidden="true">
+    {% for row in t.rows %}{% if row.count %}<span class="tally-seg tally-seg-{{ row.status }}" style="flex-grow: {{ row.count }}"></span>{% endif %}{% endfor %}
+  </p>
+  <ul class="tally-rows">
+    {% for row in t.rows %}
+    <li class="tally-row rag-{{ row.status }}{% if not row.count %} is-zero{% endif %}">
+      {{ glyph(row.status) }}
+      <span class="tally-count">{{ row.count }}</span>
+      <span class="tally-word">{{ row.word }}</span>
+      <span class="tally-blurb">{{ row.blurb }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% endmacro %}
+
+
+{# -- the tally, shrunk to fit inside a card ------------------------- #}
+{% macro mini_tally(t, label) %}
+{% if t %}
+<ul class="minitally" aria-label="{{ label }}">
+  {% for row in t.rows %}
+  <li class="minitally-item rag-{{ row.status }}{% if not row.count %} is-zero{% endif %}">
+    {{ glyph(row.status) }}
+    <span class="minitally-count">{{ row.count }}</span>
+    <span class="minitally-word">{{ row.word }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endmacro %}
+
+
+{# -- one status card, with its workings one tap away ---------------- #}
+{% macro card(m, level='h3') %}
+<article class="scard rag-{{ m._status }}{% if m._unknown %} scard-unknown{% endif %}" id="{{ m.id }}">
+  <div class="scard-head">
+    {{ pill(m._status) }}
+    <p class="scard-label">{{ m.label }}{% if m._when %} <span class="scard-when">{{ m._when }}</span>{% endif %}</p>
+  </div>
+  <{{ level }} class="scard-q">{{ m._question }}</{{ level }}>
+  {% if m.evidence %}
+  <p class="scard-evidence">{{ m.evidence | gloss }}</p>
+  {% endif %}
+
+  {% if m._unknown %}
+  <dl class="scard-pair scard-pair-unknown">
+    <div class="scard-side">
+      <dt>What we looked for</dt>
+      <dd>{{ m._looked_for or "A figure the council had published against its own plan." }}</dd>
+    </div>
+    <div class="scard-side">
+      <dt>Why we can't say</dt>
+      <dd>{{ (m._actual.display if m._actual else none) or "The council has not published a result we can compare." }}</dd>
+    </div>
+  </dl>
+  {% elif m._target or m._actual %}
+  <dl class="scard-pair">
+    <div class="scard-side scard-planned">
+      <dt>The council planned</dt>
+      <dd>{{ m._target.display if m._target else "No figure published" }}</dd>
+    </div>
+    <div class="scard-side scard-happened">
+      <dt>What happened</dt>
+      <dd>{{ m._actual.display if m._actual else "No figure published" }}</dd>
+    </div>
+  </dl>
+  {% endif %}
+
+  <details class="working">
+    <summary><span class="working-label">How we scored this</span></summary>
+    <div class="working-body">
+      <dl class="working-list">
+        {% if m.rule %}
+        <div class="working-row">
+          <dt>The rule we ran</dt>
+          <dd>{{ m.rule | gloss }}{% if m.rule_id %} <span class="working-ruleid">{{ m.rule_id }}</span>{% endif %}</dd>
+        </div>
+        {% endif %}
+        <div class="working-row">
+          <dt>What the council said it would do</dt>
+          <dd>{{ m._target.display if m._target else "Nothing published we could compare against." }}{% if m.period %} <span class="working-when">{{ m.period }}</span>{% endif %}</dd>
+        </div>
+        <div class="working-row">
+          <dt>What its own reports say happened</dt>
+          <dd>{{ m._actual.display if m._actual else "The council has not published a result." }}{% if m.as_of %} <span class="working-when">as at {{ m.as_of | human_date }}</span>{% endif %}</dd>
+        </div>
+        <div class="working-row">
+          <dt>The council's own explanation</dt>
+          <dd>{% if m.council_caveat %}{{ m.council_caveat | gloss }}{% else %}<span class="working-none">The council gave no explanation we could find.</span>{% endif %}</dd>
+        </div>
+        <div class="working-row">
+          <dt>Where this comes from</dt>
+          <dd>
+            {% if m.source_url %}<a class="source-link" href="{{ m.source_url }}">Read the council's own document</a>
+            {% else %}<span class="working-none">No public link — see the documents list on the topic page.</span>{% endif %}
+          </dd>
+        </div>
+      </dl>
+      {% if m._topic_slug and m._topic_name %}
+      <p class="working-topic"><a href="{{ root }}councils/{{ m._council_slug }}/{{ m._topic_slug }}/index.html">The full record behind this: {{ m._topic_name }}</a></p>
+      {% endif %}
+      {{ parts.provenance(m._ai) }}
+    </div>
+  </details>
+</article>
+{% endmacro %}
+
+
+{# -- the compact strip that sits on a topic page -------------------- #}
+{% macro strip(measures, slug, heading="How the council is doing on this") %}
+{% if measures %}
+<section class="sstrip" aria-labelledby="sstrip-head">
+  <h2 class="sstrip-head" id="sstrip-head">{{ heading }}</h2>
+  <p class="sstrip-intro">Each line compares something the council said it would do with what its
+    own later reports say happened. Follow one through for the rule, the numbers and the source.</p>
+  <ul class="sstrip-list">
+    {% for m in measures %}
+    <li class="sstrip-item rag-{{ m._status }}">
+      <a class="sstrip-link" href="{{ root }}councils/{{ slug }}/scorecard/index.html#{{ m.id }}">
+        <span class="sstrip-status">{{ glyph(m._status) }}<span class="sstrip-word">{{ RAG[m._status].word }}</span></span>
+        <span class="sstrip-q">{{ m._question }}</span>
+        {% if m._when %}<span class="sstrip-when">{{ m._when }}</span>{% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="sstrip-more"><a href="{{ root }}councils/{{ slug }}/scorecard/index.html">See the whole scorecard for this council</a></p>
+</section>
+{% endif %}
+{% endmacro %}
+
+
+{# -- the words we explained on this page, gathered at its foot ------ #}
+{% macro glossary_used() %}
+{% set used = gloss_used() %}
+{% if used %}
+<section class="glossary-used" aria-labelledby="glossary-used-head">
+  <h2 class="section-head" id="glossary-used-head">Words on this page</h2>
+  <dl class="glossary-list">
+    {% for entry in used %}
+    <div class="glossary-entry" id="{{ entry.id }}-list">
+      <dt>{{ entry.term }}</dt>
+      <dd>{{ entry.definition }}</dd>
+    </div>
+    {% endfor %}
+  </dl>
+</section>
+{% endif %}
+{% endmacro %}

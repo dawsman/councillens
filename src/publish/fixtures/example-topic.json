@@ -662,5 +662,91 @@
         "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
       }
     }
+  ],
+  "measures": [
+    {
+      "id": "m-slp-published-in-window",
+      "area": "service",
+      "question": "Did the council get its new licensing rules out on time?",
+      "label": "New licensing policy published before the old one ran out",
+      "rule_id": "promise-kept-v1",
+      "rule": "Met if a later council report says the dated commitment was delivered. Close if a later report says it was delivered late or only in part. Missed if a later report says it was dropped, or that something other than the promise was delivered. Can't tell if no later report addresses it.",
+      "target": {
+        "display": "A new policy in force before the 2020–2025 one expired",
+        "value": null,
+        "unit": null
+      },
+      "actual": {
+        "display": "Published and in force from 1 March 2025",
+        "value": null,
+        "unit": null
+      },
+      "status": "green",
+      "direction": "higher_is_better",
+      "period": "2025",
+      "as_of": "2025-03-01",
+      "council_caveat": null,
+      "evidence": "The law says a licensing policy has to be replaced every five years. The council published its new one on 1 March 2025, before the old one ran out.",
+      "looked_for": null,
+      "source_ids": [
+        "src-published-slp-2025"
+      ],
+      "source_url": "https://www.norwich.gov.uk/example/downloads/statement-of-licensing-policy-2025-2030.pdf",
+      "ai": {
+        "source_ids": [
+          "src-published-slp-2025"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "promises": [
+    {
+      "id": "m-slp-twelve-month-review",
+      "area": "promises",
+      "question": "Did the council do the review it promised within a year?",
+      "label": "Twelve-month review of the Prince of Wales Road special area",
+      "rule_id": "promise-kept-v1",
+      "rule": "Met if a later council report says the dated commitment was delivered. Close if a later report says it was delivered late or only in part. Missed if a later report says it was dropped, or that something other than the promise was delivered. Can't tell if no later report addresses it.",
+      "target": {
+        "display": "“A review of the special policy area within twelve months”, agreed 28 January 2025",
+        "value": null,
+        "unit": null
+      },
+      "actual": {
+        "display": "No later report we can find says whether the review happened.",
+        "value": null,
+        "unit": null
+      },
+      "status": "grey",
+      "direction": "higher_is_better",
+      "period": "by January 2026",
+      "as_of": null,
+      "council_caveat": null,
+      "evidence": "When it adopted the policy, the council promised to look again at the Prince of Wales Road area within a year. Nothing published since says whether it did.",
+      "looked_for": "A committee report, minute or published review dated on or after January 2026.",
+      "source_ids": [
+        "src-full-council-2025-01-28-minutes"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/example/meeting/full-council-2025-01-28/minutes.pdf",
+      "ai": {
+        "source_ids": [
+          "src-full-council-2025-01-28-minutes"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
   ]
 }

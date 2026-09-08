@@ -1,0 +1,1215 @@
+{
+  "_fixture": true,
+  "_fixture_note": "Example data. The figures are drawn from a verified research note on Norwich City Council's published accounts, but this file exists so the scorecard could be designed and tested. Do not cite it.",
+  "schema_version": "1",
+  "generated_at": "2026-09-08T09:00:00+00:00",
+  "council": {
+    "name": "Norwich City Council",
+    "slug": "norwich-city-council",
+    "website": "https://www.norwich.gov.uk",
+    "tier": "district",
+    "remit_note": "Norwich City Council runs licensing, planning, council housing, bins and street cleaning, and environmental health for the city. It does not run roads, schools, social care or libraries — those belong to Norfolk County Council. So if a licensing decision affects traffic or parking on a street, two different councils are involved.",
+    "platforms": {
+      "committees": "cmis",
+      "website": "localgov_drupal",
+      "consultations": "engagement"
+    }
+  },
+  "topic": {
+    "name": "Budget and spending",
+    "slug": "budget-and-spending",
+    "plain_english": "Where the council's money comes from, what it plans to spend it on each year, and what its own accounts say it actually spent.",
+    "questions": {
+      "asked": "Every autumn the council asks residents what they think of its budget plans, including the council tax rise. In 2026/27, for the first time in seven years, more people opposed the rise than supported it.",
+      "decided": "Full Council sets a budget each February. It has raised council tax by the maximum allowed without a referendum in each of the last seven years, and has approved building programmes worth £343m over five years.",
+      "done": "The council's own accounts show day-to-day spending coming in under budget every year, and building work coming in well under plan. Auditors have been unable to sign off the accounts for four years running."
+    }
+  },
+  "sources": [
+    {
+      "id": "src-soa-2025-26",
+      "title": "Statement of Accounts 2025/26 (draft)",
+      "type": "accounts",
+      "stage": "outcome",
+      "body": "Norwich City Council",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "fetched_at": "2026-09-08T09:00:00+00:00",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "saved_to": "data/raw/src-soa-2025-26/document.pdf",
+      "summary": "The council's own draft accounts for 2025/26, including the narrative report and the capital spending tables.",
+      "ai": {
+        "source_ids": [
+          "src-soa-2025-26"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "src-soa-2023-24",
+      "title": "Statement of Accounts 2023/24",
+      "type": "accounts",
+      "stage": "outcome",
+      "body": "Norwich City Council",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "fetched_at": "2026-09-08T09:00:00+00:00",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "saved_to": "data/raw/src-soa-2023-24/document.pdf",
+      "summary": "The council's accounts for 2023/24, including the narrative report explaining where the year's underspend came from.",
+      "ai": {
+        "source_ids": [
+          "src-soa-2023-24"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "src-budget-2023",
+      "title": "Budget Council report, February 2023",
+      "type": "committee_report",
+      "stage": "decision",
+      "body": "Norwich City Council",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "fetched_at": "2026-09-08T09:00:00+00:00",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "saved_to": "data/raw/src-budget-2023/document.pdf",
+      "summary": "The report Full Council used to set the 2023/24 budget, including the savings target and the commercial income forecast.",
+      "ai": {
+        "source_ids": [
+          "src-budget-2023"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "src-budget-2024",
+      "title": "Budget Council report, February 2024",
+      "type": "committee_report",
+      "stage": "decision",
+      "body": "Norwich City Council",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "fetched_at": "2026-09-08T09:00:00+00:00",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "saved_to": "data/raw/src-budget-2024/document.pdf",
+      "summary": "The report Full Council used to set the 2024/25 budget, including the Housing Revenue Account rent decision.",
+      "ai": {
+        "source_ids": [
+          "src-budget-2024"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "src-budget-2025",
+      "title": "Budget Council report, February 2025",
+      "type": "committee_report",
+      "stage": "decision",
+      "body": "Norwich City Council",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "fetched_at": "2026-09-08T09:00:00+00:00",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "saved_to": "data/raw/src-budget-2025/document.pdf",
+      "summary": "The report Full Council used to set the 2025/26 budget, including the correction to the parking income assumption.",
+      "ai": {
+        "source_ids": [
+          "src-budget-2025"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "src-budget-2026",
+      "title": "Cabinet budget report, February 2026",
+      "type": "committee_report",
+      "stage": "decision",
+      "body": "Norwich City Council",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "fetched_at": "2026-09-08T09:00:00+00:00",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "saved_to": "data/raw/src-budget-2026/document.pdf",
+      "summary": "The Cabinet report on the 2026/27 budget and the medium-term financial strategy.",
+      "ai": {
+        "source_ids": [
+          "src-budget-2026"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "src-audit-cert-2023-24",
+      "title": "Audit certificate, Statement of Accounts 2023/24",
+      "type": "audit_report",
+      "stage": "outcome",
+      "body": "Ernst & Young LLP",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/AuditCertificateSOA2023-24.pdf",
+      "fetched_at": "2026-09-08T09:00:00+00:00",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "saved_to": "data/raw/src-audit-cert-2023-24/document.pdf",
+      "summary": "The external auditor's certificate, which sets out why an opinion could not be given and what the auditors found about oversight of the council's companies.",
+      "ai": {
+        "source_ids": [
+          "src-audit-cert-2023-24"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "src-vfm-2022-23",
+      "title": "External audit value-for-money report, 2021/22 and 2022/23",
+      "type": "audit_report",
+      "stage": "outcome",
+      "body": "Ernst & Young LLP",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "fetched_at": "2026-09-08T09:00:00+00:00",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "saved_to": "data/raw/src-vfm-2022-23/document.pdf",
+      "summary": "The auditor's interim value-for-money reporting, covering the housing regulator's notice and the council's response to it.",
+      "ai": {
+        "source_ids": [
+          "src-vfm-2022-23"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "src-vfm-2024-25",
+      "title": "External audit value-for-money report, 2024/25",
+      "type": "audit_report",
+      "stage": "outcome",
+      "body": "Ernst & Young LLP",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "fetched_at": "2026-09-08T09:00:00+00:00",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "saved_to": "data/raw/src-vfm-2024-25/document.pdf",
+      "summary": "The auditor's value-for-money reporting for 2024/25, which raises a significant weakness in financial reporting.",
+      "ai": {
+        "source_ids": [
+          "src-vfm-2024-25"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "src-cabinet-2025-lion",
+      "title": "Cabinet report on winding up the council's housing company, July 2025",
+      "type": "committee_report",
+      "stage": "decision",
+      "body": "Norwich City Council",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "fetched_at": "2026-09-08T09:00:00+00:00",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "saved_to": "data/raw/src-cabinet-2025-lion/document.pdf",
+      "summary": "The Cabinet report agreeing a solvent wind-up of the council's housing company and setting out what happens to its loans and assets.",
+      "ai": {
+        "source_ids": [
+          "src-cabinet-2025-lion"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "evt-budget-2026-decision",
+      "stage": "decision",
+      "date": "2026-02-24",
+      "date_precision": "day",
+      "title": "Full Council set the 2026/27 budget and raised council tax by 2.99%",
+      "summary": "Full Council approved the 2026/27 budget, including a 2.99% council tax rise — the most it can charge without holding a referendum. The consultation that preceded it found 28% in support and 48% opposed, the first year since 2019 in which opposition outweighed support.",
+      "detail": [
+        "Council tax rise: from 2.99% proposed to 2.99% adopted",
+        "General Fund savings target for the year: £3.1m"
+      ],
+      "source_ids": [
+        "src-budget-2026"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "status": null,
+      "ai": {
+        "source_ids": [
+          "src-budget-2026"
+        ],
+        "prompt_version": "events-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "evt-lion-windup",
+      "stage": "decision",
+      "date": "2025-07-16",
+      "date_precision": "day",
+      "title": "Cabinet agreed to wind up the council's housing company",
+      "summary": "Cabinet agreed a solvent wind-up of the council's housing company, ten years after it was set up to build homes and earn the council an income. £6.15m of council loans to the company were written down to nothing.",
+      "detail": null,
+      "source_ids": [
+        "src-cabinet-2025-lion"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "status": null,
+      "ai": {
+        "source_ids": [
+          "src-cabinet-2025-lion"
+        ],
+        "prompt_version": "events-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "evt-soa-2025-26",
+      "stage": "outcome",
+      "date": "2026-06-30",
+      "date_precision": "day",
+      "title": "The draft accounts for 2025/26 were published",
+      "summary": "The council published its draft Statement of Accounts for 2025/26. Day-to-day spending came in £0.710m under budget. Of the £94.768m building programme approved for the year, £56.477m was spent.",
+      "detail": null,
+      "source_ids": [
+        "src-soa-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "status": "done",
+      "ai": {
+        "source_ids": [
+          "src-soa-2025-26"
+        ],
+        "prompt_version": "events-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "evt-audit-signoff",
+      "stage": "outcome",
+      "date": null,
+      "date_precision": "unknown",
+      "title": "An audited opinion on the accounts",
+      "summary": "Auditors have disclaimed their opinion on the council's accounts for four years running, so no independent check of the figures has been completed. A clean opinion would be the outcome; there is no published date for one.",
+      "detail": null,
+      "source_ids": [
+        "src-audit-cert-2023-24"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/AuditCertificateSOA2023-24.pdf",
+      "status": "still_waiting",
+      "ai": {
+        "source_ids": [
+          "src-audit-cert-2023-24"
+        ],
+        "prompt_version": "events-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "linkages": [],
+  "gaps": [
+    {
+      "stage": "outcome",
+      "description": "An end-of-year figure for savings actually delivered. The council publishes what it plans to save each February, but no outturn report tracks whether those savings landed."
+    },
+    {
+      "stage": "outcome",
+      "description": "A published target and result for front-line services such as council tax collection or homelessness. Oflog, which used to publish comparable figures for every council, closed in December 2024."
+    },
+    {
+      "stage": "outcome",
+      "description": "A final cost for winding up the council's housing company. The liquidation is still under way."
+    }
+  ],
+  "corrections_url": "https://github.com/dawsman/councillens/issues/new?template=correction.yml",
+  "figures": [
+    {
+      "id": "fig-gross-budget",
+      "label": "Day-to-day budget for the year",
+      "kind": "money",
+      "value": 68400000,
+      "unit": "GBP",
+      "display": "£68.4m",
+      "as_of": null,
+      "period": "2025/26",
+      "source_ids": [
+        "src-soa-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "note": "Gross General Fund expenditure as approved. This is the money the council spends running services year to year, not the money it spends building things.",
+      "ai": {
+        "source_ids": [
+          "src-soa-2025-26"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "fig-capital-approved",
+      "label": "Building work approved for the year",
+      "kind": "money",
+      "value": 94768000,
+      "unit": "GBP",
+      "display": "£94.8m",
+      "as_of": null,
+      "period": "2025/26",
+      "source_ids": [
+        "src-soa-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "note": "The revised in-year capital budget. It had already grown from the £67.5m approved in February.",
+      "ai": {
+        "source_ids": [
+          "src-soa-2025-26"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "fig-capital-spent",
+      "label": "Building work actually done",
+      "kind": "money",
+      "value": 56477000,
+      "unit": "GBP",
+      "display": "£56.5m",
+      "as_of": null,
+      "period": "2025/26",
+      "source_ids": [
+        "src-soa-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "note": "60% of what was approved. The council calls the rest ordinary slippage and says the money is not lost.",
+      "ai": {
+        "source_ids": [
+          "src-soa-2025-26"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "fig-reserves",
+      "label": "Set aside for emergencies",
+      "kind": "money",
+      "value": 8249000,
+      "unit": "GBP",
+      "display": "£8.2m",
+      "as_of": "2026-03-31",
+      "period": null,
+      "source_ids": [
+        "src-soa-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "note": "Unchanged for four year-ends running. The council's own safe minimum is £5.5m.",
+      "ai": {
+        "source_ids": [
+          "src-soa-2025-26"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "fig-audit-years",
+      "label": "Years running with no audited opinion",
+      "kind": "count",
+      "value": 4,
+      "unit": "years",
+      "display": null,
+      "as_of": null,
+      "period": "2021/22 to 2024/25",
+      "source_ids": [
+        "src-audit-cert-2023-24"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/AuditCertificateSOA2023-24.pdf",
+      "note": "A national problem caused by a government cut-off date that cleared an audit backlog across the country, not a finding about Norwich's figures.",
+      "ai": {
+        "source_ids": [
+          "src-audit-cert-2023-24"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "fig-tax-support",
+      "label": "Backed the council tax rise",
+      "kind": "share",
+      "value": 28,
+      "unit": "%",
+      "display": "28%",
+      "as_of": null,
+      "period": "2026/27",
+      "source_ids": [
+        "src-budget-2026"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "note": "48% opposed it and 25% were neutral. The first year since 2019 in which opposition outweighed support.",
+      "ai": {
+        "source_ids": [
+          "src-budget-2026"
+        ],
+        "prompt_version": "figures-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "measures": [
+    {
+      "id": "m-gf-variance-2025-26",
+      "area": "money",
+      "question": "Did the council spend what it planned to spend this year?",
+      "label": "Day-to-day spending against budget",
+      "rule_id": "budget-variance-v1",
+      "rule": "Met if the year's actual day-to-day spending came within 2% of the budget the council approved. Close if within 5%. Missed if further out either way. Can't tell if the council has not published an outturn figure.",
+      "target": {
+        "display": "on budget",
+        "value": 0,
+        "unit": "%"
+      },
+      "actual": {
+        "display": "1.03% under",
+        "value": -1.03,
+        "unit": "%"
+      },
+      "status": "green",
+      "direction": "on_target",
+      "period": "2025/26",
+      "as_of": "2026-06-30",
+      "council_caveat": "The council names a £2.992m underspend on central financing, including £1.286m of interest, offset by services in housing, environment and major projects going over.",
+      "evidence": "The council planned to spend exactly its budget and ended up spending about £710,000 less. On a budget this size that is a very small miss.",
+      "looked_for": null,
+      "source_ids": [
+        "src-soa-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "ai": {
+        "source_ids": [
+          "src-soa-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-gf-variance-2023-24",
+      "area": "money",
+      "question": "Did the council spend what it planned to spend that year?",
+      "label": "Day-to-day spending against budget",
+      "rule_id": "budget-variance-v1",
+      "rule": "Met if the year's actual day-to-day spending came within 2% of the budget the council approved. Close if within 5%. Missed if further out either way. Can't tell if the council has not published an outturn figure.",
+      "target": {
+        "display": "on budget",
+        "value": 0,
+        "unit": "%"
+      },
+      "actual": {
+        "display": "6.23% under",
+        "value": -6.23,
+        "unit": "%"
+      },
+      "status": "red",
+      "direction": "on_target",
+      "period": "2023/24",
+      "as_of": "2024-06-30",
+      "council_caveat": "The council's services actually went £2.011m over budget. The surplus came from central finance lines: a £2.8m drawdown from reserves that turned out not to be needed, a £1.950m accounting change and £1.458m of interest.",
+      "evidence": "The council finished the year with about £4 million more in the bank than it had planned. That sounds like good news, but it happened because central finance lines came in far under, while the services people actually use went over.",
+      "looked_for": null,
+      "source_ids": [
+        "src-soa-2023-24"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "ai": {
+        "source_ids": [
+          "src-soa-2023-24"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-capital-2025-26",
+      "area": "money",
+      "question": "Did the council build what it said it would build this year?",
+      "label": "Building work done against the building budget",
+      "rule_id": "capital-delivery-v1",
+      "rule": "Met if the council spent at least 90% of the building budget it approved for the year. Close if at least 75%. Missed below that. Can't tell if no spending figure is published.",
+      "target": {
+        "display": "£94.8m approved",
+        "value": 94768000,
+        "unit": "GBP"
+      },
+      "actual": {
+        "display": "£56.5m spent — 60% of it",
+        "value": 56477000,
+        "unit": "GBP"
+      },
+      "status": "red",
+      "direction": "higher_is_better",
+      "period": "2025/26",
+      "as_of": "2026-06-30",
+      "council_caveat": "The council calls this ordinary construction slippage and says the money is not lost. It is worth knowing the budget itself had already grown from the £67.5m approved in February.",
+      "evidence": "The council approved nearly £95 million of building work for the year and managed to spend about £56 million of it — roughly three fifths.",
+      "looked_for": null,
+      "source_ids": [
+        "src-soa-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "ai": {
+        "source_ids": [
+          "src-soa-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-capital-5yr",
+      "area": "money",
+      "question": "Over several years, has the council built what it planned to build?",
+      "label": "Building work done against plan, five years",
+      "rule_id": "capital-delivery-v1",
+      "rule": "Met if the council spent at least 90% of the building budget it approved for the year. Close if at least 75%. Missed below that. Can't tell if no spending figure is published.",
+      "target": {
+        "display": "£342.9m approved",
+        "value": 342920000,
+        "unit": "GBP"
+      },
+      "actual": {
+        "display": "£218.6m spent — 64% of it",
+        "value": 218566000,
+        "unit": "GBP"
+      },
+      "status": "red",
+      "direction": "higher_is_better",
+      "period": "2021/22 to 2025/26",
+      "as_of": null,
+      "council_caveat": "These are the revised in-year budgets, which had already been reset once from the original February figures. Measured against the original plans the shortfall would be larger still.",
+      "evidence": "Across five years the council planned about £343 million of building work and did about £219 million of it, so roughly a third of the approved work did not happen when it was meant to.",
+      "looked_for": null,
+      "source_ids": [
+        "src-soa-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "ai": {
+        "source_ids": [
+          "src-soa-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-reserves-2025-26",
+      "area": "money",
+      "question": "Does the council have enough money set aside for emergencies?",
+      "label": "Emergency reserves against the safe minimum",
+      "rule_id": "reserve-floor-v1",
+      "rule": "Met if the money set aside for emergencies is at or above the minimum the council's own finance chief says is safe. Close if it is up to 10% below. Missed if further below. Can't tell if either figure is unpublished.",
+      "target": {
+        "display": "£5.5m minimum",
+        "value": 5500000,
+        "unit": "GBP"
+      },
+      "actual": {
+        "display": "£8.2m held",
+        "value": 8249000,
+        "unit": "GBP"
+      },
+      "status": "green",
+      "direction": "higher_is_better",
+      "period": "2025/26",
+      "as_of": "2026-03-31",
+      "council_caveat": "The council's own February 2022 plan was to run this balance down to £5.616m by 2026/27. That plan was replaced a year later and the balance has stayed flat instead.",
+      "evidence": "The council's rainy-day fund has sat at £8.25 million for four years running, comfortably above the £5.5 million its own finance chief calls the safe minimum.",
+      "looked_for": null,
+      "source_ids": [
+        "src-soa-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "ai": {
+        "source_ids": [
+          "src-soa-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-lion-cost",
+      "area": "money",
+      "question": "What did the collapse of the council's housing company end up costing?",
+      "label": "Final cost of winding up the housing company",
+      "rule_id": "tracked-outcome-v1",
+      "rule": "Met if the council publishes a result against the figure it set itself. Can't tell if it does not. This rule has no Close or Missed: it only asks whether the council reports the answer at all.",
+      "target": null,
+      "actual": {
+        "display": "The liquidation is not finished, so no final figure exists yet.",
+        "value": null,
+        "unit": null
+      },
+      "status": "grey",
+      "direction": "higher_is_better",
+      "period": "2025 onwards",
+      "as_of": null,
+      "council_caveat": "Cabinet's July 2025 report says the wind-up is solvent: creditors will be paid in full and the council keeps the company's assets, so it expects no extra call on taxpayers.",
+      "evidence": "Nobody can say yet what the housing company's collapse will cost in total, because the wind-up is still going on.",
+      "looked_for": "A published final cost of the wind-up.",
+      "source_ids": [
+        "src-cabinet-2025-lion"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "ai": {
+        "source_ids": [
+          "src-cabinet-2025-lion"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-savings-2023-24",
+      "area": "targets",
+      "question": "Did the council find as many savings as it said it needed?",
+      "label": "Savings found against the savings target",
+      "rule_id": "savings-target-v1",
+      "rule": "Met if the council found at least as much saving as its own plan said it needed. Close if it found at least 85%. Missed below that. Can't tell if the target or the total is unpublished.",
+      "target": {
+        "display": "£6.2m needed",
+        "value": 6200000,
+        "unit": "GBP"
+      },
+      "actual": {
+        "display": "£5.5m found — £0.7m short",
+        "value": 5500000,
+        "unit": "GBP"
+      },
+      "status": "amber",
+      "direction": "higher_is_better",
+      "period": "2023/24",
+      "as_of": null,
+      "council_caveat": "The council says other changes — more council tax coming in, and less permanent growth than expected — meant the budget balanced anyway, with no need to touch reserves.",
+      "evidence": "The council said it needed to find £6.2 million of savings and found £5.5 million. It says the budget balanced anyway because other things went its way.",
+      "looked_for": null,
+      "source_ids": [
+        "src-budget-2023"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "ai": {
+        "source_ids": [
+          "src-budget-2023"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-commercial-income",
+      "area": "targets",
+      "question": "Did renting out buildings bring in the money the council forecast?",
+      "label": "Income from commercial property against forecast",
+      "rule_id": "forecast-vs-actual-v1",
+      "rule": "Met if the actual figure came within a fifth of the council's own published forecast. Close if within half. Missed if further out. Can't tell if either figure is unpublished.",
+      "target": {
+        "display": "14–15% of core income",
+        "value": 14.5,
+        "unit": "%"
+      },
+      "actual": {
+        "display": "4% of core income",
+        "value": 4,
+        "unit": "%"
+      },
+      "status": "red",
+      "direction": "on_target",
+      "period": "2024/25",
+      "as_of": null,
+      "council_caveat": "Part of the fall is definitional rather than real: the council added £1.755m of notional borrowing cost into later years, and the figure it is measured against grew by more than a third over the same period.",
+      "evidence": "In 2023 the council forecast that renting out commercial buildings would bring in about a seventh of its core money by 2024/25. It came in at about a twenty-fifth.",
+      "looked_for": null,
+      "source_ids": [
+        "src-budget-2023"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "ai": {
+        "source_ids": [
+          "src-budget-2023"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-savings-delivered",
+      "area": "targets",
+      "question": "Did the council actually deliver the savings it promised, once the year was over?",
+      "label": "Savings delivered against savings promised",
+      "rule_id": "tracked-outcome-v1",
+      "rule": "Met if the council publishes a result against the figure it set itself. Can't tell if it does not. This rule has no Close or Missed: it only asks whether the council reports the answer at all.",
+      "target": null,
+      "actual": {
+        "display": "No outturn report gives this as a single tracked figure.",
+        "value": null,
+        "unit": null
+      },
+      "status": "grey",
+      "direction": "higher_is_better",
+      "period": "2019/20 to 2025/26",
+      "as_of": null,
+      "council_caveat": "The council does explain shortfalls in the savings it identifies at budget-setting time. What it does not publish is whether those savings actually landed by the following March.",
+      "evidence": "Every February the council says how much it will save. No published report says how much it actually saved, so nobody can check.",
+      "looked_for": "An end-of-year figure for savings actually delivered.",
+      "source_ids": [
+        "src-budget-2023"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "ai": {
+        "source_ids": [
+          "src-budget-2023"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-collection-rate",
+      "area": "targets",
+      "question": "Does the council say whether it hits targets for things like collecting council tax?",
+      "label": "Published targets for day-to-day services",
+      "rule_id": "tracked-outcome-v1",
+      "rule": "Met if the council publishes a result against the figure it set itself. Can't tell if it does not. This rule has no Close or Missed: it only asks whether the council reports the answer at all.",
+      "target": null,
+      "actual": {
+        "display": "No target-and-result pair was published in the documents we found.",
+        "value": null,
+        "unit": null
+      },
+      "status": "grey",
+      "direction": "higher_is_better",
+      "period": "2019/20 to 2026/27",
+      "as_of": null,
+      "council_caveat": "Oflog, the body that published standardised figures like council tax collection rates for every council, was closed in December 2024.",
+      "evidence": "We looked for a target and a result side by side for things like collecting council tax or housing homeless families, and could not find one published.",
+      "looked_for": "A published target and a published result for a front-line service.",
+      "source_ids": [
+        "src-budget-2026"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "ai": {
+        "source_ids": [
+          "src-budget-2026"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-lion-homes",
+      "area": "promises",
+      "question": "Did the council's plan to make money from its own housing company work out?",
+      "label": "Housing company set up in 2015 to earn the council an income",
+      "rule_id": "promise-kept-v1",
+      "rule": "Met if a later council report says the dated commitment was delivered. Close if a later report says it was delivered late or only in part. Missed if a later report says it was dropped, or that something other than the promise was delivered. Can't tell if no later report addresses it.",
+      "target": {
+        "display": "Set up in 2015 “to build homes for sale and rent and to earn the council an income”",
+        "value": null,
+        "unit": null
+      },
+      "actual": {
+        "display": "Wound up in 2025; £6.15m of council loans written down to nothing",
+        "value": null,
+        "unit": null
+      },
+      "status": "red",
+      "direction": "higher_is_better",
+      "period": "2015 to 2025",
+      "as_of": null,
+      "council_caveat": "Cabinet says the wind-up is solvent and the council keeps the assets. The auditors say something harder: they found no sign that adequate oversight of the company had ever existed since it was set up in 2015.",
+      "evidence": "The council set up a housing company in 2015 to earn it extra money. The company was wound up in 2025 owing the council £6.15 million it could not repay.",
+      "looked_for": null,
+      "source_ids": [
+        "src-audit-cert-2023-24"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/AuditCertificateSOA2023-24.pdf",
+      "ai": {
+        "source_ids": [
+          "src-audit-cert-2023-24"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-tenant-rent",
+      "area": "promises",
+      "question": "Did council tenants get a say before their rent went up?",
+      "label": "Rent rise put to the Tenant Involvement Panel first",
+      "rule_id": "promise-kept-v1",
+      "rule": "Met if a later council report says the dated commitment was delivered. Close if a later report says it was delivered late or only in part. Missed if a later report says it was dropped, or that something other than the promise was delivered. Can't tell if no later report addresses it.",
+      "target": {
+        "display": "Rent rises to go to the Tenant Involvement Panel before adoption",
+        "value": null,
+        "unit": null
+      },
+      "actual": {
+        "display": "The panel saw the 7.7% rise in December 2023 and endorsed it; 7.7% was adopted",
+        "value": null,
+        "unit": null
+      },
+      "status": "green",
+      "direction": "higher_is_better",
+      "period": "2024/25",
+      "as_of": null,
+      "council_caveat": "The panel raised concerns about the size of the increase at the same meeting at which it endorsed it.",
+      "evidence": "The council put its 7.7% rent rise to its tenants' panel before adopting it, as it said it would. The panel had worries about the size of the rise but backed it.",
+      "looked_for": null,
+      "source_ids": [
+        "src-budget-2024"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "ai": {
+        "source_ids": [
+          "src-budget-2024"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-parking-assumption",
+      "area": "promises",
+      "question": "When one of its own budget guesses turned out to be wrong, did the council fix it?",
+      "label": "Parking income assumption, corrected in 2025",
+      "rule_id": "promise-kept-v1",
+      "rule": "Met if a later council report says the dated commitment was delivered. Close if a later report says it was delivered late or only in part. Missed if a later report says it was dropped, or that something other than the promise was delivered. Can't tell if no later report addresses it.",
+      "target": {
+        "display": "February 2025: the council said the parking income budget was built on “incorrect assumptions about the volume of car parking” and would be re-based",
+        "value": null,
+        "unit": null
+      },
+      "actual": {
+        "display": "The budget was re-based; no outturn against the new figure has been published yet",
+        "value": null,
+        "unit": null
+      },
+      "status": "amber",
+      "direction": "higher_is_better",
+      "period": "2024/25 to 2025/26",
+      "as_of": null,
+      "council_caveat": "The council volunteered this correction in its own budget report rather than waiting to be caught out.",
+      "evidence": "The council admitted in writing that it had guessed wrong about how many people would use its car parks, and changed the budget. Whether the new guess is any better will not be clear until the year's figures come out.",
+      "looked_for": null,
+      "source_ids": [
+        "src-budget-2025"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/budgets-and-spending",
+      "ai": {
+        "source_ids": [
+          "src-budget-2025"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-housing-notice",
+      "area": "service",
+      "question": "Did the council fix the housing safety problem it was found to have?",
+      "label": "Regulator's notice on council housing safety",
+      "rule_id": "regulator-status-v1",
+      "rule": "Met if the regulator has formally removed its notice. Close if the notice stands and the council is working to a published improvement plan. Missed if the notice stands with no published plan. Can't tell if the regulator's current position is unpublished.",
+      "target": {
+        "display": "October 2021: the housing regulator found a breach with “potential for serious detriment” to tenants",
+        "value": null,
+        "unit": null
+      },
+      "actual": {
+        "display": "Notice formally removed in December 2023 after an improvement plan",
+        "value": null,
+        "unit": null
+      },
+      "status": "green",
+      "direction": "higher_is_better",
+      "period": "2021 to 2023",
+      "as_of": "2023-12-31",
+      "council_caveat": "The council referred itself to the regulator in June 2021 after its own internal review, rather than waiting to be found out. Auditors noted significant progress during 2022/23.",
+      "evidence": "Housing inspectors found in 2021 that the council was failing to keep its council homes safe. Two years of work later, the warning was lifted.",
+      "looked_for": null,
+      "source_ids": [
+        "src-vfm-2022-23"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "ai": {
+        "source_ids": [
+          "src-vfm-2022-23"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-audit-opinion",
+      "area": "service",
+      "question": "Have independent auditors actually checked and signed off the council's accounts?",
+      "label": "Auditor's opinion on the accounts",
+      "rule_id": "audit-opinion-v1",
+      "rule": "Met if the auditor gave a clean opinion on the accounts. Close if the opinion was qualified. Missed if the auditor disclaimed or gave an adverse opinion. Can't tell if no opinion has been issued yet.",
+      "target": {
+        "display": "A checked and signed-off opinion each year",
+        "value": null,
+        "unit": null
+      },
+      "actual": {
+        "display": "Disclaimed four years running — the auditors could not give an opinion at all",
+        "value": null,
+        "unit": null
+      },
+      "status": "red",
+      "direction": "higher_is_better",
+      "period": "2021/22 to 2024/25",
+      "as_of": null,
+      "council_caveat": "This is overwhelmingly a national problem. The government set a cut-off date to clear a countrywide audit backlog, which disclaimed thousands of council-years at once. It is not evidence that Norwich's own figures are wrong.",
+      "evidence": "For four years in a row, auditors were unable to say whether the council's accounts were accurate. The same thing happened to councils all over the country.",
+      "looked_for": null,
+      "source_ids": [
+        "src-audit-cert-2023-24"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "ai": {
+        "source_ids": [
+          "src-audit-cert-2023-24"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "m-vfm-reporting",
+      "area": "service",
+      "question": "Are the council's finance staff getting their reporting done properly and on time?",
+      "label": "Auditor's verdict on financial reporting",
+      "rule_id": "vfm-arrangements-v1",
+      "rule": "Met if the auditor reported appropriate arrangements. Close if the auditor made an improvement recommendation. Missed if the auditor reported a significant weakness. Can't tell if the auditor has not reported.",
+      "target": {
+        "display": "“Appropriate arrangements”, as reported for 2021/22 and 2022/23",
+        "value": null,
+        "unit": null
+      },
+      "actual": {
+        "display": "“Significant weakness” for 2024/25",
+        "value": null,
+        "unit": null
+      },
+      "status": "red",
+      "direction": "higher_is_better",
+      "period": "2024/25",
+      "as_of": null,
+      "council_caveat": "The auditors told the council to re-assess the roles, responsibilities and staffing behind financial reporting. They describe it as a decline from earlier years, not a longstanding failure. The accounts were signed by a stand-in section 151 officer.",
+      "evidence": "Auditors used to say the council's financial reporting was fine. By 2024/25 they said it had a significant weakness.",
+      "looked_for": null,
+      "source_ids": [
+        "src-vfm-2024-25"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "ai": {
+        "source_ids": [
+          "src-vfm-2024-25"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "ai_reviewed",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T09:00:00+00:00",
+        "cache_key": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ]
+}
