@@ -13,8 +13,8 @@
     "prompt_version": "summarise-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "77120d5997db4416b8e0088de238b58ade0a45ac7480f9f647b1dd7dcbfa0503"
   }

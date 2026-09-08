@@ -37,9 +37,9 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
-    "cache_key": "953b5acc9befe172cdf5eaf9670d13c8d41d6b4ac4f609526f3fc4f8dcfc7820"
+    "cache_key": "b174c600112a6e0cc933577447314bfdb25f520ec0233554f830b1b337fe70cc"
   }
 }

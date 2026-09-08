@@ -16,9 +16,9 @@
     "prompt_version": "gap-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
-    "cache_key": "2a8ab7c3a03ceae8489f560aff18f32f3f4b56e50fbb57282e20917a819663eb"
+    "cache_key": "86d5bc4c274c51bde2bdab3c68bdc3321ffab2191c3ec3ae1246a07d9ce6116c"
   }
 }
