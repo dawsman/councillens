@@ -14,7 +14,7 @@
       "unit": "GBP"
     },
     "actual": {
-      "value": 8249000,
+      "value": null,
       "display": "£8.249m planned",
       "unit": "GBP"
     },
@@ -23,7 +23,7 @@
     "period": "2026/27",
     "as_of": "2026-02-11",
     "council_caveat": "This is a plan, not an outturn. The 2026/27 accounts will not be published until summer 2027.",
-    "evidence": "The 2026/27 budget report says \"the prudent minimum level for the general fund reserve is set at £5,500,000\" and that the balance \"is expected to remain at £8,249,000 over the life of the Medium-Term Financial Strategy\".",
+    "evidence": "The council plans to keep £8.249m in its emergency reserve through 2026/27, above the £5.5m floor its own finance officer sets. Its budget report says \"the prudent minimum level for the general fund reserve is set at £5,500,000\" and that the balance \"is expected to remain at £8,249,000 over the life of the Medium-Term Financial Strategy\". The year ends on 31 March 2027 and its accounts land the summer after, so nobody can check it yet — which is why this scores grey rather than green.",
     "source_ids": [
       "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
     ],
@@ -37,8 +37,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "8e2d21b2a4597a7d7b6dd3d952fc7574572c6bbe80db6a64ff5a79617390398b"
   }

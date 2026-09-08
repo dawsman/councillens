@@ -5,7 +5,7 @@
   "payload": {
     "id": "m-promise-readiness-fund-2026-27",
     "area": "promises",
-    "question": "Did the council set up the emergency fund it promised for reorganisation?",
+    "question": "Did the council go ahead with the emergency fund it proposed for reorganisation?",
     "label": "A ring-fenced Readiness Fund for reorganisation and inflation costs",
     "rule_id": "promise-kept-v1",
     "target": {
@@ -23,7 +23,7 @@
     "period": "2026/27",
     "as_of": "2026-09-08",
     "council_caveat": "Local government reorganisation is the national programme that may abolish Norwich City Council and fold it into a larger authority. Every forecast the council publishes beyond 2026/27 carries that caveat, put there by the council itself.",
-    "evidence": "The council said it would ring-fence a fund to cover the costs of reorganisation and inflation during 2026/27. Whether it did, and what it was spent on, will not be visible until the year's accounts are published in summer 2027.",
+    "evidence": "The council's budget report describes \"The proposed Readiness Fund, a ring-fenced fund to manage in-year financial pressures, including costs associated with Local Government Reorganisation and inflation\". That is a proposal in the report Cabinet put forward, not a record of what full Council finally agreed — the only Budget Council document in this archive is the council tax resolution, which does not cover it. Whether the fund exists, and what it was spent on, will not be visible until the year's accounts are published in summer 2027.",
     "source_ids": [
       "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
     ],
@@ -37,8 +37,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "266265a3e5fd4cfb5907adbcb5757056dbf13142826861ef644d05c3d32f9473"
   }

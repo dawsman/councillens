@@ -23,7 +23,7 @@
     "period": "2026/27",
     "as_of": "2026-09-08",
     "council_caveat": "The council built its own check into the promise: \"A six-month review will assess progress against KPIs and consider whether targeted community-action pilots… should be incorporated where evidence shows additional benefit.\"",
-    "evidence": "At the budget meeting in February 2026 the Labour group added £313,000 to the budget for fly-tipping and graffiti enforcement, bin stores and recycling in flats, community clean-ups and political assistants, paid for from the contingency fund. The council said it would review progress after six months. Nothing published yet says what happened.",
+    "evidence": "Annex C to the Budget Council papers for 24 February 2026 lists £313,000 of extra spending — fly-tipping and graffiti enforcement, bin stores and recycling in flats, community clean-ups, and political assistants — to be funded \"in-year from the 2026-2027 budget contingency\". The annex says this part \"will form part of the substantive motion and not as an amendment\", so it was in the budget put to the vote rather than tabled against it. The same annex carries amendments from the other groups that were not part of that motion: £65,000 for a ward-level community cohesion fund from the Green and Liberal Democrat groups, and £45,000 for tree planting and £55,000 for river education from the Green group. No minute of that meeting is in this archive, so we cannot say from here what was finally agreed, or what has been spent since.",
     "source_ids": [
       "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3"
     ],
@@ -37,8 +37,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "7515a178c93148bcf9f62893ad107e910ed00d9dc62c8f07140ae06e2c4a5593"
   }

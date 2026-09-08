@@ -23,7 +23,7 @@
     "period": "2025/26",
     "as_of": "2026-03-31",
     "council_caveat": "The council says £3.611m of it is because the repairs budget was increased for damp and mould work, \"the work is demand-led, and the demand was lower than anticipated\". Against that it names £2.000m of payments to tenants and £1.447m of higher energy and insurance costs.",
-    "evidence": "Council housing has its own ring-fenced pot, the Housing Revenue Account, paid for by rents and by law not usable for anything else. In 2025/26 it came in 5.08% under — £4.223m less than planned. The figure is stated in that year's accounts.",
+    "evidence": "Council housing has its own ring-fenced pot, the Housing Revenue Account, paid for by rents and by law not usable for anything else. In 2025/26 it came in 5.08% under — £4.223m less than planned. This is money not spent, not money overspent, and the council gives its reasons below. It falls just the wrong side of our 5% line, by eight hundredths of a percentage point, so the rule reads it as Missed.",
     "source_ids": [
       "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
     ],
@@ -37,8 +37,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "63205f3f3b093c0bd1ace8afbbaa28699be8e19463e7e544a2791d0fd1e72a6d"
   }

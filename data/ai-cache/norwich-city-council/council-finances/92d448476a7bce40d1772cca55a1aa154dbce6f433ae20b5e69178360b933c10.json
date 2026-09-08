@@ -1,0 +1,49 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "m-borrowing-vs-own-limits-2025-26",
+    "area": "money",
+    "question": "Is the council borrowing more than it is allowed to?",
+    "label": "Borrowing against the limits full Council set, 2025/26",
+    "rule_id": "council-threshold-v1",
+    "target": {
+      "value": 314409000,
+      "display": "£314.4m operational boundary",
+      "unit": "GBP"
+    },
+    "actual": {
+      "value": 145948000,
+      "display": "£145.9m estimated",
+      "unit": "GBP"
+    },
+    "threshold": {
+      "value": 344409000,
+      "display": "£344.4m authorised limit",
+      "unit": "GBP"
+    },
+    "direction": "lower_is_better",
+    "period": "2025/26",
+    "as_of": "2026-03-31",
+    "council_caveat": "The £145.948m is the council's own estimate, not an audited outturn: every column of the table it comes from, in the 2026/27 treasury strategy, is headed \"Estimate\", and the same table restates the 2025/26 limits rather than reproducing the strategy full Council approved that year. The council is heavily under-borrowed — it uses its own cash instead of taking loans. That changes in 2026/27, when the strategy plans about £42m of new external borrowing, taking gross debt to £188.6m.",
+    "evidence": "Full Council sets two lines on its own borrowing every year. The operational boundary is the level it expects to work within — £314.409m for 2025/26 — and the authorised limit is the legal ceiling it may not pass, £344.409m. Against them the council puts its external borrowing at £145.948m, well inside both. Nearly all of it is Public Works Loan Board money, government lending at government rates. Borrowing far below a ceiling is not by itself good or bad: the ceiling is a limit, not something to aim at.",
+    "source_ids": [
+      "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+    ],
+    "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-03/Treasury-Management-Strategy-2026-2027.pdf",
+    "order": 60
+  },
+  "ai": {
+    "source_ids": [
+      "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "6de49b7d8defb7ba7b27bbf3b4effde83e25c3a6bc6d8c8b8d1dbf23551dd240"
+  }
+}

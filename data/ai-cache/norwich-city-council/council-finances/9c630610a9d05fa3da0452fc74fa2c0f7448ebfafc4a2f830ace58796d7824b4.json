@@ -10,7 +10,7 @@
     "rule_id": "capital-delivery-v1",
     "target": {
       "value": 100,
-      "display": "the whole approved programme",
+      "display": "the whole programme it approved (the council sets no delivery target)",
       "unit": "%"
     },
     "actual": {
@@ -22,7 +22,7 @@
     "direction": "higher_is_better",
     "period": "2025/26",
     "as_of": "2026-03-31",
-    "council_caveat": "The budget here is the revised in-year figure, which is the fair basis for judging delivery but is a target the council had already re-set once during the year. Money not spent mostly rolls forward rather than being lost.",
+    "council_caveat": "The budget here is the revised in-year figure, which is the fair basis for judging delivery but is a target the council had already re-set once during the year. Money not spent mostly rolls forward rather than being lost. The percentage is ours: we divide the council's spend by the council's approved programme. The council publishes both figures and no delivery target, and the 90% and 70% lines that decide the colour are CouncilLens's, not the council's.",
     "evidence": "The council approved a building programme of £94.768m for 2025/26 and spent £56.477m of it — 60%. Both figures are in the capital table in that year's accounts.",
     "source_ids": [
       "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
@@ -37,8 +37,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "46d674ebf22e212288d3386ba4a2e1c5ebc2b4940de43f111ea484da39b795d5"
   }

@@ -22,7 +22,7 @@
     "direction": "on_target",
     "period": "2025/26",
     "as_of": "2026-03-31",
-    "council_caveat": "The council names £1.286m of interest on its day-to-day cash inside a £2.992m underspend in Corporate Financing, the central pot, against overspends in four of its service directorates totalling £2.282m.",
+    "council_caveat": "The council names £1.286m of interest earned on its day-to-day cash inside a £2.992m underspend in Corporate Financing, the central pot. Every other part of the council spent more than planned — Chief Executive, Resources, Communities and Housing, Climate and Environment and Major Projects — £2.282m more in total.",
     "evidence": "The council set a budget for 2025/26 and its own accounts say it came in 1.03% under — £0.710m less than planned. Both numbers are in the narrative report at the front of that year's Statement of Accounts.",
     "source_ids": [
       "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
@@ -37,8 +37,8 @@
     "prompt_version": "measure-v1",
     "model": "claude-opus-5 (agent session)",
     "confidence": "high",
-    "review_status": "needs_review",
-    "reviewed_by": null,
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
     "generated_at": "2026-09-08T12:00:00+00:00",
     "cache_key": "c3d6b0803050d64f6c29e7ccd2bd819166ecb26711670fef6aa13121f3323154"
   }
