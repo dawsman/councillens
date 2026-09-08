@@ -1,0 +1,33 @@
+{
+  "kind": "figure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "fig-band-d-city-share",
+    "label": "The city council's share of a Band D council tax bill",
+    "kind": "money",
+    "value": 315.26,
+    "unit": "GBP",
+    "display": "£315.26",
+    "as_of": "2026-02-24",
+    "period": "2026/27",
+    "source_ids": [
+      "finance-budget-council-2026-02-24--annex-b-statutory-council-tax-resolution-2026-2027"
+    ],
+    "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=vuSavvQyMukVYU5v2uuvB0brBi1Qzs%2bKcZb5CO9c2q9B83%2bAM%2fR9iA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+    "note": "Set by the statutory resolution at Budget Council on 24 February 2026, up from £306.11. This is the city council's share only — the full bill for a Norwich Band D household is about £2,503, most of it Norfolk County Council and the police.",
+    "order": 1
+  },
+  "ai": {
+    "source_ids": [
+      "finance-budget-council-2026-02-24--annex-b-statutory-council-tax-resolution-2026-2027"
+    ],
+    "prompt_version": "figure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "40ebe597f2a503fb67dde3118fa6c7bd941ae1fc9bef1bbd9987d9dc69a640d0"
+  }
+}

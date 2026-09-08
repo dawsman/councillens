@@ -1,0 +1,49 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "m-kpi25-foi-on-time",
+    "area": "service",
+    "question": "Does the council answer freedom of information requests on time?",
+    "label": "Freedom of information requests answered on time, Q1 2025/26",
+    "rule_id": "council-threshold-v1",
+    "target": {
+      "value": 95.0,
+      "display": "95% on time",
+      "unit": "%"
+    },
+    "actual": {
+      "value": 95.9,
+      "display": "95.9% on time",
+      "unit": "%"
+    },
+    "threshold": {
+      "value": 81.0,
+      "display": "the council steps in past 81.0",
+      "unit": "%"
+    },
+    "direction": "higher_is_better",
+    "period": "Q1 2025/26",
+    "as_of": "2025-06-30",
+    "council_caveat": "The council notes this \"represents an improvement relative to the previous two quarters\". The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+    "evidence": "Anyone can ask a council for information it holds, and the law gives it 20 working days to answer. Norwich aims to hit that deadline 95% of the time. In the first quarter of 2025/26 it managed 95.9%.",
+    "source_ids": [
+      "finance-corporate-performance-2025-26-q1"
+    ],
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "order": 77
+  },
+  "ai": {
+    "source_ids": [
+      "finance-corporate-performance-2025-26-q1"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "medium",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "08819e17164e7baa85dabbcb7d58627a251f0fe638fc825b67b285e86d29f1a2"
+  }
+}

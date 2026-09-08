@@ -1,0 +1,27 @@
+{
+  "kind": "linkage",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "from_event": "evt-feedback-budget-consultation-2026-27",
+    "to_event": "evt-decision-cabinet-budget-2026-27",
+    "tier": "possible",
+    "evidence": "There was some support (49%) for the proposed real-time live budget approach for 2026-2027.",
+    "evidence_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+    "explanation": "The council printed the consultation result in full as an appendix to the very report Cabinet agreed, so councillors had it in front of them. But nothing in the report says any figure changed because of it, and the 2.99% rise went through unchanged even though more respondents opposed it than supported it. Councillors saw the feedback; we cannot show it changed the decision."
+  },
+  "ai": {
+    "source_ids": [
+      "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+      "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3",
+      "finance-budget-consultation-2026-27"
+    ],
+    "prompt_version": "linkage-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "5e4aeba2758bb78cb26fce0cd155a0a14130d067c2d8449bf3ba692928a7530e"
+  }
+}

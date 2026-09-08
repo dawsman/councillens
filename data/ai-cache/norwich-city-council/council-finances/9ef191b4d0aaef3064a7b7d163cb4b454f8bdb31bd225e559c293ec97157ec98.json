@@ -1,0 +1,47 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "m-promise-savings-2025-26",
+    "area": "promises",
+    "question": "Did the savings the council promised actually happen?",
+    "label": "£3.2m of permanent savings and extra income in 2025/26",
+    "rule_id": "promise-kept-v1",
+    "target": {
+      "value": "2026-03-31",
+      "display": "\"Permanent savings and additional income of £3.2 million have been identified in 2025 - 2026.\" — Cabinet, 5 February 2025",
+      "unit": null
+    },
+    "actual": {
+      "value": null,
+      "display": "no later report says",
+      "unit": null
+    },
+    "threshold": null,
+    "direction": "higher_is_better",
+    "period": "2025/26",
+    "as_of": "2026-03-31",
+    "council_caveat": "The council does hold a budget risk reserve, then £1.8m, explicitly \"to provide resilience against emerging pressures and delays in the delivery of savings\", so it tracks the risk internally even though it does not publish the result.",
+    "evidence": "The council said it had found £3.2m of savings for 2025/26. Neither the accounts for that year nor any outturn report we found says how much of it actually arrived. This is the single biggest hole in what Norwich publishes about its own money.",
+    "source_ids": [
+      "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=UabZ9pLHUeJ5Uf2RWS0sTg%2fr4n07uL3LMC4wnU4iXFVc8X3%2bJxBAyA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+    "order": 92
+  },
+  "ai": {
+    "source_ids": [
+      "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "9ef191b4d0aaef3064a7b7d163cb4b454f8bdb31bd225e559c293ec97157ec98"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "kind": "measure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "housing-allocations",
+  "payload": {
+    "id": "m-kpi06-relet-time",
+    "area": "targets",
+    "question": "How long does a council home stand empty between tenants?",
+    "label": "Average days to re-let a council home, Q1 2025/26",
+    "rule_id": "council-threshold-v1",
+    "target": {
+      "value": 21.0,
+      "display": "21 days",
+      "unit": "days"
+    },
+    "actual": {
+      "value": 59.0,
+      "display": "59 days",
+      "unit": "days"
+    },
+    "threshold": {
+      "value": 25.0,
+      "display": "the council steps in past 25.0",
+      "unit": "days"
+    },
+    "direction": "lower_is_better",
+    "period": "Q1 2025/26",
+    "as_of": "2025-06-30",
+    "council_caveat": "The council says the delay comes from \"the continued increasing volume of repairs required in minor works voids\" and a new cleaning contractor struggling with resourcing. It also questions its own target: \"Housemark benchmarking data indicates that the average across the sector is 55 days. This suggests that our current target of 21 days is no longer aligned with sector norms.\" It is reviewing the target. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+    "evidence": "An empty council home is a family still waiting and rent not collected. The council aims to re-let one in 21 days and says it will step in past 25. In the first quarter of 2025/26 it took 59 days on average.",
+    "source_ids": [
+      "housing-corporate-performance-2025-26-q1"
+    ],
+    "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+    "order": 81
+  },
+  "ai": {
+    "source_ids": [
+      "housing-corporate-performance-2025-26-q1"
+    ],
+    "prompt_version": "measure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "medium",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "4fe58088e9c8ce4da30711502548448f6fab1415012959c2e5a06970e1603f61"
+  }
+}

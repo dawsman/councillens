@@ -196,3 +196,59 @@ sources:
     platform: localgov_drupal
     url: "https://www.norwich.gov.uk/your-council-explained/policies-plans-and-strategies/norwich-home-options-allocation-scheme"
     enabled: false
+
+  # ------------------------------------------------------------------
+  # TARGETS — the council's own performance framework, housing indicators
+  # ------------------------------------------------------------------
+
+  # Added 8 September 2026. Norwich runs a traffic-light performance framework
+  # covering the whole council: every corporate indicator carries a Target and an
+  # Intervention threshold the council sets itself, tracked quarterly against the
+  # actual and reported to Cabinet. Eight of those indicators are about council
+  # housing — rent collected, how long a home stands empty between tenants, gas
+  # safety certificates, households in temporary accommodation, homelessness
+  # prevented, homes made safe in the private rented sector, affordable homes
+  # built, new homes completed — and they are the only place the council publishes
+  # a target for anything on this page. So they belong here, next to the scheme
+  # that decides who gets a home.
+  #
+  # This is the report for the first quarter of 2025/26, taken to Cabinet on
+  # 10 September 2025. It carries five quarters of history for most indicators.
+  #
+  # ONE IMPORTANT CAVEAT, also recorded as a gap on the page. The narrative pages
+  # are ordinary text, but Appendix A — the part with the numbers — is a set of
+  # dashboard screenshots pasted in as images, so text extraction gets the
+  # commentary and not the figures. The targets and actuals used here were read
+  # off those images by eye and are flagged for human review accordingly. Data
+  # published as a picture of a dashboard has been published, but not in a form
+  # anyone can check by machine.
+  - id: housing-corporate-performance-2025-26-q1
+    title: "Corporate performance report, quarter 1 2025-26 (Cabinet, 10 September 2025)"
+    type: performance
+    stage: outcome
+    body: "Cabinet"
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26"
+    max_bytes: 6000000
+    enabled: true
+
+  # The council's statutory Tenant Satisfaction Measures, published under the
+  # Regulator of Social Housing's regime. Twenty-six measures, from a survey of
+  # 1,002 tenants, with this year's figure and last year's beside it — 75.3% of
+  # tenants satisfied with the overall service, up from 71.1%; 30.0% satisfied
+  # with how complaints are handled, up from 29.6%.
+  #
+  # Checked and NOT used for any measure on this page, deliberately. The regulator
+  # requires councils to publish the results; it does not require them to set a
+  # target, and Norwich has not published one for any of the twenty-six. A number
+  # with nothing to compare it against cannot be scored without us inventing the
+  # standard, which is the one thing this site never does. The page is banked so
+  # the figures are on the record, and the absence of targets is recorded as a gap.
+  - id: housing-tenant-satisfaction-measures
+    title: "Tenant satisfaction measures 2025-26 — what council tenants say"
+    type: performance
+    stage: outcome
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/housing-and-community-safety/how-are-we-doing/tenant-satisfaction-measures-tsm-2025-26"
+    follow_links: false
+    enabled: true

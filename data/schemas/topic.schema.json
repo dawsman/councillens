@@ -32,6 +32,56 @@
         }
       }
     },
+    "measure_side": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["value", "display", "unit"],
+      "description": "One side of a comparison \u2014 what was planned, or what happened. Null where the council has not published that side, which is what makes a grey status automatic.",
+      "properties": {
+        "value": {
+          "type": ["number", "string", "null"],
+          "description": "The number the rule compares. A string only where the rule compares outcomes rather than quantities (promise-kept-v1 takes done_on_time, done_late, partly_done or not_done). Null where the document gives nothing the rule can use."
+        },
+        "display": {"type": "string", "description": "How to show it, already formatted, e.g. '1.03% under', '\u00a35.5m', 'by November 2026'."},
+        "unit": {"type": ["string", "null"], "description": "GBP for money, % for a share, otherwise what is being counted. Null where the value is an outcome word or a date."}
+      }
+    },
+    "measure": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "One scored comparison: the council's own plan or target on one side, its own reported figure on the other, and a published rule in between. The status is COMPUTED by src/analyse/rules.py from target and actual \u2014 it is never carried in the cache, and the analyse stage refuses any measure whose rule_id it does not know.",
+      "required": ["id", "area", "question", "label", "rule_id", "rule", "target", "actual", "threshold", "status", "status_word", "direction", "period", "as_of", "council_caveat", "evidence", "source_ids", "source_url", "ai"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^m-[a-z0-9-]+$"},
+        "area": {
+          "enum": ["money", "targets", "promises", "service"],
+          "description": "Which part of the scorecard this belongs to. 'promises' items are collected into the top-level promises array rather than measures."
+        },
+        "question": {"type": "string", "description": "The plain-English question this answers, as a resident would ask it."},
+        "label": {"type": "string", "description": "Short name for the measure, including the period it covers."},
+        "rule_id": {"type": "string", "description": "Which published rule produced the status. Must be one of the rules in src/analyse/rules.py."},
+        "rule": {"type": "string", "description": "The rule in one sentence. Written by the build from the rule's own docstring, never from the cache, so the wording on the page is the wording of the code that ran."},
+        "target": {"$ref": "#/$defs/measure_side"},
+        "actual": {"$ref": "#/$defs/measure_side"},
+        "threshold": {"$ref": "#/$defs/measure_side"},
+        "status": {"enum": ["green", "amber", "red", "grey"]},
+        "status_word": {
+          "enum": ["Met", "Close", "Missed", "Can't tell"],
+          "description": "The word shown to a reader. Colour is reinforcement; the word is what carries the meaning."
+        },
+        "direction": {"enum": ["lower_is_better", "higher_is_better", "on_target"]},
+        "period": {"type": ["string", "null"], "description": "The period the measure covers, as the council states it, e.g. '2025/26'."},
+        "as_of": {"$ref": "#/$defs/date_string"},
+        "council_caveat": {
+          "type": ["string", "null"],
+          "description": "The council's own stated reason or context for this result, in its own words where it gave one. Null where it gave none."
+        },
+        "evidence": {"type": "string", "description": "One or two plain sentences a 14-year-old can follow, saying where both numbers come from."},
+        "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "source_url": {"type": "string", "format": "uri", "description": "Deep link to the document the numbers came from."},
+        "ai": {"$ref": "#/$defs/ai"}
+      }
+    },
     "date_string": {
       "type": ["string", "null"],
       "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$",
@@ -184,6 +234,16 @@
           "ai": {"$ref": "#/$defs/ai"}
         }
       }
+    },
+    "measures": {
+      "type": "array",
+      "description": "The scorecard for this council and topic: money, targets and service measures scored against the council's own plans by a published rule. Optional \u2014 the array is present only when the analyse stage found cached measures. Promises live in their own array.",
+      "items": {"$ref": "#/$defs/measure"}
+    },
+    "promises": {
+      "type": "array",
+      "description": "Dated commitments the council made in writing, scored against what its own later records say. Same shape as a measure, with area 'promises': target is the commitment and its date, actual is what the later record says. Optional.",
+      "items": {"$ref": "#/$defs/measure"}
     },
     "gaps": {
       "type": "array",

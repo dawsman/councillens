@@ -1,0 +1,23 @@
+{
+  "kind": "gap",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "g-no-target-for-money-measures",
+    "stage": null,
+    "description": "A published target for most of the money on this page. Norwich sets targets for its corporate performance indicators, but not for how close its spending should come to budget, how much of its building programme it should deliver, or how much of its income should come from commercial property. Those measures are scored against the council's own plan rather than a target, using rules published on the methodology page, and the commercial income one cannot be scored at all."
+  },
+  "ai": {
+    "source_ids": [
+      "finance-treasury-management-strategy--treasury-management-strategy-2026-27",
+      "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+    ],
+    "prompt_version": "gap-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "a7145f78d752841c3e7b0a56a65c24c20b168e6454c383bb22fcff6e6e0b70a1"
+  }
+}

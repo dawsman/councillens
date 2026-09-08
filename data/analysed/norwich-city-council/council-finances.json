@@ -1,0 +1,2581 @@
+{
+  "schema_version": "1",
+  "generated_at": "2026-09-08T12:00:00+00:00",
+  "council": {
+    "name": "Norwich City Council",
+    "slug": "norwich-city-council",
+    "website": "https://www.norwich.gov.uk",
+    "tier": "district",
+    "remit_note": "Norwich City Council is a district council with city status. In Norfolk, local government is split between two councils, and Norwich does the half you meet day to day: the council housing it owns and manages itself, bin collections, parks, planning applications, and licensing — who may sell alcohol, put on entertainment, or serve hot food and drink late at night. Roads and potholes, schools and libraries, and social care for children and adults belong to Norfolk County Council instead, so you will not find those here.",
+    "platforms": {
+      "committees": "cmis",
+      "website": "localgov_drupal",
+      "consultations": "engagement"
+    }
+  },
+  "topic": {
+    "name": "Council finances",
+    "slug": "council-finances",
+    "plain_english": "Where Norwich City Council's money comes from, what it plans to spend, what it actually spends, and what it owes. It bills you for council tax but keeps only about 13p of every pound: 73p goes to Norfolk County Council for things like social care and roads, and 14p to the police. This page is only about the 13p.",
+    "questions": {
+      "asked": "Every winter the council asks residents what they think of its budget plans. For 2026/27 it ran a five-week survey and got 899 replies. For the first time in seven years more people opposed the council tax rise than backed it — 48% against, 28% for. The same survey found 38% unhappy with how the council delivers services against 27% happy, and the council published that in full.",
+      "decided": "Cabinet agreed the budget on 11 February 2026 and all 39 councillors voted on it at Budget Council on 24 February. The rise went through at 2.99% — just under the 3% that would have forced a referendum — taking the city's share of a Band D bill to £315.26. Councillors added £313,000 of their own items, paid for from the contingency fund.",
+      "done": "Day-to-day spending has come in under budget for five years running, by between 1% and 6.2%. The building programme is a different story: over those same five years the council spent £218.6m of a £342.9m programme, so about a third of the work it approved did not happen in the year it was approved for. Money set aside for emergencies has sat at £8.249m for four year-ends, above the £5.5m floor the council's own finance officer sets."
+    }
+  },
+  "sources": [
+    {
+      "id": "finance-budget-consultation-2026-27",
+      "title": "Setting the council budget 2026-27 — consultation (Get Talking Norwich)",
+      "type": "consultation",
+      "stage": "feedback",
+      "body": null,
+      "platform": "engagement",
+      "source_url": "https://gettalking.norwich.gov.uk/budget2026-27",
+      "fetched_at": "2026-09-08T06:22:25+00:00",
+      "sha256": "cd27aea9e2b38fc46958db54fe30078e9bad9ad0d9b0c36be6d9367a10856300",
+      "saved_to": "data/raw/finance-budget-consultation-2026-27/page.html",
+      "summary": "The council's budget consultation for 2026/27 on Get Talking Norwich, open from 4 December 2025 to 18 January 2026. It asked residents about a balanced budget, a new \"live budget\" reviewed during the year, a ring-fenced Readiness Fund for the costs of local government reorganisation, and a 2.99% council tax rise. 899 people replied, well down on the post-2019 average of 1,361.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-consultation-2026-27"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "a1a62b8d8794d64e2224ca6292539344c992f4cbedb70e4b946fe118ca78e445"
+      }
+    },
+    {
+      "id": "finance-budget-2026-27",
+      "title": "Cabinet, 11 February 2026 — General Fund budget and financial strategy 2026-27",
+      "type": "spending",
+      "stage": "decision",
+      "body": "Cabinet",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1518/Committee/1/Default.aspx",
+      "fetched_at": "2026-09-08T06:22:28+00:00",
+      "sha256": "7e772effa75303e73fb7f486d9ad61dc487124e4ff20d0a0381ec70bdbd57a95",
+      "saved_to": "data/raw/finance-budget-2026-27/page.html",
+      "summary": "The Cabinet meeting of 11 February 2026, where the budget for 2026/27 was agreed and sent to full Council. This is the agenda page listing every paper that went to that meeting.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "ec1d68ff13ba70023f9e8ce97f68705f1bb115879e9dd543e01a92af267ced65"
+      }
+    },
+    {
+      "id": "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+      "title": "Section 2 General Fund - MTFS and 2026-2027 Budget",
+      "type": "spending",
+      "stage": "decision",
+      "body": "Cabinet",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "fetched_at": "2026-09-08T06:22:29+00:00",
+      "sha256": "72c21cbb2cecdc45339716d6570ce96e8d2520f2fecaa047c5754092d17fa06d",
+      "saved_to": "data/raw/finance-budget-2026-27/section-2-general-fund-mtfs-and-2026-2027-budget.pdf",
+      "summary": "Section 2 of the 2026/27 budget report: the General Fund budget and the medium-term financial strategy. It sets a net budget requirement of £24.25m, recommends a 2.99% council tax rise taking Band D to £315.26, states the prudent minimum general reserve as £5,500,000 against a balance expected to stay at £8,249,000, and prints the full consultation result in Appendix 2(F) — including the questions where residents disagreed with the council.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "99d7cf07c1c6eeece34269980e39ccdd528e0203bd42c3efb564ec324fb5a89c"
+      }
+    },
+    {
+      "id": "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+      "title": "Section 2 General Fund - MTFS and 2025-2026 Budget",
+      "type": "spending",
+      "stage": "decision",
+      "body": "Cabinet",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=UabZ9pLHUeJ5Uf2RWS0sTg%2fr4n07uL3LMC4wnU4iXFVc8X3%2bJxBAyA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "fetched_at": "2026-09-08T06:22:30+00:00",
+      "sha256": "3ed64053cdc3afb7784e4792ce116c45620d4a7daf442f695bb7f2cd357bba79",
+      "saved_to": "data/raw/finance-budget-2025-26/section-2-general-fund-mtfs-and-2025-2026-budget.pdf",
+      "summary": "The same report a year earlier, for 2025/26. It identifies £3.2m of permanent savings and extra income, raises the prudent minimum general reserve from £5.4m to £5.5m, and volunteers that the parking income budget had been built on \"incorrect assumptions about the volume of car parking\" and had to be re-based.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "6f3f79927a7b5ee409ec6dfa01607ffe8d6a74031cddb051af6aaa2c03a0083d"
+      }
+    },
+    {
+      "id": "finance-budget-council-2026-02-24--annex-b-statutory-council-tax-resolution-2026-2027",
+      "title": "Annex B - Statutory Council Tax Resolution 2026-2027",
+      "type": "policy",
+      "stage": "decision",
+      "body": "Council",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=vuSavvQyMukVYU5v2uuvB0brBi1Qzs%2bKcZb5CO9c2q9B83%2bAM%2fR9iA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "fetched_at": "2026-09-08T06:22:31+00:00",
+      "sha256": "a5be33ebe8c9ea4607e10d1c9f85de3d1a9fa90d7b62c1dbad10c4ad544534c9",
+      "saved_to": "data/raw/finance-budget-council-2026-02-24/annex-b-statutory-council-tax-resolution-2026-2027.pdf",
+      "summary": "The statutory council tax resolution for 2026/27 — the legal text that actually sets the bill. It puts the council's own council tax requirement at £12,549,520 across a tax base of 39,807 properties, giving a Band D figure of £315.26 for the city council's share.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-council-2026-02-24--annex-b-statutory-council-tax-resolution-2026-2027"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "972a7f4e23c124207ff5ba552435b1c4a4c334e8420316c84b376383a2b61cc1"
+      }
+    },
+    {
+      "id": "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3",
+      "title": "Updated Annex C - Labour Group and Opposition Proposed Budget Amendments V3",
+      "type": "agenda",
+      "stage": "decision",
+      "body": "Council",
+      "platform": "cmis",
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=230JNwLtTlmaPp%2bkJM49%2bbflMGBwDdPuKhO4HiqbpqEHJ0AYK6GZMg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "fetched_at": "2026-09-08T06:22:32+00:00",
+      "sha256": "e7b4d65d492af3978ec64ee410807307d858c744d6d742c5171222ea9f168115",
+      "saved_to": "data/raw/finance-budget-council-2026-02-24/updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3.pdf",
+      "summary": "The amendments the political groups put to Budget Council on 24 February 2026. The Labour group added £313,000 of items to the main motion — fly-tipping and graffiti enforcement, communal-area improvements, community clean-ups and political assistant provision — funded from the 2026/27 contingency. The Green and Liberal Democrat groups tabled a £65,000 ward-level community cohesion fund, and the Green group £45,000 for tree planting at a stated £459 per tree.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "e6e8ccff0218ec6df6e948b1f63ad35c8eb2ea6f89de765e3fdff2c6e6534f38"
+      }
+    },
+    {
+      "id": "finance-budget-explainer",
+      "title": "Norwich City Council budget 2026-27 — what you need to know",
+      "type": "policy",
+      "stage": null,
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/norwich-city-council-budget-2026-27-what-you",
+      "fetched_at": "2026-09-08T06:22:33+00:00",
+      "sha256": "b097c9eeda6c0d85d217fe85570d96dd49a3068263cecd92c45c21c873d56771",
+      "saved_to": "data/raw/finance-budget-explainer/page.html",
+      "summary": "The council's own plain-English guide to its budget for 2026/27, and the page that links every budget report back to February 2012. It is where the council explains that of every pound of council tax it collects, about 13p stays with the city council.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-explainer"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "77eb51fa42e4228a486e1a2a513e97516a315fbc55551b9f0974c0c7486e15db"
+      }
+    },
+    {
+      "id": "finance-statement-of-accounts",
+      "title": "Statement of accounts — Norwich City Council's published accounts",
+      "type": "spending",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "fetched_at": "2026-09-08T06:22:33+00:00",
+      "sha256": "1175a3bb7a2740cc69e2adab19053237bfb7ce60aaab262c421479a5738e33ba",
+      "saved_to": "data/raw/finance-statement-of-accounts/page.html",
+      "summary": "The council's index of published accounts, going back to 2018/19, with the annual governance statements and audit notices beside them. It is the starting point for anyone wanting to check what the council actually spent.",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "bb563c11de237fea1a79ff3de0920b8f7cc3a36645ebe47a28b7e2e059cdbbcd"
+      }
+    },
+    {
+      "id": "finance-statement-of-accounts--draft-statement-of-accounts-2025-26",
+      "title": "Draft Statement of Accounts 2025-26",
+      "type": "spending",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+      "fetched_at": "2026-09-08T06:22:34+00:00",
+      "sha256": "931d10413edbd0f1d837f28de33d42da0e0aed8e19ffdc831d36c738a46f9964",
+      "saved_to": "data/raw/finance-statement-of-accounts/draft-statement-of-accounts-2025-26.pdf",
+      "summary": "The draft accounts for 2025/26. The narrative report at the front states a General Fund underspend of £0.710m, 1.03% of the gross General Fund expenditure budget, and a Housing Revenue Account underspend of £4.223m, 5.08%. Capital spending was £56.477m against a £94.768m budget. Draft means not yet audited.",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "7267fd164563386c4437d6ba832df4ef5f0cb1c394f8f7e89ecc21326e6343e4"
+      }
+    },
+    {
+      "id": "finance-statement-of-accounts--statement-of-accounts-2024-25",
+      "title": "Statement of Accounts 2024-25",
+      "type": "spending",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-03/Statement-Of-Accounts-2024-25.pdf",
+      "fetched_at": "2026-09-08T06:22:34+00:00",
+      "sha256": "764393c85f4164f9bb30eaddd25e64739ce11115243765ff6ad79c0b7af7b91b",
+      "saved_to": "data/raw/finance-statement-of-accounts/statement-of-accounts-2024-25.pdf",
+      "summary": "The accounts for 2024/25: a General Fund underspend of £0.769m, 1.18%, and a Housing Revenue Account underspend of £8.300m, 10.17% — most of it because a government change meant a planned £10.045m contribution to building new social housing was no longer needed. Capital spending was £48.741m against £62.008m.",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-2024-25"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "f8d8afee8e107019f9ddd32b6693bddda4685acf5ce4b5b5d918439da720a771"
+      }
+    },
+    {
+      "id": "finance-statement-of-accounts--audit-certificate-2024-25",
+      "title": "Audit Certificate 2024-25",
+      "type": "spending",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-09/Audit-Certificate-SOA-2024-2025.pdf",
+      "fetched_at": "2026-09-08T06:22:34+00:00",
+      "sha256": "4a5dda2f230e305e0f700abdfa6a56710166a7109d7b7ba2ab42caa0fbf97b6e",
+      "saved_to": "data/raw/finance-statement-of-accounts/audit-certificate-2024-25.pdf",
+      "summary": "The external auditor's certificate for the 2024/25 accounts. Ernst & Young disclaimed its opinion — it could not say whether the accounts give a true and fair view. This is a national arrangement, not a Norwich failing: the government set \"backstop\" dates to clear a countrywide audit backlog, and thousands of council-years were disclaimed the same way. It does mean nobody independently verified the figures.",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--audit-certificate-2024-25"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "4433791761d76ea1651743f423850b263f56cd978ab96fa86cf7245ba23cd5ef"
+      }
+    },
+    {
+      "id": "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24",
+      "title": "Statement of Accounts for year ending 2023-24",
+      "type": "spending",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/10646/statement_of_accounts_2023-24",
+      "fetched_at": "2026-09-08T06:22:35+00:00",
+      "sha256": "11203a8ed2e199b3540c66159b014fe60d5023685fae0e876f4c8afa52055316",
+      "saved_to": "data/raw/finance-statement-of-accounts/statement-of-accounts-for-year-ending-2023-24.pdf",
+      "summary": "The accounts for 2023/24, the widest year of the five: a General Fund underspend of £4.050m, 6.23% of gross expenditure. The council names the reasons — £2.8m of a budgeted reserve drawdown that turned out not to be needed, £1.950m from a change to how it calculates debt repayment, and £1.458m of interest on its day-to-day cash. Capital spending was £40.588m against £55.829m.",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "303f625cd935de3bfad57f93c8265997b60331c92252be9c53f376516a0dc429"
+      }
+    },
+    {
+      "id": "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23",
+      "title": "Statement of Accounts for year ending 2022-23",
+      "type": "spending",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/10543/statement_of_accounts_-_year_ending_2022-23",
+      "fetched_at": "2026-09-08T06:22:35+00:00",
+      "sha256": "646aaf4140ba0503cbe1a52fa5b2a91da0c5ebb53010ffd82493c69cd567b280",
+      "saved_to": "data/raw/finance-statement-of-accounts/statement-of-accounts-for-year-ending-2022-23.pdf",
+      "summary": "The accounts for 2022/23: a General Fund underspend of £1.796m, 2.76%, transferred to the business change reserve. Capital spending was £39.175m against a £63.308m budget — £24.133m of approved work that did not happen that year.",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "38ca1c40160d1603a29194c8ed1e4c789a3fd1a7bbe898d5401e20497369e065"
+      }
+    },
+    {
+      "id": "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22",
+      "title": "Statement of Accounts for year ending 2021-22",
+      "type": "spending",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/8341/statement_of_accounts_-_year_ending_2021-22",
+      "fetched_at": "2026-09-08T06:22:36+00:00",
+      "sha256": "ba631bca8ec05731648d51164676b8522932af7a557e67da5cbf3cb10e541900",
+      "saved_to": "data/raw/finance-statement-of-accounts/statement-of-accounts-for-year-ending-2021-22.pdf",
+      "summary": "The accounts for 2021/22, the pandemic year: a General Fund surplus of £2.384m, which the council states as 2.18% of its gross expenditure budget. Read the percentage with care — that year it is struck against a roughly £109m gross expenditure figure, where later years use a roughly £65m General Fund figure. Capital spending was £33.585m against £67.007m, half the programme.",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "be283e999dd82ce78719599bbd499135f24bdc351d7e1c34fbf917c9b1cc965d"
+      }
+    },
+    {
+      "id": "finance-treasury-management-strategy",
+      "title": "Treasury management strategy — how much the council may borrow",
+      "type": "policy",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/treasury-management-strategy",
+      "fetched_at": "2026-09-08T06:22:37+00:00",
+      "sha256": "3dfd96c87becc2940b6b20fbfffa23341434058730e873591a04101b38d8b8a0",
+      "saved_to": "data/raw/finance-treasury-management-strategy/page.html",
+      "summary": "The council's index of treasury management strategies, back to 2019/20. A treasury strategy is where a council sets the limits on its own borrowing and says how it will look after its cash.",
+      "ai": {
+        "source_ids": [
+          "finance-treasury-management-strategy"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "77120d5997db4416b8e0088de238b58ade0a45ac7480f9f647b1dd7dcbfa0503"
+      }
+    },
+    {
+      "id": "finance-treasury-management-strategy--treasury-management-strategy-2026-27",
+      "title": "Treasury management strategy 2026-27",
+      "type": "policy",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-03/Treasury-Management-Strategy-2026-2027.pdf",
+      "fetched_at": "2026-09-08T06:22:37+00:00",
+      "sha256": "3d95202a00fda1b72f1ddd169b2d187ef353d0623201350db8b181e9558e9daf",
+      "saved_to": "data/raw/finance-treasury-management-strategy/treasury-management-strategy-2026-27.pdf",
+      "summary": "The treasury management strategy for 2026/27. Full Council sets an authorised limit for external debt — the legal ceiling — of £344.409m for 2025/26 and £350.179m for 2026/27, against actual external borrowing of £145.948m. It also carries the council's own indicator for how much of its core money comes from commercial property and lending: 4% in 2024/25, down from 16% in 2021/22.",
+      "ai": {
+        "source_ids": [
+          "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "57f7f720d342c686e3c19beef8ba9fbcdee9da0457b5297c36d15a9905d4d1dd"
+      }
+    },
+    {
+      "id": "finance-corporate-performance-2025-26-q1",
+      "title": "Corporate performance report, quarter 1 2025-26 (Cabinet, 10 September 2025)",
+      "type": "performance",
+      "stage": "outcome",
+      "body": "Cabinet",
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "fetched_at": "2026-09-08T06:22:38+00:00",
+      "sha256": "5d9d91b1a90c2bb1f45da67097e13e02e5f8ee9a75a2931684a2783edd381225",
+      "saved_to": "data/raw/finance-corporate-performance-2025-26-q1/corporate-performance-report-quarter-1-2025-26-cabinet-10-september-2025.pdf",
+      "summary": "The corporate performance report for the first quarter of 2025/26, taken to Cabinet on 10 September 2025. Every indicator carries a target and an intervention level the council sets itself, with the actual beside them. Of 19 indicators reported that quarter, 13 were green, 2 amber and 4 red. The numbers themselves are in Appendix A as screenshots of a dashboard rather than as text.",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "eab001d51c17e4c916fae881569159392e5c0a8cb3b2e3865395f70ec9e7163f"
+      }
+    },
+    {
+      "id": "finance-performance-reports-index",
+      "title": "Performance reports — the council's index of what it publishes",
+      "type": "performance",
+      "stage": "outcome",
+      "body": null,
+      "platform": "localgov_drupal",
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/performance-reports",
+      "fetched_at": "2026-09-08T06:22:38+00:00",
+      "sha256": "a5dae8bdd46d21c7f7a9440624bdb9074d9250cd3a49b57c4317b12b5f4ab8db",
+      "saved_to": "data/raw/finance-performance-reports-index/page.html",
+      "summary": "The council's index of performance reports: a report to Cabinet every quarter plus an annual report, going back to 2023/24. Publishing this at all puts Norwich ahead of many district councils.",
+      "ai": {
+        "source_ids": [
+          "finance-performance-reports-index"
+        ],
+        "prompt_version": "summarise-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "3e196fd59eead82eb4f1ee875054604bef2c7de67203b2b302fab9c3152ed052"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "evt-outcome-performance-q1-2025-26",
+      "stage": "outcome",
+      "date": "2025-09-10",
+      "date_precision": "day",
+      "title": "The council's own scorecard: 13 green, 2 amber, 4 red",
+      "summary": "Norwich publishes a quarterly performance report with a target and an intervention level for every indicator. For the first quarter of 2025/26, 19 indicators were reported: 13 on or above target, 2 needing attention, and 4 at the level where the council says it will step in.",
+      "detail": [
+        "The four red indicators were the speed of processing new housing benefit claims, the share of council housing rent collected, the time taken to re-let an empty council home, and private-sector insulation measures completed.",
+        "The council explains each of them in its own words in the report, and those explanations are carried on this site beside the numbers.",
+        "Two indicators about whether residents feel safe were dropped this quarter, because the council says they are too heavily influenced by other agencies."
+      ],
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "status": "done",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "event-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "023e0d8e4d184ccd5e8cc69a5f9a0ce99f9c09f7d6441ff1f37abfc2aac5720c"
+      }
+    },
+    {
+      "id": "evt-feedback-budget-consultation-2026-27",
+      "stage": "feedback",
+      "date": "2025-12-04",
+      "date_precision": "day",
+      "title": "The council asked residents what they thought of its 2026/27 budget",
+      "summary": "For five weeks from 4 December 2025 the council ran a survey on its Get Talking Norwich site, promoted by text alert to 120,000 residents. It asked about a 2.99% council tax rise, a new \"live budget\" reviewed during the year, and a ring-fenced Readiness Fund for the costs of local government reorganisation. 899 people answered, well down on the post-2019 average of 1,361.",
+      "detail": [
+        "For the first time in seven years, more respondents opposed the council tax rise than supported it: 430 of 899 opposed or strongly opposed it and 248 supported it, with 221 neutral.",
+        "The council states plainly that \"no specific factors have been identified to explain the variation in response rate\".",
+        "Consulting business ratepayers is a legal duty. Consulting residents is the council's own choice."
+      ],
+      "source_ids": [
+        "finance-budget-consultation-2026-27",
+        "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+      ],
+      "source_url": "https://gettalking.norwich.gov.uk/budget2026-27",
+      "status": null,
+      "ai": {
+        "source_ids": [
+          "finance-budget-consultation-2026-27",
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+        ],
+        "prompt_version": "event-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "3a91e948070c156187aeec6c71ec5977d7f2772a134a64f4faa904eaf83e07dd"
+      }
+    },
+    {
+      "id": "evt-decision-cabinet-budget-2026-27",
+      "stage": "decision",
+      "date": "2026-02-11",
+      "date_precision": "day",
+      "title": "Cabinet agreed the 2026/27 budget and a 2.99% council tax rise",
+      "summary": "Cabinet met on 11 February 2026 and agreed a net budget requirement of £24.25m for 2026/27, with a 2.99% rise in the city council's share of council tax. The report printed the consultation result in full, including the answers that did not flatter the council.",
+      "detail": [
+        "2.99% is not a coincidence. A district council needs a local referendum to go above 3%, so every rise Norwich has made since 2019/20 has been 1.99% or 2.99%.",
+        "The budget requirement jumped 16% on the year before, from £20.850m. That is mostly a change in how government money is labelled: Revenue Support Grant rose from £0.589m to £5.100m while retained business rates fell from £8.271m to £6.600m."
+      ],
+      "source_ids": [
+        "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+        "finance-budget-2026-27"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/live/Meetingscalendar/tabid/70/ctl/ViewMeetingPublic/mid/397/Meeting/1518/Committee/1/Default.aspx",
+      "status": null,
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+          "finance-budget-2026-27"
+        ],
+        "prompt_version": "event-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "ad7b595dcdab3d031bf888117aa816b66d5ea5a4a2664086cfa9ff739e3cbdb5"
+      }
+    },
+    {
+      "id": "evt-decision-budget-council-2026-02-24",
+      "stage": "decision",
+      "date": "2026-02-24",
+      "date_precision": "day",
+      "title": "All 39 councillors voted, and added £313,000 of their own items",
+      "summary": "Budget Council on 24 February 2026 passed the statutory resolution setting the city council's share of a Band D bill at £315.26, on a council tax requirement of £12,549,520 across 39,807 properties. The Labour group added £313,000 of items to the main motion, funded from the 2026/27 contingency, and the Green and Liberal Democrat groups tabled costed amendments of their own.",
+      "detail": [
+        "The £313,000 covers fly-tipping and graffiti enforcement, communal-area improvements, community clean-up activity and political assistant provision.",
+        "The other groups proposed a £65,000 ward-level community cohesion fund at £5,000 a ward, and £45,000 for planting 100 trees at a stated officer price of £459 each.",
+        "This is the stage where a Norwich budget demonstrably changes. The consultation result did not move the tax figure; amendments at Cabinet and Council have moved spending in several recent years."
+      ],
+      "source_ids": [
+        "finance-budget-council-2026-02-24--annex-b-statutory-council-tax-resolution-2026-2027",
+        "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=vuSavvQyMukVYU5v2uuvB0brBi1Qzs%2bKcZb5CO9c2q9B83%2bAM%2fR9iA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "status": null,
+      "ai": {
+        "source_ids": [
+          "finance-budget-council-2026-02-24--annex-b-statutory-council-tax-resolution-2026-2027",
+          "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3"
+        ],
+        "prompt_version": "event-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "ceefaee05381e429ec9b2590bde480201aa2327f40bf2e0e3e63306acb310a71"
+      }
+    },
+    {
+      "id": "evt-outcome-capital-underdelivery",
+      "stage": "outcome",
+      "date": "2026-06-30",
+      "date_precision": "month",
+      "title": "Over five years the council spent £218.6m of a £342.9m building programme",
+      "summary": "Adding up the capital budget and the capital outturn in each set of accounts from 2021/22 to 2025/26 gives £342.9m approved and £218.6m spent — 64%. The best year was 2024/25 at 79%, the worst 2021/22 at 50%.",
+      "detail": [
+        "Money not spent is not money lost. Most of it rolls into the following year, which is why the in-year capital budget keeps growing: councillors approved £67.453m for 2025/26 in February 2025, and the year-end budget was £94.768m.",
+        "It does mean the published capital programme is not a reliable statement of what will actually be built next year.",
+        "The budget figure used here is the revised in-year budget, which is the right basis for comparing delivery but is a target that had already been re-set once."
+      ],
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22",
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23",
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24",
+        "finance-statement-of-accounts--statement-of-accounts-2024-25",
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "status": "in_progress",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22",
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23",
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24",
+          "finance-statement-of-accounts--statement-of-accounts-2024-25",
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "event-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "f6326a15dd76dee81d6b4da226b1258474ead919f82abf3b2aad18ee8057b6e6"
+      }
+    },
+    {
+      "id": "evt-outcome-outturn-2025-26",
+      "stage": "outcome",
+      "date": "2026-06-30",
+      "date_precision": "month",
+      "title": "The 2025/26 accounts: £0.710m under on services, £38.3m of building work not done",
+      "summary": "The draft accounts for 2025/26 report a General Fund underspend of £0.710m — 1.03% of the gross General Fund expenditure budget — and a Housing Revenue Account underspend of £4.223m, 5.08%. Capital spending was £56.477m against a budget of £94.768m, so £38.291m of approved building work did not happen that year.",
+      "detail": [
+        "The council names £1.286m of interest on its day-to-day cash as contributing to a £2.992m underspend in Corporate Financing, the central pot.",
+        "Service departments went over budget by £2.282m; the central pot covered it. That has happened three years running.",
+        "The accounts are draft, which means the external auditor has not signed them off."
+      ],
+      "source_ids": [
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+      "status": "done",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "event-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "4916a46ea92d3e883bba67703b1702c5fa6b230389ef4b5109536a1fd62fb9f2"
+      }
+    },
+    {
+      "id": "evt-outcome-auditor-disclaimed-2024-25",
+      "stage": "outcome",
+      "date": "2026-09-01",
+      "date_precision": "month",
+      "title": "The auditors could not give an opinion on the 2024/25 accounts",
+      "summary": "Ernst & Young disclaimed its opinion on the 2024/25 accounts. That sounds alarming and needs its context: the government set national \"backstop\" dates to clear a countrywide audit backlog, and thousands of council-years across England were disclaimed the same way. It is not a finding that Norwich's numbers are wrong. It does mean that for four years running nobody independently verified them.",
+      "detail": [
+        "The auditor's separate value-for-money work has reported weaknesses in governance and in financial reporting, and none against financial sustainability.",
+        "The governance weakness concerns oversight of the council's own companies, after the wind-up of its housing company Lion Homes."
+      ],
+      "source_ids": [
+        "finance-statement-of-accounts--audit-certificate-2024-25"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-09/Audit-Certificate-SOA-2024-2025.pdf",
+      "status": "done",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--audit-certificate-2024-25"
+        ],
+        "prompt_version": "event-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "ba5067ab38fc59939d5249054177dc8fde72cfad48bd8eca0239335bfcd3b4d0"
+      }
+    }
+  ],
+  "linkages": [
+    {
+      "from_event": "evt-feedback-budget-consultation-2026-27",
+      "to_event": "evt-decision-budget-council-2026-02-24",
+      "tier": "none",
+      "evidence": null,
+      "evidence_url": null,
+      "explanation": "The papers for the Council vote — the statutory resolution and the amendments the political groups tabled — do not mention the consultation at all. The amendments are about enforcement, communal areas, community grants and tree planting; the consultation asked about the tax rise, the live budget and the Readiness Fund. We found no link.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+          "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3",
+          "finance-budget-consultation-2026-27"
+        ],
+        "prompt_version": "linkage-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "aa2f44bd5fd5e8dda23beace96c2693c4f809d36b4db9128326de1481c959f83"
+      }
+    },
+    {
+      "from_event": "evt-feedback-budget-consultation-2026-27",
+      "to_event": "evt-decision-cabinet-budget-2026-27",
+      "tier": "possible",
+      "evidence": "There was some support (49%) for the proposed real-time live budget approach for 2026-2027.",
+      "evidence_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "explanation": "The council printed the consultation result in full as an appendix to the very report Cabinet agreed, so councillors had it in front of them. But nothing in the report says any figure changed because of it, and the 2.99% rise went through unchanged even though more respondents opposed it than supported it. Councillors saw the feedback; we cannot show it changed the decision.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+          "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3",
+          "finance-budget-consultation-2026-27"
+        ],
+        "prompt_version": "linkage-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "5e4aeba2758bb78cb26fce0cd155a0a14130d067c2d8449bf3ba692928a7530e"
+      }
+    }
+  ],
+  "figures": [
+    {
+      "id": "fig-band-d-city-share",
+      "label": "The city council's share of a Band D council tax bill",
+      "kind": "money",
+      "value": 315.26,
+      "unit": "GBP",
+      "display": "£315.26",
+      "as_of": "2026-02-24",
+      "period": "2026/27",
+      "source_ids": [
+        "finance-budget-council-2026-02-24--annex-b-statutory-council-tax-resolution-2026-2027"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=vuSavvQyMukVYU5v2uuvB0brBi1Qzs%2bKcZb5CO9c2q9B83%2bAM%2fR9iA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "note": "Set by the statutory resolution at Budget Council on 24 February 2026, up from £306.11. This is the city council's share only — the full bill for a Norwich Band D household is about £2,503, most of it Norfolk County Council and the police.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-council-2026-02-24--annex-b-statutory-council-tax-resolution-2026-2027"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "40ebe597f2a503fb67dde3118fa6c7bd941ae1fc9bef1bbd9987d9dc69a640d0"
+      }
+    },
+    {
+      "id": "fig-city-share-of-a-pound",
+      "label": "How much of your council tax the city council keeps",
+      "kind": "share",
+      "value": 13,
+      "unit": "pence in the pound",
+      "display": "13p in the pound",
+      "as_of": "2025-12-04",
+      "period": "2026/27",
+      "source_ids": [
+        "finance-budget-explainer"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/norwich-city-council-budget-2026-27-what-you",
+      "note": "Of every pound of council tax Norwich City Council bills you for, about 13p pays for its own services. 73p goes to Norfolk County Council and 14p to the Police and Crime Commissioner.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-explainer"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "480bca6dacbbc2c1bd4171e8b910dc3e4c85e8389b7c62f190cda238f77b9a04"
+      }
+    },
+    {
+      "id": "fig-net-budget-requirement",
+      "label": "What the council plans to spend on its own services",
+      "kind": "money",
+      "value": 24250000,
+      "unit": "GBP",
+      "display": "£24.25m",
+      "as_of": "2026-02-11",
+      "period": "2026/27",
+      "source_ids": [
+        "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "note": "The net budget requirement for 2026/27 — what is left to pay for after fees, charges and specific grants. Gross General Fund spending is far larger, about £104m, because most of it is housing benefit money that passes straight through.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "ad4213f7b848ff527bcdaf6e5b566b329ca30f775c4159541bab0f582f7f02f1"
+      }
+    },
+    {
+      "id": "fig-general-reserve",
+      "label": "Money set aside for emergencies",
+      "kind": "money",
+      "value": 8249000,
+      "unit": "GBP",
+      "display": "£8.249m",
+      "as_of": "2026-03-31",
+      "period": "2025/26",
+      "source_ids": [
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26",
+        "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+      "note": "The General Fund working balance has stood at exactly £8.249m at four consecutive year-ends. The council's own finance officer sets the prudent minimum at £5.5m.",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26",
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "e2800df336dc55a1821b56bf3ea556b02b0565376db01acc5725c67c9900fd43"
+      }
+    },
+    {
+      "id": "fig-revenue-variance-latest",
+      "label": "How close last year's day-to-day spending came to plan",
+      "kind": "share",
+      "value": -1.03,
+      "unit": "%",
+      "display": "1.03% under",
+      "as_of": "2026-03-31",
+      "period": "2025/26",
+      "source_ids": [
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+      "note": "An underspend of £0.710m against the gross General Fund expenditure budget. Over five years the range is 1.03% to 6.23%, always under rather than over.",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "c20aab8f4ce81a3fe44134fee90634d859727369158f977c0e361c6c5e3a84ca"
+      }
+    },
+    {
+      "id": "fig-capital-delivered-five-year",
+      "label": "How much of the building programme actually got built",
+      "kind": "share",
+      "value": 64,
+      "unit": "%",
+      "display": "64%",
+      "as_of": "2026-03-31",
+      "period": "2021/22 to 2025/26",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22",
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23",
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24",
+        "finance-statement-of-accounts--statement-of-accounts-2024-25",
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/statement-accounts",
+      "note": "£218.6m spent against £342.9m of approved capital programmes over five years. Added up from the capital table in each year's accounts.",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22",
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23",
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24",
+          "finance-statement-of-accounts--statement-of-accounts-2024-25",
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "b613eeb4f4295189a05db93fc2c41453fdee8c381ea8a04ee611173c712eb84b"
+      }
+    },
+    {
+      "id": "fig-external-debt",
+      "label": "What the council owes",
+      "kind": "money",
+      "value": 145948000,
+      "unit": "GBP",
+      "display": "£145.9m",
+      "as_of": "2026-03-31",
+      "period": "2025/26",
+      "source_ids": [
+        "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-03/Treasury-Management-Strategy-2026-2027.pdf",
+      "note": "Actual external borrowing at the end of 2025/26, against a legal ceiling of £344.4m set by full Council. About two thirds of the council's debt is housing debt, repaid from council house rents at roughly £15,000 per home. The strategy plans about £42m of new borrowing during 2026/27.",
+      "ai": {
+        "source_ids": [
+          "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "f18dba984a100a9629150c34f3bd809d1d25772e1d108dc143e8f2db7b9bd27c"
+      }
+    },
+    {
+      "id": "fig-commercial-income-share",
+      "label": "Share of core funding from commercial property and lending",
+      "kind": "share",
+      "value": 4,
+      "unit": "%",
+      "display": "4%",
+      "as_of": "2025-03-31",
+      "period": "2024/25",
+      "source_ids": [
+        "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-03/Treasury-Management-Strategy-2026-2027.pdf",
+      "note": "The council's own prudential indicator, down from 16% in 2021/22. Two cautions: the council added a notional £1.755m of borrowing cost into the later years, and the figure it divides by grew by more than a third over the same period.",
+      "ai": {
+        "source_ids": [
+          "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "80e3e87b39ffaa64930fd05c081e1c761978782e4b20d43130f89088d2df4a86"
+      }
+    },
+    {
+      "id": "fig-consultation-responses-2026-27",
+      "label": "Replies to the budget consultation",
+      "kind": "count",
+      "value": 899,
+      "unit": "responses",
+      "display": "899",
+      "as_of": "2026-01-18",
+      "period": "2026/27",
+      "source_ids": [
+        "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+        "finance-budget-consultation-2026-27"
+      ],
+      "source_url": "https://gettalking.norwich.gov.uk/budget2026-27",
+      "note": "Down from a post-2019 average of 1,361. The council states that no specific factors have been identified to explain the fall.",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+          "finance-budget-consultation-2026-27"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "8707a9c00e431656773d167a18a1f7d998fd6c7e6404d498a35361f3ac727804"
+      }
+    },
+    {
+      "id": "fig-kpi-green-share-q1",
+      "label": "Council indicators on or above target",
+      "kind": "count",
+      "value": 13,
+      "unit": "indicators",
+      "display": "13 of 19",
+      "as_of": "2025-06-30",
+      "period": "Q1 2025/26",
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "note": "The council's own scorecard for April to June 2025: 13 green, 2 amber, 4 red out of 19 indicators reported.",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "figure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "8a891bdbdfd7bafc70552b4bd4f8670fea6617a9ee0d634784d85760b9beffa6"
+      }
+    }
+  ],
+  "measures": [
+    {
+      "id": "m-gf-variance-2021-22",
+      "area": "money",
+      "question": "Did the council spend what it planned on day-to-day services?",
+      "label": "Day-to-day spending against budget, 2021/22",
+      "rule_id": "budget-variance-v1",
+      "rule": "Green if the year's actual spending came within 2% of the budget the council approved, amber if it came within 5%, red if it missed by more than 5%, and grey if the council has not published an outturn for that year yet.",
+      "target": {
+        "value": 0,
+        "display": "on budget",
+        "unit": "%"
+      },
+      "actual": {
+        "value": -2.18,
+        "display": "2.18% under",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "amber",
+      "status_word": "Close",
+      "direction": "on_target",
+      "period": "2021/22",
+      "as_of": "2022-03-31",
+      "council_caveat": "The council states this as 2.18% of its gross expenditure budget. That year the figure it divides by is about £109m; from 2022/23 it uses a gross General Fund figure of about £65m. The council changed the basis, so this percentage is not directly comparable with the ones below it.",
+      "evidence": "The council set a budget for 2021/22 and its own accounts say it came in 2.18% under — £2.384m less than planned. Both numbers are in the narrative report at the front of that year's Statement of Accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/8341/statement_of_accounts_-_year_ending_2021-22",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "1293efe137a32de61cbca5b593ff6ff160023b51123d5f3045809a7d510bdfb3"
+      }
+    },
+    {
+      "id": "m-gf-variance-2022-23",
+      "area": "money",
+      "question": "Did the council spend what it planned on day-to-day services?",
+      "label": "Day-to-day spending against budget, 2022/23",
+      "rule_id": "budget-variance-v1",
+      "rule": "Green if the year's actual spending came within 2% of the budget the council approved, amber if it came within 5%, red if it missed by more than 5%, and grey if the council has not published an outturn for that year yet.",
+      "target": {
+        "value": 0,
+        "display": "on budget",
+        "unit": "%"
+      },
+      "actual": {
+        "value": -2.76,
+        "display": "2.76% under",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "amber",
+      "status_word": "Close",
+      "direction": "on_target",
+      "period": "2022/23",
+      "as_of": "2023-03-31",
+      "council_caveat": null,
+      "evidence": "The council set a budget for 2022/23 and its own accounts say it came in 2.76% under — £1.796m less than planned. Both numbers are in the narrative report at the front of that year's Statement of Accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/10543/statement_of_accounts_-_year_ending_2022-23",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "b4b8e6a74b353186036a8560d5964462ac01ccf5ec64a1a8a4ac978008acdaeb"
+      }
+    },
+    {
+      "id": "m-gf-variance-2023-24",
+      "area": "money",
+      "question": "Did the council spend what it planned on day-to-day services?",
+      "label": "Day-to-day spending against budget, 2023/24",
+      "rule_id": "budget-variance-v1",
+      "rule": "Green if the year's actual spending came within 2% of the budget the council approved, amber if it came within 5%, red if it missed by more than 5%, and grey if the council has not published an outturn for that year yet.",
+      "target": {
+        "value": 0,
+        "display": "on budget",
+        "unit": "%"
+      },
+      "actual": {
+        "value": -6.23,
+        "display": "6.23% under",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "on_target",
+      "period": "2023/24",
+      "as_of": "2024-03-31",
+      "council_caveat": "The council names the causes: £2.8m was a drawdown from reserves that was budgeted for but \"wasn't required due to the improved budget position\", £1.950m came from a Council-approved change to how it calculates debt repayment, and £1.458m was interest on its day-to-day cash.",
+      "evidence": "The council set a budget for 2023/24 and its own accounts say it came in 6.23% under — £4.050m less than planned. Both numbers are in the narrative report at the front of that year's Statement of Accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/10646/statement_of_accounts_2023-24",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "953b5acc9befe172cdf5eaf9670d13c8d41d6b4ac4f609526f3fc4f8dcfc7820"
+      }
+    },
+    {
+      "id": "m-gf-variance-2024-25",
+      "area": "money",
+      "question": "Did the council spend what it planned on day-to-day services?",
+      "label": "Day-to-day spending against budget, 2024/25",
+      "rule_id": "budget-variance-v1",
+      "rule": "Green if the year's actual spending came within 2% of the budget the council approved, amber if it came within 5%, red if it missed by more than 5%, and grey if the council has not published an outturn for that year yet.",
+      "target": {
+        "value": 0,
+        "display": "on budget",
+        "unit": "%"
+      },
+      "actual": {
+        "value": -1.18,
+        "display": "1.18% under",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "green",
+      "status_word": "Met",
+      "direction": "on_target",
+      "period": "2024/25",
+      "as_of": "2025-03-31",
+      "council_caveat": "The council names £0.809m of interest income and underspends in two directorates, against a £1.924m overspend in Development and City Services driven by parking income coming in below forecast and planning income hit by local nutrient neutrality uncertainty.",
+      "evidence": "The council set a budget for 2024/25 and its own accounts say it came in 1.18% under — £0.769m less than planned. Both numbers are in the narrative report at the front of that year's Statement of Accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-2024-25"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-03/Statement-Of-Accounts-2024-25.pdf",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-2024-25"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "fb01dcd59a7b811d617493b8ffb6b84088418506122de9bb7d7a9af2f5dab39c"
+      }
+    },
+    {
+      "id": "m-gf-variance-2025-26",
+      "area": "money",
+      "question": "Did the council spend what it planned on day-to-day services?",
+      "label": "Day-to-day spending against budget, 2025/26",
+      "rule_id": "budget-variance-v1",
+      "rule": "Green if the year's actual spending came within 2% of the budget the council approved, amber if it came within 5%, red if it missed by more than 5%, and grey if the council has not published an outturn for that year yet.",
+      "target": {
+        "value": 0,
+        "display": "on budget",
+        "unit": "%"
+      },
+      "actual": {
+        "value": -1.03,
+        "display": "1.03% under",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "green",
+      "status_word": "Met",
+      "direction": "on_target",
+      "period": "2025/26",
+      "as_of": "2026-03-31",
+      "council_caveat": "The council names £1.286m of interest on its day-to-day cash inside a £2.992m underspend in Corporate Financing, the central pot, against overspends in four of its service directorates totalling £2.282m.",
+      "evidence": "The council set a budget for 2025/26 and its own accounts say it came in 1.03% under — £0.710m less than planned. Both numbers are in the narrative report at the front of that year's Statement of Accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "c3d6b0803050d64f6c29e7ccd2bd819166ecb26711670fef6aa13121f3323154"
+      }
+    },
+    {
+      "id": "m-hra-variance-2023-24",
+      "area": "money",
+      "question": "Did the council spend what it planned on running its council housing?",
+      "label": "Council housing running costs against budget, 2023/24",
+      "rule_id": "budget-variance-v1",
+      "rule": "Green if the year's actual spending came within 2% of the budget the council approved, amber if it came within 5%, red if it missed by more than 5%, and grey if the council has not published an outturn for that year yet.",
+      "target": {
+        "value": 0,
+        "display": "on budget",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 1.21,
+        "display": "1.21% over",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "green",
+      "status_word": "Met",
+      "direction": "on_target",
+      "period": "2023/24",
+      "as_of": "2024-03-31",
+      "council_caveat": "The council points to £1.965m of extra contract costs, more empty homes needing work, and asbestos surveys, against savings elsewhere.",
+      "evidence": "Council housing has its own ring-fenced pot, the Housing Revenue Account, paid for by rents and by law not usable for anything else. In 2023/24 it came in 1.21% over — £0.953m more than planned. The figure is stated in that year's accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/10646/statement_of_accounts_2023-24",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "81be5c5c8b77200016de3b3fedf3919011d8608b6542dbf869e9e1dd793c0aee"
+      }
+    },
+    {
+      "id": "m-hra-variance-2024-25",
+      "area": "money",
+      "question": "Did the council spend what it planned on running its council housing?",
+      "label": "Council housing running costs against budget, 2024/25",
+      "rule_id": "budget-variance-v1",
+      "rule": "Green if the year's actual spending came within 2% of the budget the council approved, amber if it came within 5%, red if it missed by more than 5%, and grey if the council has not published an outturn for that year yet.",
+      "target": {
+        "value": 0,
+        "display": "on budget",
+        "unit": "%"
+      },
+      "actual": {
+        "value": -10.17,
+        "display": "10.17% under",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "on_target",
+      "period": "2024/25",
+      "as_of": "2025-03-31",
+      "council_caveat": "The council explains almost all of it: government gave councils a two-year flexibility to fund new social housing entirely from Right to Buy receipts, so a planned £10.045m payment from rent income was no longer needed and went to housing reserves instead.",
+      "evidence": "Council housing has its own ring-fenced pot, the Housing Revenue Account, paid for by rents and by law not usable for anything else. In 2024/25 it came in 10.17% under — £8.300m less than planned. The figure is stated in that year's accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-2024-25"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-03/Statement-Of-Accounts-2024-25.pdf",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-2024-25"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "7444c8d33b58416cea9a20bb9a05912958f31951a9351d60ac403ce6a326afd1"
+      }
+    },
+    {
+      "id": "m-hra-variance-2025-26",
+      "area": "money",
+      "question": "Did the council spend what it planned on running its council housing?",
+      "label": "Council housing running costs against budget, 2025/26",
+      "rule_id": "budget-variance-v1",
+      "rule": "Green if the year's actual spending came within 2% of the budget the council approved, amber if it came within 5%, red if it missed by more than 5%, and grey if the council has not published an outturn for that year yet.",
+      "target": {
+        "value": 0,
+        "display": "on budget",
+        "unit": "%"
+      },
+      "actual": {
+        "value": -5.08,
+        "display": "5.08% under",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "on_target",
+      "period": "2025/26",
+      "as_of": "2026-03-31",
+      "council_caveat": "The council says £3.611m of it is because the repairs budget was increased for damp and mould work, \"the work is demand-led, and the demand was lower than anticipated\". Against that it names £2.000m of payments to tenants and £1.447m of higher energy and insurance costs.",
+      "evidence": "Council housing has its own ring-fenced pot, the Housing Revenue Account, paid for by rents and by law not usable for anything else. In 2025/26 it came in 5.08% under — £4.223m less than planned. The figure is stated in that year's accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "63205f3f3b093c0bd1ace8afbbaa28699be8e19463e7e544a2791d0fd1e72a6d"
+      }
+    },
+    {
+      "id": "m-capital-delivery-2021-22",
+      "area": "money",
+      "question": "Did the council build what it said it would build?",
+      "label": "Building programme delivered, 2021/22",
+      "rule_id": "capital-delivery-v1",
+      "rule": "Green if the council spent at least 90% of its approved building programme that year, amber if it spent at least 70%, red if it spent less than 70%, and grey if no outturn has been published.",
+      "target": {
+        "value": 100,
+        "display": "the whole approved programme",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 50,
+        "display": "50% delivered",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "higher_is_better",
+      "period": "2021/22",
+      "as_of": "2022-03-31",
+      "council_caveat": "The budget here is the revised in-year figure, which is the fair basis for judging delivery but is a target the council had already re-set once during the year. Money not spent mostly rolls forward rather than being lost.",
+      "evidence": "The council approved a building programme of £67.007m for 2021/22 and spent £33.585m of it — 50%. Both figures are in the capital table in that year's accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/8341/statement_of_accounts_-_year_ending_2021-22",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2021-22"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "a5886c097c32d3c9a34f9c9dd79be7cc146a4fd6535e230d113b18a7a9ce7438"
+      }
+    },
+    {
+      "id": "m-capital-delivery-2022-23",
+      "area": "money",
+      "question": "Did the council build what it said it would build?",
+      "label": "Building programme delivered, 2022/23",
+      "rule_id": "capital-delivery-v1",
+      "rule": "Green if the council spent at least 90% of its approved building programme that year, amber if it spent at least 70%, red if it spent less than 70%, and grey if no outturn has been published.",
+      "target": {
+        "value": 100,
+        "display": "the whole approved programme",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 62,
+        "display": "62% delivered",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "higher_is_better",
+      "period": "2022/23",
+      "as_of": "2023-03-31",
+      "council_caveat": "The budget here is the revised in-year figure, which is the fair basis for judging delivery but is a target the council had already re-set once during the year. Money not spent mostly rolls forward rather than being lost.",
+      "evidence": "The council approved a building programme of £63.308m for 2022/23 and spent £39.175m of it — 62%. Both figures are in the capital table in that year's accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/10543/statement_of_accounts_-_year_ending_2022-23",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2022-23"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "9301022d1c363b37cf278d3aee851b271ffaf9360abd7d3585a7b546294e77b4"
+      }
+    },
+    {
+      "id": "m-capital-delivery-2023-24",
+      "area": "money",
+      "question": "Did the council build what it said it would build?",
+      "label": "Building programme delivered, 2023/24",
+      "rule_id": "capital-delivery-v1",
+      "rule": "Green if the council spent at least 90% of its approved building programme that year, amber if it spent at least 70%, red if it spent less than 70%, and grey if no outturn has been published.",
+      "target": {
+        "value": 100,
+        "display": "the whole approved programme",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 73,
+        "display": "73% delivered",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "amber",
+      "status_word": "Close",
+      "direction": "higher_is_better",
+      "period": "2023/24",
+      "as_of": "2024-03-31",
+      "council_caveat": "The budget here is the revised in-year figure, which is the fair basis for judging delivery but is a target the council had already re-set once during the year. Money not spent mostly rolls forward rather than being lost.",
+      "evidence": "The council approved a building programme of £55.829m for 2023/24 and spent £40.588m of it — 73%. Both figures are in the capital table in that year's accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/10646/statement_of_accounts_2023-24",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-for-year-ending-2023-24"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "b6fbcc7e6907342465ad5284fe636fb4455b0a2695efea1227d58a63206a9ad4"
+      }
+    },
+    {
+      "id": "m-capital-delivery-2024-25",
+      "area": "money",
+      "question": "Did the council build what it said it would build?",
+      "label": "Building programme delivered, 2024/25",
+      "rule_id": "capital-delivery-v1",
+      "rule": "Green if the council spent at least 90% of its approved building programme that year, amber if it spent at least 70%, red if it spent less than 70%, and grey if no outturn has been published.",
+      "target": {
+        "value": 100,
+        "display": "the whole approved programme",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 79,
+        "display": "79% delivered",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "amber",
+      "status_word": "Close",
+      "direction": "higher_is_better",
+      "period": "2024/25",
+      "as_of": "2025-03-31",
+      "council_caveat": "The budget here is the revised in-year figure, which is the fair basis for judging delivery but is a target the council had already re-set once during the year. Money not spent mostly rolls forward rather than being lost.",
+      "evidence": "The council approved a building programme of £62.008m for 2024/25 and spent £48.741m of it — 79%. Both figures are in the capital table in that year's accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--statement-of-accounts-2024-25"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-03/Statement-Of-Accounts-2024-25.pdf",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--statement-of-accounts-2024-25"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "7a2d5bbf8eed069068393357190797b447ad85d17c6a9546554251e836e7ad41"
+      }
+    },
+    {
+      "id": "m-capital-delivery-2025-26",
+      "area": "money",
+      "question": "Did the council build what it said it would build?",
+      "label": "Building programme delivered, 2025/26",
+      "rule_id": "capital-delivery-v1",
+      "rule": "Green if the council spent at least 90% of its approved building programme that year, amber if it spent at least 70%, red if it spent less than 70%, and grey if no outturn has been published.",
+      "target": {
+        "value": 100,
+        "display": "the whole approved programme",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 60,
+        "display": "60% delivered",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "higher_is_better",
+      "period": "2025/26",
+      "as_of": "2026-03-31",
+      "council_caveat": "The budget here is the revised in-year figure, which is the fair basis for judging delivery but is a target the council had already re-set once during the year. Money not spent mostly rolls forward rather than being lost.",
+      "evidence": "The council approved a building programme of £94.768m for 2025/26 and spent £56.477m of it — 60%. Both figures are in the capital table in that year's accounts.",
+      "source_ids": [
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+      "ai": {
+        "source_ids": [
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "46d674ebf22e212288d3386ba4a2e1c5ebc2b4940de43f111ea484da39b795d5"
+      }
+    },
+    {
+      "id": "m-savings-delivered-2025-26",
+      "area": "money",
+      "question": "Did the council actually make the savings it said it would?",
+      "label": "Savings delivered against target, 2025/26",
+      "rule_id": "savings-delivered-v1",
+      "rule": "Green if at least 95% of the savings target was delivered, amber if at least 80% was, red if less than 80% was, and grey if the council does not report what it delivered — which is common, and is itself worth knowing.",
+      "target": {
+        "value": 3200000,
+        "display": "£3.2m of savings identified",
+        "unit": "GBP"
+      },
+      "actual": {
+        "value": null,
+        "display": "not reported",
+        "unit": null
+      },
+      "threshold": null,
+      "status": "grey",
+      "status_word": "Can't tell",
+      "direction": "higher_is_better",
+      "period": "2025/26",
+      "as_of": "2026-03-31",
+      "council_caveat": null,
+      "evidence": "When it set the 2025/26 budget the council said it had identified £3.2m of permanent savings and extra income. Nothing in the accounts for that year, or in any report we have found, says how much of it actually arrived. So we cannot tell you.",
+      "source_ids": [
+        "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=UabZ9pLHUeJ5Uf2RWS0sTg%2fr4n07uL3LMC4wnU4iXFVc8X3%2bJxBAyA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "d011159848e77bfba12b41c4c634f04ccfe693839ff8d775b545c262c1df1ed3"
+      }
+    },
+    {
+      "id": "m-savings-delivered-2024-25",
+      "area": "money",
+      "question": "Did the council actually make the savings it said it would?",
+      "label": "Savings delivered against target, 2024/25",
+      "rule_id": "savings-delivered-v1",
+      "rule": "Green if at least 95% of the savings target was delivered, amber if at least 80% was, red if less than 80% was, and grey if the council does not report what it delivered — which is common, and is itself worth knowing.",
+      "target": {
+        "value": 3100000,
+        "display": "£3.1m of savings and income proposals",
+        "unit": "GBP"
+      },
+      "actual": {
+        "value": null,
+        "display": "not reported",
+        "unit": null
+      },
+      "threshold": null,
+      "status": "grey",
+      "status_word": "Can't tell",
+      "direction": "higher_is_better",
+      "period": "2024/25",
+      "as_of": "2025-03-31",
+      "council_caveat": "The council recognised the risk itself: it holds a budget risk reserve, then £1.8m, \"to provide resilience against emerging pressures and delays in the delivery of savings\".",
+      "evidence": "The 2025/26 budget report records that the previous year's budget \"includes £3.1 million of savings and income proposals for delivery in 2024-25\". No published report we have found says how much was delivered.",
+      "source_ids": [
+        "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+        "finance-statement-of-accounts--statement-of-accounts-2024-25"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=UabZ9pLHUeJ5Uf2RWS0sTg%2fr4n07uL3LMC4wnU4iXFVc8X3%2bJxBAyA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+          "finance-statement-of-accounts--statement-of-accounts-2024-25"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "c3e0090e709e4597ebd636028051d69df3e4c878d81a24a33d53cf0e9fdd9f48"
+      }
+    },
+    {
+      "id": "m-reserves-vs-minimum-2025-26",
+      "area": "money",
+      "question": "Does the council hold as much in reserve as its own policy says it should?",
+      "label": "Money set aside for emergencies against the council's own floor, 2025/26",
+      "rule_id": "reserves-vs-policy-v1",
+      "rule": "Green if the money set aside for emergencies is at or above the minimum the council's own finance officer sets and publishes. Amber if it is below that minimum but by less than a tenth of it. Red if it is further below. Grey if the council does not publish a minimum, or has not published the balance.",
+      "target": {
+        "value": 5500000,
+        "display": "£5.5m minimum",
+        "unit": "GBP"
+      },
+      "actual": {
+        "value": 8249000,
+        "display": "£8.249m held",
+        "unit": "GBP"
+      },
+      "threshold": null,
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "2025/26",
+      "as_of": "2026-03-31",
+      "council_caveat": "The council raised its own floor from £5.4m to £5.5m when it set the 2025/26 budget, after reviewing it as part of the budget process.",
+      "evidence": "Every council's chief finance officer has to publish a prudent minimum for the emergency reserve. Norwich's is £5.5m. The draft 2025/26 accounts show £8.249m in the General Fund working balance at 31 March 2026 — the fourth year-end running at exactly that figure.",
+      "source_ids": [
+        "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "b4c0767ff7b3f88bf879efc69f75b8fb8d3328cfd1c2f03e6bc5404221e85f58"
+      }
+    },
+    {
+      "id": "m-reserves-vs-minimum-2026-27",
+      "area": "money",
+      "question": "Does the council hold as much in reserve as its own policy says it should?",
+      "label": "Money set aside for emergencies against the council's own floor, 2026/27",
+      "rule_id": "reserves-vs-policy-v1",
+      "rule": "Green if the money set aside for emergencies is at or above the minimum the council's own finance officer sets and publishes. Amber if it is below that minimum but by less than a tenth of it. Red if it is further below. Grey if the council does not publish a minimum, or has not published the balance.",
+      "target": {
+        "value": 5500000,
+        "display": "£5.5m minimum",
+        "unit": "GBP"
+      },
+      "actual": {
+        "value": 8249000,
+        "display": "£8.249m planned",
+        "unit": "GBP"
+      },
+      "threshold": null,
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "2026/27",
+      "as_of": "2026-02-11",
+      "council_caveat": "This is a plan, not an outturn. The 2026/27 accounts will not be published until summer 2027.",
+      "evidence": "The 2026/27 budget report says \"the prudent minimum level for the general fund reserve is set at £5,500,000\" and that the balance \"is expected to remain at £8,249,000 over the life of the Medium-Term Financial Strategy\".",
+      "source_ids": [
+        "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "8e2d21b2a4597a7d7b6dd3d952fc7574572c6bbe80db6a64ff5a79617390398b"
+      }
+    },
+    {
+      "id": "m-borrowing-vs-authorised-limit-2025-26",
+      "area": "money",
+      "question": "Is the council borrowing more than it is allowed to?",
+      "label": "Borrowing against the limit full Council set, 2025/26",
+      "rule_id": "target-met-v1",
+      "rule": "Green if the council's own reported figure met or beat its own published target. Amber if it missed but came within 10% of the target. Red if it missed by more than 10%. Grey if the council publishes a figure but no target, or a target but no figure — which is the commonest case, and is worth saying out loud.",
+      "target": {
+        "value": 344409000,
+        "display": "£344.4m allowed",
+        "unit": "GBP"
+      },
+      "actual": {
+        "value": 145948000,
+        "display": "£145.9m borrowed",
+        "unit": "GBP"
+      },
+      "threshold": null,
+      "status": "green",
+      "status_word": "Met",
+      "direction": "lower_is_better",
+      "period": "2025/26",
+      "as_of": "2026-03-31",
+      "council_caveat": "The council is heavily under-borrowed — it uses its own cash instead of taking loans. That changes in 2026/27, when the strategy plans about £42m of new external borrowing, taking gross debt to £188.6m.",
+      "evidence": "Full Council sets a legal ceiling on borrowing every year, called the authorised limit. For 2025/26 it was £344.409m. The council's actual external debt was £145.948m, about 42% of what it was allowed. Nearly all of it is Public Works Loan Board money — government lending at government rates.",
+      "source_ids": [
+        "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-03/Treasury-Management-Strategy-2026-2027.pdf",
+      "ai": {
+        "source_ids": [
+          "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "6de49b7d8defb7ba7b27bbf3b4effde83e25c3a6bc6d8c8b8d1dbf23551dd240"
+      }
+    },
+    {
+      "id": "m-commercial-income-share-2024-25",
+      "area": "money",
+      "question": "How much of the council's money comes from renting out commercial property?",
+      "label": "Commercial property and lending as a share of core funding, 2024/25",
+      "rule_id": "target-met-v1",
+      "rule": "Green if the council's own reported figure met or beat its own published target. Amber if it missed but came within 10% of the target. Red if it missed by more than 10%. Grey if the council publishes a figure but no target, or a target but no figure — which is the commonest case, and is worth saying out loud.",
+      "target": null,
+      "actual": {
+        "value": 4,
+        "display": "4% of core funding",
+        "unit": "%"
+      },
+      "threshold": null,
+      "status": "grey",
+      "status_word": "Can't tell",
+      "direction": "higher_is_better",
+      "period": "2024/25",
+      "as_of": "2025-03-31",
+      "council_caveat": "Two cautions the council's own table makes clear. It added a notional £1.755m of borrowing cost for properties bought between 2017 and 2020 into the later years, and the figure it divides by grew from £21.4m to £29.0m over the same period. Both push the percentage down without anything changing on the ground.",
+      "evidence": "The council publishes its own indicator for this: net commercial income as a percentage of net revenue stream. It was 16% in 2021/22 and 4% in 2024/25. There is no target to judge it against — the council has not published one — so this is a number, not a score.",
+      "source_ids": [
+        "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-03/Treasury-Management-Strategy-2026-2027.pdf",
+      "ai": {
+        "source_ids": [
+          "finance-treasury-management-strategy--treasury-management-strategy-2026-27"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "41b4ac8d98bebbcf0aab147ffa9feb1da99031094887db64e9cd09cbb3d45a7b"
+      }
+    },
+    {
+      "id": "m-kpi02-council-tax-collection",
+      "area": "targets",
+      "question": "Is the council collecting the council tax it is owed?",
+      "label": "Council tax collected against target, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 100.0,
+        "display": "100% of the amount due by this point",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 104.05,
+        "display": "104.05% collected",
+        "unit": "%"
+      },
+      "threshold": {
+        "value": 99.0,
+        "display": "the council steps in past 99.0",
+        "unit": "%"
+      },
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council's own note: \"Collection rate for the first quarter is ahead of target and focus continues to be directed on the recovery of arrears.\" The figure can go above 100% because it includes arrears chased from earlier years. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "The council sets itself a council tax collection target of 100% of what is due by each point in the year, and says it will step in below 99%. In the first quarter of 2025/26 it collected 104.05%.",
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "6a83995522e4472e064599c8d999e2a70cf9dd9f0a4f3fccd087bcfed27bd5c7"
+      }
+    },
+    {
+      "id": "m-kpi03-business-rates-collection",
+      "area": "targets",
+      "question": "Is the council collecting the business rates it is owed?",
+      "label": "Business rates collected against target, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 100.0,
+        "display": "100% of the amount due by this point",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 111.24,
+        "display": "111.24% collected",
+        "unit": "%"
+      },
+      "threshold": {
+        "value": 99.0,
+        "display": "the council steps in past 99.0",
+        "unit": "%"
+      },
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council explains the spike: \"a large payment for a new warehouse and a backdated retail relief. There are also a number of accounts that pay the full year in April which front-loads income into the first quarter.\" The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "Same idea as council tax: a 100% target, a 99% intervention level, and 111.24% collected in the first quarter of 2025/26.",
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "98bffbb9f6b74e4e54c1e1a5638ffcee906305ede099d79cb9084543ffe9a303"
+      }
+    },
+    {
+      "id": "m-kpi16-investment-property-income",
+      "area": "targets",
+      "question": "Is the council earning what it expected from the buildings it rents out?",
+      "label": "Income from investment property against target, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 95.0,
+        "display": "95% of expected income",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 98.0,
+        "display": "98% of expected income",
+        "unit": "%"
+      },
+      "threshold": {
+        "value": 85.5,
+        "display": "the council steps in past 85.5",
+        "unit": "%"
+      },
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "The council owns commercial buildings and rents them out. It expects to collect at least 95% of the income it budgeted for, and says it will step in below 85.5%. In the first quarter of 2025/26 it collected 98%.",
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "e8b1bd60596b4a486ebad2e70b3ff10e6299e0cc8ff6f5c0c3caeec1fbb13eb2"
+      }
+    },
+    {
+      "id": "m-kpi20-external-funding",
+      "area": "targets",
+      "question": "How much outside money did the council bring into the city?",
+      "label": "External funding brought in against target, 2024/25",
+      "rule_id": "target-met-v1",
+      "rule": "Green if the council's own reported figure met or beat its own published target. Amber if it missed but came within 10% of the target. Red if it missed by more than 10%. Grey if the council publishes a figure but no target, or a target but no figure — which is the commonest case, and is worth saying out loud.",
+      "target": {
+        "value": 250000.0,
+        "display": "£250,000 a year",
+        "unit": "GBP"
+      },
+      "actual": {
+        "value": 42678427.0,
+        "display": "£42.7m",
+        "unit": "GBP"
+      },
+      "threshold": null,
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "2024/25",
+      "as_of": "2025-03-31",
+      "council_caveat": "A single very large award can swing this figure enormously — the previous year's total was £463,086. Treat one year on its own with care. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "The council sets itself a target of bringing in £250,000 a year of outside funding for development and regeneration. In 2024/25 it reported £42.7m. This indicator has no intervention level published, so the general target rule applies.",
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "f23be22631ef0520ccf5b79ac9090fe9d09be2c697747a9f03b8c84e611152f3"
+      }
+    },
+    {
+      "id": "m-kpi01-housing-benefit-speed",
+      "area": "service",
+      "question": "How long does it take to sort out a new housing benefit claim?",
+      "label": "Days to process a new housing benefit claim, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 21.0,
+        "display": "21 days",
+        "unit": "days"
+      },
+      "actual": {
+        "value": 22.6,
+        "display": "22.6 days",
+        "unit": "days"
+      },
+      "threshold": {
+        "value": 22.0,
+        "display": "the council steps in past 22.0",
+        "unit": "days"
+      },
+      "status": "red",
+      "status_word": "Missed",
+      "direction": "lower_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council's own explanation: \"This reflects the increasing complexity of remaining caseloads following the migration of Housing Benefit to Universal Credit… We are also experiencing delays in receiving necessary data from housing providers.\" It also notes it raised its own target from 19.5 to 21 days this quarter, because England's average was 21. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "Someone who has just claimed housing benefit is usually short of money now. The council aims to settle a new claim in 21 days and says it will step in past 22. In the first quarter of 2025/26 it averaged 22.6 days across 351 claims — the council rates this red on its own dashboard, and so does the rule.",
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "842dd200a8418937508dfaedead733ed20c3ed4871e2f84fd54e187dd6cdaeb6"
+      }
+    },
+    {
+      "id": "m-kpi23-customer-satisfaction",
+      "area": "service",
+      "question": "Are people happy after they contact the council?",
+      "label": "Satisfaction with the customer contact team, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 77.0,
+        "display": "77% satisfied",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 79.37,
+        "display": "79.37% satisfied",
+        "unit": "%"
+      },
+      "threshold": {
+        "value": 69.3,
+        "display": "the council steps in past 69.3",
+        "unit": "%"
+      },
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "This asks people who contacted the customer contact team. It does not tell you what people who never got through think. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "The council asks people who contact its customer team whether they were satisfied. It aims for 77% and says it will step in below 69.3%. In the first quarter of 2025/26, 79.37% said they were satisfied.",
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "940edd83e600c22d7e8daa74fc73b3bf26a12123fc179a277a2be90e854ba5b2"
+      }
+    },
+    {
+      "id": "m-kpi24-digital-contact",
+      "area": "service",
+      "question": "How much council business is done online?",
+      "label": "Share of contact through digital channels, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 53.0,
+        "display": "53% online",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 68.53,
+        "display": "68.53% online",
+        "unit": "%"
+      },
+      "threshold": {
+        "value": 45.0,
+        "display": "the council steps in past 45.0",
+        "unit": "%"
+      },
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council attributes the jump to \"a higher demand for waste and refuse services because of customers accessing the bin checker due to the high number of bank holidays\" — so this quarter is unusually high. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "The council wants more than half of contact to happen online, and set the target at 53%. In the first quarter of 2025/26 it was 68.53%.",
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "dbec0947faf6906594b2a035cee6980002ada52e67774897af1572d6c322591b"
+      }
+    },
+    {
+      "id": "m-kpi25-foi-on-time",
+      "area": "service",
+      "question": "Does the council answer freedom of information requests on time?",
+      "label": "Freedom of information requests answered on time, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 95.0,
+        "display": "95% on time",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 95.9,
+        "display": "95.9% on time",
+        "unit": "%"
+      },
+      "threshold": {
+        "value": 81.0,
+        "display": "the council steps in past 81.0",
+        "unit": "%"
+      },
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "The council notes this \"represents an improvement relative to the previous two quarters\". The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "Anyone can ask a council for information it holds, and the law gives it 20 working days to answer. Norwich aims to hit that deadline 95% of the time. In the first quarter of 2025/26 it managed 95.9%.",
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "08819e17164e7baa85dabbcb7d58627a251f0fe638fc825b67b285e86d29f1a2"
+      }
+    },
+    {
+      "id": "m-kpi26-complaints-on-time",
+      "area": "service",
+      "question": "Does the council answer complaints when it says it will?",
+      "label": "Complaints answered within the council's own deadline, Q1 2025/26",
+      "rule_id": "council-threshold-v1",
+      "rule": "Green if the council's reported figure met or beat the target it set itself. Amber if it missed the target but stayed on the safe side of the council's own intervention level — the point at which the council says it will step in and act. Red if it crossed that line. Grey if the council has not published a target, an intervention level, or the figure.",
+      "target": {
+        "value": 80.0,
+        "display": "80% on time",
+        "unit": "%"
+      },
+      "actual": {
+        "value": 84.0,
+        "display": "84% on time",
+        "unit": "%"
+      },
+      "threshold": {
+        "value": 72.0,
+        "display": "the council steps in past 72.0",
+        "unit": "%"
+      },
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "Q1 2025/26",
+      "as_of": "2025-06-30",
+      "council_caveat": "This measures whether a complaint got an answer in time, not whether the answer was any good or whether the complainant was satisfied. The council publishes these numbers as screenshots of a dashboard inside a PDF, so they cannot be read by machine. We read them off the images by eye, which is why this measure is flagged for human checking.",
+      "evidence": "The council sets its own deadline for replying to a complaint and aims to meet it 80% of the time. In the first quarter of 2025/26 it met it 84% of the time.",
+      "source_ids": [
+        "finance-corporate-performance-2025-26-q1"
+      ],
+      "source_url": "https://www.norwich.gov.uk/downloads/file/11006/corporate_performance_report_for_quarter_1_2025-26",
+      "ai": {
+        "source_ids": [
+          "finance-corporate-performance-2025-26-q1"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "medium",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "5334835b04450215386fb7b27df0ca99344310565c5d292475aca31528ca987e"
+      }
+    }
+  ],
+  "promises": [
+    {
+      "id": "m-promise-band-d-2026-27",
+      "area": "promises",
+      "question": "Did the council set the council tax it said it would?",
+      "label": "A 2.99% council tax rise, taking Band D to £315.26",
+      "rule_id": "promise-kept-v1",
+      "rule": "Green if a later council record confirms it was done by that date. Amber if a later record shows it was done late, or only partly. Red if a later record says it was not done. Grey if no later council record mentions it — which means the promise cannot be checked, not that it was broken.",
+      "target": {
+        "value": "2026-02-24",
+        "display": "\"The proposed 2026-2027 Band D rate is therefore £315.26 compared to the current year rate of £306.11 – an increase of £9.15.\" — Cabinet, 11 February 2026",
+        "unit": null
+      },
+      "actual": {
+        "value": "done_on_time",
+        "display": "Council resolved exactly that on 24 February 2026",
+        "unit": null
+      },
+      "threshold": null,
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "2026/27",
+      "as_of": "2026-02-24",
+      "council_caveat": null,
+      "evidence": "Cabinet proposed £315.26 on 11 February 2026. Thirteen days later the statutory resolution passed by full Council set the basic amount of council tax at £315.26. The council did what it said it would do, on time.",
+      "source_ids": [
+        "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+        "finance-budget-council-2026-02-24--annex-b-statutory-council-tax-resolution-2026-2027"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=vuSavvQyMukVYU5v2uuvB0brBi1Qzs%2bKcZb5CO9c2q9B83%2bAM%2fR9iA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+          "finance-budget-council-2026-02-24--annex-b-statutory-council-tax-resolution-2026-2027"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "bf986589eb75efc8deaaee7b3bd0886c4e6e9abe0523c3eb86d26e4b0f7ed007"
+      }
+    },
+    {
+      "id": "m-promise-reserve-floor-2025-26",
+      "area": "promises",
+      "question": "Did the emergency reserve stay where the council said it would?",
+      "label": "The emergency reserve to stay at £8.249m, above the £5.5m floor",
+      "rule_id": "promise-kept-v1",
+      "rule": "Green if a later council record confirms it was done by that date. Amber if a later record shows it was done late, or only partly. Red if a later record says it was not done. Grey if no later council record mentions it — which means the promise cannot be checked, not that it was broken.",
+      "target": {
+        "value": "2026-03-31",
+        "display": "\"The General Fund unallocated reserve, is expected to remain at £8.249 million over the life of the Medium-Term Financial Strategy, which remains above the prudent minimum level.\" — Cabinet, 5 February 2025",
+        "unit": null
+      },
+      "actual": {
+        "value": "done_on_time",
+        "display": "£8.249m held at 31 March 2026",
+        "unit": null
+      },
+      "threshold": null,
+      "status": "green",
+      "status_word": "Met",
+      "direction": "higher_is_better",
+      "period": "2025/26",
+      "as_of": "2026-03-31",
+      "council_caveat": null,
+      "evidence": "The council said in February 2025 that its emergency reserve would stay at £8.249m. The draft accounts published in June 2026 show exactly £8.249m at 31 March 2026 — the fourth year-end running at that figure.",
+      "source_ids": [
+        "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-06/Statement-of-Accounts-2025-26-Draft_0.pdf",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "abbd998172777fe2c951ce3a41ea74635f949afe788f3d451be99be68f0f8c40"
+      }
+    },
+    {
+      "id": "m-promise-savings-2025-26",
+      "area": "promises",
+      "question": "Did the savings the council promised actually happen?",
+      "label": "£3.2m of permanent savings and extra income in 2025/26",
+      "rule_id": "promise-kept-v1",
+      "rule": "Green if a later council record confirms it was done by that date. Amber if a later record shows it was done late, or only partly. Red if a later record says it was not done. Grey if no later council record mentions it — which means the promise cannot be checked, not that it was broken.",
+      "target": {
+        "value": "2026-03-31",
+        "display": "\"Permanent savings and additional income of £3.2 million have been identified in 2025 - 2026.\" — Cabinet, 5 February 2025",
+        "unit": null
+      },
+      "actual": {
+        "value": null,
+        "display": "no later report says",
+        "unit": null
+      },
+      "threshold": null,
+      "status": "grey",
+      "status_word": "Can't tell",
+      "direction": "higher_is_better",
+      "period": "2025/26",
+      "as_of": "2026-03-31",
+      "council_caveat": "The council does hold a budget risk reserve, then £1.8m, explicitly \"to provide resilience against emerging pressures and delays in the delivery of savings\", so it tracks the risk internally even though it does not publish the result.",
+      "evidence": "The council said it had found £3.2m of savings for 2025/26. Neither the accounts for that year nor any outturn report we found says how much of it actually arrived. This is the single biggest hole in what Norwich publishes about its own money.",
+      "source_ids": [
+        "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+        "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=UabZ9pLHUeJ5Uf2RWS0sTg%2fr4n07uL3LMC4wnU4iXFVc8X3%2bJxBAyA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+          "finance-statement-of-accounts--draft-statement-of-accounts-2025-26"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "9ef191b4d0aaef3064a7b7d163cb4b454f8bdb31bd225e559c293ec97157ec98"
+      }
+    },
+    {
+      "id": "m-promise-savings-2024-25",
+      "area": "promises",
+      "question": "Did the savings the council promised actually happen?",
+      "label": "£3.1m of savings and income proposals for delivery in 2024/25",
+      "rule_id": "promise-kept-v1",
+      "rule": "Green if a later council record confirms it was done by that date. Amber if a later record shows it was done late, or only partly. Red if a later record says it was not done. Grey if no later council record mentions it — which means the promise cannot be checked, not that it was broken.",
+      "target": {
+        "value": "2025-03-31",
+        "display": "\"The budget includes £3.1 million of savings and income proposals for delivery in 2024-25. This is a significant undertaking.\" — Cabinet, 5 February 2025",
+        "unit": null
+      },
+      "actual": {
+        "value": null,
+        "display": "no later report says",
+        "unit": null
+      },
+      "threshold": null,
+      "status": "grey",
+      "status_word": "Can't tell",
+      "direction": "higher_is_better",
+      "period": "2024/25",
+      "as_of": "2025-03-31",
+      "council_caveat": null,
+      "evidence": "Same again a year earlier. The council named the amount and called it \"a significant undertaking\". No published report we found says how much was delivered.",
+      "source_ids": [
+        "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+        "finance-statement-of-accounts--statement-of-accounts-2024-25"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=UabZ9pLHUeJ5Uf2RWS0sTg%2fr4n07uL3LMC4wnU4iXFVc8X3%2bJxBAyA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2025-26--section-2-general-fund-mtfs-and-2025-2026-budget",
+          "finance-statement-of-accounts--statement-of-accounts-2024-25"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "f4b0f68cd1eff2fc054bc6566a2f32a7fb89c34d83f81ff2a2618ac5085394a9"
+      }
+    },
+    {
+      "id": "m-promise-live-budget-2026-27",
+      "area": "promises",
+      "question": "Did the council start reviewing its budget during the year, as it said it would?",
+      "label": "A \"live budget\" reviewed through 2026/27 rather than fixed in February",
+      "rule_id": "promise-kept-v1",
+      "rule": "Green if a later council record confirms it was done by that date. Amber if a later record shows it was done late, or only partly. Red if a later record says it was not done. Grey if no later council record mentions it — which means the promise cannot be checked, not that it was broken.",
+      "target": {
+        "value": "2027-03-31",
+        "display": "\"We are proposing a real-time live budget for 2026-2027. This means the council will review spending and priorities throughout the year, rather than setting everything at the start of the year.\" — budget consultation, December 2025",
+        "unit": null
+      },
+      "actual": {
+        "value": null,
+        "display": "the year is still running",
+        "unit": null
+      },
+      "threshold": null,
+      "status": "grey",
+      "status_word": "Can't tell",
+      "direction": "higher_is_better",
+      "period": "2026/27",
+      "as_of": "2026-09-08",
+      "council_caveat": null,
+      "evidence": "The council promised a new way of managing its budget for 2026/27, reviewing it during the year instead of setting it once in February. The year does not end until 31 March 2027, so there is nothing to check yet. Come back after the outturn report in summer 2027.",
+      "source_ids": [
+        "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+        "finance-budget-consultation-2026-27"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget",
+          "finance-budget-consultation-2026-27"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "c0ead633972ede530b0db6354c90b0116cae677fc66cae9b27392da0bc455a28"
+      }
+    },
+    {
+      "id": "m-promise-readiness-fund-2026-27",
+      "area": "promises",
+      "question": "Did the council set up the emergency fund it promised for reorganisation?",
+      "label": "A ring-fenced Readiness Fund for reorganisation and inflation costs",
+      "rule_id": "promise-kept-v1",
+      "rule": "Green if a later council record confirms it was done by that date. Amber if a later record shows it was done late, or only partly. Red if a later record says it was not done. Grey if no later council record mentions it — which means the promise cannot be checked, not that it was broken.",
+      "target": {
+        "value": "2027-03-31",
+        "display": "\"The proposed Readiness Fund, a ring-fenced fund to manage in-year financial pressures, including costs associated with Local Government Reorganisation and inflation.\" — Cabinet, 11 February 2026",
+        "unit": null
+      },
+      "actual": {
+        "value": null,
+        "display": "the year is still running",
+        "unit": null
+      },
+      "threshold": null,
+      "status": "grey",
+      "status_word": "Can't tell",
+      "direction": "higher_is_better",
+      "period": "2026/27",
+      "as_of": "2026-09-08",
+      "council_caveat": "Local government reorganisation is the national programme that may abolish Norwich City Council and fold it into a larger authority. Every forecast the council publishes beyond 2026/27 carries that caveat, put there by the council itself.",
+      "evidence": "The council said it would ring-fence a fund to cover the costs of reorganisation and inflation during 2026/27. Whether it did, and what it was spent on, will not be visible until the year's accounts are published in summer 2027.",
+      "source_ids": [
+        "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "ai": {
+        "source_ids": [
+          "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "266265a3e5fd4cfb5907adbcb5757056dbf13142826861ef644d05c3d32f9473"
+      }
+    },
+    {
+      "id": "m-promise-enforcement-313k-2026-27",
+      "area": "promises",
+      "question": "Did the extra £313,000 councillors voted for get spent on what they voted for?",
+      "label": "£313,000 for enforcement, communal areas and community clean-ups",
+      "rule_id": "promise-kept-v1",
+      "rule": "Green if a later council record confirms it was done by that date. Amber if a later record shows it was done late, or only partly. Red if a later record says it was not done. Grey if no later council record mentions it — which means the promise cannot be checked, not that it was broken.",
+      "target": {
+        "value": "2027-03-31",
+        "display": "\"Investments in enforcement to deliver visible improvements… Communal areas improvements… Community clean-up activity… 313\" — Annex C, Budget Council, 24 February 2026",
+        "unit": null
+      },
+      "actual": {
+        "value": null,
+        "display": "the year is still running",
+        "unit": null
+      },
+      "threshold": null,
+      "status": "grey",
+      "status_word": "Can't tell",
+      "direction": "higher_is_better",
+      "period": "2026/27",
+      "as_of": "2026-09-08",
+      "council_caveat": "The council built its own check into the promise: \"A six-month review will assess progress against KPIs and consider whether targeted community-action pilots… should be incorporated where evidence shows additional benefit.\"",
+      "evidence": "At the budget meeting in February 2026 the Labour group added £313,000 to the budget for fly-tipping and graffiti enforcement, bin stores and recycling in flats, community clean-ups and political assistants, paid for from the contingency fund. The council said it would review progress after six months. Nothing published yet says what happened.",
+      "source_ids": [
+        "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3"
+      ],
+      "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=230JNwLtTlmaPp%2bkJM49%2bbflMGBwDdPuKhO4HiqbpqEHJ0AYK6GZMg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "ai": {
+        "source_ids": [
+          "finance-budget-council-2026-02-24--updated-annex-c-labour-group-and-opposition-proposed-budget-amendments-v3"
+        ],
+        "prompt_version": "measure-v1",
+        "model": "claude-opus-5 (agent session)",
+        "confidence": "high",
+        "review_status": "needs_review",
+        "reviewed_by": null,
+        "generated_at": "2026-09-08T12:00:00+00:00",
+        "cache_key": "7515a178c93148bcf9f62893ad107e910ed00d9dc62c8f07140ae06e2c4a5593"
+      }
+    }
+  ],
+  "gaps": [
+    {
+      "stage": "outcome",
+      "description": "Accounts before 2021/22. The council publishes them back to 2018/19 and they are linked from the same page, but each set is a large file and this archive stops at 2021/22 to keep the repository a reasonable size. The earlier years can be read on the council's own site."
+    },
+    {
+      "stage": "outcome",
+      "description": "One agreed figure for how each year ended. The council reports its outturn twice and the two do not match. For 2025/26 the provisional report to Cabinet on 10 June 2026 gives a General Fund underspend of £543,000 and a General Fund capital underspend of £22.255m; the draft accounts published the same month give £710,000 and a combined General Fund and Housing Revenue Account capital underspend of £38.291m. The accounts are the final basis and are what this page uses. Nothing published explains the gap between the two."
+    },
+    {
+      "stage": "outcome",
+      "description": "What the wind-up of the council's housing company finally cost. Lion Homes (Norwich) Ltd went into a solvent liquidation in 2025. The accounts record £6.15m of loans written down to nil and the shareholding written down from £3.424m to £2.825m, and the council says creditors will be paid in full and it keeps the company's assets. The auditor reported that \"Based on the evidence available, there is no indication that adequate oversight arrangements for subsidiaries have ever existed\". No published document gives a final cost, and we will not publish an estimate of one."
+    },
+    {
+      "stage": "outcome",
+      "description": "Whether the savings the council promises each February are actually made by the following March. The council publishes the savings it has identified when it sets the budget — £3.2m for 2025/26, £3.1m for 2024/25 — but no outturn report or set of accounts we have read tracks delivery against them as a single figure. This is the most obvious accountability question about a council's money, and it cannot be answered from Norwich's published papers. It is a fair question for a resident to put to the council directly."
+    },
+    {
+      "stage": null,
+      "description": "A published target for most of the money on this page. Norwich sets targets for its corporate performance indicators, but not for how close its spending should come to budget, how much of its building programme it should deliver, or how much of its income should come from commercial property. Those measures are scored against the council's own plan rather than a target, using rules published on the methodology page, and the commercial income one cannot be scored at all."
+    },
+    {
+      "stage": null,
+      "description": "How much the council's government funding has risen or fallen in real terms since 2019/20. Answering that needs the government's Core Spending Power tables for each year, which are national statistics rather than council papers and are not in this archive. Without them we can show what the council received but not what it is worth. It is the single most-asked question about council finances and we cannot answer it yet."
+    },
+    {
+      "stage": null,
+      "description": "Performance figures in a form anyone can check. Norwich publishes a full set of targets and actuals every quarter, which is more than many district councils manage. But the numbers live in Appendix A of the report as screenshots of a dashboard, not as text or a spreadsheet, so they cannot be searched, copied or checked by machine. Every target measure on this site was read off those images by eye. The council also runs a live Power BI dashboard on its website, which is a JavaScript embed and cannot be archived either."
+    }
+  ],
+  "corrections_url": "https://github.com/dawsman/councillens/issues/new?template=correction.yml"
+}

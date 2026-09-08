@@ -1,0 +1,33 @@
+{
+  "kind": "figure",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "id": "fig-net-budget-requirement",
+    "label": "What the council plans to spend on its own services",
+    "kind": "money",
+    "value": 24250000,
+    "unit": "GBP",
+    "display": "£24.25m",
+    "as_of": "2026-02-11",
+    "period": "2026/27",
+    "source_ids": [
+      "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+    ],
+    "source_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=tQPf03%2f54bWQ1k2%2f1GdAn3ZmWZTLY29s5D8ECzSTCYq4vLu%2bdTj2YA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=ctNJFf55vVA%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+    "note": "The net budget requirement for 2026/27 — what is left to pay for after fees, charges and specific grants. Gross General Fund spending is far larger, about £104m, because most of it is housing benefit money that passes straight through.",
+    "order": 3
+  },
+  "ai": {
+    "source_ids": [
+      "finance-budget-2026-27--section-2-general-fund-mtfs-and-2026-2027-budget"
+    ],
+    "prompt_version": "figure-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "ad4213f7b848ff527bcdaf6e5b566b329ca30f775c4159541bab0f582f7f02f1"
+  }
+}

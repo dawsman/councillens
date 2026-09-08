@@ -1,0 +1,21 @@
+{
+  "kind": "summary",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "council-finances",
+  "payload": {
+    "source_id": "finance-budget-2026-27",
+    "summary": "The Cabinet meeting of 11 February 2026, where the budget for 2026/27 was agreed and sent to full Council. This is the agenda page listing every paper that went to that meeting."
+  },
+  "ai": {
+    "source_ids": [
+      "finance-budget-2026-27"
+    ],
+    "prompt_version": "summarise-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "ec1d68ff13ba70023f9e8ce97f68705f1bb115879e9dd543e01a92af267ced65"
+  }
+}
