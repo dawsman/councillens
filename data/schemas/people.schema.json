@@ -1,0 +1,325 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CouncilLens people model",
+  "description": "The contract for the 'who runs the council' layer: one file per council, written by the analyse stage to data/analysed/<council-slug>/people.json. It answers who sits on the council, how long they have been there, what roles they hold, what they have declared about themselves, and who the senior officers are. Strict: unknown fields are rejected. Everything in it comes from the council's own publications or from a councillor's own sworn declaration under the Localism Act 2011. Nothing here may be assembled by matching a name against an outside database, a social network or the press, and nothing may record family, health or a home address.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "council", "composition", "councillors", "officers", "bodies", "gaps", "corrections_url"],
+  "$defs": {
+    "ai": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_ids", "prompt_version", "model", "confidence", "review_status", "reviewed_by", "generated_at", "cache_key"],
+      "properties": {
+        "source_ids": {"type": "array", "items": {"type": "string"}, "description": "Canonical record ids this output was derived from."},
+        "prompt_version": {"type": "string"},
+        "model": {"type": "string"},
+        "confidence": {"enum": ["high", "medium", "low"]},
+        "review_status": {"enum": ["needs_review", "ai_reviewed", "reviewed"], "description": "needs_review: unchecked. ai_reviewed: independently checked against the source documents by a second AI pass, not yet by a person. reviewed: checked by a person."},
+        "reviewed_by": {"type": ["string", "null"]},
+        "generated_at": {"type": "string", "format": "date-time"},
+        "cache_key": {"type": "string", "pattern": "^[0-9a-f]{64}$", "description": "sha256 over the item key, the sha256 of each source document's extracted text, and the prompt version. Same rule as the topic model — see src/analyse/README.md."}
+      }
+    },
+    "date_string": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$",
+      "description": "YYYY, YYYY-MM or YYYY-MM-DD. Null when the record gives no date at all."
+    },
+    "precision": {"enum": ["day", "month", "year", "unknown"]},
+    "declared_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "category"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The councillor's own words from the register, shortened but never reworded. Names of employers and organisations only — never an address, a family member, or anything the register does not itself carry."
+        },
+        "category": {
+          "type": "string",
+          "description": "The heading the register itself put this under, e.g. 'Employment, office, trade or profession'."
+        }
+      }
+    },
+    "source_link": {"type": "string", "format": "uri"}
+  },
+  "properties": {
+    "schema_version": {"const": "1"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "council": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "slug", "website", "tier", "remit_note", "platforms"],
+      "properties": {
+        "name": {"type": "string"},
+        "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+        "website": {"type": "string", "format": "uri"},
+        "tier": {"enum": ["district", "county", "unitary", "metropolitan", "combined", "parish", "unknown"]},
+        "remit_note": {"type": "string"},
+        "platforms": {"type": "object", "additionalProperties": {"type": "string"}}
+      }
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["as_of", "total_seats", "seats_by_party", "next_election", "next_election_note", "source_ids", "source_url", "summary", "ai"],
+      "description": "How the seats are shared out, as the council's own directory shows them on the date it was read.",
+      "properties": {
+        "as_of": {"$ref": "#/$defs/date_string"},
+        "total_seats": {"type": ["integer", "null"], "minimum": 0},
+        "seats_by_party": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["party", "seats"],
+            "properties": {
+              "party": {"type": "string", "description": "The party label the council itself prints."},
+              "seats": {"type": "integer", "minimum": 0}
+            }
+          }
+        },
+        "next_election": {"$ref": "#/$defs/date_string"},
+        "next_election_note": {"type": ["string", "null"], "description": "What the council says about when the next election is, or null if it does not say."},
+        "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "source_url": {"$ref": "#/$defs/source_link"},
+        "summary": {"type": "string", "description": "One or two plain sentences a 14-year-old can follow."},
+        "ai": {"$ref": "#/$defs/ai"}
+      }
+    },
+    "councillors": {
+      "type": "array",
+      "description": "One entry per sitting councillor, in the order the council's own directory lists them.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "party", "ward", "party_history", "first_elected", "first_elected_precision", "current_term_start", "elections", "roles", "committees", "outside_bodies", "attendance", "allowances", "interests", "declared_links", "contact", "summary", "source_ids", "source_urls", "ai"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^cllr-[a-z0-9-]+$"},
+          "name": {"type": "string", "description": "As the council publishes it."},
+          "party": {"type": ["string", "null"], "description": "The party label the council prints. Null where the council prints none."},
+          "ward": {"type": ["string", "null"]},
+          "party_history": {
+            "type": "array",
+            "description": "Every party the council's own record shows this councillor sitting for, oldest first, where it publishes more than one. Empty where the council publishes a single party. A councillor who changed party is a fact the council records and the page carries it, because 'Independent since 2016' invites a reading the record does not support.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["party", "from", "to", "source_url"],
+              "properties": {
+                "party": {"type": "string", "description": "The party label the council itself prints."},
+                "from": {"$ref": "#/$defs/date_string"},
+                "to": {"$ref": "#/$defs/date_string", "description": "Null where the council's record shows this as the party they sit for now."},
+                "source_url": {"type": ["string", "null"], "format": "uri"}
+              }
+            }
+          },
+          "first_elected": {"$ref": "#/$defs/date_string"},
+          "first_elected_precision": {"$ref": "#/$defs/precision"},
+          "current_term_start": {"$ref": "#/$defs/date_string", "description": "The start of the term they are serving now, as the council's directory gives it."},
+          "elections": {
+            "type": "array",
+            "description": "Every election the council's own record shows them winning, oldest first. Votes and majority only where the council publishes a result sheet.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["date", "date_precision", "result", "ward", "votes", "majority", "turnout_percent", "source_url"],
+              "properties": {
+                "date": {"$ref": "#/$defs/date_string"},
+                "date_precision": {"$ref": "#/$defs/precision"},
+                "result": {"enum": ["elected", "re-elected", "unknown"]},
+                "ward": {"type": ["string", "null"]},
+                "votes": {"type": ["integer", "null"], "minimum": 0},
+                "majority": {"type": ["integer", "null"], "minimum": 0},
+                "turnout_percent": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+                "source_url": {"type": ["string", "null"], "format": "uri"}
+              }
+            }
+          },
+          "roles": {
+            "type": "array",
+            "description": "Jobs inside the council: Leader, a Cabinet portfolio, a committee chair, Lord Mayor, and so on.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["title", "body_slug", "since", "source_url"],
+              "properties": {
+                "title": {"type": "string"},
+                "body_slug": {"type": ["string", "null"], "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "The committee or body the role belongs to, where there is one."},
+                "since": {"$ref": "#/$defs/date_string"},
+                "source_url": {"type": ["string", "null"], "format": "uri"}
+              }
+            }
+          },
+          "committees": {
+            "type": "array",
+            "description": "Committees they currently sit on, by the slug used in `bodies`.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["slug", "name", "role", "since"],
+              "properties": {
+                "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+                "name": {"type": "string"},
+                "role": {"type": "string", "description": "As the council prints it: Member, Chair, Vice Chair, Substitute."},
+                "since": {"$ref": "#/$defs/date_string"}
+              }
+            }
+          },
+          "outside_bodies": {
+            "type": "array",
+            "description": "Organisations the council itself appointed them to. Not a private interest — an appointment the council made and publishes.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "since"],
+              "properties": {
+                "name": {"type": "string"},
+                "since": {"$ref": "#/$defs/date_string"}
+              }
+            }
+          },
+          "attendance": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["expected", "attended", "apologies", "period", "source_url", "note"],
+            "description": "Null where the council does not publish attendance in a form that can be read. A null is an honest answer, not a missing value to be guessed at. Where the council publishes an apologies figure it must be carried: a councillor who missed eleven meetings and sent apologies for all eleven is not the same as one who simply did not turn up, and publishing only the first half of a figure the council publishes in full is the page taking a side.",
+            "properties": {
+              "expected": {"type": ["integer", "null"], "minimum": 0},
+              "attended": {"type": ["integer", "null"], "minimum": 0},
+              "apologies": {"type": ["integer", "null"], "minimum": 0, "description": "Meetings the councillor missed having sent apologies, as the council counts them. Null only where the council does not publish it."},
+              "period": {"type": ["string", "null"]},
+              "source_url": {"type": ["string", "null"], "format": "uri"},
+              "note": {"type": ["string", "null"]}
+            }
+          },
+          "allowances": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["basic", "special_responsibility", "total", "currency", "year", "source_url", "note"],
+            "description": "What the council's published allowances schedule says this councillor was paid. Null where no per-councillor figure is published. `special_responsibility` is null unless the published document makes that column separable from the others — an allowance labelled as payment for extra responsibility is a claim about what someone was paid to do, and a claim like that has to be readable in the source, not inferred from its position in a row.",
+            "properties": {
+              "basic": {"type": ["number", "null"], "minimum": 0},
+              "special_responsibility": {"type": ["number", "null"], "minimum": 0},
+              "total": {"type": ["number", "null"], "minimum": 0},
+              "currency": {"type": ["string", "null"]},
+              "year": {"type": ["string", "null"]},
+              "source_url": {"type": ["string", "null"], "format": "uri"},
+              "note": {"type": ["string", "null"]}
+            }
+          },
+          "interests": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["register_url", "register_date", "employment", "directorships", "memberships", "sponsorship", "land", "other", "note"],
+            "description": "The councillor's own declaration, made under the Localism Act 2011 and published by the council. Reproduced in their words, shortened, never rewritten and never interpreted. `land` carries ward-level detail only: never a street address.",
+            "properties": {
+              "register_url": {"type": ["string", "null"], "format": "uri"},
+              "register_date": {"$ref": "#/$defs/date_string"},
+              "employment": {"type": "array", "items": {"$ref": "#/$defs/declared_item"}},
+              "directorships": {"type": "array", "items": {"$ref": "#/$defs/declared_item"}},
+              "memberships": {"type": "array", "items": {"$ref": "#/$defs/declared_item"}},
+              "sponsorship": {"type": "array", "items": {"$ref": "#/$defs/declared_item"}},
+              "land": {
+                "type": "array",
+                "items": {"$ref": "#/$defs/declared_item"},
+                "description": "Ward-level only, e.g. 'Land and property in the Mancroft ward'. A street address must never appear here."
+              },
+              "other": {"type": "array", "items": {"$ref": "#/$defs/declared_item"}},
+              "note": {"type": ["string", "null"], "description": "Plain sentence on what could and could not be read, e.g. that the register is published only as a date-stamped notice."}
+            }
+          },
+          "declared_links": {
+            "type": "array",
+            "description": "Websites the councillor asked the council to print on their own council page. Recorded as the council prints them and never fetched, followed or read by this project.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["label", "url"],
+              "properties": {
+                "label": {"type": "string"},
+                "url": {"type": "string", "format": "uri"}
+              }
+            }
+          },
+          "contact": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["email", "address"],
+            "description": "The council contact route only. Personal telephone numbers are deliberately not carried, even where the council prints them.",
+            "properties": {
+              "email": {"type": ["string", "null"]},
+              "address": {"type": ["string", "null"], "description": "The council's own care-of address, e.g. 'c/o City Hall, Norwich'. Never a home address."}
+            }
+          },
+          "summary": {"type": "string", "description": "Two or three plain sentences a 14-year-old can follow. Non-judgmental: what the record says, never what to think about it."},
+          "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "source_urls": {"type": "array", "items": {"$ref": "#/$defs/source_link"}, "minItems": 1},
+          "ai": {"$ref": "#/$defs/ai"}
+        }
+      }
+    },
+    "officers": {
+      "type": "array",
+      "description": "Paid senior staff, as published under the Local Government Transparency Code. Officers are employees, not politicians: only role, published name, published pay band and statutory duty are carried.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "role", "name", "statutory_role", "pay_band", "pay_note", "as_of", "summary", "source_ids", "source_url", "ai"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^officer-[a-z0-9-]+$"},
+          "role": {"type": "string", "description": "The post, as the council titles it."},
+          "name": {"type": ["string", "null"], "description": "Only where the council itself publishes the post-holder's name. Null otherwise."},
+          "statutory_role": {
+            "type": ["string", "null"],
+            "enum": ["head_of_paid_service", "monitoring_officer", "section_151", "returning_officer", "electoral_registration_officer", "data_protection_officer", null],
+            "description": "The duty in law this post carries, where the council says it carries one."
+          },
+          "pay_band": {"type": ["string", "null"], "description": "As published, e.g. '£120,000 - £124,999'. Never a calculated or estimated figure."},
+          "pay_note": {"type": ["string", "null"]},
+          "as_of": {"$ref": "#/$defs/date_string"},
+          "summary": {"type": "string"},
+          "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "source_url": {"$ref": "#/$defs/source_link"},
+          "ai": {"$ref": "#/$defs/ai"}
+        }
+      }
+    },
+    "bodies": {
+      "type": "array",
+      "description": "Committees and panels, so a topic page can say which councillors sit on the committee that decided it.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slug", "name", "kind", "purpose", "members", "chair", "vice_chair", "source_ids", "source_url", "ai"],
+        "properties": {
+          "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+          "name": {"type": "string"},
+          "kind": {"enum": ["council", "cabinet", "committee", "sub_committee", "panel", "board", "other"]},
+          "purpose": {"type": "string", "description": "One plain sentence on what it decides, drawn from the council's own description."},
+          "members": {"type": "array", "items": {"type": "string", "pattern": "^cllr-[a-z0-9-]+$"}},
+          "chair": {"type": ["string", "null"], "pattern": "^cllr-[a-z0-9-]+$"},
+          "vice_chair": {"type": ["string", "null"], "pattern": "^cllr-[a-z0-9-]+$"},
+          "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "source_url": {"$ref": "#/$defs/source_link"},
+          "ai": {"$ref": "#/$defs/ai"}
+        }
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "description": "What we looked for about this council's people and could not find published. A gap is a fact about the council's publishing, not a failure of the build.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["area", "description"],
+        "properties": {
+          "area": {"enum": ["councillors", "officers", "bodies", "interests", "attendance", "allowances", "elections", "composition", null]},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "corrections_url": {"type": "string", "format": "uri"}
+  }
+}

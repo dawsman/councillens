@@ -1,0 +1,141 @@
+{
+  "kind": "person",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "id": "cllr-hannah-hoechner",
+    "name": "Councillor Hannah Hoechner",
+    "party": "The Green Party",
+    "ward": "Nelson",
+    "first_elected": "2023-05-05",
+    "first_elected_precision": "day",
+    "current_term_start": "2023-05-05",
+    "elections": [
+      {
+        "date": "2023-05-04",
+        "date_precision": "day",
+        "result": "elected",
+        "ward": "Nelson",
+        "votes": 2281,
+        "majority": 959,
+        "turnout_percent": 49.0,
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-2023"
+      }
+    ],
+    "roles": [],
+    "committees": [
+      {
+        "slug": "climate-and-environment-emergency-executive-panel",
+        "name": "Climate and environment emergency executive panel",
+        "role": "Member",
+        "since": "2026-05-20"
+      },
+      {
+        "slug": "council",
+        "name": "Council",
+        "role": "Member",
+        "since": "2023-05-05"
+      },
+      {
+        "slug": "scrutiny-committee",
+        "name": "Scrutiny committee",
+        "role": "Member",
+        "since": "2025-05-21"
+      }
+    ],
+    "outside_bodies": [],
+    "attendance": {
+      "expected": 23,
+      "attended": 19,
+      "apologies": 4,
+      "period": "the 12 months to 8 September 2026",
+      "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/202/ScreenMode/Alphabetical/Default.aspx",
+      "note": "CMIS counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. The council publishes how many of the missed meetings were apologised for, and both halves of that figure are shown here."
+    },
+    "allowances": {
+      "basic": 7805.08,
+      "special_responsibility": null,
+      "total": 9755.19,
+      "currency": "GBP",
+      "year": "2024-25",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-02/Members-Allowances-2024-25.pdf",
+      "note": "From the council's published schedule of allowances paid in 2024-25, matched on surname and initial. An allowance is not a salary: it is a set payment for doing the job. The schedule has four money columns — basic allowance, special responsibility, expenses and total — but prints a figure in only three of them for almost everyone, so the basic allowance and the total can be read off it and the middle figure cannot be told apart from expenses. This page therefore shows the basic allowance and the total, and says nothing about special responsibility."
+    },
+    "interests": {
+      "register_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=KjEEkQOeYp1qbBc72P52Y3AyFQQ2NUmeNAjcsdN9u43X%2fefuD20r8Q%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "register_date": "2026-06-01",
+      "employment": [],
+      "directorships": [],
+      "memberships": [
+        {
+          "text": "Member of the Green Party of England & Wales",
+          "category": "Other registrable interests (a)"
+        },
+        {
+          "text": "Member of the University & Colleges Union/UCU",
+          "category": "Other registrable interests (a)"
+        },
+        {
+          "text": "Member of the UEA Biodiversity & Climate Action Network",
+          "category": "Other registrable interests (a)"
+        },
+        {
+          "text": "Member of Acorn Union",
+          "category": "Other registrable interests (a)"
+        },
+        {
+          "text": "Member of the Norwich Climate Commission",
+          "category": "Other registrable interests (d)"
+        }
+      ],
+      "sponsorship": [],
+      "land": [],
+      "other": [],
+      "note": "Taken from the register this councillor signed on 1 June 2026. The council had this councillor on its April 2026 form. In the pecuniary table that form puts the councillor's answers beside their partner's, and the two columns run together when the file is read as text. The 'other registrable interests' box below it is a single list with no partner column. All five entries in that box are shown. Three jobs are listed in the employment row, across the councillor's column and their partner's, with nothing in the file to say which is whose, so none of them is shown. The full form is linked."
+    },
+    "declared_links": [],
+    "contact": {
+      "email": "h.hoechner@cllr.norwich.gov.uk",
+      "address": "c/o City Hall Norwich NR2 1NH"
+    },
+    "summary": "Councillor Hannah Hoechner has represented Nelson ward since 5 May 2023. They sit on 3 of the council's committees and panels: Climate and environment emergency executive panel, Council and Scrutiny committee. The council's committee system records them at 19 of the 23 meetings they were expected at in the 12 months to 8 September 2026. They missed 4, and the council records apologies for all 4. What they declared on their register of interests, signed on 1 June 2026, is set out below, with a note on anything that is not shown.",
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillor-registers--register-of-interests-councillor-hannah-hoechner-notice-of-01-june-2026",
+      "norwich-councillors",
+      "norwich-councillors--councillor-hannah-hoechner",
+      "norwich-councillors-allowances",
+      "norwich-councillors-allowances--councillors-allowances-paid-in-2024-25",
+      "norwich-election-results-2023"
+    ],
+    "source_urls": [
+      "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=KjEEkQOeYp1qbBc72P52Y3AyFQQ2NUmeNAjcsdN9u43X%2fefuD20r8Q%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "https://cmis.norwich.gov.uk/live/Councillors.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewAttendanceByCommittee/mid/383/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/202/ScreenMode/Alphabetical/Default.aspx",
+      "https://www.norwich.gov.uk/sites/default/files/2026-02/Members-Allowances-2024-25.pdf",
+      "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-2023",
+      "https://www.norwich.gov.uk/your-council-explained/how-council-run-and-who-makes-decisions/councillors-allowances"
+    ],
+    "order": 23,
+    "party_history": []
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillor-registers--register-of-interests-councillor-hannah-hoechner-notice-of-01-june-2026",
+      "norwich-councillors",
+      "norwich-councillors--councillor-hannah-hoechner",
+      "norwich-councillors-allowances",
+      "norwich-councillors-allowances--councillors-allowances-paid-in-2024-25",
+      "norwich-election-results-2023"
+    ],
+    "prompt_version": "person-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "7b78c8e209518bd3a764aa772c3cf495070b153558c8e0956b1dd991555845ab"
+  }
+}

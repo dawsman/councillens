@@ -11,6 +11,10 @@ fetched:
                                                public documents that make up the
                                                feedback -> decision -> outcome trail
 
+A source file may also set `model:` to say which analyse stage assembles what it
+gathers. It defaults to `topic`. Anything else (`people`, say) is still fetched,
+extracted and validated by exactly the same pipeline; only the assembly differs.
+
 The council file is deliberately separate from the topic files. A council's remit
 note is a fact about the council, not about licensing or housing, so two topics can
 never end up disagreeing about what the council does.
@@ -51,17 +55,30 @@ def short_name(value):
 
 
 class TopicConfig:
-    """One council + one topic: everything one config file says."""
+    """One council + one topic: everything one config file says.
 
-    __slots__ = ("path", "council", "topic", "council_slug", "topic_slug", "sources")
+    `model` says which analyse stage owns the documents this file gathers, and so
+    which shape they are assembled into. It defaults to `topic`, the
+    feedback -> decision -> outcome trail that most of the site is made of. A file
+    that gathers a different KIND of public record — the council's own directory
+    of who sits on it, say — sets `model:` to the name of that model instead, and
+    the topic build leaves it alone. Ingest, transform and validation are
+    identical either way: one pipeline, one contract, several ways of reading the
+    result.
+    """
 
-    def __init__(self, path, council, topic, sources):
+    __slots__ = ("path", "council", "topic", "council_slug", "topic_slug", "sources", "model")
+
+    DEFAULT_MODEL = "topic"
+
+    def __init__(self, path, council, topic, sources, model=None):
         self.path = path
         self.council = council
         self.topic = topic
         self.council_slug = slugify(council)
         self.topic_slug = slugify(topic)
         self.sources = sources
+        self.model = model or self.DEFAULT_MODEL
 
     @property
     def key(self):
@@ -115,6 +132,7 @@ def load_topics(only=None):
             council=data.get("council"),
             topic=data.get("topic"),
             sources=data.get("sources") or [],
+            model=data.get("model"),
         )
         if entry.has_placeholders():
             topics.append(entry)

@@ -196,3 +196,91 @@ sources support the reading — `high` where the document states it outright,
 `medium` where it is assembled from several places or from a long document read
 in part, `low` where the sources are thin. It is not a forecast about what the
 council will do next.
+
+---
+
+# The people stage
+
+`build_people.py` is the same machine pointed at a different kind of record. Where
+`build_topic.py` assembles the trail of one decision, this one assembles the
+council's own account of who takes the decisions:
+
+```
+data/processed/manifest.json                what the council published about itself
+data/ai-cache/<council>/_people/*.json  +   what was written from those documents
+                                        ->  data/analysed/<council>/people.json
+```
+
+Same rules, deliberately: no network, no model calls, nothing invented, a missing
+cache entry becomes a visible gap, and no council name appears in the code. The
+cache key is worked out exactly as above — item key, the text fingerprints of the
+documents cited, and the prompt version — so a register that is re-filed or a
+directory that changes flags the item instead of quietly reprinting it.
+
+```
+python src/analyse/build_people.py
+python src/analyse/build_people.py --only norwich-city-council
+python scripts/validate.py
+```
+
+## How the pipeline knows which is which
+
+A source config says so. `config/sources/<council>/<file>.yaml` may set:
+
+```yaml
+model: people
+```
+
+Default is `topic`. `build_topic.py` skips any group whose config claims another
+model, so a councillor directory never becomes a feedback → decision → outcome
+page. Ingest, transform and the contract gate treat both identically: one
+pipeline, one canonical record, two ways of reading the result at the end.
+
+The cache lives under `_people` rather than a topic slug. Slugs never start with
+an underscore, so it cannot collide with a real topic.
+
+## What is in the cache
+
+Same envelope as the topic cache. Five kinds:
+
+| kind | payload | prompt version |
+|---|---|---|
+| `composition` | seats by party, total, next election if published | `composition-v1` |
+| `person` | one councillor: party, ward, first elected, every term, roles, committees, outside bodies, attendance, allowances, declared interests, contact | `person-v1` |
+| `officer` | one senior post: role, name if published, statutory duty, pay band | `officer-v1` |
+| `body` | one committee: name, purpose, members, chair | `body-v1` |
+| `gap` | something looked for and not found | `gap-v1` |
+
+Item keys: the councillor id for a person, the officer id for an officer,
+`body:<slug>` for a committee, `composition:<council-slug>` for the seat count,
+`gap:<id>` for a gap.
+
+## Rules this stage will not bend
+
+This is the part of the site most capable of doing harm, so the constraints are
+tighter than anywhere else and they are enforced by the schema as well as by
+whoever writes the cache.
+
+- **Official and self-declared sources only.** The council's own directory,
+  committee system, election results, allowances schedule and senior-pay
+  publication — plus the Register of Members' Interests, which is the
+  councillor's own declaration under the Localism Act 2011. Nothing from a social
+  network, a company register, or the press.
+- **No profiling.** Nothing is assembled by matching a person's name against an
+  outside database. Every line traces to a document that person's own council
+  published.
+- **No scores, no rankings, no leaderboards.** The model carries what the record
+  says and stops. Counting becomes an opinion the moment it is put in an order.
+- **Data minimisation.** No family, no health, no home address. Land interests
+  stay at ward level. Personal telephone numbers are not carried even where a
+  council prints them; a council email address is a contact route, a mobile number
+  is a person's phone.
+- **Declared links are recorded, never followed.** A councillor's own website is
+  printed as the council prints it and is never fetched, read or summarised.
+
+A register entry that cannot be attributed to the councillor with certainty is
+left out and the reason is written into `interests.note`. Norwich's form, for
+instance, puts a councillor's interests beside their partner's, and the published
+PDF does not keep the columns apart when it is read as text. Leaving those entries
+out costs the page some detail. Printing a partner's employer under a councillor's
+name would cost something that cannot be given back.

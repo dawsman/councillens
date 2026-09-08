@@ -24,6 +24,46 @@ platform question):
                   consultation landing page, a meeting with no papers yet.
     follow_links: discover linked documents on the page (default true).
     max_bytes:    skip any single document larger than this, and say so.
+    follow_pages: discover linked PAGES rather than documents. Some of what a
+                  council publishes is a list that points at other pages: a
+                  councillor directory pointing at one page per councillor, a
+                  committee index pointing at one page per committee. `match`
+                  and `follow_links` are about documents attached to a page, so
+                  they cannot express that. `follow_pages` takes:
+
+                      href_contains: substrings a link's href must contain
+                                     (required; this is what picks out the
+                                     detail pages among a page's other links)
+                      match/exclude: the same keyword filters, applied to the
+                                     link text and href of a candidate page
+                      type/stage:    what to record the followed pages as
+                      max:           safety cap on how many to follow (default 500)
+                      paginate:      how to follow a list split across several
+                                     pages — see below
+
+                  A bare list is shorthand for `href_contains`. Every followed
+                  page becomes its own canonical record, so each one keeps its
+                  own URL, hash and fetch time.
+    paginate:     (inside `follow_pages`) follow a list that the platform splits
+                  across several addresses. A committee system that shows five
+                  rows and then a "2" link is publishing one list at several
+                  URLs, and keeping only the first page silently understates the
+                  record — a councillor on ten committees reads as a councillor
+                  on five. Takes the same `href_contains` (a bare list is
+                  shorthand) plus `max`, a cap on the extra pages taken per list
+                  (default 20). Each further page is fetched as its own
+                  canonical record, so nothing is stitched together in the dark.
+    user_agent:   identify as something other than the default browser string
+                  for this source. Some committee systems render a paginated
+                  list two ways: as JavaScript postbacks for a browser, and as
+                  ordinary links for a crawler. Saying honestly that we are a
+                  robot is what gets the version a robot can read.
+    redact:       list of redaction rules applied to what was downloaded BEFORE
+                  it is saved or hashed — see REDACTORS below for the rules that
+                  exist. This is the only thing in the pipeline that changes a
+                  document. The file on disk, the sha256 in the manifest and
+                  every later stage all see the redacted bytes; no unredacted
+                  copy is written anywhere, including in the archive.
 """
 from __future__ import annotations
 
@@ -60,7 +100,15 @@ _EXTENSIONS = {
     "text/csv": ".csv",
 }
 
-_ANCHOR_RE = re.compile(r"<a\b[^>]*?href=\"(?P<href>[^\"]+)\"[^>]*>(?P<text>.*?)</a>", re.I | re.S)
+# Councils' own pages mix quoting styles inside one document — CMIS writes its
+# committee document links with double quotes and its councillor links with
+# single ones — so both are accepted here. A pattern that only understood double
+# quotes silently found no councillors at all, which is the worst kind of bug:
+# a clean run that fetched nothing.
+_ANCHOR_RE = re.compile(
+    r"""<a\b[^>]*?href=(?P<q>["'])(?P<href>[^"'>]*)(?P=q)[^>]*>(?P<text>.*?)</a>""",
+    re.I | re.S,
+)
 _TAG_RE = re.compile(r"<[^>]+>")
 _SIZE_SUFFIX_RE = re.compile(r"\s*\((?:PDF,?\s*)?[\d.,]+\s*[KMG]?B\)\s*$", re.I)
 
@@ -97,6 +145,88 @@ def _extension_for(resp, url):
     return suffix if suffix in set(_EXTENSIONS.values()) else ".bin"
 
 
+# ---------------------------------------------------------------------------
+# Redaction
+# ---------------------------------------------------------------------------
+# Some of what a council publishes about a person is not something a mirror of
+# the council's record should keep. A councillor's mobile number is the clearest
+# case: the council prints it, but it is that person's phone, not a contact route
+# the council chose to staff — and one greppable file holding all of them is a
+# different thing from thirty-nine pages behind a committee system.
+#
+# So a source can name redaction rules with `redact:`, and they are applied to
+# the downloaded bytes before anything saves or hashes them. There is no
+# unredacted copy: the record's sha256 is the sha256 of the file as stored, and
+# the manifest, the extracted text and the site all follow from that.
+#
+# Rules are generic and live here, never in a council's config. Which rules a
+# source needs is a question about what that council publishes, and is answered
+# in config.
+
+REDACTION_MARKER = "[phone number removed]"
+
+# UK numbers as people and councils actually write them: 07xxx xxxxxx, 01603
+# xxxxxx, +44 7xxx xxxxxx, with or without spaces, dots, hyphens or a bracketed
+# trunk zero. Anchored so a run of digits inside a longer number, an id or a date
+# cannot match.
+_UK_PHONE_RE = re.compile(
+    r"(?<!\d)(?:\+44\s?\(?0?\)?\s?|0)"
+    r"(?:7\d{3}|1\d{2,3}|2\d{2}|3\d{2}|8\d{2})"
+    r"[\s.\-]?\d{3}[\s.\-]?\d{3,4}(?!\d)"
+)
+
+
+def _redact_uk_phone_numbers(text):
+    """Replace every UK telephone number with a marker that says so.
+
+    Deliberately blunt: it takes the council's own switchboard number out of an
+    archived page as well as a councillor's mobile. A missing switchboard number
+    costs a reader nothing — the council's website has it — and the alternative
+    is a rule that has to judge whose phone each number is.
+    """
+    return _UK_PHONE_RE.sub(REDACTION_MARKER, text)
+
+
+REDACTORS = {
+    "uk_phone_numbers": _redact_uk_phone_numbers,
+}
+
+
+def redact(source, content, encoding=None):
+    """Apply a source's `redact:` rules to downloaded bytes.
+
+    Only text is redacted. A PDF or a Word file is left exactly as the council
+    served it: a blind substitution inside a compressed stream would corrupt the
+    document rather than clean it. Where a council publishes personal data inside
+    a PDF the answer is to not bank that PDF, which is a config decision and not
+    a job for a regular expression.
+
+    `encoding` is what the server said the text was, which is worth trusting for
+    the many council files that are still Windows-1252. UTF-8 is tried first
+    because it is what everything else in the pipeline assumes; anything that
+    decodes under neither is treated as not text.
+    """
+    rules = source.get("redact") or []
+    if not rules:
+        return content
+    for candidate in ("utf-8", (encoding or "").lower()):
+        if not candidate:
+            continue
+        try:
+            text = content.decode(candidate)
+        except (UnicodeDecodeError, LookupError):
+            continue
+        for name in rules:
+            rule = REDACTORS.get(str(name))
+            if rule is None:
+                print(f"        redact: no rule called {name!r} — nothing applied")
+                continue
+            text = rule(text)
+        return text.encode(candidate)
+    print(f"        redact: {source.get('id')} is not text, left as published")
+    return content
+
+
 def _matches(source, *candidates):
     """Config decides which documents matter. Code only applies the rule."""
     haystack = " ".join(c for c in candidates if c).lower()
@@ -115,6 +245,29 @@ class Adapter(ABC):
     platform = "base"
 
     # ---- shared plumbing -------------------------------------------------
+
+    def _get(self, source, url, **kwargs):
+        """GET, with whatever this source asks us to say about ourselves."""
+        headers = kwargs.pop("headers", None) or {}
+        agent = source.get("user_agent")
+        if agent:
+            headers = {**headers, "User-Agent": str(agent)}
+        return _http_get(url, headers=headers or None, **kwargs)
+
+    def _body(self, source, resp):
+        """What this project keeps of a response: the bytes, redacted as the
+        source asks, and the same bytes as text. Everything that saves, hashes or
+        reads a page goes through here, so there is one place where a redaction
+        can be missed and it is this one."""
+        ctype = (resp.headers.get("Content-Type") or "").split(";")[0].strip().lower()
+        is_text = ctype.startswith("text/") or ctype in ("application/json", "application/xml")
+        content = redact(source, resp.content, resp.encoding if is_text else None)
+        encoding = resp.encoding or resp.apparent_encoding or "utf-8"
+        try:
+            text = content.decode(encoding, errors="replace")
+        except LookupError:
+            text = content.decode("utf-8", errors="replace")
+        return content, text
 
     def _save(self, source_id, filename, content):
         out_dir = RAW_DIR / source_id
@@ -142,18 +295,28 @@ class Adapter(ABC):
             "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         }
 
-    def _fetch_document(self, source, council, topic, *, url, title, suffix_hint=None,
-                        doc_type=None, seen_ids=None, stage=None):
+    def _fetch_document(self, source, council, topic, **kwargs):
         """Download one linked document and return a canonical record (or None)."""
+        return self._fetch_document_with_text(source, council, topic, **kwargs)[0]
+
+    def _fetch_document_with_text(self, source, council, topic, *, url, title,
+                                  suffix_hint=None, doc_type=None, seen_ids=None,
+                                  stage=None):
+        """As `_fetch_document`, and also hands back the page's text.
+
+        A page that is one of several in a list carries the links to the rest, so
+        whatever followed it needs to read it. Returns (record, text), either of
+        which may be None."""
         max_bytes = source.get("max_bytes")
         try:
-            resp = _http_get(url)
+            resp = self._get(source, url)
         except Exception as exc:
             print(f"        skip {title!r}: {exc}")
-            return None
-        if max_bytes and len(resp.content) > int(max_bytes):
-            print(f"        skip {title!r}: {len(resp.content)} bytes over max_bytes")
-            return None
+            return None, None
+        content, text = self._body(source, resp)
+        if max_bytes and len(content) > int(max_bytes):
+            print(f"        skip {title!r}: {len(content)} bytes over max_bytes")
+            return None, None
 
         record_id = f"{source['id']}--{_slug(title)}"
         if seen_ids is not None:
@@ -165,17 +328,142 @@ class Adapter(ABC):
             seen_ids.add(record_id)
 
         ext = suffix_hint or _extension_for(resp, resp.url or url)
-        saved = self._save(source["id"], f"{_slug(title)}{ext}", resp.content)
-        return self._record(
+        # The file is named after the record, not the title. Two pages of one
+        # list can share a title ("... (list continued, 2)") and the record ids
+        # are made unique above; naming the file after the title instead would
+        # quietly overwrite one document with another and leave the manifest
+        # holding a hash of bytes that are no longer on disk.
+        stem = record_id[len(source["id"]) + 2:] if record_id.startswith(source["id"] + "--") else record_id
+        saved = self._save(source["id"], f"{_slug(stem)}{ext}", content)
+        record = self._record(
             source, council, topic,
             record_id=record_id,
             title=_SIZE_SUFFIX_RE.sub("", title).strip() or record_id,
             url=url,
-            content=resp.content,
+            content=content,
             saved_to=saved,
             doc_type=doc_type,
             stage=stage,
         )
+        return record, text
+
+    def _followed_pages(self, source, council, topic, html, base_url, seen_ids):
+        """Fetch the pages a list page points at, if the config asks for it.
+
+        A councillor directory is a list of links to one page per councillor; a
+        committee index is a list of links to one page per committee. The page
+        that lists them is not the evidence — the pages it points at are. Which
+        links those are is a question about the council's own site, so it is
+        answered in config (`follow_pages`), never here.
+        """
+        spec = source.get("follow_pages")
+        if not spec:
+            return []
+        if isinstance(spec, (list, tuple)):
+            spec = {"href_contains": list(spec)}
+        needles = [str(x).lower() for x in (spec.get("href_contains") or [])]
+        if not needles:
+            print(f"        follow_pages on {source.get('id')} has no href_contains — nothing followed")
+            return []
+        limit = int(spec.get("max", 500))
+
+        out = []
+        seen_urls = set()
+        for match in _ANCHOR_RE.finditer(html or ""):
+            if len(out) >= limit:
+                print(f"        follow_pages: stopped at the cap of {limit} pages")
+                break
+            href = match.group("href")
+            if not any(n in href.lower() for n in needles):
+                continue
+            title = _strip_tags(match.group("text"))
+            if not title:
+                # A thumbnail wrapped in the same link as the name. The name link
+                # carries the words, so nothing is lost by skipping this one.
+                continue
+            if not _matches(spec, title, href):
+                continue
+            page_url = urljoin(base_url, href.replace("&amp;", "&"))
+            if page_url in seen_urls:
+                continue
+            seen_urls.add(page_url)
+            rec, page_html = self._fetch_document_with_text(
+                source, council, topic,
+                url=page_url,
+                title=title,
+                doc_type=spec.get("type"),
+                stage=spec.get("stage", source.get("stage")),
+                seen_ids=seen_ids,
+            )
+            if rec:
+                out.append(rec)
+                out.extend(self._paginated_pages(
+                    source, council, topic, spec,
+                    base_url=page_url, html=page_html, title=title, seen_ids=seen_ids))
+        return out
+
+    def _paginated_pages(self, source, council, topic, spec, *, base_url, html,
+                         title, seen_ids):
+        """Follow the rest of a list the platform split across several pages.
+
+        A committee system that shows five rows and then a link to page two is
+        publishing one list at several addresses. Keeping only the first page
+        does not merely lose rows: it presents a shortened list as though it were
+        the whole one. Which links are pager links is a question about the
+        platform's own markup, so `paginate.href_contains` answers it in config.
+
+        A needle here names a QUERY PARAMETER and has to be followed by "=" in
+        the address. A pager link carries the page number as a parameter of its
+        own; a login redirect or a "share this" link quotes that address inside
+        one of its own parameters, where the "=" comes through escaped. Without
+        that test the login page gets archived as though it were page two.
+
+        Only the first page's pager is read. A numeric pager lists every page, so
+        one pass reaches them all, and not following pagers on the pages we
+        collect keeps a grid that paginates twice from multiplying out into
+        every combination of the two.
+
+        Each further page becomes its own canonical record, with its own URL,
+        hash and fetch time. Nothing is stitched together here — the analyse
+        stage reads the pages and decides what they add up to.
+        """
+        rules = spec.get("paginate")
+        if not rules:
+            return []
+        if isinstance(rules, (list, tuple)):
+            rules = {"href_contains": list(rules)}
+        needles = [str(x).lower() for x in (rules.get("href_contains") or [])]
+        if not needles:
+            print(f"        paginate on {source.get('id')} has no href_contains — nothing followed")
+            return []
+        limit = int(rules.get("max", 20))
+
+        out = []
+        seen_urls = {base_url}
+        for match in _ANCHOR_RE.finditer(html or ""):
+            if len(out) >= limit:
+                print(f"        paginate: stopped at the cap of {limit} more pages")
+                break
+            href = match.group("href")
+            query = href.lower().partition("?")[2]
+            if not any(f"{n}=" in query for n in needles):
+                continue
+            next_url = urljoin(base_url, href.replace("&amp;", "&"))
+            if next_url in seen_urls:
+                continue
+            seen_urls.add(next_url)
+            label = _strip_tags(match.group("text")) or str(len(out) + 2)
+            rec = self._fetch_document(
+                source, council, topic,
+                url=next_url,
+                title=f"{title} (list continued, {label})",
+                doc_type=spec.get("type"),
+                stage=spec.get("stage", source.get("stage")),
+                seen_ids=seen_ids,
+            )
+            if rec:
+                out.append(rec)
+        return out
 
     def _explicit_documents(self, source, council, topic, seen_ids):
         """Fetch the `documents:` list from config, if there is one."""
@@ -213,21 +501,25 @@ class GenericAdapter(Adapter):
 
     def fetch(self, source, council, topic):
         url = source["url"]
-        resp = _http_get(url)
+        resp = self._get(source, url)
+        content, text = self._body(source, resp)
         name = Path(unquote(urlparse(url).path)).name
         if not Path(name).suffix:
             name = (name or "index") + _extension_for(resp, url)
-        saved = self._save(source["id"], name, resp.content)
+        saved = self._save(source["id"], name, content)
         page = self._record(
             source, council, topic,
             record_id=source["id"],
             title=source.get("title", source["id"]),
             url=url,
-            content=resp.content,
+            content=content,
             saved_to=saved,
         )
         records = [page] if source.get("include_page", True) else []
-        records.extend(self._explicit_documents(source, council, topic, {page["id"]}))
+        seen_ids = {page["id"]}
+        records.extend(self._followed_pages(
+            source, council, topic, text, resp.url or url, seen_ids))
+        records.extend(self._explicit_documents(source, council, topic, seen_ids))
         return records
 
 
@@ -252,15 +544,16 @@ class CmisAdapter(Adapter):
 
     def fetch(self, source, council, topic):
         url = source["url"]
-        resp = _http_get(url)
-        html = resp.text
-        saved = self._save(source["id"], "page.html", resp.content)
+        resp = self._get(source, url)
+        content, text = self._body(source, resp)
+        html = html_text = text
+        saved = self._save(source["id"], "page.html", content)
         page = self._record(
             source, council, topic,
             record_id=source["id"],
             title=source.get("title", source["id"]),
             url=url,
-            content=resp.content,
+            content=content,
             saved_to=saved,
         )
 
@@ -292,6 +585,8 @@ class CmisAdapter(Adapter):
                 if rec:
                     records.append(rec)
 
+        records.extend(self._followed_pages(
+            source, council, topic, html_text, resp.url or url, seen_ids))
         records.extend(self._explicit_documents(source, council, topic, seen_ids))
         return records
 
@@ -321,29 +616,31 @@ class LocalGovDrupalAdapter(Adapter):
 
     def fetch(self, source, council, topic):
         url = source["url"]
-        resp = _http_get(url)
+        resp = self._get(source, url)
+        content, text = self._body(source, resp)
         ctype = (resp.headers.get("Content-Type") or "").split(";")[0].strip().lower()
         ext = _extension_for(resp, resp.url or url)
 
         # The URL is the document itself — archive it and stop.
         if ctype != "text/html":
-            saved = self._save(source["id"], f"{_slug(source.get('title', source['id']))}{ext}", resp.content)
+            saved = self._save(source["id"], f"{_slug(source.get('title', source['id']))}{ext}", content)
             return [self._record(
                 source, council, topic,
                 record_id=source["id"],
                 title=source.get("title", source["id"]),
                 url=url,
-                content=resp.content,
+                content=content,
                 saved_to=saved,
             )]
 
-        saved = self._save(source["id"], "page.html", resp.content)
+        html_text = text
+        saved = self._save(source["id"], "page.html", content)
         page = self._record(
             source, council, topic,
             record_id=source["id"],
             title=source.get("title", source["id"]),
             url=url,
-            content=resp.content,
+            content=content,
             saved_to=saved,
         )
         records = [page] if source.get("include_page", True) else []
@@ -351,7 +648,7 @@ class LocalGovDrupalAdapter(Adapter):
         seen_urls = set()
 
         if source.get("follow_links", True):
-            for match in _ANCHOR_RE.finditer(resp.text):
+            for match in _ANCHOR_RE.finditer(text):
                 href = match.group("href")
                 if not self._DOC_HREF_RE.search(href):
                     continue
@@ -369,6 +666,8 @@ class LocalGovDrupalAdapter(Adapter):
                 if rec:
                     records.append(rec)
 
+        records.extend(self._followed_pages(
+            source, council, topic, html_text, resp.url or url, seen_ids))
         records.extend(self._explicit_documents(source, council, topic, seen_ids))
         return records
 
@@ -390,14 +689,16 @@ class EngagementAdapter(Adapter):
 
     def fetch(self, source, council, topic):
         url = source["url"]
-        resp = _http_get(url)
-        saved = self._save(source["id"], "page.html", resp.content)
+        resp = self._get(source, url)
+        content, text = self._body(source, resp)
+        html_text = text
+        saved = self._save(source["id"], "page.html", content)
         page = self._record(
             source, council, topic,
             record_id=source["id"],
             title=source.get("title", source["id"]),
             url=url,
-            content=resp.content,
+            content=content,
             saved_to=saved,
         )
         records = [page] if source.get("include_page", True) else []
@@ -405,7 +706,7 @@ class EngagementAdapter(Adapter):
         seen_urls = set()
 
         if source.get("follow_links", True):
-            for match in _ANCHOR_RE.finditer(resp.text):
+            for match in _ANCHOR_RE.finditer(text):
                 href = match.group("href")
                 if not self._DOC_HREF_RE.search(href):
                     continue
@@ -418,7 +719,7 @@ class EngagementAdapter(Adapter):
                 suffix = None
                 # Ask the platform for the document's real name and extension.
                 try:
-                    meta = _http_get(doc_url + ".json").json().get("document", {})
+                    meta = self._get(source, doc_url + ".json").json().get("document", {})
                     title = meta.get("name") or title
                     filename = meta.get("filename") or ""
                     if Path(filename).suffix:
@@ -438,6 +739,8 @@ class EngagementAdapter(Adapter):
                 if rec:
                     records.append(rec)
 
+        records.extend(self._followed_pages(
+            source, council, topic, html_text, resp.url or url, seen_ids))
         records.extend(self._explicit_documents(source, council, topic, seen_ids))
         return records
 

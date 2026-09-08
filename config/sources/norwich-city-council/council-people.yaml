@@ -1,0 +1,458 @@
+# CouncilLens — Norwich City Council, who runs the council.
+#
+# This file gathers a different KIND of public record from the rest of
+# config/sources/: not the trail of one decision, but the council's own account of
+# who sits on it. `model: people` tells the analyse stage so — the topic build
+# leaves these documents alone and src/analyse/build_people.py assembles them into
+# data/analysed/norwich-city-council/people.json instead. Ingest, transform and
+# the contract gate are identical either way.
+#
+# WHAT MAY GO IN HERE, AND WHAT MAY NOT
+#
+# Only the council's own publications, plus the Register of Members' Interests,
+# which is the councillor's own declaration made under the Localism Act 2011 and
+# published by the council that received it. Nothing from LinkedIn, X, Facebook or
+# any other social network. Nothing from Companies House or any other database
+# matched on a person's name. Nothing from the press. If a councillor's own
+# website is printed on their council page, the address is recorded as the council
+# prints it and is never fetched.
+#
+# Nothing about family, health or a home address. The registers give land at ward
+# level and that is the level this project keeps.
+#
+# REDACTED AT INGEST: every source below carries `redact: [uk_phone_numbers]`.
+# CMIS prints a personal mobile number for most councillors, and this project
+# does not keep one — not on the page, and not in the archive either. The rule
+# runs on the downloaded bytes before anything is saved or hashed, so the file in
+# data/raw, the sha256 in the manifest, the extracted text and the site all show
+# "[phone number removed]" and there is no unredacted copy anywhere, including in
+# this repository's history. It is deliberately blunt and also takes out the
+# council's own switchboard numbers where they appear on these pages: the
+# council's website has those, and a rule that had to judge whose phone each
+# number is would be a rule that sometimes got it wrong. The people topic records
+# this as a gap so a reader knows the archive is not a byte-for-byte mirror.
+#
+# Every URL below was fetched and read on 2026-09-08 before being written down.
+# Sources that could not be verified are disabled, with a note saying what was
+# searched.
+
+council: "Norwich City Council"
+topic: "Council people (who runs the council)"
+model: people
+
+sources:
+  # ------------------------------------------------------------------
+  # THE COUNCILLORS — the council's own directory, and one page each
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-08. The directory CMIS publishes of everyone currently
+  # sitting: 39 councillors, each with name, ward, party and the date of the
+  # election they last won. `follow_pages` then fetches the page CMIS keeps for
+  # each of them, which is where the detail lives — first elected, every term
+  # served, party and ward history, current and past committee places, outside
+  # bodies the council appointed them to, the dates of every register of
+  # interests they have filed, declarations made at meetings, training, gifts and
+  # hospitality, and a rolling twelve-month attendance record.
+  #
+  # follow_links is off: the directory links no documents, only pages.
+  - id: norwich-councillors
+    title: "Councillors — Norwich City Council's own directory"
+    type: unknown
+    stage: null
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Councillors.aspx"
+    redact: [uk_phone_numbers]
+    # CMIS renders a paginated list two ways. To a browser it gives JavaScript
+    # postbacks, which this pipeline cannot follow; to a crawler it gives
+    # ordinary links with the page number in the address. Saying honestly what we
+    # are is what makes the rest of each councillor's committee list readable —
+    # and it is the more polite thing to send a council's server anyway.
+    user_agent: "CouncilLens-ingest/0.3 (+https://github.com/dawsman/councillens)"
+    follow_links: false
+    follow_pages:
+      href_contains:
+        - "ViewCMIS_Person"
+      type: unknown
+      max: 200
+      # CMIS shows five rows of a councillor's committee list, five of their
+      # outside bodies and five of their past places, then links the rest as
+      # "2", "3" and so on. Those links are ordinary addresses, so the rest of
+      # each list is fetched as its own record. Without this a councillor on ten
+      # committees reads as a councillor on five, which understates their work
+      # and makes committees look as though they have no chair.
+      paginate:
+        href_contains:
+          - "grdRadCommitteesCurrentChangePage"
+          - "grdRadOutsideBodiesCurrentChangePage"
+        max: 6
+    max_bytes: 3000000
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # WHAT THEY HAVE DECLARED — the Register of Members' Interests
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-08. Every councillor must declare, under the Localism Act
+  # 2011, the things that could affect the decisions they take: a job, a
+  # directorship, land, a licence, help with election costs. They fill the form in
+  # themselves, the Monitoring Officer receives it, and the council publishes it.
+  # It is a sworn declaration by the person, not an allegation about them.
+  #
+  # HOW THESE URLS WERE OBTAINED, AND WHY THEY ARE WRITTEN OUT IN FULL
+  #
+  # CMIS lists each councillor's registers on their own page as dates with a
+  # "View" button. The button is an ASP.NET form post, not a link, so there is no
+  # address on the page to follow. Pressing it redirects to an ordinary, signed
+  # /Live/Document.ashx address that then serves the PDF to anyone, with no cookie
+  # and no session. Those addresses are stable and repeatable — pressing the
+  # button twice gives the same one — so each councillor's most recent register
+  # was resolved once, by hand, on 2026-09-08, and written down here. That is the
+  # same thing this project already does for CMIS committee reports, and it keeps
+  # the pipeline to plain GETs.
+  #
+  # ONLY 17 OF THE 39 ARE HERE, AND THAT IS THE FINDING
+  #
+  # Norwich publishes 22 of the 39 registers as scanned pictures of a paper form,
+  # with no text in the file at all. A scan is published, but it is not readable:
+  # nothing can quote it, search it, or check it without a person retyping it, and
+  # this project does not retype documents it cannot verify. Those 22 are not
+  # banked — 22 MB of images the site could say nothing about — and every one of
+  # them is recorded as a gap instead, with the address of the councillor's own
+  # page so a reader can open the scan themselves.
+  #
+  # The 17 below are the ones the council published as real PDFs. 3.3 MB in total.
+  - id: norwich-councillor-registers
+    title: "Registers of members' interests — the 17 published in a readable form"
+    type: unknown
+    stage: null
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Councillors.aspx"
+    redact: [uk_phone_numbers]
+    include_page: false
+    follow_links: false
+    max_bytes: 5000000
+    documents:
+      - title: "Register of interests — Councillor Amanda Fox, notice of 12 August 2024"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=hyN9xuZDHXZ3ABl3BRcANIDHuGqx0XbveAMyEmULs73BgfSLmGJ7Xw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Amber Smith, notice of 14 May 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=64YDVhWasKoDRUsUPxksP5xXvIIDSmVQAGhNspFO59k2utY8ReuwIA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Ash Jones, notice of 09 May 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=dLlyl0047R%2fBUyT9uWSEPGK1wtEPhZOUUzuXMKmyP8i56Ux45UH6Lg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Bliss Wylie, notice of 29 May 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=2%2bpoI69Rhw%2fo4%2f%2f46PEbop2u5t%2fzN%2fThNLQ%2feReumNF66QuMdxARTg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Carli Harper, notice of 07 March 2025"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=Ur%2fZcr%2bI4%2bZVbRZpL6yoZkCqNr8NVvK0yaGjRxoI4EVdZ%2fNmdFpNKA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Denise Carlo, notice of 11 May 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=AWEHQZdprwDVwPQx4e8jT5wNEbIK4cK58GR0kUz%2bWRlfR%2ber9iC9Nw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Georgia Brumby, notice of 04 June 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=%2f%2bVuFn28Oho1dunfNh7wWB3KyWG5WbbdDyjM8woMiDJdqYcMey6wOA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Hannah Hoechner, notice of 01 June 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=KjEEkQOeYp1qbBc72P52Y3AyFQQ2NUmeNAjcsdN9u43X%2fefuD20r8Q%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor James Wright, notice of 22 October 2024"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=iiV67mhcn8Xj0qnBVJ8SqHqSddeatWMzsv95%2bvcQah9KY9%2bSt0szKA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Keith Driver, notice of 06 March 2025"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=nKQ2EYrnIOKIrNGi4jCOjoT0uo2UvsrVefUE1p8jRN8teQDT23HPqQ%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Matthew Packer, notice of 13 December 2024"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=adYtAc6qrUkLTJ12x9C9N13KroE%2fb3EYLAlEtnV4KrlkK6F1KxNv0A%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Mike Conroy, notice of 21 May 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=KIOx%2fHQXK2PHqU220WY02ZkJ5cW2P7%2bBjaohb61tDKZgzshY5CNOUA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Mike Stonard, notice of 22 September 2025"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=zMrnqkyKYlQlcPMY83boMKAyvmrivJDDvZGPEufYtC%2b39gVjG1KRnQ%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Sophia Della Corte, notice of 01 June 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=9Sgv%2fIRxV9EliJzSpJMKmElfz%2bT70qm81qjrV%2b9w1HtltgwD%2fcku4A%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Tammy Searle, notice of 12 May 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=O%2fLjjLbyBaV%2f1emsPr9jzhenSWbMLUc1PgOQujXb9qXUjfoF%2fXtfwg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Tim Day, notice of 21 May 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=Z%2bvjM9x3nHnBTbx7dGd9nXlvVkMMHK2yTVAed1bHqoMd89EfBfLgpg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+      - title: "Register of interests — Councillor Tom Butterworth, notice of 12 May 2026"
+        type: unknown
+        url: "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=EFMhJOAeAWhwPkaaQ%2bUmMdQcO6%2bd8bsK0oLaTzPR0Hfy6BJkOAx%2bug%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d"
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # TURNING UP — attendance
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-08. CMIS publishes attendance two ways, and both are in the
+  # static HTML with no button to press. Each councillor's own page carries a
+  # summary for a rolling twelve months, which is what this model's per-councillor
+  # figures come from. This page carries the same thing arranged by committee —
+  # every committee, every member, meetings expected, meetings attended, the
+  # percentage, and substitutes sent. It is banked so a reader can check a
+  # councillor's number against the committee it came from.
+  - id: norwich-attendance-by-committee
+    title: "Attendance at meetings, by committee"
+    type: performance
+    stage: null
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewAttendanceByCommittee/mid/383/ScreenMode/Alphabetical/Default.aspx"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    max_bytes: 3000000
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # THE COMMITTEES — what the council splits itself into
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-08. CMIS's index of all 19 committees, each with a stable
+  # address of its own. Membership and chairs come from the councillors' own pages
+  # above, which carry the same facts with joining dates, so the individual
+  # committee pages are not fetched as well.
+  - id: norwich-committees
+    title: "Committees — Norwich City Council's own index"
+    type: unknown
+    stage: null
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Committees.aspx"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true
+
+  # Verified 2026-09-08. The council's own plain-English account of what each of
+  # its committees is for — one short page per committee, written for residents.
+  # CMIS gives a committee's membership and its papers but leaves the description
+  # field empty, so this is the only place the council says in words what a
+  # committee decides. `follow_pages` picks up the page for each committee.
+  #
+  # Not every committee has one: audit, treasury management and full council are
+  # missing from the series, and that absence is recorded as a gap rather than
+  # filled in with a description nobody published.
+  - id: norwich-committee-types
+    title: "Types of committees — what each committee is for"
+    type: unknown
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/about-committees-and-meetings/types-committees"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    follow_pages:
+      href_contains:
+        - "/types-committees/"
+      type: unknown
+      max: 40
+    enabled: true
+
+  # Verified 2026-09-08. The organisations the council appoints its councillors
+  # to: charities, company boards, partnerships. An appointment the council made
+  # and publishes, not a private interest.
+  - id: norwich-outside-bodies
+    title: "Outside bodies the council appoints councillors to"
+    type: unknown
+    stage: null
+    platform: cmis
+    url: "https://cmis.norwich.gov.uk/live/Outsidebodies.aspx"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # WHO IS IN CHARGE — leader, cabinet, Lord Mayor, seats by party
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-08. The council's own account of how it makes decisions, and
+  # the page that states the seats each party holds.
+  - id: norwich-decision-making
+    title: "Councillors and decision making — how many seats each party holds"
+    type: unknown
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/how-council-run-and-who-makes-decisions/councillors-and-decision-making"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true
+
+  # Verified 2026-09-08. The Leader and the cabinet, with the subject each cabinet
+  # member is responsible for. CMIS gives some of these as "Cabinet Member" with
+  # no subject; this page names them.
+  - id: norwich-leader-and-cabinet
+    title: "The Leader and the cabinet, and what each of them covers"
+    type: unknown
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/how-council-run-and-who-makes-decisions/councillors-and-decision-making/leader-and-cabinet-overview"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true
+
+  # Verified 2026-09-08. The Lord Mayor and Sheriff for the year. A ceremonial
+  # role, held by a serving councillor, and the council publishes who has it.
+  - id: norwich-lord-mayor
+    title: "The Lord Mayor and Sheriff of Norwich"
+    type: unknown
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/lord-mayor-and-sheriff-norwich"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # THE PAID PEOPLE — senior officers and what they earn
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-08. The council's own page naming the chief executive and the
+  # executive directors. Officers are employees, not politicians: this model
+  # carries the post, the name where the council prints it, the statutory duty and
+  # the published pay band, and nothing else about them.
+  - id: norwich-council-officers
+    title: "Council officers — the chief executive and executive directors"
+    type: unknown
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/how-council-run-and-who-makes-decisions/council-officers"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true
+
+  # Verified 2026-09-08. The pay policy statement the council must publish every
+  # year under the Localism Act 2011: the pay of its chief officers, the ratio
+  # between the highest paid and the rest, and which posts carry the statutory
+  # duties (head of paid service, monitoring officer, section 151 officer).
+  - id: norwich-pay-policy-statement
+    title: "Pay policy statement 2025-26"
+    type: spending
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/downloads/file/10742/pay_policy_statement_2025-26"
+    redact: [uk_phone_numbers]
+    enabled: true
+
+  # Verified 2026-09-08. The Local Government Transparency Code return on senior
+  # salaries. The 2025-26 scales are published as a spreadsheet, which this
+  # pipeline does not read, so the 2024-25 PDF is banked alongside the page.
+  - id: norwich-senior-pay
+    title: "Senior management salaries"
+    type: spending
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/transparency-and-accountability/find-open-data/senior-management-salaries"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    documents:
+      - title: "Senior leadership pay scales 2024-2025"
+        type: spending
+        url: "https://www.norwich.gov.uk/downloads/file/10631/senior_leadership_pay_scales_2024_-_2025_pdf"
+    enabled: true
+
+  # Verified 2026-09-08. Every post paid over £50,000, as the Transparency Code
+  # requires, published as a spreadsheet the pipeline can read.
+  - id: norwich-salaries-over-50k
+    title: "Salaries over £50,000"
+    type: spending
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/sites/default/files/2026-05/Salaries-in-excess-of-%C2%A350%2C000.csv"
+    redact: [uk_phone_numbers]
+    enabled: true
+
+  # ------------------------------------------------------------------
+  # WHAT COUNCILLORS ARE PAID — allowances
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-08. An allowance is not a salary: it is a fixed sum for doing
+  # the job, set by the council on the advice of an independent panel, plus extra
+  # for people carrying extra responsibility. The council publishes what it paid
+  # each councillor, one file per year, back to 2017-18. The most recent complete
+  # year is banked; the page itself is the index of the rest.
+  - id: norwich-councillors-allowances
+    title: "Councillors' allowances — what each councillor was paid"
+    type: spending
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/how-council-run-and-who-makes-decisions/councillors-allowances"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    documents:
+      - title: "Councillors' allowances paid in 2024-25"
+        type: spending
+        url: "https://www.norwich.gov.uk/sites/default/files/2026-02/Members-Allowances-2024-25.pdf"
+    enabled: true
+
+  # Verified 2026-09-08: the full Members' Allowances Scheme is Part 4 of the
+  # constitution, a 2.2 MB PDF that is almost entirely about other things. The
+  # allowances page above carries the amounts, so the constitution is left out to
+  # keep the archive to what the site actually cites. Recorded here so the next
+  # reviewer can see it was checked, not missed.
+  - id: norwich-constitution
+    title: "Constitution (Part 4 is the members' allowances scheme)"
+    type: policy
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/sites/default/files/2026-03/Constitution%2017%20March%202026.pdf"
+    redact: [uk_phone_numbers]
+    enabled: false
+
+  # ------------------------------------------------------------------
+  # HOW THEY GOT THERE — election results
+  # ------------------------------------------------------------------
+
+  # Verified 2026-09-08. Norwich normally elects a third of its councillors at a
+  # time, so the people sitting today were elected across several years. These are
+  # the council's own result pages for the four elections that put the current
+  # 39 in place: every ward, every candidate, votes cast, and who won.
+  - id: norwich-election-results-2026
+    title: "Norwich City Council election results, 7 May 2026"
+    type: unknown
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/elections-and-voting/elections-2026/norwich-city-council-election-results-2026"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true
+
+  - id: norwich-election-results-2025
+    title: "Norwich City Council election results, 1 May 2025"
+    type: unknown
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council2025-election-results"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true
+
+  - id: norwich-election-results-2024
+    title: "Norwich City Council election results, 2 May 2024"
+    type: unknown
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-results-2-may-2024"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true
+
+  - id: norwich-election-results-2023
+    title: "Norwich City Council election results, 4 May 2023"
+    type: unknown
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-2023"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true
+
+  - id: norwich-election-results-index
+    title: "Norwich election results — every election the council has published"
+    type: unknown
+    stage: null
+    platform: localgov_drupal
+    url: "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results"
+    redact: [uk_phone_numbers]
+    follow_links: false
+    enabled: true

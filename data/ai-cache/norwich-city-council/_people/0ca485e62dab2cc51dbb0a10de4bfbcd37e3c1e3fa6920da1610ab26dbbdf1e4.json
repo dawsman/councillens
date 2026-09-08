@@ -1,0 +1,278 @@
+{
+  "kind": "person",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "id": "cllr-james-wright",
+    "name": "Councillor James Wright",
+    "party": "Liberal Democrats",
+    "ward": "Eaton",
+    "first_elected": "2010-09-09",
+    "first_elected_precision": "day",
+    "current_term_start": "2024-05-03",
+    "elections": [
+      {
+        "date": "2010-09-09",
+        "date_precision": "day",
+        "result": "elected",
+        "ward": "Eaton",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2014-05-22",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "Eaton",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2018-05-08",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "Eaton",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2019-05-03",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "Eaton",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2021-05-08",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "Eaton",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2024-05-02",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "Eaton",
+        "votes": 2027,
+        "majority": 1167,
+        "turnout_percent": null,
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-results-2-may-2024"
+      }
+    ],
+    "roles": [
+      {
+        "title": "Chair, Scrutiny committee",
+        "body_slug": "scrutiny-committee",
+        "since": "2024-05-21",
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "title": "Leader of the Liberal Democrat group",
+        "body_slug": null,
+        "since": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "title": "Vice Chair, Twinning committee",
+        "body_slug": "twinning-committee",
+        "since": "2022-05-24",
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx"
+      }
+    ],
+    "committees": [
+      {
+        "slug": "audit-committee",
+        "name": "Audit committee",
+        "role": "Member",
+        "since": "2019-06-20"
+      },
+      {
+        "slug": "council",
+        "name": "Council",
+        "role": "Member",
+        "since": "2014-06-03"
+      },
+      {
+        "slug": "cross-party-working-group",
+        "name": "Cross party working group - polling district review",
+        "role": "Member",
+        "since": "2019-06-14"
+      },
+      {
+        "slug": "scrutiny-committee",
+        "name": "Scrutiny committee",
+        "role": "Chair",
+        "since": "2024-05-21"
+      },
+      {
+        "slug": "treasury-management-committee",
+        "name": "Treasury Management Committee",
+        "role": "Member",
+        "since": "2024-05-21"
+      },
+      {
+        "slug": "twinning-committee",
+        "name": "Twinning committee",
+        "role": "Vice Chair",
+        "since": "2022-05-24"
+      }
+    ],
+    "outside_bodies": [],
+    "attendance": {
+      "expected": 33,
+      "attended": 29,
+      "apologies": 4,
+      "period": "the 12 months to 8 September 2026",
+      "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx",
+      "note": "CMIS counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. The council publishes how many of the missed meetings were apologised for, and both halves of that figure are shown here."
+    },
+    "allowances": {
+      "basic": 7805.08,
+      "special_responsibility": null,
+      "total": 12453.68,
+      "currency": "GBP",
+      "year": "2024-25",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-02/Members-Allowances-2024-25.pdf",
+      "note": "From the council's published schedule of allowances paid in 2024-25, matched on surname and initial. An allowance is not a salary: it is a set payment for doing the job. The schedule has four money columns — basic allowance, special responsibility, expenses and total — but prints a figure in only three of them for almost everyone, so the basic allowance and the total can be read off it and the middle figure cannot be told apart from expenses. This page therefore shows the basic allowance and the total, and says nothing about special responsibility."
+    },
+    "interests": {
+      "register_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=iiV67mhcn8Xj0qnBVJ8SqHqSddeatWMzsv95%2bvcQah9KY9%2bSt0szKA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "register_date": "2024-10-22",
+      "employment": [
+        {
+          "text": "IT Consultant, 4th Millennium Systems Ltd",
+          "category": "Employment, office, trade, profession or vocation"
+        }
+      ],
+      "directorships": [],
+      "memberships": [
+        {
+          "text": "Member of CAMRA (Campaign for Real Ale)",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "British Computer Society",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "National Trust",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Governor at St Nicholas Priory CE VA Primary School, Great Yarmouth",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Governor at Sprowston Infant School",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Member of the Liberal Democrats including Norwich Liberal Democrats Executive",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Co-event Director at Eaton junior parkrun and parkrun Event Support Ambassador",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Member of Norfolk Gazelles Athletics Club",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Member of the Norfolk and Norwich Novi Sad Association",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Member of the Norfolk and Norwich Rouen Friendship Association",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Member of the Norfolk and Norwich Koblenz Friendship Association",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Member of the Norwich City Civic Association",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Trustee of the Active Norfolk Foundation",
+          "category": "Other registrable interests"
+        }
+      ],
+      "sponsorship": [
+        {
+          "text": "Election expenses provided by Norwich Liberal Democrats",
+          "category": "Sponsorship"
+        }
+      ],
+      "land": [],
+      "other": [
+        {
+          "text": "Shareholding in 4th Millennium Systems Ltd",
+          "category": "Securities"
+        }
+      ],
+      "note": "Taken from the register this councillor signed on 22 October 2024. The council had this councillor on its February 2016 form, which has a single column headed 'Details of member's interests', so nothing on it is ambiguous about whose interest it is. Their interests run into a second box on page five of the form, and both boxes are shown. Two entries are left out because they are about someone else rather than them: their partner's employer, and a family member's employer. Their land entry is a joint one with their partner and is not shown for the same reason. They wrote 'Self:' in front of several answers to mark them as their own rather than their partner's; that marker is not repeated here. The full form is linked."
+    },
+    "declared_links": [],
+    "contact": {
+      "email": "j.wright@cllr.norwich.gov.uk",
+      "address": "c/o City Hall Norwich NR2 1NH"
+    },
+    "summary": "Councillor James Wright has represented Eaton ward since 9 September 2010. They are the Leader of the Liberal Democrat group. They chair the Scrutiny committee. They are vice chair of the Twinning committee. They sit on 6 of the council's committees and panels: Audit committee, Council, Cross party working group - polling district review, Scrutiny committee, Treasury Management Committee and Twinning committee. The council's committee system records them at 29 of the 33 meetings they were expected at in the 12 months to 8 September 2026. They missed 4, and the council records apologies for all 4. What they declared on their register of interests, signed on 22 October 2024, is set out below, with a note on anything that is not shown.",
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillor-registers--register-of-interests-councillor-james-wright-notice-of-22-october-2024",
+      "norwich-councillors",
+      "norwich-councillors--councillor-james-wright",
+      "norwich-councillors--councillor-james-wright-list-continued-2",
+      "norwich-councillors-allowances",
+      "norwich-councillors-allowances--councillors-allowances-paid-in-2024-25",
+      "norwich-election-results-2024"
+    ],
+    "source_urls": [
+      "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=iiV67mhcn8Xj0qnBVJ8SqHqSddeatWMzsv95%2bvcQah9KY9%2bSt0szKA%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "https://cmis.norwich.gov.uk/live/Councillors.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewAttendanceByCommittee/mid/383/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/31/ScreenMode/Alphabetical/Default.aspx?dnn_ctr383_ViewCMIS_Person_grdRadCommitteesCurrentChangePage=2_5",
+      "https://www.norwich.gov.uk/sites/default/files/2026-02/Members-Allowances-2024-25.pdf",
+      "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-results-2-may-2024",
+      "https://www.norwich.gov.uk/your-council-explained/how-council-run-and-who-makes-decisions/councillors-allowances"
+    ],
+    "order": 11,
+    "party_history": []
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillor-registers--register-of-interests-councillor-james-wright-notice-of-22-october-2024",
+      "norwich-councillors",
+      "norwich-councillors--councillor-james-wright",
+      "norwich-councillors--councillor-james-wright-list-continued-2",
+      "norwich-councillors-allowances",
+      "norwich-councillors-allowances--councillors-allowances-paid-in-2024-25",
+      "norwich-election-results-2024"
+    ],
+    "prompt_version": "person-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "0ca485e62dab2cc51dbb0a10de4bfbcd37e3c1e3fa6920da1610ab26dbbdf1e4"
+  }
+}

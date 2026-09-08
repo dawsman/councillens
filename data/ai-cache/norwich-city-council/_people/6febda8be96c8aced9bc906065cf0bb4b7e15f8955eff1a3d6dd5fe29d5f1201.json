@@ -1,0 +1,132 @@
+{
+  "kind": "person",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "id": "cllr-tammy-searle",
+    "name": "Councillor Tammy Searle",
+    "party": "The Green Party",
+    "ward": "University",
+    "first_elected": "2026-05-08",
+    "first_elected_precision": "day",
+    "current_term_start": "2026-05-08",
+    "elections": [
+      {
+        "date": "2026-05-07",
+        "date_precision": "day",
+        "result": "elected",
+        "ward": "University",
+        "votes": 1384,
+        "majority": 712,
+        "turnout_percent": null,
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/elections-and-voting/elections-2026/norwich-city-council-election-results-2026"
+      }
+    ],
+    "roles": [],
+    "committees": [
+      {
+        "slug": "council",
+        "name": "Council",
+        "role": "Member",
+        "since": "2026-05-12"
+      },
+      {
+        "slug": "mousehold-heath-conservators",
+        "name": "Mousehold Heath Conservators",
+        "role": "Member",
+        "since": "2026-05-19"
+      },
+      {
+        "slug": "norwich-area-museums-committee",
+        "name": "Norwich area museums committee",
+        "role": "Member",
+        "since": "2026-05-19"
+      },
+      {
+        "slug": "planning-applications-committee",
+        "name": "Planning Applications Committee",
+        "role": "Member",
+        "since": "2026-05-19"
+      },
+      {
+        "slug": "standards-committee",
+        "name": "Standards committee",
+        "role": "Member",
+        "since": "2026-05-19"
+      }
+    ],
+    "outside_bodies": [],
+    "attendance": {
+      "expected": 5,
+      "attended": 5,
+      "apologies": 0,
+      "period": "the 12 months to 8 September 2026",
+      "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/244/ScreenMode/Alphabetical/Default.aspx",
+      "note": "CMIS counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. The council publishes how many of the missed meetings were apologised for, and both halves of that figure are shown here."
+    },
+    "allowances": null,
+    "interests": {
+      "register_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=O%2fLjjLbyBaV%2f1emsPr9jzhenSWbMLUc1PgOQujXb9qXUjfoF%2fXtfwg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "register_date": "2026-05-12",
+      "employment": [],
+      "directorships": [],
+      "memberships": [
+        {
+          "text": "Member of The Green Party",
+          "category": "Other registrable interests"
+        },
+        {
+          "text": "Member of Acorn Norwich",
+          "category": "Other registrable interests"
+        }
+      ],
+      "sponsorship": [
+        {
+          "text": "Election expenses paid by The Green Party",
+          "category": "Sponsorship"
+        }
+      ],
+      "land": [],
+      "other": [],
+      "note": "Taken from the register this councillor signed on 12 May 2026. The council had this councillor on its April 2026 form. In the pecuniary table that form puts the councillor's answers beside their partner's, and the two columns run together when the file is read as text. The 'other registrable interests' box below it is a single list with no partner column. Their 'other registrable interests' are shown in full. The employment row lists a studentship at UEA and two employers across their column and their partner's, with nothing in the file to say which is whose, so none of them is shown. The full form is linked."
+    },
+    "declared_links": [],
+    "contact": {
+      "email": "t.searle@cllr.norwich.gov.uk",
+      "address": "c/o City Hall Norwich NR2 1NH"
+    },
+    "summary": "Councillor Tammy Searle has represented University ward since 8 May 2026. They sit on 5 of the council's committees and panels: Council, Mousehold Heath Conservators, Norwich area museums committee, Planning Applications Committee and Standards committee. The council's committee system records them at 5 of the 5 meetings they were expected at in the 12 months to 8 September 2026. They missed none. What they declared on their register of interests, signed on 12 May 2026, is set out below, with a note on anything that is not shown.",
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillor-registers--register-of-interests-councillor-tammy-searle-notice-of-12-may-2026",
+      "norwich-councillors",
+      "norwich-councillors--councillor-tammy-searle",
+      "norwich-election-results-2026"
+    ],
+    "source_urls": [
+      "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=O%2fLjjLbyBaV%2f1emsPr9jzhenSWbMLUc1PgOQujXb9qXUjfoF%2fXtfwg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "https://cmis.norwich.gov.uk/live/Councillors.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewAttendanceByCommittee/mid/383/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/244/ScreenMode/Alphabetical/Default.aspx",
+      "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/elections-and-voting/elections-2026/norwich-city-council-election-results-2026"
+    ],
+    "order": 35,
+    "party_history": []
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillor-registers--register-of-interests-councillor-tammy-searle-notice-of-12-may-2026",
+      "norwich-councillors",
+      "norwich-councillors--councillor-tammy-searle",
+      "norwich-election-results-2026"
+    ],
+    "prompt_version": "person-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "6febda8be96c8aced9bc906065cf0bb4b7e15f8955eff1a3d6dd5fe29d5f1201"
+  }
+}

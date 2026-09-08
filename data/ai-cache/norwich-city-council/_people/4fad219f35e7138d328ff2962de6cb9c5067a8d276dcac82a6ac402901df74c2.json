@@ -1,0 +1,121 @@
+{
+  "kind": "person",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "id": "cllr-tom-butterworth",
+    "name": "Councillor Tom Butterworth",
+    "party": "The Green Party",
+    "ward": "Wensum",
+    "first_elected": "2026-05-08",
+    "first_elected_precision": "day",
+    "current_term_start": "2026-05-08",
+    "elections": [
+      {
+        "date": "2026-05-07",
+        "date_precision": "day",
+        "result": "elected",
+        "ward": "Wensum",
+        "votes": 1706,
+        "majority": 888,
+        "turnout_percent": null,
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/elections-and-voting/elections-2026/norwich-city-council-election-results-2026"
+      }
+    ],
+    "roles": [],
+    "committees": [
+      {
+        "slug": "council",
+        "name": "Council",
+        "role": "Member",
+        "since": "2026-05-12"
+      },
+      {
+        "slug": "scrutiny-committee",
+        "name": "Scrutiny committee",
+        "role": "Member",
+        "since": "2026-05-19"
+      },
+      {
+        "slug": "sustainable-development-panel",
+        "name": "Sustainable development panel",
+        "role": "Member",
+        "since": "2026-05-19"
+      }
+    ],
+    "outside_bodies": [],
+    "attendance": {
+      "expected": 5,
+      "attended": 3,
+      "apologies": 2,
+      "period": "the 12 months to 8 September 2026",
+      "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/245/ScreenMode/Alphabetical/Default.aspx",
+      "note": "CMIS counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. The council publishes how many of the missed meetings were apologised for, and both halves of that figure are shown here."
+    },
+    "allowances": null,
+    "interests": {
+      "register_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=EFMhJOAeAWhwPkaaQ%2bUmMdQcO6%2bd8bsK0oLaTzPR0Hfy6BJkOAx%2bug%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "register_date": "2026-05-12",
+      "employment": [],
+      "directorships": [],
+      "memberships": [
+        {
+          "text": "Member of The Green Party",
+          "category": "Other registrable interests"
+        }
+      ],
+      "sponsorship": [
+        {
+          "text": "Election expenses paid for by The Green Party",
+          "category": "Sponsorship"
+        }
+      ],
+      "land": [],
+      "other": [
+        {
+          "text": "5 shares purchased at a value of £1,000 per share of Unknown Worlds Limited, the Company owns land in Cambridgeshire and is for Camping and Leisure Purposes",
+          "category": "Other registrable interests (g)"
+        }
+      ],
+      "note": "Taken from the register this councillor signed on 12 May 2026. The council had this councillor on its April 2026 form. In the pecuniary table that form puts the councillor's answers beside their partner's, and the two columns run together when the file is read as text. The 'other registrable interests' box below it is a single list with no partner column. Their 'other registrable interests' are shown in full. Two pecuniary rows are not: the employment row lists three jobs across their column and their partner's, and the land row reads 'Owner Occupier' in both, with nothing in the file to say which answer is whose. The full form is linked."
+    },
+    "declared_links": [],
+    "contact": {
+      "email": "t.butterworth@cllr.norwich.gov.uk",
+      "address": "c/o City Hall Norwich NR2 1NH"
+    },
+    "summary": "Councillor Tom Butterworth has represented Wensum ward since 8 May 2026. They sit on 3 of the council's committees and panels: Council, Scrutiny committee and Sustainable development panel. The council's committee system records them at 3 of the 5 meetings they were expected at in the 12 months to 8 September 2026. They missed 2, and the council records apologies for all 2. What they declared on their register of interests, signed on 12 May 2026, is set out below, with a note on anything that is not shown.",
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillor-registers--register-of-interests-councillor-tom-butterworth-notice-of-12-may-2026",
+      "norwich-councillors",
+      "norwich-councillors--councillor-tom-butterworth",
+      "norwich-election-results-2026"
+    ],
+    "source_urls": [
+      "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=EFMhJOAeAWhwPkaaQ%2bUmMdQcO6%2bd8bsK0oLaTzPR0Hfy6BJkOAx%2bug%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "https://cmis.norwich.gov.uk/live/Councillors.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewAttendanceByCommittee/mid/383/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/245/ScreenMode/Alphabetical/Default.aspx",
+      "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/elections-and-voting/elections-2026/norwich-city-council-election-results-2026"
+    ],
+    "order": 37,
+    "party_history": []
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillor-registers--register-of-interests-councillor-tom-butterworth-notice-of-12-may-2026",
+      "norwich-councillors",
+      "norwich-councillors--councillor-tom-butterworth",
+      "norwich-election-results-2026"
+    ],
+    "prompt_version": "person-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "4fad219f35e7138d328ff2962de6cb9c5067a8d276dcac82a6ac402901df74c2"
+  }
+}

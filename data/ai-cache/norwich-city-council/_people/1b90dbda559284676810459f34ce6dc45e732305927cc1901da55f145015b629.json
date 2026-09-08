@@ -1,0 +1,48 @@
+{
+  "kind": "body",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "slug": "regulatory-sub-committee",
+    "name": "Regulatory sub committee",
+    "kind": "sub_committee",
+    "purpose": "A small panel that meets when a hearing is needed on a private hire or hackney carriage licence.",
+    "members": [
+      "cllr-amber-smith",
+      "cllr-ben-price",
+      "cllr-caroline-ackroyd",
+      "cllr-denise-carlo",
+      "cllr-emma-hampton",
+      "cllr-jacob-huntley",
+      "cllr-jenny-knight",
+      "cllr-jess-carrington",
+      "cllr-josh-worley-smith",
+      "cllr-martin-schmierer",
+      "cllr-richard-lawes",
+      "cllr-sophia-della-corte"
+    ],
+    "chair": null,
+    "vice_chair": null,
+    "source_ids": [
+      "norwich-committee-types--licensing-and-regulatory-sub-committees",
+      "norwich-committees",
+      "norwich-councillors"
+    ],
+    "source_url": "https://cmis.norwich.gov.uk/live/Committees.aspx",
+    "order": 11
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-committee-types--licensing-and-regulatory-sub-committees",
+      "norwich-committees",
+      "norwich-councillors"
+    ],
+    "prompt_version": "body-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "1b90dbda559284676810459f34ce6dc45e732305927cc1901da55f145015b629"
+  }
+}

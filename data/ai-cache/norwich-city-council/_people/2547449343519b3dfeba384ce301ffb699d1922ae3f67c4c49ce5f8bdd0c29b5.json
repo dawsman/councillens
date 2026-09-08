@@ -1,0 +1,165 @@
+{
+  "kind": "person",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "id": "cllr-karen-davis",
+    "name": "Councillor Karen Davis",
+    "party": "Independent",
+    "ward": "Town Close",
+    "first_elected": "2016-05-05",
+    "first_elected_precision": "day",
+    "current_term_start": "2023-05-05",
+    "elections": [
+      {
+        "date": "2016-05-05",
+        "date_precision": "day",
+        "result": "elected",
+        "ward": "Town Close",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/117/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2019-05-03",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "Town Close",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/117/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2023-05-04",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "Town Close",
+        "votes": 1835,
+        "majority": 1139,
+        "turnout_percent": 41.9,
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-2023"
+      }
+    ],
+    "roles": [
+      {
+        "title": "Lord Mayor of Norwich for 2026-27",
+        "body_slug": null,
+        "since": "2026-05",
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/lord-mayor-and-sheriff-norwich"
+      }
+    ],
+    "committees": [
+      {
+        "slug": "council",
+        "name": "Council",
+        "role": "Member",
+        "since": "2016-05-10"
+      },
+      {
+        "slug": "cross-party-working-group",
+        "name": "Cross party working group - polling district review",
+        "role": "Member",
+        "since": "2024-05-21"
+      }
+    ],
+    "outside_bodies": [
+      {
+        "name": "Norwich Consolidated Charities",
+        "since": "2017-06-27"
+      }
+    ],
+    "attendance": {
+      "expected": 10,
+      "attended": 8,
+      "apologies": 2,
+      "period": "the 12 months to 8 September 2026",
+      "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/117/ScreenMode/Alphabetical/Default.aspx",
+      "note": "CMIS counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. The council publishes how many of the missed meetings were apologised for, and both halves of that figure are shown here."
+    },
+    "allowances": {
+      "basic": 7805.08,
+      "special_responsibility": null,
+      "total": 10087.63,
+      "currency": "GBP",
+      "year": "2024-25",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-02/Members-Allowances-2024-25.pdf",
+      "note": "From the council's published schedule of allowances paid in 2024-25, matched on surname and initial. An allowance is not a salary: it is a set payment for doing the job. The schedule has four money columns — basic allowance, special responsibility, expenses and total — but prints a figure in only three of them for almost everyone, so the basic allowance and the total can be read off it and the middle figure cannot be told apart from expenses. This page therefore shows the basic allowance and the total, and says nothing about special responsibility."
+    },
+    "interests": {
+      "register_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=FmHzEt5cAnUQ0F8q%2fITX4QWD%2f%2fy2zlcCeUWUIOjtC9PJd%2fcvPRqypw%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "register_date": "2024-01-02",
+      "employment": [],
+      "directorships": [],
+      "memberships": [],
+      "sponsorship": [],
+      "land": [],
+      "other": [],
+      "note": "Norwich publishes this councillor's register as a scanned picture of the paper form, signed on 02 January 2024. A scan cannot be read as text, so nothing from it is reproduced here. The form itself is linked, and you can read it yourself."
+    },
+    "declared_links": [],
+    "contact": {
+      "email": "k.davis@cllr.norwich.gov.uk",
+      "address": "c/o City Hall Norwich NR2 1NH"
+    },
+    "summary": "Councillor Karen Davis has represented Town Close ward since 5 May 2016. The council records their party as Labour from 5 May 2016 to 28 November 2023, Independent Norwich Group from 29 November 2023 to 13 October 2025 and Independent since 14 October 2025. They are the Lord Mayor of Norwich for 2026-27. They sit on 2 of the council's committees and panels: Council and Cross party working group - polling district review. The council's committee system records them at 8 of the 10 meetings they were expected at in the 12 months to 8 September 2026. They missed 2, and the council records apologies for all 2. Their register of interests is published as a scan, so we cannot show what is on it; the form itself is linked.",
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillors",
+      "norwich-councillors--councillor-karen-davis",
+      "norwich-councillors-allowances",
+      "norwich-councillors-allowances--councillors-allowances-paid-in-2024-25",
+      "norwich-election-results-2023",
+      "norwich-lord-mayor"
+    ],
+    "source_urls": [
+      "https://cmis.norwich.gov.uk/live/Councillors.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewAttendanceByCommittee/mid/383/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/117/ScreenMode/Alphabetical/Default.aspx",
+      "https://www.norwich.gov.uk/sites/default/files/2026-02/Members-Allowances-2024-25.pdf",
+      "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council-election-2023",
+      "https://www.norwich.gov.uk/your-council-explained/how-council-run-and-who-makes-decisions/councillors-allowances",
+      "https://www.norwich.gov.uk/your-council-explained/lord-mayor-and-sheriff-norwich"
+    ],
+    "order": 30,
+    "party_history": [
+      {
+        "party": "Labour",
+        "from": "2016-05-05",
+        "to": "2023-11-28",
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/117/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "party": "Independent Norwich Group",
+        "from": "2023-11-29",
+        "to": "2025-10-13",
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/117/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "party": "Independent",
+        "from": "2025-10-14",
+        "to": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/117/ScreenMode/Alphabetical/Default.aspx"
+      }
+    ]
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillors",
+      "norwich-councillors--councillor-karen-davis",
+      "norwich-councillors-allowances",
+      "norwich-councillors-allowances--councillors-allowances-paid-in-2024-25",
+      "norwich-election-results-2023",
+      "norwich-lord-mayor"
+    ],
+    "prompt_version": "person-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "2547449343519b3dfeba384ce301ffb699d1922ae3f67c4c49ce5f8bdd0c29b5"
+  }
+}

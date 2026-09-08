@@ -760,12 +760,21 @@ def main(argv=None):
         return 0
 
     built = 0
+    skipped = []
     for key in sorted(groups):
         if wanted and key != wanted:
             continue
+        topic_config = configs.get(f"{key[0]}/{key[1]}")
+        # Some config files gather a different kind of public record and say so
+        # with `model:`. Those documents belong to another analyse stage; building
+        # a feedback -> decision -> outcome page out of them would invent a trail
+        # that nobody claimed was there.
+        if topic_config is not None and topic_config.model != "topic":
+            skipped.append(f"{key[0]}/{key[1]} (model: {topic_config.model})")
+            continue
         council_name, topic_name, documents = groups[key]
         council_slug, topic_slug, model = build(
-            council_name, topic_name, documents, configs.get(f"{key[0]}/{key[1]}")
+            council_name, topic_name, documents, topic_config
         )
         out_dir = ANALYSED_ROOT / council_slug
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -774,7 +783,12 @@ def main(argv=None):
         report(model, out_path)
         built += 1
 
+    for note in skipped:
+        print(f"skip   {note} — another analyse stage assembles this one.")
+
     if not built:
+        if skipped:
+            return 0
         print(f"No records for {args.only} in the processed manifest.")
         return 1
     return 0

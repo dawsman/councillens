@@ -1,0 +1,183 @@
+{
+  "kind": "person",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "id": "cllr-ian-stutely",
+    "name": "Councillor Ian Stutely",
+    "party": "The Green Party",
+    "ward": "Mancroft",
+    "first_elected": "2018-05-04",
+    "first_elected_precision": "day",
+    "current_term_start": "2026-05-08",
+    "elections": [
+      {
+        "date": "2018-05-04",
+        "date_precision": "day",
+        "result": "elected",
+        "ward": "Mancroft",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/145/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2019-05-03",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "Mancroft",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/145/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2021-05-08",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "Mancroft",
+        "votes": null,
+        "majority": null,
+        "turnout_percent": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/145/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "date": "2025-05-01",
+        "date_precision": "day",
+        "result": "elected",
+        "ward": "Mancroft",
+        "votes": 1087,
+        "majority": 706,
+        "turnout_percent": null,
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council2025-election-results"
+      },
+      {
+        "date": "2026-05-07",
+        "date_precision": "day",
+        "result": "re-elected",
+        "ward": "Mancroft",
+        "votes": 1784,
+        "majority": 1209,
+        "turnout_percent": null,
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/elections-and-voting/elections-2026/norwich-city-council-election-results-2026"
+      }
+    ],
+    "roles": [
+      {
+        "title": "Deputy Leader and Cabinet member for planning and regulatory",
+        "body_slug": "cabinet",
+        "since": "2026-05-19",
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/how-council-run-and-who-makes-decisions/councillors-and-decision-making/leader-and-cabinet-overview"
+      }
+    ],
+    "committees": [
+      {
+        "slug": "cabinet",
+        "name": "Cabinet",
+        "role": "Cabinet Member",
+        "since": "2026-05-19"
+      },
+      {
+        "slug": "council",
+        "name": "Council",
+        "role": "Member",
+        "since": "2025-05-02"
+      },
+      {
+        "slug": "twinning-committee",
+        "name": "Twinning committee",
+        "role": "Member",
+        "since": "2026-05-19"
+      }
+    ],
+    "outside_bodies": [],
+    "attendance": {
+      "expected": 33,
+      "attended": 31,
+      "apologies": 2,
+      "period": "the 12 months to 8 September 2026",
+      "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/145/ScreenMode/Alphabetical/Default.aspx",
+      "note": "CMIS counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. The council publishes how many of the missed meetings were apologised for, and both halves of that figure are shown here."
+    },
+    "allowances": {
+      "basic": 771.85,
+      "special_responsibility": null,
+      "total": 1286.58,
+      "currency": "GBP",
+      "year": "2024-25",
+      "source_url": "https://www.norwich.gov.uk/sites/default/files/2026-02/Members-Allowances-2024-25.pdf",
+      "note": "From the council's published schedule of allowances paid in 2024-25, matched on surname and initial. An allowance is not a salary: it is a set payment for doing the job. The schedule has four money columns — basic allowance, special responsibility, expenses and total — but prints a figure in only three of them for almost everyone, so the basic allowance and the total can be read off it and the middle figure cannot be told apart from expenses. This page therefore shows the basic allowance and the total, and says nothing about special responsibility."
+    },
+    "interests": {
+      "register_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=9R7CavZcfEEnkRhIJf01pNfSMj4fX5oHJIPSiwiTJDUujmdv4eZApg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "register_date": "2025-09-19",
+      "employment": [],
+      "directorships": [],
+      "memberships": [],
+      "sponsorship": [],
+      "land": [],
+      "other": [],
+      "note": "Norwich publishes this councillor's register as a scanned picture of the paper form, signed on 19 September 2025. A scan cannot be read as text, so nothing from it is reproduced here. The form itself is linked, and you can read it yourself."
+    },
+    "declared_links": [],
+    "contact": {
+      "email": "ianstutely@cllr.norwich.gov.uk",
+      "address": "c/o City Hall Norwich NR2 1NH"
+    },
+    "summary": "Councillor Ian Stutely was first elected for Town Close ward on 4 May 2018. The council's record shows them leaving on 2 May 2024 — its own reason is “Did not win re-election” — and returning on 1 May 2025. They have represented Mancroft ward since then. The council records their party as Labour from 8 May 2018 to 28 November 2023, Independent Norwich Group from 29 November 2023 to 2 May 2024 and The Green Party since 1 May 2025. They are the Deputy Leader and Cabinet member for planning and regulatory. They sit on 3 of the council's committees and panels: Cabinet, Council and Twinning committee. The council's committee system records them at 31 of the 33 meetings they were expected at in the 12 months to 8 September 2026. They missed 2, and the council records apologies for all 2. Their register of interests is published as a scan, so we cannot show what is on it; the form itself is linked.",
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillors",
+      "norwich-councillors--councillor-ian-stutely",
+      "norwich-election-results-2025",
+      "norwich-election-results-2026",
+      "norwich-leader-and-cabinet"
+    ],
+    "source_urls": [
+      "https://cmis.norwich.gov.uk/live/Councillors.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewAttendanceByCommittee/mid/383/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/145/ScreenMode/Alphabetical/Default.aspx",
+      "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/elections-and-voting/elections-2026/norwich-city-council-election-results-2026",
+      "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council2025-election-results",
+      "https://www.norwich.gov.uk/your-council-explained/how-council-run-and-who-makes-decisions/councillors-and-decision-making/leader-and-cabinet-overview"
+    ],
+    "order": 17,
+    "party_history": [
+      {
+        "party": "Labour",
+        "from": "2018-05-08",
+        "to": "2023-11-28",
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/145/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "party": "Independent Norwich Group",
+        "from": "2023-11-29",
+        "to": "2024-05-02",
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/145/ScreenMode/Alphabetical/Default.aspx"
+      },
+      {
+        "party": "The Green Party",
+        "from": "2025-05-01",
+        "to": null,
+        "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/145/ScreenMode/Alphabetical/Default.aspx"
+      }
+    ]
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillors",
+      "norwich-councillors--councillor-ian-stutely",
+      "norwich-election-results-2025",
+      "norwich-election-results-2026",
+      "norwich-leader-and-cabinet"
+    ],
+    "prompt_version": "person-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "high",
+    "review_status": "ai_reviewed",
+    "reviewed_by": "two independent AI review passes, reconciled against the source documents, 8 September 2026",
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "e80461c1169440ce6da849e5f38defc1ef282fbd8671f75ddb3b25ee57844894"
+  }
+}

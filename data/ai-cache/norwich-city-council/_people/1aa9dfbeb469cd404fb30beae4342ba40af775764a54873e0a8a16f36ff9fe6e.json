@@ -1,0 +1,130 @@
+{
+  "kind": "person",
+  "council_slug": "norwich-city-council",
+  "topic_slug": "_people",
+  "payload": {
+    "id": "cllr-richard-lawes",
+    "name": "Councillor Richard Lawes",
+    "party": "Labour",
+    "ward": "Bowthorpe",
+    "first_elected": "2025-05-01",
+    "first_elected_precision": "day",
+    "current_term_start": "2025-05-01",
+    "elections": [
+      {
+        "date": "2025-05-01",
+        "date_precision": "day",
+        "result": "elected",
+        "ward": "Bowthorpe",
+        "votes": 689,
+        "majority": 1,
+        "turnout_percent": null,
+        "source_url": "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council2025-election-results"
+      }
+    ],
+    "roles": [],
+    "committees": [
+      {
+        "slug": "climate-and-environment-emergency-executive-panel",
+        "name": "Climate and environment emergency executive panel",
+        "role": "Member",
+        "since": "2025-05-19"
+      },
+      {
+        "slug": "council",
+        "name": "Council",
+        "role": "Member",
+        "since": "2025-05-02"
+      },
+      {
+        "slug": "licensing-committee",
+        "name": "Licensing committee",
+        "role": "Member",
+        "since": "2026-06-05"
+      },
+      {
+        "slug": "licensing-sub-committee",
+        "name": "Licensing sub committee",
+        "role": "Member",
+        "since": "2026-05-27"
+      },
+      {
+        "slug": "regulatory-committee",
+        "name": "Regulatory committee",
+        "role": "Member",
+        "since": "2026-06-05"
+      },
+      {
+        "slug": "regulatory-sub-committee",
+        "name": "Regulatory sub committee",
+        "role": "Member",
+        "since": "2026-05-27"
+      },
+      {
+        "slug": "sustainable-development-panel",
+        "name": "Sustainable development panel",
+        "role": "Member",
+        "since": "2025-05-20"
+      }
+    ],
+    "outside_bodies": [],
+    "attendance": {
+      "expected": 48,
+      "attended": 44,
+      "apologies": 4,
+      "period": "the 12 months to 8 September 2026",
+      "source_url": "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/233/ScreenMode/Alphabetical/Default.aspx",
+      "note": "CMIS counts the meetings a councillor was expected at over a rolling twelve months, so this window moves with the date the page was read. The council publishes how many of the missed meetings were apologised for, and both halves of that figure are shown here."
+    },
+    "allowances": null,
+    "interests": {
+      "register_url": "https://cmis.norwich.gov.uk/Live/Document.ashx?czJKcaeAi5tUFL1DTL2UE4zNRBcoShgo=bhzacBvTTH1YMMCMfT7q6jos4Ux0EShRE5pgkFv4dTv%2btJ%2bgol%2bcSg%3d%3d&rUzwRPf%2bZ3zd4E7Ikn8Lyw%3d%3d=pwRE6AGJFLDNlh225F5QMaQWCtPHwdhUfCZ%2fLUQzgA2uL5jNRG4jdQ%3d%3d&mCTIbCubSFfXsDGW9IXnlg%3d%3d=hFflUdN3100%3d&kCx1AnS9%2fpWZQ40DXFvdEw%3d%3d=hFflUdN3100%3d&uJovDxwdjMPoYv%2bAJvYtyA%3d%3d=Gc0rC33vLgc%3d&FgPlIEJYlotS%2bYGoBi5olA%3d%3d=NHdURQburHA%3d&d9Qjj0ag1Pd993jsyOJqFvmyB7X0CSQK=ctNJFf55vVA%3d&WGewmoAfeNR9xqBux0r1Q8Za60lavYmz=ctNJFf55vVA%3d&WGewmoAfeNQ16B2MHuCpMRKZMwaG1PaO=ctNJFf55vVA%3d",
+      "register_date": "2025-08-19",
+      "employment": [],
+      "directorships": [],
+      "memberships": [],
+      "sponsorship": [],
+      "land": [],
+      "other": [],
+      "note": "Norwich publishes this councillor's register as a scanned picture of the paper form, signed on 19 August 2025. A scan cannot be read as text, so nothing from it is reproduced here. The form itself is linked, and you can read it yourself."
+    },
+    "declared_links": [],
+    "contact": {
+      "email": "richardlawes@cllr.norwich.gov.uk",
+      "address": "C/O City Hall Norwich NR2 1NH"
+    },
+    "summary": "Councillor Richard Lawes has represented Bowthorpe ward since 1 May 2025. They sit on 7 of the council's committees and panels: Climate and environment emergency executive panel, Council, Licensing committee, Licensing sub committee, Regulatory committee, Regulatory sub committee and Sustainable development panel. The council's committee system records them at 44 of the 48 meetings they were expected at in the 12 months to 8 September 2026. They missed 4, and the council records apologies for all 4. Their register of interests is published as a scan, so we cannot show what is on it; the form itself is linked.",
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillors",
+      "norwich-councillors--councillor-richard-lawes",
+      "norwich-councillors--councillor-richard-lawes-list-continued-2",
+      "norwich-election-results-2025"
+    ],
+    "source_urls": [
+      "https://cmis.norwich.gov.uk/live/Councillors.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewAttendanceByCommittee/mid/383/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/233/ScreenMode/Alphabetical/Default.aspx",
+      "https://cmis.norwich.gov.uk/live/Councillors/tabid/63/ctl/ViewCMIS_Person/mid/383/id/233/ScreenMode/Alphabetical/Default.aspx?dnn_ctr383_ViewCMIS_Person_grdRadCommitteesCurrentChangePage=2_5",
+      "https://www.norwich.gov.uk/your-council-explained/elections-and-voting/norwich-election-results/norwich-city-council2025-election-results"
+    ],
+    "order": 0,
+    "party_history": []
+  },
+  "ai": {
+    "source_ids": [
+      "norwich-attendance-by-committee",
+      "norwich-councillors",
+      "norwich-councillors--councillor-richard-lawes",
+      "norwich-councillors--councillor-richard-lawes-list-continued-2",
+      "norwich-election-results-2025"
+    ],
+    "prompt_version": "person-v1",
+    "model": "claude-opus-5 (agent session)",
+    "confidence": "medium",
+    "review_status": "needs_review",
+    "reviewed_by": null,
+    "generated_at": "2026-09-08T12:00:00+00:00",
+    "cache_key": "1aa9dfbeb469cd404fb30beae4342ba40af775764a54873e0a8a16f36ff9fe6e"
+  }
+}
